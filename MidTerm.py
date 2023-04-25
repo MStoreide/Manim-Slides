@@ -43,3 +43,13 @@ from manim_slides import Slide, ThreeDSlide
 
 
 ## Timeplan ##
+
+
+## Questions? ##
+
+
+# What fancy functions to visualize?
+# - Point cloud simplifications
+# - Spectral Image Processing ( Think wavelengths etc)
+# - Hausdorff Measurements
+# - Statistical Models
