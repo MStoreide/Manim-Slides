@@ -1,0 +1,60 @@
+{
+  "slides": [
+    {
+      "type": "slide",
+      "start_animation": 0,
+      "end_animation": 1,
+      "number": 1,
+      "terminated": false
+    },
+    {
+      "type": "loop",
+      "start_animation": 1,
+      "end_animation": 2,
+      "number": 2,
+      "terminated": false
+    },
+    {
+      "type": "slide",
+      "start_animation": 2,
+      "end_animation": 4,
+      "number": 3,
+      "terminated": false
+    },
+    {
+      "type": "slide",
+      "start_animation": 4,
+      "end_animation": 5,
+      "number": 4,
+      "terminated": false
+    },
+    {
+      "type": "loop",
+      "start_animation": 5,
+      "end_animation": 6,
+      "number": 5,
+      "terminated": false
+    },
+    {
+      "type": "last",
+      "start_animation": 6,
+      "end_animation": 7,
+      "number": 6,
+      "terminated": false
+    }
+  ],
+  "files": [
+    "slides/files/ThreeDExample/2858701797_3346521118_1948130730.mp4",
+    "slides/files/ThreeDExample/3631874737_3526538247_717584860.mp4",
+    "slides/files/ThreeDExample/3453711141_3848225474_1273582756.mp4",
+    "slides/files/ThreeDExample/2721839358_2644922882_17715459.mp4",
+    "slides/files/ThreeDExample/2815919451_2229582208_728192964.mp4",
+    "slides/files/ThreeDExample/2815919451_3917610509_1161609121.mp4",
+    "slides/files/ThreeDExample/2815919451_11798860_17715459.mp4"
+  ],
+  "resolution": [
+    1920,
+    1080
+  ],
+  "background_color": "black"
+}
