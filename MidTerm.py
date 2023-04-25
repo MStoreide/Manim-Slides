@@ -53,3 +53,7 @@ from manim_slides import Slide, ThreeDSlide
 # - Spectral Image Processing ( Think wavelengths etc)
 # - Hausdorff Measurements
 # - Statistical Models
+
+hausdorff_eq = MathTex(r"d_h(X,Y) = max(sup inf d(x,y), sup inf d(x,y))")
+
+rendering_eq = MathTex(r"L_o(x, \omega_o, \Lambda, t) = L_e(x, \omega_o, \Lambda, t) + \int_{\Omega} f_r(x, \omega_i, \omega_o, \Lambda, t)(\omega_i . \textbf{n}) d \omega_i")
