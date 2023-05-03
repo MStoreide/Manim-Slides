@@ -1,7 +1,7 @@
 from manim import *
 from manim_slides import Slide, ThreeDSlide
 
-#Should also have a packup Powerpoint just in case
+#Should also have a packup Powerpoint just in case. 
 
 class Midterm(ThreeDSlide):
     def construct(self):
@@ -11,9 +11,9 @@ class Midterm(ThreeDSlide):
 
         colorlab = ImageMobject("/home/markus/Priv_Manim_Slides/Manim-Slides/Logos/CLsmall.png").move_to([3,0.5,0])
         colorlab.scale(2)
-        colorlabtext = Text("Colourlab").move_to([-1,0,0])
+        colorlabtext = Text("PhD Midterm - Markus Sebastian Bakken Storeide").move_to([-1,0,0])
         colorlabtext.scale(2)
-        cg = Text("IDIG4002 - Computer Graphics").move_to([0,-1,0])
+        cg = Text("Colorlab").move_to([0,-1,0])
         cg.scale(0.5)
         colorlabcorner = ImageMobject("/home/markus/Priv_Manim_Slides/Manim-Slides/Logos/CLsmall.png/").to_corner(DOWN + RIGHT)
         colorlabcorner.scale(0.5)
@@ -27,29 +27,84 @@ class Midterm(ThreeDSlide):
 
 ### Content ###
 
-# Intro 
-# Lab Engineer Position (Drones etc)
+# Intro w. Timeplan
+# Lab Engineer Position (Drones etc), Drone Operations Manager and Writing the Manual
 # Course Progress
 # Outreach Participation
 # Secondments and Travel
 # Timeplan
 
+# Notes
+# Jira should be fully developed and updated to visualize the project tracking. As well as xMind, Zotero
+
+
+
+## Intro w. Timeplan ##
+
+# Start with quick timeplan to visualize the plan, also a good intro to the Lab-Engineer position.
+# Also end with updated timeplan.
+
+# Jira-esque visualization in Manim?
+
+
+
+
+## Lab Engineer Position (50% Employed) ##
+
+
+
 
 
 ## Courses ##
 
+UIO = ImageMobject(f"/home/markus/Priv_Manim_Slides/Manim-Slides/Logos/UiO.png")
+WUT = ImageMobject(f"/home/markus/Priv_Manim_Slides/Manim-Slides/Logos/WUT.png")
 
-## Travel, Outreach and Participation ##
+ECT = Text("7.5", "ECT") # Can just duplicate and change this f.eks
+
+
+# DT8121 - Color Imaging
+CI = Text("DT8121 - Colour Imaging")
+# STK9900 - Statistics
+STK = Text("STK9900 - Statistical Methods and Applications")
+# IDIG4002 - Computer Graphics
+IDIG = Text("IDIG4002 - Computer Graphics Fundamentals and Applications")
+# CHANGE Training School - 3D Scanning
+# HFEL8000 - Communicating Science
+HFEL = Text("HFEL8000 - Communicating Science")
+# IDT8000 - Research Ethics
+IDT = Text("IDT8000 - Research Ethics")
+ 
+ECT = Text("7.5", "ECT") # Can just duplicate and change this f.eks
+
+
+
+## Travel, Outreach and Participation ## (Visualize these with a map?)
 
 # All NO-CHANGE visits and presentations
-# MANER Mobility at Yale
-# MANER Training School
+NOCHANGE = ImageMobject(f"/home/markus/Priv_Manim_Slides/Manim-Slides/Logos/NO-CHANGE.png")
 # CHANGE Training School
+CHANGE = ImageMobject(f"/home/markus/Priv_Manim_Slides/Manim-Slides/Logos/CHANGE.png")
+# MANER Mobility at Yale
+MANER = ImageMobject("/home/markus/Priv_Manim_Slides/Manim-Slides/Logos/MANER.png")
+YALE = ImageMobject("/home/markus/Priv_Manim_Slides/Manim-Slides/Logos/YALE.png")
+# MANER Training School at Chiba 
+CHIBA = ImageMobject(f"/home/markus/Priv_Manim_Slides/Manim-Slides/Logos/CHIBA.png")
 
 # Conferences
 
-# DT4BH in Orleans
+# DT4BH in Orleans (Workshop)
+ATHENA = ImageMobject(f"/home/markus/Priv_Manim_Slides/Manim-Slides/Logos/ATHENA.png")
 # Archiving 2023
+
+# Other Visits
+
+# Balke Center
+# Kolbu Dør
+# Uvdal Stavkirke?
+# Maihaugen?
+# TexRec
+# Department of Conservation at UiO?
 
 
 ## Research ##
@@ -64,7 +119,7 @@ class Midterm(ThreeDSlide):
 
 
 
-## Timeplan ##
+## Timeplan Summary ##
 
 
 ## Questions? ##
