@@ -251,7 +251,9 @@ class Questions(ThreeDSlide):
 
 # What fancy functions to visualize?
 # - Point cloud simplifications
-# - Spectral Image Processing ( Think wavelengths etc)
+# - Spectral Image Processing (Think wavelengths etc)
+#       - RGB Function Curves vs Hyperspectral Function Curves, with simoultaneous visualization
+#       - Should I characterize our scanners? Probably a good idea. 
 # - Hausdorff Measurements
 # - Statistical Models
 
