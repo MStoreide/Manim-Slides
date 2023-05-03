@@ -2,7 +2,7 @@ from manim import *
 from manim_slides import Slide, ThreeDSlide
 
 
-def create_textbox(color, string, height, width): #Can add height and width to these inputs as well.
+def create_textbox(color, string, height, width): 
     result = VGroup() 
     box = Rectangle(  
         height=height, width=width, fill_color=color, 
@@ -10,6 +10,20 @@ def create_textbox(color, string, height, width): #Can add height and width to t
     )
     text = Text(string).move_to(box.get_center())
     result.add(box, text) # add both objects to the VGroup
+    return result
+
+def textbox(color, scolor, string):
+    result = VGroup()
+    text = Text(string)
+    text_high = text.height
+    text_width = text.width
+    box = Rectangle(
+                    height = text.height + 0.5,
+                    width = text_width + 0.5,
+                    color = color,
+                    stroke_color = scolor,
+                    )
+    result.add(text, box)
     return result
 
 #Should also have a packup Powerpoint just in case. 
@@ -60,10 +74,11 @@ class Intro(ThreeDSlide):
         SONY = ImageMobject(filename_or_array) #Their headshots
         ADITYA = ImageMobject(filename_or_array)
         JON = ImageMobject(filename_or_array)
+        supervisors_img = VGroup(SONY, ADITYA, JON)
 
-        supervisors = Text("Main Supvervisor: Sony George",
-                   "Co-Supervisor #1: Aditya Sole",
-                   "Co-Supervisor #2: Jon Yngve Hardeberg")
+        supervisors_txt = Text("Main Supvervisor: Sony George",
+                               "Co-Supervisor #1: Aditya Sole",
+                               "Co-Supervisor #2: Jon Yngve Hardeberg")
 
 # Timepland Draft
         courses = create_textbox(color=RED, string="Courses") #Just add an image instead of doing it manually? Will trade for animation though. 
@@ -160,6 +175,7 @@ class Outreach(ThreeDSlide):
 # Maihaugen?
 # TexRec
 # Department of Conservation at UiO?
+# Eidskog Kirke
 
 
 
@@ -253,7 +269,9 @@ class Questions(ThreeDSlide):
 # - Point cloud simplifications
 # - Spectral Image Processing (Think wavelengths etc)
 #       - RGB Function Curves vs Hyperspectral Function Curves, with simoultaneous visualization
+#       - Also note going into the IR and UV
 #       - Should I characterize our scanners? Probably a good idea. 
+#       - Resolution of Hyperspectral Image vs normal image, projecting it onto a UV map from our scanners
 # - Hausdorff Measurements
 # - Statistical Models
 
