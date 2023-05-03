@@ -1,6 +1,17 @@
 from manim import *
 from manim_slides import Slide, ThreeDSlide
 
+
+def create_textbox(color, string): #Can add height and width to these inputs as well.
+    result = VGroup() 
+    box = Rectangle(  
+        height=2, width=3, fill_color=color, 
+        fill_opacity=0.5, stroke_color=color
+    )
+    text = Text(string).move_to(box.get_center())
+    result.add(box, text) # add both objects to the VGroup
+    return result
+
 #Should also have a packup Powerpoint just in case. 
 
 class Header(ThreeDSlide):
@@ -43,6 +54,10 @@ class Header(ThreeDSlide):
 class Intro(ThreeDSlide):
     def construct(self):
         self.camera.background_color = GRAY_E
+
+courses = create_textbox(color=RED, string="Courses")
+self.add(courses)
+
 
 # Start with quick timeplan to visualize the plan, also a good intro to the Lab-Engineer position.
 # Also end with updated timeplan.
