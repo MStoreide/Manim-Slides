@@ -2,10 +2,10 @@ from manim import *
 from manim_slides import Slide, ThreeDSlide
 
 
-def create_textbox(color, string): #Can add height and width to these inputs as well.
+def create_textbox(color, string, height, width): #Can add height and width to these inputs as well.
     result = VGroup() 
     box = Rectangle(  
-        height=2, width=3, fill_color=color, 
+        height=height, width=width, fill_color=color, 
         fill_opacity=0.5, stroke_color=color
     )
     text = Text(string).move_to(box.get_center())
@@ -167,6 +167,19 @@ class Publications(ThreeDSlide):
 
 
 # Review Paper
+project_category_chart = BarChart(
+                         values = [2,6,7],
+                         bar_names = ["Open Source", "Non-Profit", "Proprietary"],
+                         y_range = [-3, 10, 1],
+                         y_length = 6,
+                         x_length = 10,
+                         x_axis_config = {"font_size": 36},
+)
+c_bar_lbls = project_chart.get_bar_labels(font_size = 48)
+
+self.add(project_chart, c_bar_lbls)
+
+# Add 3D viewers, and workflows?
 
 # Statistics Paper
 
