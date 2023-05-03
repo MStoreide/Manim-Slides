@@ -20,20 +20,20 @@ class Header(ThreeDSlide):
 
 #Slide 1: Cover
 
-        colorlab = ImageMobject("/home/markus/Priv_Manim_Slides/Manim-Slides/Logos/CLsmall.png").move_to([3,0.5,0])
-        colorlab.scale(2)
-        colorlabtext = Text("PhD Midterm - Markus Sebastian Bakken Storeide").move_to([-1,0,0])
-        colorlabtext.scale(2)
-        cg = Text("Colorlab").move_to([0,-1,0])
-        cg.scale(0.5)
+        COLORLAB = ImageMobject("/home/markus/Priv_Manim_Slides/Manim-Slides/Logos/CLsmall.png").move_to([3,0.5,0])
+        COLORLAB.scale(2)
+        midterm_title = Text("PhD Midterm - Markus Sebastian Bakken Storeide").move_to([-1,0,0])
+        midterm_title.scale(2)
+        cl = Text("Colorlab").move_to([0,-1,0])
+        cl.scale(0.5)
         colorlabcorner = ImageMobject("/home/markus/Priv_Manim_Slides/Manim-Slides/Logos/CLsmall.png/").to_corner(DOWN + RIGHT)
         colorlabcorner.scale(0.5)
         NTNUText = ImageMobject(f"/home/markus/Priv_Manim_Slides/Manim-Slides/Logos/NTNUText.png").move_to([0, 2, 0])
-        NTNU.scale(0.3)
-        NTNUcorner = ImageMobject(f"/home/markus/Priv_Manim_Slides/Manim-Slides/Logos/NTNU.png").move_to([-5, -3, 0])
+        NTNUText.scale(0.3)
+        NTNUcorner = ImageMobject(f"/home/markus/Priv_Manim_Slides/Manim-Slides/Logos/NTNUText.png").move_to([-5, -3, 0])
         NTNUcorner.scale(0.2)
 
-        self.play(FadeIn(colorlab, shift=RIGHT*2), FadeIn(NTNU, shift=RIGHT*2), Write(colorlabtext, shift=LEFT*2), Write(cg, run_time=0.7))
+        self.play(FadeIn(COLORLAB, shift=RIGHT*2), FadeIn(NTNUText, shift=RIGHT*2), Write(midterm_title, shift=LEFT*2), Write(cl, run_time=0.7))
         self.next_slide()
 
 ### Content ###
@@ -55,8 +55,19 @@ class Intro(ThreeDSlide):
     def construct(self):
         self.camera.background_color = GRAY_E
 
-courses = create_textbox(color=RED, string="Courses")
-self.add(courses)
+        PhD_Title = Text("Multiresolution and Multimodal Acquisiton and Fusion of Heterogeneous Data")
+
+        SONY = ImageMobject(filename_or_array) #Their headshots
+        ADITYA = ImageMobject(filename_or_array)
+        JON = ImageMobject(filename_or_array)
+
+        supervisors = Text("Main Supvervisor: Sony George",
+                   "Co-Supervisor #1: Aditya Sole",
+                   "Co-Supervisor #2: Jon Yngve Hardeberg")
+
+# Timepland Draft
+        courses = create_textbox(color=RED, string="Courses") #Just add an image instead of doing it manually? Will trade for animation though. 
+        self.add(courses)
 
 
 # Start with quick timeplan to visualize the plan, also a good intro to the Lab-Engineer position.
@@ -72,9 +83,11 @@ class Lab(ThreeDSlide):
     def construct(self):
         self.camera.background_color = GRAY_E
 
-LFT = ImageMobjectNTNU = ImageMobject(f"/home/markus/Priv_Manim_Slides/Manim-Slides/Logos/Luftfarttilsynet.png")
+        LFT = ImageMobjectNTNU = ImageMobject(f"/home/markus/Priv_Manim_Slides/Manim-Slides/Logos/Luftfarttilsynet.png")
 
-LFT_Text = Text("Sent application to Luft")
+        LFT_Text = Text("Sent application to Civil Aviation Authority of Norway (CAA)",
+                "Wrote Operations Manual",
+                "Serve as Operations Manager")
 
 
 
@@ -83,25 +96,25 @@ class Courses(ThreeDSlide):
     def construct(self):
         self.camera.background_color = GRAY_E
 
-NTNU = ImageMobject(f"/home/markus/Priv_Manim_Slides/Manim-Slides/Logos/NTNU.png")
-UIO = ImageMobject(f"/home/markus/Priv_Manim_Slides/Manim-Slides/Logos/UiO.png")
-WUT = ImageMobject(f"/home/markus/Priv_Manim_Slides/Manim-Slides/Logos/WUT.png")
+        NTNU = ImageMobject(f"/home/markus/Priv_Manim_Slides/Manim-Slides/Logos/NTNU.png")
+        UIO = ImageMobject(f"/home/markus/Priv_Manim_Slides/Manim-Slides/Logos/UiO.png")
+        WUT = ImageMobject(f"/home/markus/Priv_Manim_Slides/Manim-Slides/Logos/WUT.png")
 
-ECT = Text("7.5", "ECT") # Can just duplicate and change this f.eks
+        ECT = Text("7.5", "ECT") # Can just duplicate and change this f.eks
 
 # DT8121 - Color Imaging
-CI = Text("DT8121 - Colour Imaging")
+        CI = Text("DT8121 - Colour Imaging")
 # STK9900 - Statistics
-STK = Text("STK9900 - Statistical Methods and Applications")
+        STK = Text("STK9900 - Statistical Methods and Applications")
 # IDIG4002 - Computer Graphics
-IDIG = Text("IDIG4002 - Computer Graphics Fundamentals and Applications")
+        IDIG = Text("IDIG4002 - Computer Graphics Fundamentals and Applications")
 # CHANGE Training School - 3D Scanning
 # HFEL8000 - Communicating Science
-HFEL = Text("HFEL8000 - Communicating Science")
+        HFEL = Text("HFEL8000 - Communicating Science")
 # IDT8000 - Research Ethics
-IDT = Text("IDT8000 - Research Ethics")
+        IDT = Text("IDT8000 - Research Ethics")
  
-ECT = Text("7.5", "ECT") # Can just duplicate and change this f.eks
+        ECT = Text("7.5", "ECT") # Can just duplicate and change this f.eks
 
 
 
@@ -113,14 +126,31 @@ class Outreach(ThreeDSlide):
         self.camera.background_color = GRAY_E
 
 # All NO-CHANGE visits and presentations
-NOCHANGE = ImageMobject(f"/home/markus/Priv_Manim_Slides/Manim-Slides/Logos/NO-CHANGE.png")
+        NOCHANGE = ImageMobject(f"/home/markus/Priv_Manim_Slides/Manim-Slides/Logos/NO-CHANGE.png")
+        NOR = ImageMobject(f"/home/markus/Priv_Manim_Slides/Manim-Slides/Logos/NOR.png")
+        TRON = Text("Trondheim ????")
+        BERG = Text("Bergen - 07.03.2022")
+        ÅL = Text("Ålesund - 09.03.2022")
+        TROM = Text("Tromsø - 09.05.2022")
+        SVAL = Text("Svalbard - 22.09.2022")
+        STAV = Text("Stavanger - 03.10.2022")
+        MUNCH = Text("Oslo - 29.11.2022")
+
+        RIKS_NIKU = Text("Presentations for Riksantikvaren and NIKU")
+
+        self.add(Write(TRON))
+        self.wait
+        self.add(Transform(TRON,BERG))
+
 # CHANGE Training School
-CHANGE = ImageMobject(f"/home/markus/Priv_Manim_Slides/Manim-Slides/Logos/CHANGE.png")
+        CHANGE = ImageMobject(f"/home/markus/Priv_Manim_Slides/Manim-Slides/Logos/CHANGE.png")
+
 # MANER Mobility at Yale
-MANER = ImageMobject("/home/markus/Priv_Manim_Slides/Manim-Slides/Logos/MANER.png")
-YALE = ImageMobject("/home/markus/Priv_Manim_Slides/Manim-Slides/Logos/YALE.png")
+        MANER = ImageMobject("/home/markus/Priv_Manim_Slides/Manim-Slides/Logos/MANER.png")
+        YALE = ImageMobject("/home/markus/Priv_Manim_Slides/Manim-Slides/Logos/YALE.png")
+
 # MANER Training School at Chiba 
-CHIBA = ImageMobject(f"/home/markus/Priv_Manim_Slides/Manim-Slides/Logos/CHIBA.png")
+        CHIBA = ImageMobject(f"/home/markus/Priv_Manim_Slides/Manim-Slides/Logos/CHIBA.png")
 
 # Other Visits
 
@@ -133,18 +163,25 @@ CHIBA = ImageMobject(f"/home/markus/Priv_Manim_Slides/Manim-Slides/Logos/CHIBA.p
 
 
 
+
+
 ## Conferences ##
 class Conferences(ThreeDSlide):
     def construct(self):
         self.camera.background_color = GRAY_E
 
 # DT4BH in Orleans (Workshop)
-ATHENA = ImageMobject(f"/home/markus/Priv_Manim_Slides/Manim-Slides/Logos/ATHENA.png")
-DT4BH = ImageMobject(f"/home/markus/Priv_Manim_Slides/Manim-Slides/Logos/DT4BH.jpg")
-
+        ATHENA = ImageMobject(f"/home/markus/Priv_Manim_Slides/Manim-Slides/Logos/ATHENA.png")
+        DT4BH = ImageMobject(f"/home/markus/Priv_Manim_Slides/Manim-Slides/Logos/DT4BH.jpg")
+        dt4bh_talk = Text("50 Years of Digitizing Cultural Heritage: What has been achieved?")
 
 # Archiving 2023
-ARCHIVING = ImageMobject(f"/home/markus/Priv_Manim_Slides/Manim-Slides/Logos/ARCHIVING.png")
+        ARCHIVING = ImageMobject(f"/home/markus/Priv_Manim_Slides/Manim-Slides/Logos/ARCHIVING.png")
+
+        arch_talk = Text("Statistical Evaluation of 3D Manifolds Shape Retention During Simplification Stages")
+
+
+
 
 
 
@@ -160,6 +197,11 @@ class Research(ThreeDSlide):
 # Fusing Color and Texture
 
 
+
+
+
+
+
 ## Publications ##
 class Publications(ThreeDSlide):
     def construct(self):
@@ -167,17 +209,17 @@ class Publications(ThreeDSlide):
 
 
 # Review Paper
-project_category_chart = BarChart(
-                         values = [2,6,7],
-                         bar_names = ["Open Source", "Non-Profit", "Proprietary"],
-                         y_range = [-3, 10, 1],
-                         y_length = 6,
-                         x_length = 10,
-                         x_axis_config = {"font_size": 36},
-)
-c_bar_lbls = project_chart.get_bar_labels(font_size = 48)
+        project_category_chart = BarChart(
+                                         values = [2,6,7],
+                                         bar_names = ["Open Source", "Non-Profit", "Proprietary"],
+                                        y_range = [-3, 10, 1],
+                                        y_length = 6,
+                                        x_length = 10,
+                                        x_axis_config = {"font_size": 36},
+                                        )
+        c_bar_lbls = project_chart.get_bar_labels(font_size = 48)
 
-self.add(project_chart, c_bar_lbls)
+        self.add(project_chart, c_bar_lbls)
 
 # Add 3D viewers, and workflows?
 
@@ -185,12 +227,18 @@ self.add(project_chart, c_bar_lbls)
 
 # Planned Papers
 
+
+
+
+
+
+
 ## Timeplan Summary ##
 class Summary(ThreeDSlide):
     def construct(self):
         self.camera.background_color = GRAY_E
 
-
+# Be clear about the specific cooperations I have for the different topics. Gloss: UiO and Noelle. Hyperspectral: Balke and NIKU, etc.
 
 ## Questions? ##
 class Questions(ThreeDSlide):
