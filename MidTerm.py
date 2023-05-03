@@ -3,7 +3,7 @@ from manim_slides import Slide, ThreeDSlide
 
 #Should also have a packup Powerpoint just in case. 
 
-class Midterm(ThreeDSlide):
+class Header(ThreeDSlide):
     def construct(self):
         self.camera.background_color = GRAY_E
 
@@ -17,7 +17,7 @@ class Midterm(ThreeDSlide):
         cg.scale(0.5)
         colorlabcorner = ImageMobject("/home/markus/Priv_Manim_Slides/Manim-Slides/Logos/CLsmall.png/").to_corner(DOWN + RIGHT)
         colorlabcorner.scale(0.5)
-        NTNU = ImageMobject(f"/home/markus/Priv_Manim_Slides/Manim-Slides/Logos/NTNU.png").move_to([0, 2, 0])
+        NTNUText = ImageMobject(f"/home/markus/Priv_Manim_Slides/Manim-Slides/Logos/NTNUText.png").move_to([0, 2, 0])
         NTNU.scale(0.3)
         NTNUcorner = ImageMobject(f"/home/markus/Priv_Manim_Slides/Manim-Slides/Logos/NTNU.png").move_to([-5, -3, 0])
         NTNUcorner.scale(0.2)
@@ -40,6 +40,9 @@ class Midterm(ThreeDSlide):
 
 
 ## Intro w. Timeplan ##
+class Intro(ThreeDSlide):
+    def construct(self):
+        self.camera.background_color = GRAY_E
 
 # Start with quick timeplan to visualize the plan, also a good intro to the Lab-Engineer position.
 # Also end with updated timeplan.
@@ -50,18 +53,26 @@ class Midterm(ThreeDSlide):
 
 
 ## Lab Engineer Position (50% Employed) ##
+class Lab(ThreeDSlide):
+    def construct(self):
+        self.camera.background_color = GRAY_E
 
+LFT = ImageMobjectNTNU = ImageMobject(f"/home/markus/Priv_Manim_Slides/Manim-Slides/Logos/Luftfarttilsynet.png")
 
+LFT_Text = Text("Sent application to Luft")
 
 
 
 ## Courses ##
+class Courses(ThreeDSlide):
+    def construct(self):
+        self.camera.background_color = GRAY_E
 
+NTNU = ImageMobject(f"/home/markus/Priv_Manim_Slides/Manim-Slides/Logos/NTNU.png")
 UIO = ImageMobject(f"/home/markus/Priv_Manim_Slides/Manim-Slides/Logos/UiO.png")
 WUT = ImageMobject(f"/home/markus/Priv_Manim_Slides/Manim-Slides/Logos/WUT.png")
 
 ECT = Text("7.5", "ECT") # Can just duplicate and change this f.eks
-
 
 # DT8121 - Color Imaging
 CI = Text("DT8121 - Colour Imaging")
@@ -79,7 +90,12 @@ ECT = Text("7.5", "ECT") # Can just duplicate and change this f.eks
 
 
 
+
+
 ## Travel, Outreach and Participation ## (Visualize these with a map?)
+class Outreach(ThreeDSlide):
+    def construct(self):
+        self.camera.background_color = GRAY_E
 
 # All NO-CHANGE visits and presentations
 NOCHANGE = ImageMobject(f"/home/markus/Priv_Manim_Slides/Manim-Slides/Logos/NO-CHANGE.png")
@@ -91,12 +107,6 @@ YALE = ImageMobject("/home/markus/Priv_Manim_Slides/Manim-Slides/Logos/YALE.png"
 # MANER Training School at Chiba 
 CHIBA = ImageMobject(f"/home/markus/Priv_Manim_Slides/Manim-Slides/Logos/CHIBA.png")
 
-# Conferences
-
-# DT4BH in Orleans (Workshop)
-ATHENA = ImageMobject(f"/home/markus/Priv_Manim_Slides/Manim-Slides/Logos/ATHENA.png")
-# Archiving 2023
-
 # Other Visits
 
 # Balke Center
@@ -107,7 +117,27 @@ ATHENA = ImageMobject(f"/home/markus/Priv_Manim_Slides/Manim-Slides/Logos/ATHENA
 # Department of Conservation at UiO?
 
 
+
+## Conferences ##
+class Conferences(ThreeDSlide):
+    def construct(self):
+        self.camera.background_color = GRAY_E
+
+# DT4BH in Orleans (Workshop)
+ATHENA = ImageMobject(f"/home/markus/Priv_Manim_Slides/Manim-Slides/Logos/ATHENA.png")
+DT4BH = ImageMobject(f"/home/markus/Priv_Manim_Slides/Manim-Slides/Logos/DT4BH.jpg")
+
+
+# Archiving 2023
+ARCHIVING = ImageMobject(f"/home/markus/Priv_Manim_Slides/Manim-Slides/Logos/ARCHIVING.png")
+
+
+
+
 ## Research ##
+class Research(ThreeDSlide):
+    def construct(self):
+        self.camera.background_color = GRAY_E
 
 # 3D Scanning - Point Clouds
 # Simplification Algorithms - Visualize Examples
@@ -116,13 +146,31 @@ ATHENA = ImageMobject(f"/home/markus/Priv_Manim_Slides/Manim-Slides/Logos/ATHENA
 
 
 ## Publications ##
+class Publications(ThreeDSlide):
+    def construct(self):
+        self.camera.background_color = GRAY_E
 
 
+# Review Paper
+
+# Statistics Paper
+
+# Planned Papers
 
 ## Timeplan Summary ##
+class Summary(ThreeDSlide):
+    def construct(self):
+        self.camera.background_color = GRAY_E
+
 
 
 ## Questions? ##
+class Questions(ThreeDSlide):
+    def construct(self):
+        self.camera.background_color = GRAY_E
+
+
+
 
 
 # What fancy functions to visualize?
