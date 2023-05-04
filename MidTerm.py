@@ -36,8 +36,7 @@ class Header(ThreeDSlide):
 
         COLORLAB = ImageMobject("/home/markus/Priv_Manim_Slides/Manim-Slides/Logos/CLsmall.png").move_to([3,0.5,0])
         COLORLAB.scale(2)
-        midterm_title = Text("PhD Midterm - Markus Sebastian Bakken Storeide").move_to([-1,0,0])
-        midterm_title.scale(2)
+        midterm_title = Text("PhD Midterm - Markus Sebastian Bakken Storeide")
         cl = Text("Colorlab").move_to([0,-1,0])
         cl.scale(0.5)
         colorlabcorner = ImageMobject("/home/markus/Priv_Manim_Slides/Manim-Slides/Logos/CLsmall.png/").to_corner(DOWN + RIGHT)
@@ -197,6 +196,19 @@ class Conferences(ThreeDSlide):
         arch_talk = Text("Statistical Evaluation of 3D Manifolds Shape Retention During Simplification Stages")
 
 
+# Example of how to show point cloud. Input can be an xyz array
+class ImageScene(ThreeDScene):
+    def construct(self):
+        self.set_camera_orientation(phi=75 * DEGREES, theta=-60 * DEGREES)  # 2.5D
+        self.begin_ambient_camera_rotation()
+        Disp_array= VMobject()
+        for x in range(-3, 3):
+            for y in range(-3, 3):
+                for z in range(-3, 3):
+                    dot = Dot(point=(x, y, z))
+                    Disp_array.add(dot)
+        self.add(Disp_array)
+        self.wait(2)
 
 
 
@@ -282,14 +294,14 @@ chamfer_eq = MathTex(r"d_CD (X,Y) = \sum_{x \in X}min(MISSING) \| x-y \| 2² + \
 rendering_eq = MathTex(r"L_o(x, \omega_o, \Lambda, t) = L_e(x, \omega_o, \Lambda, t) + \int_{\Omega} f_r(x, \omega_i, \omega_o, \Lambda, t)(\omega_i . \textbf{n}) d \omega_i")
 # Does not account for: Transmission, Subsurface Scattering, Polarization, Phosphorescence, Interference, Flourescence.
 
-quadric_error_eq = Matrix([q_11,q_12,q_13,q_14],
-                          [q_12,q_22,q_23,q_24],
-                          [q_13,q_23,q_33,q_34],
-                          [0,0,0,1]^-1)
+#quadric_error_eq = Matrix([q_11,q_12,q_13,q_14],
+#                          [q_12,q_22,q_23,q_24],
+#                          [q_13,q_23,q_33,q_34],
+#                          [0,0,0,1]^-1)
 
-color_rectangle = Rectangle(
-                            width=FRAME_WIDTH-1,
-                            height=1,
-                            fill_opacity=1,
-                            sheen_direction=RIGHT,
-                            stroke_width=0,)
+#color_rectangle = Rectangle(
+#                            width=FRAME_WIDTH-1,
+#                            height=1,
+#                            fill_opacity=1,
+#                            sheen_direction=RIGHT,
+#                            stroke_width=0,)
