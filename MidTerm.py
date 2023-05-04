@@ -133,6 +133,17 @@ class Courses(ThreeDSlide):
  
         ECT = Text("7.5", "ECT") # Can just duplicate and change this f.eks
 
+class SVG(Scene):
+    def construct(self):
+        self.camera.background_color = GRAY_E
+
+        ntnu = SVGMobject(f"/home/markus/Priv_Manim_Slides/Manim-Slides/Logos/NTNUsvg.svg")
+        wut = SVGMobject(f"/home/markus/Priv_Manim_Slides/Manim-Slides/Logos/download.svg").next_to(ntnu, DOWN)
+        uio = SVGMobject(f"/home/markus/Priv_Manim_Slides/Manim-Slides/Logos/UIO.svg").next_to(ntnu, UP)
+        self.play(Write(ntnu), run_time=2)
+        self.play(Write(wut), run_time=2)
+        self.play(Write(uio), run_time=2)
+        self.wait(2)
 
 
 
@@ -271,7 +282,7 @@ class Research(ThreeDSlide):
                                         width = 10,
                                         height=1
                                         )
-        spect_ax = NumberLine(x_range=[380,720,20]).next_to(spectrum_rectangle, DOWN)
+        spect_ax = NumberLine(x_range=[380,720,20], length=10, include_numbers=True, font_size=24).next_to(spectrum_rectangle, DOWN)
 
         curve_ax = Axes(
                 x_range=[-5,5,1],
@@ -305,10 +316,9 @@ class Research(ThreeDSlide):
                 )
         )
 
-        self.play(Write(spectrum_rectangle))
-        self.wait()
-        self.play(Create(spect_ax))
-        self.play(Unwrite(spectrum_rectangle))
+        self.play(Write(spectrum_rectangle), Create(spect_ax))
+        self.wait(2)
+        self.play(Unwrite(spectrum_rectangle), Uncreate(spect_ax))
         self.play(Create(curve_ax))
         self.wait()
         self.play(Create(blue_curve), run_time=2)
