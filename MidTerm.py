@@ -193,6 +193,27 @@ class Conferences(ThreeDSlide):
 # Archiving 2023
         ARCHIVING = ImageMobject(f"/home/markus/Priv_Manim_Slides/Manim-Slides/Logos/ARCHIVING.png")
         arch_talk = Text("Statistical Evaluation of 3D Manifolds Shape Retention During Simplification Stages")
+
+        project_chart = BarChart(
+                                 values = [22,26,26],
+                                 bar_names = ["Data Acquisition", "Data Storage", "Open Access"],
+                                 y_range = [0,30,5],
+                                 y_length = 7,
+                                 x_length = 10,
+                                 x_axis_config = {"font_size" : 48},
+                                )       
+        proj_bar_lbls = project_chart.get_bar_labels(font_size = 48, color=WHITE)
+
+        viewer_chart = BarChart(
+                                 values = [],
+                                 bar_names = [],
+                                 y_range = [],
+                                 y_length = 7,
+                                 x_length = 10,
+                                 x_axis_config = {"font_size" : 48},
+                                )                 
+        view_bar_lbls = viewer_chart.get_bar_labels(font_size = 48, color=WHITE)
+
         project_category_chart = BarChart(
                                         values = [2,6,7],
                                         bar_names = ["Open Source", "Non-Profit", "Proprietary"],
@@ -201,9 +222,10 @@ class Conferences(ThreeDSlide):
                                         x_length = 10,
                                         x_axis_config = {"font_size": 36},
                                         )
-        c_bar_lbls = project_category_chart.get_bar_labels(font_size = 48, color=WHITE)
+        cat_bar_lbls = project_category_chart.get_bar_labels(font_size = 48, color=WHITE)
+
         self.play(Write(project_category_chart))
-        self.play(Write( c_bar_lbls))
+        self.play(Write( cat_bar_lbls))
         self.wait(5)
 
 
