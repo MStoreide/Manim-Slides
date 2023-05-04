@@ -265,7 +265,15 @@ class Research(ThreeDSlide):
 # Acquisition of Color and Texture
 # Fusing Color and Texture
 
-        ax = Axes(
+        spectrum_rectangle = Rectangle(
+                                        fill_color = color_gradient((RED, ORANGE, YELLOW, GREEN_C, GREEN, BLUE_C, BLUE, PURPLE, PURPLE), 10), 
+                                        fill_opacity = 1,
+                                        width = 10,
+                                        height=1
+                                        )
+        spect_ax = NumberLine(x_range=[380,720,20]).next_to(spectrum_rectangle, DOWN)
+
+        curve_ax = Axes(
                 x_range=[-5,5,1],
                 y_range=[0,0.5,0.1],
                 axis_config={"include_numbers":True}
@@ -274,7 +282,7 @@ class Research(ThreeDSlide):
         sigma_b = ValueTracker(1)
 
         blue_curve = always_redraw(
-                lambda:ax.plot(
+                lambda:curve_ax.plot(
                         lambda x:PDF_normal(x, mu_b.get_value(), sigma_b.get_value()), color=PURE_BLUE
                 )
         )
@@ -283,7 +291,7 @@ class Research(ThreeDSlide):
         sigma_g = ValueTracker(1)
 
         green_curve = always_redraw(
-                lambda:ax.plot(
+                lambda:curve_ax.plot(
                         lambda x:PDF_normal(x, mu_g.get_value(), sigma_g.get_value()), color=PURE_GREEN
                 )
         )
@@ -292,43 +300,27 @@ class Research(ThreeDSlide):
         sigma_r = ValueTracker(1)
 
         red_curve = always_redraw(
-                lambda:ax.plot(
+                lambda:curve_ax.plot(
                         lambda x:PDF_normal(x, mu_r.get_value(), sigma_r.get_value()), color=PURE_RED
                 )
         )
 
-
-
-        spectrum_rectangle = Rectangle(
-                                        fill_color = color_gradient((RED, ORANGE, YELLOW, GREEN_C, GREEN, BLUE_C, BLUE, PURPLE, PURPLE), 10), 
-                                        fill_opacity = 1,
-                                        width = 10
-                                        )
         self.play(Write(spectrum_rectangle))
-        self.wait(3)
+        self.wait()
+        self.play(Create(spect_ax))
         self.play(Unwrite(spectrum_rectangle))
-        self.play(Create(ax))
+        self.play(Create(curve_ax))
         self.wait()
         self.play(Create(blue_curve), run_time=2)
-        self.wait()
         self.play(Create(green_curve), run_time=2)
-        self.wait()
         self.play(Create(red_curve), run_time=2)
-        self.wait()
-        self.play(
-                mu_b.animate.set_value(-2), run_time=1,
-                rate_func=rate_functions.smooth) # Why does this not work?
+        self.play((mu_b.animate.set_value(-2)),(sigma_b.animate.set_value(0.5)), run_time=1, rate_func=rate_functions.smooth)
         self.wait(2)
         self.play(
                  mu_r.animate.set_value(2), run_time=1.5,
                 rate_func=rate_functions.smooth
                 )
         self.wait()
-        self.play(
-        mu_b.animate.set_value(0), run_time=1,
-        rate_func=rate_functions.smooth
-        )
-        self.play(Uncreate(blue_curve))
 
 
 ## Publications ##
