@@ -270,14 +270,33 @@ class Research(ThreeDSlide):
                 y_range=[0,0.5,0.1],
                 axis_config={"include_numbers":True}
         )
-        mu = ValueTracker(0)
-        sigma = ValueTracker(1)
+        mu_b = ValueTracker(0)
+        sigma_b = ValueTracker(1)
 
-        curve = always_redraw(
+        blue_curve = always_redraw(
                 lambda:ax.plot(
-                        lambda x:PDF_normal(x, mu.get_value(), sigma.get_value()), color=YELLOW
+                        lambda x:PDF_normal(x, mu_b.get_value(), sigma_b.get_value()), color=PURE_BLUE
                 )
         )
+
+        mu_g = ValueTracker(0)
+        sigma_g = ValueTracker(1)
+
+        green_curve = always_redraw(
+                lambda:ax.plot(
+                        lambda x:PDF_normal(x, mu_g.get_value(), sigma_g.get_value()), color=PURE_GREEN
+                )
+        )
+
+        mu_r = ValueTracker(0)
+        sigma_r = ValueTracker(1)
+
+        red_curve = always_redraw(
+                lambda:ax.plot(
+                        lambda x:PDF_normal(x, mu_r.get_value(), sigma_r.get_value()), color=PURE_RED
+                )
+        )
+
 
 
         spectrum_rectangle = Rectangle(
@@ -288,23 +307,28 @@ class Research(ThreeDSlide):
         self.play(Write(spectrum_rectangle))
         self.wait(3)
         self.play(Unwrite(spectrum_rectangle))
-        self.add(ax)
-        self.play(Create(curve))
+        self.play(Create(ax))
+        self.wait()
+        self.play(Create(blue_curve), run_time=2)
+        self.wait()
+        self.play(Create(green_curve), run_time=2)
+        self.wait()
+        self.play(Create(red_curve), run_time=2)
+        self.wait()
         self.play(
-                mu.animate.set_value(2), run_time=1,
-                sigma.animate.set_value(0.5), run_time=1,
+                mu_b.animate.set_value(-2), run_time=1,
                 rate_func=rate_functions.smooth) # Why does this not work?
         self.wait(2)
         self.play(
-                 mu.animate.set_value(-2), run_time=1.5,
+                 mu_r.animate.set_value(2), run_time=1.5,
                 rate_func=rate_functions.smooth
                 )
         self.wait()
         self.play(
-        mu.animate.set_value(0), run_time=1,
+        mu_b.animate.set_value(0), run_time=1,
         rate_func=rate_functions.smooth
         )
-        self.play(Uncreate(curve))
+        self.play(Uncreate(blue_curve))
 
 
 ## Publications ##
