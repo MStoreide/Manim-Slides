@@ -113,9 +113,10 @@ class Courses(ThreeDSlide):
     def construct(self):
         self.camera.background_color = GRAY_E
 
-        NTNU = ImageMobject(f"/home/markus/Priv_Manim_Slides/Manim-Slides/Logos/NTNU.png")
-        UIO = ImageMobject(f"/home/markus/Priv_Manim_Slides/Manim-Slides/Logos/UiO.png")
-        WUT = ImageMobject(f"/home/markus/Priv_Manim_Slides/Manim-Slides/Logos/WUT.png")
+        CO = SVGMobject(f"/home/markus/Priv_Manim_Slides/Manim-Slides/Logos/CLsvg.svg")
+        NTNU = SVGMobject(f"/home/markus/Priv_Manim_Slides/Manim-Slides/Logos/NTNUsvgT.svg")  #Remove text
+        WUT = SVGMobject(f"/home/markus/Priv_Manim_Slides/Manim-Slides/Logos/WUTsvg.svg").next_to(ntnu, DOWN)
+        UIO = SVGMobject(f"/home/markus/Priv_Manim_Slides/Manim-Slides/Logos/UIO.svg").next_to(ntnu, UP) #Remove text
 
         ECT = Text("7.5", "ECT") # Can just duplicate and change this f.eks
 
@@ -132,18 +133,6 @@ class Courses(ThreeDSlide):
         IDT = Text("IDT8000 - Research Ethics")
  
         ECT = Text("7.5", "ECT") # Can just duplicate and change this f.eks
-
-class SVG(Scene):
-    def construct(self):
-        self.camera.background_color = GRAY_E
-
-        ntnu = SVGMobject(f"/home/markus/Priv_Manim_Slides/Manim-Slides/Logos/NTNUsvg.svg")
-        wut = SVGMobject(f"/home/markus/Priv_Manim_Slides/Manim-Slides/Logos/download.svg").next_to(ntnu, DOWN)
-        uio = SVGMobject(f"/home/markus/Priv_Manim_Slides/Manim-Slides/Logos/UIO.svg").next_to(ntnu, UP)
-        self.play(Write(ntnu), run_time=2)
-        self.play(Write(wut), run_time=2)
-        self.play(Write(uio), run_time=2)
-        self.wait(2)
 
 
 
