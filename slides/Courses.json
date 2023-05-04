@@ -1,0 +1,24 @@
+{
+  "slides": [
+    {
+      "type": "last",
+      "start_animation": 0,
+      "end_animation": 6,
+      "number": 1,
+      "terminated": false
+    }
+  ],
+  "files": [
+    "slides/files/Courses/4122872704_1253402173_223132457.mp4",
+    "slides/files/Courses/1368778749_1076466279_3957561217.mp4",
+    "slides/files/Courses/1368778749_413028243_2575291137.mp4",
+    "slides/files/Courses/1368778749_3213241947_2888100294.mp4",
+    "slides/files/Courses/1368778749_2484581814_1884226951.mp4",
+    "slides/files/Courses/1368778749_957343386_2202245049.mp4"
+  ],
+  "resolution": [
+    1920,
+    1080
+  ],
+  "background_color": "black"
+}

@@ -113,28 +113,34 @@ class Courses(ThreeDSlide):
     def construct(self):
         self.camera.background_color = GRAY_E
 
-        CO = SVGMobject(f"/home/markus/Priv_Manim_Slides/Manim-Slides/Logos/CLsvg.svg")
-        NTNU = SVGMobject(f"/home/markus/Priv_Manim_Slides/Manim-Slides/Logos/NTNUsvgT.svg")  #Remove text
-        WUT = SVGMobject(f"/home/markus/Priv_Manim_Slides/Manim-Slides/Logos/WUTsvg.svg").next_to(ntnu, DOWN)
-        UIO = SVGMobject(f"/home/markus/Priv_Manim_Slides/Manim-Slides/Logos/UIO.svg").next_to(ntnu, UP) #Remove text
-
-        ECT = Text("7.5", "ECT") # Can just duplicate and change this f.eks
-
 # DT8121 - Color Imaging
-        CI = Text("DT8121 - Colour Imaging")
-# STK9900 - Statistics
-        STK = Text("STK9900 - Statistical Methods and Applications")
+        CI = Text("DT8121 - Colour Imaging", font_size=20).move_to([-3,2,0])
 # IDIG4002 - Computer Graphics
-        IDIG = Text("IDIG4002 - Computer Graphics Fundamentals and Applications")
+        IDIG = Text("IDIG4002 - Computer Graphics Fundamentals and Applications", font_size=20).next_to(CI, DOWN, aligned_edge=LEFT)
 # CHANGE Training School - 3D Scanning
 # HFEL8000 - Communicating Science
-        HFEL = Text("HFEL8000 - Communicating Science")
+        HFEL = Text("HFEL8000 - Communicating Science", font_size=20).next_to(IDIG, DOWN, aligned_edge=LEFT)
 # IDT8000 - Research Ethics
-        IDT = Text("IDT8000 - Research Ethics")
+        IDT = Text("IDT8000 - Research Ethics", font_size=20).next_to(HFEL, DOWN, aligned_edge=LEFT)
+ # STK9900 - Statistics
+        STK = Text("STK9900 - Statistical Methods and Applications", font_size=20).next_to(IDT, DOWN, aligned_edge=LEFT)
+# CHANGE Training School
+        CHG = Text("CHANGE Training School - Poland", font_size=20).next_to(STK, DOWN, aligned_edge=LEFT)
  
-        ECT = Text("7.5", "ECT") # Can just duplicate and change this f.eks
+       # ECT = Text("7.5", "ECT") # Can just duplicate and change this f.eks
 
+        CO = SVGMobject(f"/home/markus/Priv_Manim_Slides/Manim-Slides/Logos/CLsvg.svg")
+        NTNU = SVGMobject(f"/home/markus/Priv_Manim_Slides/Manim-Slides/Logos/NTNUsvgT.svg").next_to(CI, LEFT)
+        NTNU.scale(0.3)  #Remove text
+        WUT = SVGMobject(f"/home/markus/Priv_Manim_Slides/Manim-Slides/Logos/WUTsvg.svg").next_to(CHG, LEFT)
+        UIO = SVGMobject(f"/home/markus/Priv_Manim_Slides/Manim-Slides/Logos/UIO.svg").next_to(STK, LEFT) #Remove text
 
+        self.play(Write(CI), Write(IDIG), Write(HFEL), Write(IDT), Write(NTNU), run_time=2)
+        self.wait(1)
+        self.play(Write(STK), Write(UIO), run_time=2)
+        self.wait(1)
+        self.play(Write(CHG), Write(WUT), run_time=2)
+        self.wait(2)
 
 
 ## Travel, Outreach and Participation ## (Visualize these with a map?)
@@ -172,7 +178,9 @@ class Outreach(ThreeDSlide):
 # Other Visits
 
 # Balke Center
-        BALKE = ImageMobject("/home/markus/Priv_Manim_Slides/Manim-Slides/Logos/BalkeSenteret.png")
+        BALKE = ImageMobject("/home/markus/Priv_Manim_Slides/Manim-Slides/Logos/BalkeSenteret.svg")
+        self.play(Write(BALKE))
+        self.wait()
 # Kolbu Dør
 # Uvdal Stavkirke?
 # Maihaugen?
