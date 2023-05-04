@@ -1,5 +1,7 @@
 from manim import *
 from manim_slides import Slide, ThreeDSlide
+import numpy as np
+import math
 
 
 def create_textbox(color, string, height, width): 
@@ -100,8 +102,9 @@ class Lab(ThreeDSlide):
         LFT = ImageMobjectNTNU = ImageMobject(f"/home/markus/Priv_Manim_Slides/Manim-Slides/Logos/Luftfarttilsynet.png")
 
         LFT_Text = Text("Sent application to Civil Aviation Authority of Norway (CAA)",
-                "Wrote Operations Manual",
-                "Serve as Operations Manager")
+                        "Registeret NTNU - Gjøvik as Droneoperator in Flydrone.no"
+                        "Wrote Operations Manual",
+                        "Serve as Operations Manager")
 
 
 
@@ -144,9 +147,9 @@ class Outreach(ThreeDSlide):
         NOR = ImageMobject(f"/home/markus/Priv_Manim_Slides/Manim-Slides/Logos/NOR.png")
         TRON = Text("Trondheim ????")
         BERG = Text("Bergen - 07.03.2022")
-        ÅL = Text("Ålesund - 09.03.2022")
+        ÅLES = Text("Ålesund - 09.03.2022")
         TROM = Text("Tromsø - 09.05.2022")
-        SVAL = Text("Svalbard - 22.09.2022")
+        SVAL = Text("Svalbard - 22.09.2022") #Sjekk disse datoene, er litt usikker her.
         STAV = Text("Stavanger - 03.10.2022")
         MUNCH = Text("Oslo - 29.11.2022")
 
@@ -169,6 +172,7 @@ class Outreach(ThreeDSlide):
 # Other Visits
 
 # Balke Center
+        BALKE = ImageMobject("/home/markus/Priv_Manim_Slides/Manim-Slides/Logos/BalkeSenteret.png")
 # Kolbu Dør
 # Uvdal Stavkirke?
 # Maihaugen?
@@ -227,7 +231,7 @@ class Conferences(ThreeDSlide):
         self.play(Write(project_category_chart))
         self.play(Write( cat_bar_lbls))
         self.wait(5)
-
+# Can also make tables here, similar to the excel ones.
 
 # Example of how to show point cloud. Input can be an xyz array
 class ImageScene(ThreeDScene):
@@ -248,6 +252,10 @@ class ImageScene(ThreeDScene):
 
 
 ## Research ##
+
+def PDF_normal(x, mu, sigma):
+        return math.exp(-((x-mu)**2)/(2*sigma**2))/(sigma*math.sqrt(2*math.pi))
+
 class Research(ThreeDSlide):
     def construct(self):
         self.camera.background_color = GRAY_E
@@ -257,10 +265,46 @@ class Research(ThreeDSlide):
 # Acquisition of Color and Texture
 # Fusing Color and Texture
 
+        ax = Axes(
+                x_range=[-5,5,1],
+                y_range=[0,0.5,0.1],
+                axis_config={"include_numbers":True}
+        )
+        mu = ValueTracker(0)
+        sigma = ValueTracker(1)
+
+        curve = always_redraw(
+                lambda:ax.plot(
+                        lambda x:PDF_normal(x, mu.get_value(), sigma.get_value()), color=YELLOW
+                )
+        )
 
 
-
-
+        spectrum_rectangle = Rectangle(
+                                        fill_color = color_gradient((RED, ORANGE, YELLOW, GREEN_C, GREEN, BLUE_C, BLUE, PURPLE, PURPLE), 10), 
+                                        fill_opacity = 1,
+                                        width = 10
+                                        )
+        self.play(Write(spectrum_rectangle))
+        self.wait(3)
+        self.play(Unwrite(spectrum_rectangle))
+        self.add(ax)
+        self.play(Create(curve))
+        self.play(
+                mu.animate.set_value(2), run_time=1,
+                sigma.animate.set_value(0.5), run_time=1,
+                rate_func=rate_functions.smooth) # Why does this not work?
+        self.wait(2)
+        self.play(
+                 mu.animate.set_value(-2), run_time=1.5,
+                rate_func=rate_functions.smooth
+                )
+        self.wait()
+        self.play(
+        mu.animate.set_value(0), run_time=1,
+        rate_func=rate_functions.smooth
+        )
+        self.play(Uncreate(curve))
 
 
 ## Publications ##

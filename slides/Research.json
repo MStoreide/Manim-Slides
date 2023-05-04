@@ -1,0 +1,28 @@
+{
+  "slides": [
+    {
+      "type": "last",
+      "start_animation": 0,
+      "end_animation": 10,
+      "number": 1,
+      "terminated": false
+    }
+  ],
+  "files": [
+    "slides/files/Research/4122872704_3780995797_223132457.mp4",
+    "slides/files/Research/1368778749_2358420384_1687294748.mp4",
+    "slides/files/Research/1368778749_773451327_1270987078.mp4",
+    "slides/files/Research/1368778749_29347640_1927579874.mp4",
+    "slides/files/Research/1368778749_3665512149_4060242616.mp4",
+    "slides/files/Research/1368778749_957343386_3675452594.mp4",
+    "slides/files/Research/1368778749_2959094397_2965788187.mp4",
+    "slides/files/Research/1368778749_3837998516_2479303543.mp4",
+    "slides/files/Research/1368778749_645512042_2976757500.mp4",
+    "slides/files/Research/1368778749_1031571376_3117781049.mp4"
+  ],
+  "resolution": [
+    1920,
+    1080
+  ],
+  "background_color": "black"
+}
