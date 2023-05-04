@@ -1,0 +1,21 @@
+{
+  "slides": [
+    {
+      "type": "last",
+      "start_animation": 0,
+      "end_animation": 3,
+      "number": 1,
+      "terminated": false
+    }
+  ],
+  "files": [
+    "slides/files/Conferences/4122872704_747657361_223132457.mp4",
+    "slides/files/Conferences/1368778749_1037236608_968135632.mp4",
+    "slides/files/Conferences/1368778749_2464823014_1432725990.mp4"
+  ],
+  "resolution": [
+    1920,
+    1080
+  ],
+  "background_color": "black"
+}
