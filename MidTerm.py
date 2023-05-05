@@ -114,7 +114,7 @@ class Courses(ThreeDSlide):
         self.camera.background_color = GRAY_E
 
 # DT8121 - Color Imaging
-        CI = Text("DT8121 - Colour Imaging", font_size=20).move_to([-3,2,0])
+        CI = Text("DT8121 - Colour Imaging", font_size=20).move_to([-3.5,3,0])
 # IDIG4002 - Computer Graphics
         IDIG = Text("IDIG4002 - Computer Graphics Fundamentals and Applications", font_size=20).next_to(CI, DOWN, aligned_edge=LEFT)
 # CHANGE Training School - 3D Scanning
@@ -144,33 +144,36 @@ class Courses(ThreeDSlide):
 
 
 ## Travel, Outreach and Participation ## (Visualize these with a map?)
-class Outreach(ThreeDSlide):
+class Outreach(Scene):
     def construct(self):
         self.camera.background_color = GRAY_E
 
 # All NO-CHANGE visits and presentations
-        NOCHANGE = ImageMobject(f"/home/markus/Priv_Manim_Slides/Manim-Slides/Logos/NO-CHANGE.png")
-        NOR = ImageMobject(f"/home/markus/Priv_Manim_Slides/Manim-Slides/Logos/NOR.png")
-        TRON = Text("Trondheim ????")
-        BERG = Text("Bergen - 07.03.2022")
-        ÅLES = Text("Ålesund - 09.03.2022")
-        TROM = Text("Tromsø - 09.05.2022")
-        SVAL = Text("Svalbard - 22.09.2022") #Sjekk disse datoene, er litt usikker her.
-        STAV = Text("Stavanger - 03.10.2022")
-        MUNCH = Text("Oslo - 29.11.2022")
+        NOCHANGE = ImageMobject(f"/home/markus/Priv_Manim_Slides/Manim-Slides/Logos/NO-CHANGE.png") #Change to SVG
+        NOR = ImageMobject(f"/home/markus/Priv_Manim_Slides/Manim-Slides/Logos/NOR.png") #Change to SVG
+        TRON = Text("Trondheim ????", font_size=20, should_center=False).move_to([-3,3,0]) # ADD SVG logos for all locations
+        BERG = Text("Bergen - 07.03.2022", font_size=20, should_center=False).next_to(TRON, DOWN)
+        ÅLES = Text("Ålesund - 09.03.2022", font_size=20, should_center=False).next_to(BERG, DOWN)
+        TROM = Text("Tromsø - 09.05.2022", font_size=20).next_to(ÅLES, DOWN)
+        SVAL = Text("Svalbard - 22.09.2022", font_size=20).next_to(TROM, DOWN) #Sjekk disse datoene, er litt usikker her.
+        STAV = Text("Stavanger - 03.10.2022", font_size=20).next_to(SVAL, DOWN)
+        MUNCH = Text("Oslo - 29.11.2022").next_to(STAV, DOWN)
 
         RIKS_NIKU = Text("Presentations for Riksantikvaren and NIKU")
 
-        self.add(Write(TRON))
-        self.wait
-        self.add(Transform(TRON,BERG))
+        self.play(Write(TRON))
+        self.wait()
+        self.play(Transform(TRON,BERG))
+        self.wait()
+        self.play(Transform(BERG,ÅLES))
+        self.wait()
 
 # CHANGE Training School
         CHANGE = ImageMobject(f"/home/markus/Priv_Manim_Slides/Manim-Slides/Logos/CHANGE.png")
 
 # MANER Mobility at Yale
         MANER = ImageMobject("/home/markus/Priv_Manim_Slides/Manim-Slides/Logos/MANER.png")
-        YALE = ImageMobject("/home/markus/Priv_Manim_Slides/Manim-Slides/Logos/YALE.png")
+        YALE = SVGMobject("/home/markus/Priv_Manim_Slides/Manim-Slides/Logos/YALE.svg")
 
 # MANER Training School at Chiba 
         CHIBA = ImageMobject(f"/home/markus/Priv_Manim_Slides/Manim-Slides/Logos/CHIBA.png")
@@ -178,9 +181,10 @@ class Outreach(ThreeDSlide):
 # Other Visits
 
 # Balke Center
-        BALKE = ImageMobject("/home/markus/Priv_Manim_Slides/Manim-Slides/Logos/BalkeSenteret.svg")
-        self.play(Write(BALKE))
-        self.wait()
+        #BALKE = ImageMobject("/home/markus/Priv_Manim_Slides/Manim-Slides/Logos/BalkeSenteret.svg")
+        #self.play(Write(YALE), run_time=2)
+        #self.wait()
+
 # Kolbu Dør
 # Uvdal Stavkirke?
 # Maihaugen?
@@ -198,7 +202,7 @@ class Conferences(ThreeDSlide):
         self.camera.background_color = GRAY_E
 
 # DT4BH in Orleans (Workshop)
-        ATHENA = ImageMobject(f"/home/markus/Priv_Manim_Slides/Manim-Slides/Logos/ATHENA.png")
+        ATHENA = ImageMobject(f"/home/markus/Priv_Manim_Slides/Manim-Slides/Logos/ATHENA.png") #Change to SVGs
         DT4BH = ImageMobject(f"/home/markus/Priv_Manim_Slides/Manim-Slides/Logos/DT4BH.jpg")
         dt4bh_talk = Text("50 Years of Digitizing Cultural Heritage: What has been achieved?")
 
