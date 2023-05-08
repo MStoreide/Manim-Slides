@@ -161,7 +161,8 @@ class Outreach(Scene):
 
         RIKS_NIKU = Text("Presentations for Riksantikvaren and NIKU")
 
-        KIRKE = SVGMobject(f"/home/markus/Priv_Manim_Slides/Manim-Slides/Logos/KIRKEsvg.svg")
+        KIRKE = SVGMobject(f"/home/markus/Priv_Manim_Slides/Manim-Slides/Logos/BalkeSenteret.svg")
+        YALE = SVGMobject("/home/markus/Priv_Manim_Slides/Manim-Slides/Logos/YALEsvg.svg")
 
         self.play(Write(TRON))
         self.wait()
@@ -169,7 +170,7 @@ class Outreach(Scene):
         self.wait()
         self.play(Transform(BERG,ÅLES))
         self.wait()
-        self.play(Write(KIRKE))
+        self.play(Write(YALE), run_time=2)
         self.wait()
 
 # CHANGE Training School
@@ -177,7 +178,7 @@ class Outreach(Scene):
 
 # MANER Mobility at Yale
         MANER = ImageMobject("/home/markus/Priv_Manim_Slides/Manim-Slides/Logos/MANER.png")
-        #YALE = SVGMobject("/home/markus/Priv_Manim_Slides/Manim-Slides/Logos/YALE.svg")
+        YALE = SVGMobject("/home/markus/Priv_Manim_Slides/Manim-Slides/Logos/YALEsvg.svg")
 
 # MANER Training School at Chiba 
         CHIBA = ImageMobject(f"/home/markus/Priv_Manim_Slides/Manim-Slides/Logos/CHIBA.png")

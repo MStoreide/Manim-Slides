@@ -5,5 +5,5 @@ file 'file:/home/markus/Priv_Manim_Slides/Manim-Slides/media/videos/MidTerm/1080
 file 'file:/home/markus/Priv_Manim_Slides/Manim-Slides/media/videos/MidTerm/1080p60/partial_movie_files/Outreach/754432156_2202726386_4109409178.mp4'
 file 'file:/home/markus/Priv_Manim_Slides/Manim-Slides/media/videos/MidTerm/1080p60/partial_movie_files/Outreach/754432156_1461723898_960052004.mp4'
 file 'file:/home/markus/Priv_Manim_Slides/Manim-Slides/media/videos/MidTerm/1080p60/partial_movie_files/Outreach/754432156_2202726386_2941765398.mp4'
-file 'file:/home/markus/Priv_Manim_Slides/Manim-Slides/media/videos/MidTerm/1080p60/partial_movie_files/Outreach/754432156_1844176933_1525814256.mp4'
-file 'file:/home/markus/Priv_Manim_Slides/Manim-Slides/media/videos/MidTerm/1080p60/partial_movie_files/Outreach/754432156_2202726386_751061684.mp4'
+file 'file:/home/markus/Priv_Manim_Slides/Manim-Slides/media/videos/MidTerm/1080p60/partial_movie_files/Outreach/754432156_380444925_1525814256.mp4'
+file 'file:/home/markus/Priv_Manim_Slides/Manim-Slides/media/videos/MidTerm/1080p60/partial_movie_files/Outreach/754432156_2202726386_156286357.mp4'
