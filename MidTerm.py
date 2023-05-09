@@ -63,7 +63,14 @@ class Header(ThreeDSlide):
 # Notes
 # Jira should be fully developed and updated to visualize the project tracking. As well as xMind, Zotero
 
+class SVGTest(Scene):
+    def construct(self):
+        self.camera.background_color = GRAY_E
 
+        SVG = SVGMobject(f"/home/markus/Priv_Manim_Slides/Manim-Slides/Logos/MUNCH.svg")
+        
+        self.play(Write(SVG), run_time=2)
+        self.wait(2)
 
 ## Intro w. Timeplan ##
 class Intro(ThreeDScene):
@@ -75,11 +82,11 @@ class Intro(ThreeDScene):
         SONY = ImageMobject(filename_or_array) #Their headshots
         ADITYA = ImageMobject(filename_or_array)
         JON = ImageMobject(filename_or_array)
+        SONY_t = Text("Main Supervisor: Sony George")
+        ADITYA_t = Text("Co-Supervisor #1: Aditya Sole")
+        JON_t = Text("Co-Supervisor #2: Jon Yngve Hardeberg")
         supervisors_img = VGroup(SONY, ADITYA, JON)
-
-        supervisors_txt = Text("Main Supvervisor: Sony George",
-                               "Co-Supervisor #1: Aditya Sole",
-                               "Co-Supervisor #2: Jon Yngve Hardeberg")
+        supervisors_txt = VGroup(SONY_t, ADITYA_t, JON_t)
 
 # Research Intro
 
@@ -87,7 +94,7 @@ class Intro(ThreeDScene):
 # Deform the image to see that direct projection is inaccurate.
 
        # 2D_e = ImageMobject(f"/home/markus/Priv_Manim_Slides/Manim-Slides/Logos/Blender.png").move_to([3,3,3])
-    #    3D_e = Cube(side_length=1, fill_color=PURPLE, fill_opacity=1)
+       # 3D_e = Cube(side_length=1, fill_color=PURPLE, fill_opacity=1)
         axes_e = ThreeDAxes()
         # array_e = #An image as an array as example 
 
@@ -188,9 +195,11 @@ class Outreach(Scene):
         DIÅL = SVGMobject(DigSenter)
         MUTR = SVGMobject(MusetTromsø)
         MUSV = SVGMobject(SvalMus)
-        MUMU = SVGMobject(MunchMus)
+        MUST = SVGMobject(MUstStav)
+        MUOJ = SVGMobject(OLjemuset)
+        MUMU = SVGMobject(f"/home/markus/Priv_Manim_Slides/Manim-Slides/Logos/MUNCH.svg")
 
-        RIKS = SVGMobject(RIksanti)
+        RIKS = SVGMobject(f"/home/markus/Priv_Manim_Slides/Manim-Slides/Logos/Riksantikvaren.svg")
         NIKU = SVGMobject(Niku)
 
 # CHANGE Training School
