@@ -66,7 +66,7 @@ class Header(ThreeDSlide):
 
 
 ## Intro w. Timeplan ##
-class Intro(ThreeDSlide):
+class Intro(Scene):
     def construct(self):
         self.camera.background_color = GRAY_E
 
@@ -82,8 +82,10 @@ class Intro(ThreeDSlide):
                                "Co-Supervisor #2: Jon Yngve Hardeberg")
 
 # Timepland Draft
-        courses = create_textbox(color=RED, string="Courses") #Just add an image instead of doing it manually? Will trade for animation though. 
-        self.add(courses)
+        text = textbox(GREEN, ORANGE, "Test text")
+        self.play(Write(text))
+        self.wait(2)
+
 
 
 # Start with quick timeplan to visualize the plan, also a good intro to the Lab-Engineer position.
@@ -288,7 +290,7 @@ class Research(ThreeDSlide):
                                         width = 10,
                                         height=1
                                         )
-        spect_ax = NumberLine(x_range=[380,720,20], length=10, include_numbers=True, font_size=24).next_to(spectrum_rectangle, DOWN)
+        spect_ax = NumberLine(x_range=[380,720,20], length=10, include_numbers=True, font_size=12).next_to(spectrum_rectangle, DOWN)
 
         curve_ax = Axes(
                 x_range=[-5,5,1],
