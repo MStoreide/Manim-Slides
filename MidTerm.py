@@ -67,7 +67,7 @@ class SVGTest(Scene):
     def construct(self):
         self.camera.background_color = GRAY_E
 
-        SVG = SVGMobject(f"/home/markus/Priv_Manim_Slides/Manim-Slides/Logos/MUNCH.svg")
+        SVG = SVGMobject(f"/home/markus/Priv_Manim_Slides/Manim-Slides/Logos/Drones.svg")
         
         self.play(Write(SVG), run_time=2)
         self.wait(2)
@@ -79,14 +79,16 @@ class Intro(ThreeDScene):
 
         PhD_Title = Text("Multiresolution and Multimodal Acquisiton and Fusion of Heterogeneous Data")
 
-        SONY = ImageMobject(filename_or_array) #Their headshots
-        ADITYA = ImageMobject(filename_or_array)
-        JON = ImageMobject(filename_or_array)
-        SONY_t = Text("Main Supervisor: Sony George")
-        ADITYA_t = Text("Co-Supervisor #1: Aditya Sole")
-        JON_t = Text("Co-Supervisor #2: Jon Yngve Hardeberg")
-        supervisors_img = VGroup(SONY, ADITYA, JON)
-        supervisors_txt = VGroup(SONY_t, ADITYA_t, JON_t)
+        SONY_t = Text("Main Supervisor: Sony George", font_size=20)
+        SONY = ImageMobject(f"/home/markus/Priv_Manim_Slides/Manim-Slides/Logos/SONY.jpg", scale_to_resolution=2000).next_to(SONY_t, LEFT)
+        ADITYA_t = Text("Co-Supervisor #1: Aditya Sole", font_size=20).next_to(SONY_t, DOWN)
+        ADITYA = ImageMobject(f"/home/markus/Priv_Manim_Slides/Manim-Slides/Logos/ADITYA.jpg", scale_to_resolution=2000).next_to(ADITYA_t, LEFT)
+        JON_t = Text("Co-Supervisor #2: Jon Yngve Hardeberg", font_size=20).next_to(ADITYA_t, DOWN)
+        JON = ImageMobject(f"/home/markus/Priv_Manim_Slides/Manim-Slides/Logos/JON.jpg", scale_to_resolution=2000).next_to(JON_t, LEFT)
+
+        self.play(Write(SONY_t), Write(ADITYA_t), Write(JON_t), run_time=2)
+        self.play(FadeIn(SONY), FadeIn(ADITYA), FadeIn(JON))
+        self.wait()
 
 # Research Intro
 
@@ -95,22 +97,22 @@ class Intro(ThreeDScene):
 
        # 2D_e = ImageMobject(f"/home/markus/Priv_Manim_Slides/Manim-Slides/Logos/Blender.png").move_to([3,3,3])
        # 3D_e = Cube(side_length=1, fill_color=PURPLE, fill_opacity=1)
-        axes_e = ThreeDAxes()
+      #  axes_e = ThreeDAxes()
         # array_e = #An image as an array as example 
 
-        x_label_e = axes.get_x_axis_label(Tex("x"))
-        y_label_e = axes.get_y_axis_label(Tex("y")).shift(UP * 1.8)
-        z_label_e = axes.get_z_axis_label(Tex("z")).shift(IN * 1.8)
+      #  x_label_e = axes.get_x_axis_label(Tex("x"))
+      #  y_label_e = axes.get_y_axis_label(Tex("y")).shift(UP * 1.8)
+     #   z_label_e = axes.get_z_axis_label(Tex("z")).shift(IN * 1.8)
 
         # Move to 3D Scene
-        self.move_camera(phi=40 * DEGREES, theta=30 * DEGREES, zoom=1, run_time=1.5)
+      #  self.move_camera(phi=40 * DEGREES, theta=30 * DEGREES, zoom=1, run_time=1.5)
 
         # Zoom into surface and visualize a BRDF with the rendering equation. Include multispectral ect.
 
 # Timepland Draft
-        text = textbox(GREEN, ORANGE, "Test text")
-        self.play(Write(text))
-        self.wait(2)
+      #  text = textbox(GREEN, ORANGE, "Test text")
+       # self.play(Write(text))
+      #  self.wait(2)
 
 
 
