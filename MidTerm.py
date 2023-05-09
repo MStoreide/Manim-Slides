@@ -66,7 +66,7 @@ class Header(ThreeDSlide):
 
 
 ## Intro w. Timeplan ##
-class Intro(Scene):
+class Intro(ThreeDScene):
     def construct(self):
         self.camera.background_color = GRAY_E
 
@@ -80,6 +80,25 @@ class Intro(Scene):
         supervisors_txt = Text("Main Supvervisor: Sony George",
                                "Co-Supervisor #1: Aditya Sole",
                                "Co-Supervisor #2: Jon Yngve Hardeberg")
+
+# Research Intro
+
+# Moving imgages from 2D to 3D, have 2D image as example, and how to project this onto a 3D object. 
+# Deform the image to see that direct projection is inaccurate.
+
+       # 2D_e = ImageMobject(f"/home/markus/Priv_Manim_Slides/Manim-Slides/Logos/Blender.png").move_to([3,3,3])
+    #    3D_e = Cube(side_length=1, fill_color=PURPLE, fill_opacity=1)
+        axes_e = ThreeDAxes()
+        # array_e = #An image as an array as example 
+
+        x_label_e = axes.get_x_axis_label(Tex("x"))
+        y_label_e = axes.get_y_axis_label(Tex("y")).shift(UP * 1.8)
+        z_label_e = axes.get_z_axis_label(Tex("z")).shift(IN * 1.8)
+
+        # Move to 3D Scene
+        self.move_camera(phi=40 * DEGREES, theta=30 * DEGREES, zoom=1, run_time=1.5)
+
+        # Zoom into surface and visualize a BRDF with the rendering equation. Include multispectral ect.
 
 # Timepland Draft
         text = textbox(GREEN, ORANGE, "Test text")
@@ -103,10 +122,10 @@ class Lab(ThreeDSlide):
 
         LFT = ImageMobjectNTNU = ImageMobject(f"/home/markus/Priv_Manim_Slides/Manim-Slides/Logos/Luftfarttilsynet.png")
 
-        LFT_Text = Text("Sent application to Civil Aviation Authority of Norway (CAA)",
-                        "Registeret NTNU - Gjøvik as Droneoperator in Flydrone.no"
-                        "Wrote Operations Manual",
-                        "Serve as Operations Manager")
+        LFT_Text = Text("- Sent application to Civil Aviation Authority of Norway (CAA)",
+                        "- Registered NTNU - Gjøvik as Droneoperator in Flydrone.no",
+                        "- Wrote Operations Manual",
+                        "- Serve as Operations Manager")
 
 
 
@@ -163,17 +182,16 @@ class Outreach(Scene):
 
         RIKS_NIKU = Text("Presentations for Riksantikvaren and NIKU")
 
-        KIRKE = SVGMobject(f"/home/markus/Priv_Manim_Slides/Manim-Slides/Logos/BalkeSenteret.svg")
-        YALE = SVGMobject("/home/markus/Priv_Manim_Slides/Manim-Slides/Logos/YALEsvg.svg")
+# NO-CHANGE Visit Logos
+        NIDR = SVGMobject(Nidaros)
+        UMBG = SVGMobject(MuseetBergen)
+        DIÅL = SVGMobject(DigSenter)
+        MUTR = SVGMobject(MusetTromsø)
+        MUSV = SVGMobject(SvalMus)
+        MUMU = SVGMobject(MunchMus)
 
-        self.play(Write(TRON))
-        self.wait()
-        self.play(Transform(TRON,BERG))
-        self.wait()
-        self.play(Transform(BERG,ÅLES))
-        self.wait()
-        self.play(Write(YALE), run_time=2)
-        self.wait()
+        RIKS = SVGMobject(RIksanti)
+        NIKU = SVGMobject(Niku)
 
 # CHANGE Training School
         CHANGE = ImageMobject(f"/home/markus/Priv_Manim_Slides/Manim-Slides/Logos/CHANGE.png")
@@ -188,17 +206,24 @@ class Outreach(Scene):
 # Other Visits
 
 # Balke Center
-        #BALKE = ImageMobject("/home/markus/Priv_Manim_Slides/Manim-Slides/Logos/BalkeSenteret.svg")
-        #self.play(Write(YALE), run_time=2)
-        #self.wait()
+        BALKE = ImageMobject("/home/markus/Priv_Manim_Slides/Manim-Slides/Logos/BalkeSenteret.svg")
 
 # Kolbu Dør
 # Uvdal Stavkirke?
+
 # Maihaugen?
 # TexRec
 # Department of Conservation at UiO?
 # Eidskog Kirke
 
+        self.play(Write(TRON))
+        self.wait()
+        self.play(Transform(TRON,BERG))
+        self.wait()
+        self.play(Transform(BERG,ÅLES))
+        self.wait()
+        self.play(Write(YALE), run_time=2)
+        self.wait()
 
 
 
@@ -376,6 +401,11 @@ class Publications(ThreeDSlide):
 class Summary(ThreeDSlide):
     def construct(self):
         self.camera.background_color = GRAY_E
+
+class Tests(Scene):
+    def construct(self):
+        self.camera.background_color = GRAY_E
+
 
 # Be clear about the specific cooperations I have for the different topics. Gloss: UiO and Noelle. Hyperspectral: Balke and NIKU, etc.
 
