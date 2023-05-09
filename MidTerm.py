@@ -109,7 +109,7 @@ class Lab(ThreeDSlide):
 
 
 ## Courses ##
-class Courses(ThreeDSlide):
+class Courses(Scene):
     def construct(self):
         self.camera.background_color = GRAY_E
 
