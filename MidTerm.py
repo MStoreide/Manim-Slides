@@ -180,26 +180,25 @@ class Outreach(Scene):
 
 # All NO-CHANGE visits and presentations
         NOCHANGE = ImageMobject(f"/home/markus/Priv_Manim_Slides/Manim-Slides/Logos/NO-CHANGE.png") #Change to SVG
-        NOR = ImageMobject(f"/home/markus/Priv_Manim_Slides/Manim-Slides/Logos/NOR.png") #Change to SVG
+        NOR = ImageMobject(f"/home/markus/Priv_Manim_Slides/Manim-Slides/Logos/NOR.png").move_to(3,0,0) #Change to SVG
         TRON = Text("Trondheim ????", font_size=20, should_center=False).move_to([-3,3,0]) # ADD SVG logos for all locations
         BERG = Text("Bergen - 07.03.2022", font_size=20, should_center=False).next_to(TRON, DOWN)
         ÅLES = Text("Ålesund - 09.03.2022", font_size=20, should_center=False).next_to(BERG, DOWN)
         TROM = Text("Tromsø - 09.05.2022", font_size=20).next_to(ÅLES, DOWN)
         SVAL = Text("Svalbard - 22.09.2022", font_size=20).next_to(TROM, DOWN) #Sjekk disse datoene, er litt usikker her.
         STAV = Text("Stavanger - 03.10.2022", font_size=20).next_to(SVAL, DOWN)
-        MUNCH = Text("Oslo - 29.11.2022").next_to(STAV, DOWN)
+        MUNCH = Text("Oslo MUNCH Museum - 29.11.2022", font_size=20).next_to(STAV, DOWN)
 
         RIKS_NIKU = Text("Presentations for Riksantikvaren and NIKU")
 
 # NO-CHANGE Visit Logos
-        NIDR = SVGMobject(Nidaros)
-        UMBG = SVGMobject(MuseetBergen)
-        DIÅL = SVGMobject(DigSenter)
-        MUTR = SVGMobject(MusetTromsø)
-        MUSV = SVGMobject(SvalMus)
-        MUST = SVGMobject(MUstStav)
-        MUOJ = SVGMobject(OLjemuset)
-        MUMU = SVGMobject(f"/home/markus/Priv_Manim_Slides/Manim-Slides/Logos/MUNCH.svg")
+        NIDR = SVGMobject(Nidaros).next_to(TRON, LEFT)
+        UMBG = SVGMobject(MuseetBergen).next_to(BERG, LEFT)
+        DIÅL = SVGMobject(DigSenter).next_to(ÅLES, LEFT)
+        MUTR = SVGMobject(MusetTromsø).next_to(TROMS, LEFT)
+        MUSV = SVGMobject(SvalMus).next_to(SVAL, LEFT)
+        MUST = SVGMobject(MUstStav).next_to(STAV, LEFT)
+        MUMU = SVGMobject(f"/home/markus/Priv_Manim_Slides/Manim-Slides/Logos/MUNCH.svg").next_to(MUNCH, LEFT)
 
         RIKS = SVGMobject(f"/home/markus/Priv_Manim_Slides/Manim-Slides/Logos/Riksantikvaren.svg")
         NIKU = SVGMobject(Niku)
@@ -209,7 +208,7 @@ class Outreach(Scene):
 
 # MANER Mobility at Yale
         MANER = ImageMobject("/home/markus/Priv_Manim_Slides/Manim-Slides/Logos/MANER.png")
-        YALE = SVGMobject("/home/markus/Priv_Manim_Slides/Manim-Slides/Logos/YALEsvg.svg")
+        YALE = SVGMobject("/home/markus/Priv_Manim_Slides/Manim-Slides/Logos/YALE.svg")
 
 # MANER Training School at Chiba 
         CHIBA = ImageMobject(f"/home/markus/Priv_Manim_Slides/Manim-Slides/Logos/CHIBA.png")
@@ -217,7 +216,7 @@ class Outreach(Scene):
 # Other Visits
 
 # Balke Center
-        BALKE = ImageMobject("/home/markus/Priv_Manim_Slides/Manim-Slides/Logos/BalkeSenteret.svg")
+       # BALKE = ImageMobject("/home/markus/Priv_Manim_Slides/Manim-Slides/Logos/BalkeSenteret.svg")
 
 # Kolbu Dør
 # Uvdal Stavkirke?
@@ -226,12 +225,21 @@ class Outreach(Scene):
 # TexRec
 # Department of Conservation at UiO?
 # Eidskog Kirke
+# NRK Case
 
         self.play(Write(TRON))
         self.wait()
         self.play(Transform(TRON,BERG))
         self.wait()
         self.play(Transform(BERG,ÅLES))
+        self.wait()
+        self.play(Transform(ÅLES,TROM))
+        self.wait()
+        self.play(Transform(TROM, SVAL))
+        self.wait()
+        self.play(Transform(SVAL, STAV))
+        self.wait()
+        self.play(Transform(STAV, MUNCH))
         self.wait()
         self.play(Write(YALE), run_time=2)
         self.wait()
@@ -333,7 +341,6 @@ class Research(ThreeDSlide):
                 y_range=[0,0.5,0.1],
                 axis_config={"include_numbers":True}
         )
-        mu_b = ValueTracker(0)
         sigma_b = ValueTracker(1)
 
         blue_curve = always_redraw(
@@ -382,6 +389,7 @@ class Publications(ThreeDSlide):
     def construct(self):
         self.camera.background_color = GRAY_E
 
+# Start with a list
 
 # Review Paper
         project_category_chart = BarChart(
@@ -392,9 +400,8 @@ class Publications(ThreeDSlide):
                                         x_length = 10,
                                         x_axis_config = {"font_size": 36},
                                         )
-        c_bar_lbls = project_chart.get_bar_labels(font_size = 48)
+        c_bar_lbls = project_category_chart.get_bar_labels(font_size = 48)
 
-        self.add(project_chart, c_bar_lbls)
 
 # Add 3D viewers, and workflows?
 
@@ -403,9 +410,15 @@ class Publications(ThreeDSlide):
 # Planned Papers
 
 
+# Statistics paper
 
+        
 
+        hausdorff_eq = MathTex(r"d_h(X,Y) = max(sup inf d(x,y), sup inf d(x,y))")
 
+        chamfer_eq = MathTex(r"d_CD (X,Y) = \sum_{x \in X}min(MISSING) \| x-y \| 2² + \sum_{y \in Y} min(MISSING) \| x-y \| 2²")
+
+        self.play(Write(hausdorff_eq))
 
 
 ## Timeplan Summary ##
