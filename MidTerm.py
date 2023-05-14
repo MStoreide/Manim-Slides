@@ -67,7 +67,7 @@ class SVGTest(Scene):
     def construct(self):
         self.camera.background_color = GRAY_E
 
-        SVG = SVGMobject(f"/home/markus/Priv_Manim_Slides/Manim-Slides/Logos/Drones.svg")
+        SVG = SVGMobject(f"/home/markus/Priv_Manim_Slides/Manim-Slides/Logos/Pandas.svg")
         
         self.play(Write(SVG), run_time=2)
         self.wait(2)
@@ -143,6 +143,9 @@ class Courses(Scene):
     def construct(self):
         self.camera.background_color = GRAY_E
 
+        slide_title = Text("Coursework", font_size = 40).to_corner(UP + LEFT)
+        slide_number = Text("3", font_size = 10).to_corner(DOWN + RIGHT)
+
 # DT8121 - Color Imaging
         CI = Text("DT8121 - Colour Imaging", font_size=20).move_to([-3.5,3,0])
 # IDIG4002 - Computer Graphics
@@ -162,9 +165,10 @@ class Courses(Scene):
         CO = SVGMobject(f"/home/markus/Priv_Manim_Slides/Manim-Slides/Logos/CLsvg.svg")
         NTNU = SVGMobject(f"/home/markus/Priv_Manim_Slides/Manim-Slides/Logos/NTNUsvgT.svg").next_to(CI, LEFT)
         NTNU.scale(0.3)  #Remove text
-        WUT = SVGMobject(f"/home/markus/Priv_Manim_Slides/Manim-Slides/Logos/WUTsvg.svg").next_to(CHG, LEFT)
+        WUT = SVGMobject(f"/home/markus/Priv_Manim_Slides/Manim-Slides/Logos/Julia.svg").next_to(CHG, LEFT)
         UIO = SVGMobject(f"/home/markus/Priv_Manim_Slides/Manim-Slides/Logos/UIO.svg").next_to(STK, LEFT) #Remove text
 
+        self.add(slide_title, slide_number)
         self.play(Write(CI), Write(IDIG), Write(HFEL), Write(IDT), Write(NTNU), run_time=2)
         self.wait(1)
         self.play(Write(STK), Write(UIO), run_time=2)
@@ -227,7 +231,7 @@ class Outreach(Scene):
 # Eidskog Kirke
 # NRK Case
 
-        self.play(Write(TRON))
+        self.play(FadeIn(TRON))
         self.wait()
         self.play(Transform(TRON,BERG))
         self.wait()
@@ -412,7 +416,7 @@ class Publications(ThreeDSlide):
 
 # Statistics paper
 
-        
+
 
         hausdorff_eq = MathTex(r"d_h(X,Y) = max(sup inf d(x,y), sup inf d(x,y))")
 
