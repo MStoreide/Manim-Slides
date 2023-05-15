@@ -16,15 +16,15 @@ import math
 # Jira should be fully developed and updated to visualize the project tracking. As well as xMind, Zotero
 #Should also have a packup Powerpoint just in case. 
 
-def textbox(color, scolor, string):
+def textbox(fill_color, scolor, string): #Can be used to create several boxes which together makes a Gantt chart?
     result = VGroup()
     text = Text(string)
     text_high = text.height
     text_width = text.width
     box = Rectangle(
-                    height = text.height + 0.5,
+                    height = text_high + 0.5,
                     width = text_width + 0.5,
-                    color = color,
+                    fill_color = fill_color,
                     stroke_color = scolor,
                     )
     result.add(text, box)
@@ -34,10 +34,22 @@ class SVGTest(Scene):
     def construct(self):
         self.camera.background_color = GRAY_E
 
-        SVG = SVGMobject(f"/home/markus/Priv_Manim_Slides/Manim-Slides/Logos/Pandas.svg")
+        SVG = SVGMobject(f"/home/markus/Priv_Manim_Slides/Manim-Slides/Logos/Confluence.svg")
         
         self.play(Write(SVG), run_time=2)
         self.wait(2)
+
+class FUNCTest(Scene):
+        def construct(self):
+                self.camera.background_color = GRAY_E
+
+                box1 = textbox(PURE_RED, PURE_BLUE, "STK9900")
+                box2 = textbox(BLUE, BLUE_A, "DT8121").next_to(box1, DOWN)
+
+                boxes = VGroup(box1, box2)
+
+                self.play(Write(boxes))
+                self.wait(2)
 
 
 class Header(ThreeDSlide):
@@ -115,8 +127,8 @@ class Intro(ThreeDScene):
 
 # Using Jira, Confluence, xMind, Teams, and Outlook
 
-        JIRA = SVGMobject(JIRA)
-        CONF = SVGMobject()
+        JIRA = SVGMobject(f"/home/markus/Priv_Manim_Slides/Manim-Slides/Logos/JIRA.svg")
+        CONF = SVGMobject(f"/home/markus/Priv_Manim_Slides/Manim-Slides/Logos/Confluence.svg")
         XMIN = SVGMobject()
         TEAM = SVGMobject()
         OUTL = SVGMobject()
