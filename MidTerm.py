@@ -3,16 +3,18 @@ from manim_slides import Slide, ThreeDSlide
 import numpy as np
 import math
 
+### Content ###
 
-def create_textbox(color, string, height, width): 
-    result = VGroup() 
-    box = Rectangle(  
-        height=height, width=width, fill_color=color, 
-        fill_opacity=0.5, stroke_color=color
-    )
-    text = Text(string).move_to(box.get_center())
-    result.add(box, text) # add both objects to the VGroup
-    return result
+# Intro w. Timeplan
+# Lab Engineer Position (Drones etc), Drone Operations Manager and Writing the Manual
+# Course Progress
+# Outreach Participation
+# Secondments and Travel
+# Timeplan
+
+# Notes
+# Jira should be fully developed and updated to visualize the project tracking. As well as xMind, Zotero
+#Should also have a packup Powerpoint just in case. 
 
 def textbox(color, scolor, string):
     result = VGroup()
@@ -28,7 +30,15 @@ def textbox(color, scolor, string):
     result.add(text, box)
     return result
 
-#Should also have a packup Powerpoint just in case. 
+class SVGTest(Scene):
+    def construct(self):
+        self.camera.background_color = GRAY_E
+
+        SVG = SVGMobject(f"/home/markus/Priv_Manim_Slides/Manim-Slides/Logos/Pandas.svg")
+        
+        self.play(Write(SVG), run_time=2)
+        self.wait(2)
+
 
 class Header(ThreeDSlide):
     def construct(self):
@@ -51,26 +61,6 @@ class Header(ThreeDSlide):
         self.play(FadeIn(COLORLAB, shift=RIGHT*2), FadeIn(NTNUText, shift=RIGHT*2), Write(midterm_title, shift=LEFT*2), Write(cl, run_time=0.7))
         self.next_slide()
 
-### Content ###
-
-# Intro w. Timeplan
-# Lab Engineer Position (Drones etc), Drone Operations Manager and Writing the Manual
-# Course Progress
-# Outreach Participation
-# Secondments and Travel
-# Timeplan
-
-# Notes
-# Jira should be fully developed and updated to visualize the project tracking. As well as xMind, Zotero
-
-class SVGTest(Scene):
-    def construct(self):
-        self.camera.background_color = GRAY_E
-
-        SVG = SVGMobject(f"/home/markus/Priv_Manim_Slides/Manim-Slides/Logos/Pandas.svg")
-        
-        self.play(Write(SVG), run_time=2)
-        self.wait(2)
 
 ## Intro w. Timeplan ##
 class Intro(ThreeDScene):
@@ -151,6 +141,7 @@ class Lab(ThreeDSlide):
                         "- Wrote Operations Manual",
                         "- Serve as Operations Manager")
 
+# Also add GitHub
 
 
 ## Courses ##
