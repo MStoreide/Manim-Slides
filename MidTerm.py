@@ -121,8 +121,23 @@ class Intro(ThreeDScene):
 
 # Jira-esque visualization in Manim?
 
+## Project Management ##
 
+# Using Jira, Confluence, xMind, Teams, and Outlook
 
+        JIRA = SVGMobject(JIRA)
+        CONF = SVGMobject()
+        XMIN = SVGMobject()
+        TEAM = SVGMobject()
+        OUTL = SVGMobject()
+
+        MNG = Text("Project Management Tools:").move_to(UP + LEFT)
+
+# Data Management
+
+# Colorlab Server, MongoDB?, Local Storage
+
+# Make sure it is stored in at least 3 locations. 
 
 ## Lab Engineer Position (50% Employed) ##
 class Lab(ThreeDSlide):
