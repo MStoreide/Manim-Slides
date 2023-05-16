@@ -52,19 +52,21 @@ class FUNCTest(Scene):
                 self.play(Write(boxes))
                 self.wait(2)
 
+def PDF_normal(x, mu, sigma):
+        return math.exp(-((x-mu)**2)/(2*sigma**2))/(sigma*math.sqrt(2*math.pi))
 
 class Header(ThreeDSlide):
     def construct(self):
         self.camera.background_color = GRAY_E
 
-#Slide 1: Cover
+        #Slide 1: Cover
 
         COLORLAB = ImageMobject("/home/markus/Priv_Manim_Slides/Manim-Slides/Logos/CLsmall.png").move_to([3,0.5,0])
         COLORLAB.scale(2)
         midterm_title = Text("PhD Midterm - Markus Sebastian Bakken Storeide")
         cl = Text("Colorlab").move_to([0,-1,0])
         cl.scale(0.5)
-        colorlabcorner = ImageMobject("/home/markus/Priv_Manim_Slides/Manim-Slides/Logos/CLsmall.png/").to_corner(DOWN + RIGHT)
+        colorlabcorner = ImageMobject("/home/markus/Priv_Manim_Slides/Manim-Slides/Logos/CLsmall.png/").to_corner(DOWN + LEFT)
         colorlabcorner.scale(0.5)
         NTNUText = ImageMobject(f"/home/markus/Priv_Manim_Slides/Manim-Slides/Logos/NTNUText.png").move_to([0, 2, 0])
         NTNUText.scale(0.3)
@@ -82,6 +84,8 @@ class Intro(ThreeDScene):
 
         slide_title = Text("Introduction", font_size = 40).to_corner(UP + LEFT)
         slide_number = Text("1", font_size = 10).to_corner(DOWN + RIGHT)
+        colorlabcorner = ImageMobject("/home/markus/Priv_Manim_Slides/Manim-Slides/Logos/CLsmall.png/").to_corner(DOWN + LEFT)
+        colorlabcorner.scale(0.5)
 
         PhD_Title = Text("Multiresolution and Multimodal Acquisiton and Fusion of Heterogeneous Data")
 
@@ -96,40 +100,40 @@ class Intro(ThreeDScene):
         self.play(FadeIn(SONY), FadeIn(ADITYA), FadeIn(JON))
         self.wait()
 
-# Research Intro
+        # Research Intro
 
-# Moving imgages from 2D to 3D, have 2D image as example, and how to project this onto a 3D object. 
-# Deform the image to see that direct projection is inaccurate.
+        # Moving imgages from 2D to 3D, have 2D image as example, and how to project this onto a 3D object. 
+        # Deform the image to see that direct projection is inaccurate.
 
-       # 2D_e = ImageMobject(f"/home/markus/Priv_Manim_Slides/Manim-Slides/Logos/Blender.png").move_to([3,3,3])
-       # 3D_e = Cube(side_length=1, fill_color=PURPLE, fill_opacity=1)
-      #  axes_e = ThreeDAxes()
+        # 2D_e = ImageMobject(f"/home/markus/Priv_Manim_Slides/Manim-Slides/Logos/Blender.png").move_to([3,3,3])
+        # 3D_e = Cube(side_length=1, fill_color=PURPLE, fill_opacity=1)
+        #  axes_e = ThreeDAxes()
         # array_e = #An image as an array as example 
 
-      #  x_label_e = axes.get_x_axis_label(Tex("x"))
-      #  y_label_e = axes.get_y_axis_label(Tex("y")).shift(UP * 1.8)
-     #   z_label_e = axes.get_z_axis_label(Tex("z")).shift(IN * 1.8)
+        #  x_label_e = axes.get_x_axis_label(Tex("x"))
+        #  y_label_e = axes.get_y_axis_label(Tex("y")).shift(UP * 1.8)
+        #   z_label_e = axes.get_z_axis_label(Tex("z")).shift(IN * 1.8)
 
         # Move to 3D Scene
-      #  self.move_camera(phi=40 * DEGREES, theta=30 * DEGREES, zoom=1, run_time=1.5)
+        #  self.move_camera(phi=40 * DEGREES, theta=30 * DEGREES, zoom=1, run_time=1.5)
 
         # Zoom into surface and visualize a BRDF with the rendering equation. Include multispectral ect.
 
-# Timepland Draft
-      #  text = textbox(GREEN, ORANGE, "Test text")
-       # self.play(Write(text))
-      #  self.wait(2)
+        # Timepland Draft
+        #  text = textbox(GREEN, ORANGE, "Test text")
+        # self.play(Write(text))
+        #  self.wait(2)
 
 
 
-# Start with quick timeplan to visualize the plan, also a good intro to the Lab-Engineer position.
-# Also end with updated timeplan.
+        # Start with quick timeplan to visualize the plan, also a good intro to the Lab-Engineer position.
+        # Also end with updated timeplan.
 
-# Jira-esque visualization in Manim?
+        # Jira-esque visualization in Manim?
 
-## Project Management ##
+        ## Project Management ##
 
-# Using Jira, Confluence, xMind, Teams, and Outlook
+        # Using Jira, Confluence, xMind, Teams, and Outlook
 
         JIRA = SVGMobject(f"/home/markus/Priv_Manim_Slides/Manim-Slides/Logos/JIRA.svg")
         CONF = SVGMobject(f"/home/markus/Priv_Manim_Slides/Manim-Slides/Logos/Confluence.svg")
@@ -139,19 +143,22 @@ class Intro(ThreeDScene):
 
         MNG = Text("Project Management Tools:").move_to(UP + LEFT)
 
-# Data Management
+        START = Text("Start date: ???")
 
-# Colorlab Server, MongoDB?, Local Storage
+        # Data Management
 
-# Make sure it is stored in at least 3 locations. 
+        # Colorlab Server, MongoDB?, Local Storage
 
-## Lab Engineer Position (50% Employed) ##
+        # Make sure it is stored in at least 3 locations. 
+
 class Lab(ThreeDSlide):
     def construct(self):
         self.camera.background_color = GRAY_E
 
         slide_title = Text("Lab Engineer", font_size = 40).to_corner(UP + LEFT)
         slide_number = Text("2", font_size = 10).to_corner(DOWN + RIGHT)
+        colorlabcorner = ImageMobject("/home/markus/Priv_Manim_Slides/Manim-Slides/Logos/CLsmall.png/").to_corner(DOWN + LEFT)
+        colorlabcorner.scale(0.5)
 
         LFT = SVGMobject(f"/home/markus/Priv_Manim_Slides/Manim-Slides/Logos/Luftfarttilsynet.png")
         GIT = SVGMobject(f"/home/markus/Priv_Manim_Slides/Manim-Slides/Logos/Github.png")
@@ -162,7 +169,7 @@ class Lab(ThreeDSlide):
                         "- Wrote Operations Manual",
                         "- Serve as Operations Manager")
 
-# Also add GitHub
+        # Also add GitHub
 
 
 ## Courses ##
@@ -172,19 +179,14 @@ class Courses(Scene):
 
         slide_title = Text("Coursework", font_size = 40).to_corner(UP + LEFT)
         slide_number = Text("3", font_size = 10).to_corner(DOWN + RIGHT)
+        colorlabcorner = ImageMobject("/home/markus/Priv_Manim_Slides/Manim-Slides/Logos/CLsmall.png/").to_corner(DOWN + LEFT)
+        colorlabcorner.scale(0.5)
 
-# DT8121 - Color Imaging
         CI = Text("DT8121 - Colour Imaging", font_size=20).move_to([-3.5,3,0])
-# IDIG4002 - Computer Graphics
         IDIG = Text("IDIG4002 - Computer Graphics Fundamentals and Applications", font_size=20).next_to(CI, DOWN, aligned_edge=LEFT)
-# CHANGE Training School - 3D Scanning
-# HFEL8000 - Communicating Science
         HFEL = Text("HFEL8000 - Communicating Science", font_size=20).next_to(IDIG, DOWN, aligned_edge=LEFT)
-# IDT8000 - Research Ethics
         IDT = Text("IDT8000 - Research Ethics", font_size=20).next_to(HFEL, DOWN, aligned_edge=LEFT)
- # STK9900 - Statistics
         STK = Text("STK9900 - Statistical Methods and Applications", font_size=20).next_to(IDT, DOWN, aligned_edge=LEFT)
-# CHANGE Training School
         CHG = Text("CHANGE Training School - Poland", font_size=20).next_to(STK, DOWN, aligned_edge=LEFT)
  
        # ECT = Text("7.5", "ECT") # Can just duplicate and change this f.eks
@@ -211,8 +213,10 @@ class Outreach(Scene):
 
         slide_title = Text("Outreach and Dissemination", font_size = 40).to_corner(UP + LEFT)
         slide_number = Text("4", font_size = 10).to_corner(DOWN + RIGHT)
+        colorlabcorner = ImageMobject("/home/markus/Priv_Manim_Slides/Manim-Slides/Logos/CLsmall.png/").to_corner(DOWN + LEFT)
+        colorlabcorner.scale(0.5)
 
-# All NO-CHANGE visits and presentations
+        # All NO-CHANGE visits and presentations
         NOCHANGE = ImageMobject(f"/home/markus/Priv_Manim_Slides/Manim-Slides/Logos/NO-CHANGE.png") #Change to SVG
         NOR = ImageMobject(f"/home/markus/Priv_Manim_Slides/Manim-Slides/Logos/NOR.png").move_to(3,0,0) #Change to SVG
         TRON = Text("Trondheim ????", font_size=20, should_center=False).move_to([-3,3,0]) # ADD SVG logos for all locations
@@ -225,7 +229,7 @@ class Outreach(Scene):
 
         RIKS_NIKU = Text("Presentations for Riksantikvaren and NIKU")
 
-# NO-CHANGE Visit Logos
+        # NO-CHANGE Visit Logos
         NIDR = SVGMobject(Nidaros).next_to(TRON, LEFT)
         UMBG = SVGMobject(MuseetBergen).next_to(BERG, LEFT)
         DIÅL = SVGMobject(DigSenter).next_to(ÅLES, LEFT)
@@ -237,29 +241,27 @@ class Outreach(Scene):
         RIKS = SVGMobject(f"/home/markus/Priv_Manim_Slides/Manim-Slides/Logos/Riksantikvaren.svg")
         NIKU = SVGMobject(Niku)
 
-# CHANGE Training School
+        # CHANGE Training School
         CHANGE = ImageMobject(f"/home/markus/Priv_Manim_Slides/Manim-Slides/Logos/CHANGE.png")
 
-# MANER Mobility at Yale
+        # MANER Mobility at Yale
         MANER = ImageMobject("/home/markus/Priv_Manim_Slides/Manim-Slides/Logos/MANER.png")
         YALE = SVGMobject("/home/markus/Priv_Manim_Slides/Manim-Slides/Logos/YALE.svg")
 
-# MANER Training School at Chiba 
+        # MANER Training School at Chiba 
         CHIBA = ImageMobject(f"/home/markus/Priv_Manim_Slides/Manim-Slides/Logos/CHIBA.png")
 
-# Other Visits
+        # Balke Center
+        BALKE = ImageMobject("/home/markus/Priv_Manim_Slides/Manim-Slides/Logos/BalkeSenteret.svg")
 
-# Balke Center
-       # BALKE = ImageMobject("/home/markus/Priv_Manim_Slides/Manim-Slides/Logos/BalkeSenteret.svg")
-
-# Kolbu Dør
-# Uvdal Stavkirke?
-
-# Maihaugen?
-# TexRec
-# Department of Conservation at UiO?
-# Eidskog Kirke
-# NRK Case
+        # Kolbu Dør
+        # Uvdal Stavkirke?
+        # Other Visits
+        # Maihaugen?
+        # TexRec
+        # Department of Conservation at UiO?
+        # Eidskog Kirke
+        # NRK Case
 
         self.play(FadeIn(TRON))
         self.wait()
@@ -279,8 +281,6 @@ class Outreach(Scene):
         self.wait()
 
 
-
-
 ## Conferences ##
 class Conferences(ThreeDSlide):
     def construct(self):
@@ -288,13 +288,15 @@ class Conferences(ThreeDSlide):
 
         slide_title = Text("Conferences", font_size = 40).to_corner(UP + LEFT)
         slide_number = Text("???", font_size = 10).to_corner(DOWN + RIGHT)
+        colorlabcorner = ImageMobject("/home/markus/Priv_Manim_Slides/Manim-Slides/Logos/CLsmall.png/").to_corner(DOWN + LEFT)
+        colorlabcorner.scale(0.5)
 
-# DT4BH in Orleans (Workshop)
+        # DT4BH in Orleans (Workshop)
         ATHENA = ImageMobject(f"/home/markus/Priv_Manim_Slides/Manim-Slides/Logos/ATHENA.png") #Change to SVGs
         DT4BH = ImageMobject(f"/home/markus/Priv_Manim_Slides/Manim-Slides/Logos/DT4BH.jpg")
         dt4bh_talk = Text("50 Years of Digitizing Cultural Heritage: What has been achieved?")
 
-# Archiving 2023
+        # Archiving 2023
         ARCHIVING = ImageMobject(f"/home/markus/Priv_Manim_Slides/Manim-Slides/Logos/ARCHIVING.png")
         arch_talk = Text("Statistical Evaluation of 3D Manifolds Shape Retention During Simplification Stages")
 
@@ -331,7 +333,8 @@ class Conferences(ThreeDSlide):
         self.play(Write(project_category_chart))
         self.play(Write( cat_bar_lbls))
         self.wait(5)
-# Can also make tables here, similar to the excel ones.
+        # Can also make tables here, similar to the excel ones.
+
 
 # Example of how to show point cloud. Input can be an xyz array
 class ImageScene(ThreeDScene):
@@ -348,22 +351,21 @@ class ImageScene(ThreeDScene):
         self.wait(2)
 
 
-
-
-
 ## Research ##
-
-def PDF_normal(x, mu, sigma):
-        return math.exp(-((x-mu)**2)/(2*sigma**2))/(sigma*math.sqrt(2*math.pi))
 
 class Research(ThreeDSlide):
     def construct(self):
         self.camera.background_color = GRAY_E
 
-# 3D Scanning - Point Clouds
-# Simplification Algorithms - Visualize Examples
-# Acquisition of Color and Texture
-# Fusing Color and Texture
+        slide_title = Text("Research Work", font_size = 40).to_corner(UP + LEFT)
+        slide_number = Text("???", font_size = 10).to_corner(DOWN + RIGHT)
+        colorlabcorner = ImageMobject("/home/markus/Priv_Manim_Slides/Manim-Slides/Logos/CLsmall.png/").to_corner(DOWN + LEFT)
+        colorlabcorner.scale(0.5)
+
+        # 3D Scanning - Point Clouds
+        # Simplification Algorithms - Visualize Examples
+        # Acquisition of Color and Texture
+        # Fusing Color and Texture
 
         spectrum_rectangle = Rectangle(
                                         fill_color = color_gradient((RED, ORANGE, YELLOW, GREEN_C, GREEN, BLUE_C, BLUE, PURPLE, PURPLE), 10), 
@@ -428,10 +430,12 @@ class Publications(ThreeDSlide):
 
         slide_title = Text("Publications", font_size = 40).to_corner(UP + LEFT)
         slide_number = Text("???", font_size = 10).to_corner(DOWN + RIGHT)
+        colorlabcorner = ImageMobject("/home/markus/Priv_Manim_Slides/Manim-Slides/Logos/CLsmall.png/").to_corner(DOWN + LEFT)
+        colorlabcorner.scale(0.5)
 
-# Start with a list
+        # Start with a list
 
-# Review Paper
+        # Review Paper
         project_category_chart = BarChart(
                                          values = [2,6,7],
                                          bar_names = ["Open Source", "Non-Profit", "Proprietary"],
@@ -443,9 +447,9 @@ class Publications(ThreeDSlide):
         c_bar_lbls = project_category_chart.get_bar_labels(font_size = 48)
 
 
-# Add 3D viewers, and workflows?
+        # Add 3D viewers, and workflows?
 
-# Statistics Paper
+        # Statistics Paper
 
         PYTH = SVGMobject(f"/home/markus/Priv_Manim_Slides/Manim-Slides/Logos/Python.png")
         PANDA = SVGMobject(f"/home/markus/Priv_Manim_Slides/Manim-Slides/Logos/Pandas.svg")
@@ -458,7 +462,7 @@ class Publications(ThreeDSlide):
 
         chamfer_eq = MathTex(r"d_CD (X,Y) = \sum_{x \in X}min(MISSING) \| x-y \| 2² + \sum_{y \in Y} min(MISSING) \| x-y \| 2²")
 
-# Planned Papers
+        # Planned Papers
 
         PAP_3 = Text("Modular Digitization")
         PAP_4 = Text("Material Characteristics")
@@ -479,6 +483,8 @@ class FutureWork(ThreeDSlide):
 
         slide_title = Text("Future Work", font_size = 40).to_corner(UP + LEFT)
         slide_number = Text("???", font_size = 10).to_corner(DOWN + RIGHT)
+        colorlabcorner = ImageMobject("/home/markus/Priv_Manim_Slides/Manim-Slides/Logos/CLsmall.png/").to_corner(DOWN + LEFT)
+        colorlabcorner.scale(0.5)
 
 
 ## Timeplan Summary ##
@@ -488,6 +494,8 @@ class Summary(ThreeDSlide):
 
         slide_title = Text("Summary", font_size = 40).to_corner(UP + LEFT)
         slide_number = Text("???", font_size = 10).to_corner(DOWN + RIGHT)
+        colorlabcorner = ImageMobject("/home/markus/Priv_Manim_Slides/Manim-Slides/Logos/CLsmall.png/").to_corner(DOWN + LEFT)
+        colorlabcorner.scale(0.5)
 
 ## Questions? ##
 class Questions(ThreeDSlide):
@@ -496,9 +504,12 @@ class Questions(ThreeDSlide):
 
         slide_title = Text("Questions and Comments", font_size = 40).to_corner(UP + LEFT)
         slide_number = Text("???", font_size = 10).to_corner(DOWN + RIGHT)
+        colorlabcorner = ImageMobject("/home/markus/Priv_Manim_Slides/Manim-Slides/Logos/CLsmall.png/").to_corner(DOWN + LEFT)
+        colorlabcorner.scale(0.5)
 
         banner = ManimBanner().move_to(DOWN)
-        madeuse = Text("Made using ").next_to(banner, LEFT)
+        banner.scale(0.3)
+        madeuse = Text("Made using ", font_size = 10).next_to(banner, LEFT)
 
         self.add(slide_title, slide_number)
         self.play(banner.create, madeuse.write)
