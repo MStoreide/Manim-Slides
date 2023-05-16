@@ -35,8 +35,8 @@ class SVGTest(Scene):
     def construct(self):
         self.camera.background_color = GRAY_E
 
-        SVG = SVGMobject(f"/home/markus/Priv_Manim_Slides/Manim-Slides/Logos/xMind.svg")
-        
+        SVG = SVGMobject(f"/home/markus/Priv_Manim_Slides/Manim-Slides/Logos/JIRA.svg")
+
         self.play(Write(SVG), run_time=2)
         self.wait(2)
 
@@ -489,17 +489,22 @@ class Summary(ThreeDSlide):
         slide_title = Text("Summary", font_size = 40).to_corner(UP + LEFT)
         slide_number = Text("???", font_size = 10).to_corner(DOWN + RIGHT)
 
-class Tests(Scene):
-    def construct(self):
-        self.camera.background_color = GRAY_E
-
-
-# Be clear about the specific cooperations I have for the different topics. Gloss: UiO and Noelle. Hyperspectral: Balke and NIKU, etc.
-
 ## Questions? ##
 class Questions(ThreeDSlide):
     def construct(self):
         self.camera.background_color = GRAY_E
+
+        slide_title = Text("Questions and Comments", font_size = 40).to_corner(UP + LEFT)
+        slide_number = Text("???", font_size = 10).to_corner(DOWN + RIGHT)
+
+        banner = ManimBanner().move_to(DOWN)
+        madeuse = Text("Made using ").next_to(banner, LEFT)
+
+        self.add(slide_title, slide_number)
+        self.play(banner.create, madeuse.write)
+        self.play(banner.expand)
+        self.wait(2)
+
 
 
 
@@ -512,8 +517,9 @@ class Questions(ThreeDSlide):
 #       - Also note going into the IR and UV
 #       - Should I characterize our scanners? Probably a good idea. 
 #       - Resolution of Hyperspectral Image vs normal image, projecting it onto a UV map from our scanners
-# - Hausdorff Measurements
-# - Statistical Models
+# - Hausdorff Measurements | with visual example
+# - Statistical Models | with visual example
+# - Minowski Sum | with visual example
 
 hausdorff_eq = MathTex(r"d_h(X,Y) = max(sup inf d(x,y), sup inf d(x,y))")
 
