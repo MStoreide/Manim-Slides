@@ -16,7 +16,7 @@ import math
 # Jira should be fully developed and updated to visualize the project tracking. As well as xMind, Zotero
 #Should also have a packup Powerpoint just in case. 
 
-def textbox(fill_color, scolor, string): #Can be used to create several boxes which together makes a Gantt chart?
+def textbox(color, scolor, string): #Can be used to create several boxes which together makes a Gantt chart?
     result = VGroup()
     text = Text(string)
     text_high = text.height
@@ -24,9 +24,10 @@ def textbox(fill_color, scolor, string): #Can be used to create several boxes wh
     box = Rectangle(
                     height = text_high + 0.5,
                     width = text_width + 0.5,
-                    fill_color = fill_color,
+                    color = color,
                     stroke_color = scolor,
                     )
+    box.set_fill(color, opacity = 0.3)
     result.add(text, box)
     return result
 
@@ -43,8 +44,8 @@ class FUNCTest(Scene):
         def construct(self):
                 self.camera.background_color = GRAY_E
 
-                box1 = textbox(PURE_RED, PURE_BLUE, "STK9900")
-                box2 = textbox(BLUE, BLUE_A, "DT8121").next_to(box1, DOWN)
+                box1 = textbox(PURE_RED, PURE_RED, "STK9900")
+                box2 = textbox(PURE_BLUE, PURE_BLUE, "DT8121").next_to(box1, DOWN)
 
                 boxes = VGroup(box1, box2)
 
