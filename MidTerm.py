@@ -35,7 +35,7 @@ class SVGTest(Scene):
     def construct(self):
         self.camera.background_color = GRAY_E
 
-        SVG = SVGMobject(f"/home/markus/Priv_Manim_Slides/Manim-Slides/Logos/Confluence.svg")
+        SVG = SVGMobject(f"/home/markus/Priv_Manim_Slides/Manim-Slides/Logos/xMind.svg")
         
         self.play(Write(SVG), run_time=2)
         self.wait(2)
@@ -79,6 +79,9 @@ class Header(ThreeDSlide):
 class Intro(ThreeDScene):
     def construct(self):
         self.camera.background_color = GRAY_E
+
+        slide_title = Text("Introduction", font_size = 40).to_corner(UP + LEFT)
+        slide_number = Text("1", font_size = 10).to_corner(DOWN + RIGHT)
 
         PhD_Title = Text("Multiresolution and Multimodal Acquisiton and Fusion of Heterogeneous Data")
 
@@ -147,7 +150,12 @@ class Lab(ThreeDSlide):
     def construct(self):
         self.camera.background_color = GRAY_E
 
-        LFT = ImageMobjectNTNU = ImageMobject(f"/home/markus/Priv_Manim_Slides/Manim-Slides/Logos/Luftfarttilsynet.png")
+        slide_title = Text("Lab Engineer", font_size = 40).to_corner(UP + LEFT)
+        slide_number = Text("2", font_size = 10).to_corner(DOWN + RIGHT)
+
+        LFT = SVGMobject(f"/home/markus/Priv_Manim_Slides/Manim-Slides/Logos/Luftfarttilsynet.png")
+        GIT = SVGMobject(f"/home/markus/Priv_Manim_Slides/Manim-Slides/Logos/Github.png")
+        BOOK = SVGMobject(f"/home/markus/Priv_Manim_Slides/Manim-Slides/Logos/Bookitlab.png")
 
         LFT_Text = Text("- Sent application to Civil Aviation Authority of Norway (CAA)",
                         "- Registered NTNU - Gjøvik as Droneoperator in Flydrone.no",
@@ -200,6 +208,9 @@ class Courses(Scene):
 class Outreach(Scene):
     def construct(self):
         self.camera.background_color = GRAY_E
+
+        slide_title = Text("Outreach and Dissemination", font_size = 40).to_corner(UP + LEFT)
+        slide_number = Text("4", font_size = 10).to_corner(DOWN + RIGHT)
 
 # All NO-CHANGE visits and presentations
         NOCHANGE = ImageMobject(f"/home/markus/Priv_Manim_Slides/Manim-Slides/Logos/NO-CHANGE.png") #Change to SVG
@@ -274,6 +285,9 @@ class Outreach(Scene):
 class Conferences(ThreeDSlide):
     def construct(self):
         self.camera.background_color = GRAY_E
+
+        slide_title = Text("Conferences", font_size = 40).to_corner(UP + LEFT)
+        slide_number = Text("???", font_size = 10).to_corner(DOWN + RIGHT)
 
 # DT4BH in Orleans (Workshop)
         ATHENA = ImageMobject(f"/home/markus/Priv_Manim_Slides/Manim-Slides/Logos/ATHENA.png") #Change to SVGs
@@ -412,6 +426,9 @@ class Publications(ThreeDSlide):
     def construct(self):
         self.camera.background_color = GRAY_E
 
+        slide_title = Text("Publications", font_size = 40).to_corner(UP + LEFT)
+        slide_number = Text("???", font_size = 10).to_corner(DOWN + RIGHT)
+
 # Start with a list
 
 # Review Paper
@@ -430,24 +447,47 @@ class Publications(ThreeDSlide):
 
 # Statistics Paper
 
-# Planned Papers
-
-
-# Statistics paper
-
-
+        PYTH = SVGMobject(f"/home/markus/Priv_Manim_Slides/Manim-Slides/Logos/Python.png")
+        PANDA = SVGMobject(f"/home/markus/Priv_Manim_Slides/Manim-Slides/Logos/Pandas.svg")
+        OP3D = SVGMobject(f"/home/markus/Priv_Manim_Slides/Manim-Slides/Logos/Open3D.png")
+        MESH = SVGMobject(f"/home/markus/Priv_Manim_Slides/Manim-Slides/Logos/Meshlab.png")
+        CLCP = SVGMobject(f"/home/markus/Priv_Manim_Slides/Manim-Slides/Logos/Cloudcompare.png")
+        STATM = SVGMobject(f"/home/markus/Priv_Manim_Slides/Manim-Slides/Logos/Luftfarttilsynet.png")
 
         hausdorff_eq = MathTex(r"d_h(X,Y) = max(sup inf d(x,y), sup inf d(x,y))")
 
         chamfer_eq = MathTex(r"d_CD (X,Y) = \sum_{x \in X}min(MISSING) \| x-y \| 2² + \sum_{y \in Y} min(MISSING) \| x-y \| 2²")
 
-        self.play(Write(hausdorff_eq))
+# Planned Papers
+
+        PAP_3 = Text("Modular Digitization")
+        PAP_4 = Text("Material Characteristics")
+        PAP_5 = Text("??")
+        PAP_6 = Text("Quality Metric")
+
+        STATUS_1 = Text("Complete", color = GREEN_D)
+        STATUS_2 = Text("Planned", color = RED_C)
+        STATUS_3 = Text("In Works", color = ORANGE)
+        PUB_1 = Text("Published", color = GREEN_D)
+        PUB_2 = Text("Submitted", color = ORANGE)
+
+
+
+class FutureWork(ThreeDSlide):
+    def construct(self):
+        self.camera.background_color = GRAY_E
+
+        slide_title = Text("Future Work", font_size = 40).to_corner(UP + LEFT)
+        slide_number = Text("???", font_size = 10).to_corner(DOWN + RIGHT)
 
 
 ## Timeplan Summary ##
 class Summary(ThreeDSlide):
     def construct(self):
         self.camera.background_color = GRAY_E
+
+        slide_title = Text("Summary", font_size = 40).to_corner(UP + LEFT)
+        slide_number = Text("???", font_size = 10).to_corner(DOWN + RIGHT)
 
 class Tests(Scene):
     def construct(self):
