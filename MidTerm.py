@@ -6,12 +6,17 @@ import math as m
 
 ### Content ###
 
+# Header
 # Intro w. Timeplan
 # Lab Engineer Position (Drones etc), Drone Operations Manager and Writing the Manual
 # Course Progress
 # Outreach Participation
+# Data Collection
 # Secondments and Travel
-# Timeplan
+# Research
+# Publications
+# Future Work & Timeplan
+# Summary
 
 # Notes
 # Jira should be fully developed and updated to visualize the project tracking. As well as xMind, Zotero
@@ -20,7 +25,8 @@ import math as m
 
 ## Some Rules ##
 # - Only use (Write) for equations.
-# - Use (FadeIn) and (Transform) for normal text. 
+# - Use (FadeIn) and (Transform) for normal text.
+# - How to do citations? Small text on the bottom?
 
 def textbox(color, scolor, string): #Can be used to create several boxes which together makes a Gantt chart?
     result = VGroup()
@@ -38,7 +44,7 @@ def textbox(color, scolor, string): #Can be used to create several boxes which t
     return result
 
 def PDF_normal(x, mu, sigma):
-        return math.exp(-((x-mu)**2)/(2*sigma**2))/(sigma*math.sqrt(2*math.pi))
+        return m.exp(-((x-mu)**2)/(2*sigma**2))/(sigma*m.sqrt(2*m.pi))
 
 # Example of how to show point cloud. Input can be an xyz array
 class ImageScene(ThreeDScene):
@@ -537,8 +543,10 @@ class ResearchSpect(ThreeDSlide):
         curve_ax = Axes(
                 x_range=[-5,5,1],
                 y_range=[0,0.5,0.1],
-                axis_config={"include_numbers":True}
+                axis_config={"include_numbers":False}
         )
+
+        mu_b = ValueTracker(0)
         sigma_b = ValueTracker(1)
 
         blue_curve = always_redraw(
@@ -564,6 +572,9 @@ class ResearchSpect(ThreeDSlide):
                         lambda x:PDF_normal(x, mu_r.get_value(), sigma_r.get_value()), color=PURE_RED
                 )
         )
+
+
+        # Add multispectral curves, and hyperspectral continous curve
 
         self.play(Write(spectrum_rectangle), Create(spect_ax))
         self.wait(2)
@@ -619,7 +630,7 @@ class Summary(ThreeDSlide):
     def construct(self):
         self.camera.background_color = GRAY_E
 
-        slide_title = Text("Summary", font_size = 40).to_corner(UP + LEFT)
+        slide_title = Text("Summary", font_size = 25).to_corner(UP + LEFT)
         slide_number = Text("???", font_size = 10).to_corner(DOWN + RIGHT)
         colorlabcorner = ImageMobject("/home/markus/Priv_Manim_Slides/Manim-Slides/Logos/CLsmall.png/").to_corner(DOWN + LEFT)
         colorlabcorner.scale(0.5)
