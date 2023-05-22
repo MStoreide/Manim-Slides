@@ -37,6 +37,9 @@ def textbox(color, scolor, string): #Can be used to create several boxes which t
     result.add(text, box)
     return result
 
+def PDF_normal(x, mu, sigma):
+        return math.exp(-((x-mu)**2)/(2*sigma**2))/(sigma*math.sqrt(2*math.pi))
+
 # Example of how to show point cloud. Input can be an xyz array
 class ImageScene(ThreeDScene):
     def construct(self):
@@ -72,8 +75,6 @@ class FUNCTest(Scene):
                 self.play(Write(boxes))
                 self.wait(2)
 
-def PDF_normal(x, mu, sigma):
-        return math.exp(-((x-mu)**2)/(2*sigma**2))/(sigma*math.sqrt(2*math.pi))
 
 class Header(ThreeDSlide):
     def construct(self):
