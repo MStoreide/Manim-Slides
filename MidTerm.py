@@ -54,6 +54,7 @@ class ImageScene(ThreeDScene):
         self.add(Disp_array)
         self.wait(2)
 
+
 class SVGTest(Scene):
     def construct(self):
         self.camera.background_color = GRAY_E
@@ -319,7 +320,7 @@ class DataCollection(Scene):
         # Department of Conservation at UiO?
 
 
-class Conferences(ThreeDSlide):
+class Conferences(Scene):
     def construct(self):
         self.camera.background_color = GRAY_E
 
@@ -368,7 +369,7 @@ class Conferences(ThreeDSlide):
         cat_bar_lbls = project_category_chart.get_bar_labels(font_size = 48, color=WHITE)
 
         self.play(Write(project_category_chart))
-        self.play(Write( cat_bar_lbls))
+        self.play(Write(cat_bar_lbls))
         self.wait(5)
         # Can also make tables here, similar to the excel ones.
 
@@ -401,16 +402,17 @@ class ResearchStat(ThreeDSlide):
     def construct(self):
         self.camera.background_color = GRAY_E
 
-        slide_title = Text("Research Work - Mesh Statistics", font_size = 40).to_corner(UP + LEFT)
+        slide_title = Text("Research Work - Mesh Statistics", font_size = 25).to_corner(UP + LEFT)
         slide_number = Text("???", font_size = 10).to_corner(DOWN + RIGHT)
         colorlabcorner = ImageMobject("/home/markus/Priv_Manim_Slides/Manim-Slides/Logos/CLsmall.png/").to_corner(DOWN + LEFT)
         colorlabcorner.scale(0.5)
 
+        self.add(slide_title, slide_number, colorlabcorner)
 
         # Statistics Paper
 
-        #PYTH = SVGMobject(f"/home/markus/Priv_Manim_Slides/Manim-Slides/Logos/Python.svg")
-        #PANDA = SVGMobject(f"/home/markus/Priv_Manim_Slides/Manim-Slides/Logos/Pandas.svg")
+        PYTH = SVGMobject(f"/home/markus/Priv_Manim_Slides/Manim-Slides/Logos/Python.svg")
+        PANDA = SVGMobject(f"/home/markus/Priv_Manim_Slides/Manim-Slides/Logos/Pandas.svg")
         #OP3D = SVGMobject(f"/home/markus/Priv_Manim_Slides/Manim-Slides/Logos/Open3D.png")
         #MESH = SVGMobject(f"/home/markus/Priv_Manim_Slides/Manim-Slides/Logos/Meshlab.png")
         #CLCP = SVGMobject(f"/home/markus/Priv_Manim_Slides/Manim-Slides/Logos/Cloudcompare.png")
@@ -418,7 +420,8 @@ class ResearchStat(ThreeDSlide):
 
         vertices = [1, 2, 3, 4, 5, 6, 7, 8, 9]# Can maybe do the fadeout this way
         edges =  [(1, 2), (2, 3), (3, 4), (4, 5), (5, 6), (6, 7), (7, 8), (8, 9)]# Can maybe do the fadeout this way
-        g = Graph(vertices, edges)
+        g = Graph(vertices, edges, 
+                 layout={1: [-4, 0, 0], 2: [-3, 0, 0], 3: [-2, 0, 0], 4: [-1, 0, 0], 5: [0, 0, 0], 6: [1, 0, 0], 7: [2, 0, 0], 8: [3, 0, 0], 9: [4, 0, 0]})
         #surface = Graph([1, 2, 3, 4, 5, 6, 7, 8, 9], [(1, 2), (2, 3), (3, 4), (4, 5), (5, 6), (6, 7), (7, 8), (8, 9)],
         #          layout={1: [-4, 0, 0], 2: [-3, 0, 0], 3: [-2, 0, 0], 4: [-1, 0, 0], 5: [0, 0, 0], 6: [1, 0, 0], 7: [2, 0, 0], 8: [3, 0, 0], 9: [4, 0, 0]}
         #          )
@@ -429,15 +432,15 @@ class ResearchStat(ThreeDSlide):
         #self.wait(2)
         self.play(FadeOut(g))
 
-        #decimation = 
-        #vertex_clustering =
+        DECI_t = Text("Decimation iteratively removes vertices in a mesh based on an evaluation of optimal local geometry.") 
+        VECL_t = Text("Vertex Clusterint takes vertices in close proximity to each other and clusters and merges them into a single vertex. Surrounding polygons are then re-triangulated.")
         #quadric_error_metrics =
         #coplanar_facets_merging =
         #edge_collapse =
 
         # Practice working with a sin wave as the surface, and to plot points on that surface. 
 
-        obj_stats = Table([["Object Name", "SMD Baseline", "n"],
+        obj_stats1 = Table([["Object Name", "SMD Baseline", "n"],
                            ["Vertices", "16812", "n"],
                            ["Edges", "50430", "n"],
                            ["MaxEdge Length", "n", "n"],
@@ -454,10 +457,34 @@ class ResearchStat(ThreeDSlide):
                            ["Min Poly \n Surface", "0.004", "n"],
                            ["MaxDifference", "n", "n"],
                            ["MinDifference", "n", "n"],
-                           ["Rest of them", "0.004", "n"], #Maybe make two tables?
-                            ]).move_to(RIGHT)
+                           ["Rest of them", "0.004", "n"]
+                            ])
+
+        obj_stats2 = Table([["Elephant", "SMD Baseline", "n"],
+                           ["Unicorn", "16812", "n"],
+                           ["Edges", "50430", "n"],
+                           ["Turtles", "n", "n"],
+                           ["Rabbit", "n", "n"],
+                           ["Mouse Length", "n", "n"],
+                           ["MedianEdge Length", "n", "n"],
+                           ["Faces", "33620", "n"],
+                           ["MaxFace Size", "n", "n"],
+                           ["MinFace Size", "n", "n"],
+                           ["MeanFace Size", "n", "n"],
+                           ["MedianFace Size", "n", "n"],
+                           ["B.B Diagonal", "15.018574", "n"],
+                           ["Max Poly \n Surface", "0.006", "n"],
+                           ["Min Poly \n Surface", "0.004", "n"],
+                           ["MaxDifference", "n", "n"],
+                           ["MinDifference", "n", "n"],
+                           ["Rest of them", "0.004", "n"]
+                            ])
         
-        obj_stats.scale(0.3)
+        obj_stats1.scale(0.3)
+        obj_stats2.scale(0.3)
+
+        edge_frame = obj_stats1.add(obj_stats1.get_cell((3,1), color = YELLOW))
+        face_frame = obj_stats1.add(obj_stats1.get_cell((8,1), color = YELLOW))
 
         hausdorff_eq = MathTex(r"d_H(X,Y) = max \biggl\{sup_{x \in X} d(x,Y), sup_{y \in Y} d(X,y) \biggr\}")
 
@@ -469,7 +496,11 @@ class ResearchStat(ThreeDSlide):
 
         # Write someting about how it is to work with these huge arrays. 
 
-        self.play(Write(obj_stats))
+        self.play(Write(obj_stats1))
+        self.wait()
+        self.play(FadeOut(obj_stats1))
+        self.wait()
+        self.play(Write(obj_stats2))
         self.wait()
 
 
