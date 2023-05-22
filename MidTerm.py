@@ -257,17 +257,6 @@ class Outreach(Scene):
         # MANER Training School at Chiba 
         CHIBA = ImageMobject(f"/home/markus/Priv_Manim_Slides/Manim-Slides/Logos/CHIBA.png")
 
-        # Balke Center
-        BALKE = ImageMobject("/home/markus/Priv_Manim_Slides/Manim-Slides/Logos/BalkeSenteret.svg")
-
-        # Kolbu Dør
-        # Uvdal Stavkirke?
-        # Other Visits
-        # Maihaugen?
-        # TexRec
-        # Department of Conservation at UiO?
-        # Eidskog Kirke
-        # NRK Case
 
         self.play(FadeIn(TRON))
         self.wait()
@@ -285,6 +274,36 @@ class Outreach(Scene):
         self.wait()
         self.play(Write(YALE), run_time=2)
         self.wait()
+
+class DataCollection(Scene):
+    def construct(self):
+        self.camera.background_color = GRAY_E
+
+        slide_title = Text("Data Collection", font_size = 40).to_corner(UP + LEFT)
+        slide_number = Text("4", font_size = 10).to_corner(DOWN + RIGHT)
+        colorlabcorner = ImageMobject("/home/markus/Priv_Manim_Slides/Manim-Slides/Logos/CLsmall.png/").to_corner(DOWN + LEFT)
+        colorlabcorner.scale(0.5)
+
+        # Eidskog Kirke
+        EIDS_t = Text("Eidskog Kirke")
+        EIDS = SVGMobject(NorskeKirke)
+
+        # Balke Center
+        BALKE_t = Text("Balke Senteret")
+        BALKE = ImageMobject("/home/markus/Priv_Manim_Slides/Manim-Slides/Logos/BalkeSenteret.svg")
+
+        # Kolbu Dør
+        KOLB_t = Text("Kolbu Barn Door")
+        KOLB = SVGMobject(Kommunevåpen)
+        # Mention NRK
+
+        # Uvdal Stavkirke?
+        # Other Visits
+
+        MAIHAUGEN_t = Text("Maihaugen | Lillehammer Museum")
+        MAIH = SVGMobject(Maihaugen)
+        # TexRec
+        # Department of Conservation at UiO?
 
 
 ## Conferences ##
@@ -598,10 +617,6 @@ class Questions(ThreeDSlide):
 # - Hausdorff Measurements | with visual example
 # - Statistical Models | with visual example
 # - Minowski Sum | with visual example
-
-hausdorff_eq = MathTex(r"d_h(X,Y) = max(sup inf d(x,y), sup inf d(x,y))")
-
-chamfer_eq = MathTex(r"d_CD (X,Y) = \sum_{x \in X}min(MISSING) \| x-y \| 2² + \sum_{y \in Y} min(MISSING) \| x-y \| 2²")
 
 rendering_eq = MathTex(r"L_o(x, \omega_o, \Lambda, t) = L_e(x, \omega_o, \Lambda, t) + \int_{\Omega} f_r(x, \omega_i, \omega_o, \Lambda, t)(\omega_i . \textbf{n}) d \omega_i")
 # Does not account for: Transmission, Subsurface Scattering, Polarization, Phosphorescence, Interference, Flourescence.
