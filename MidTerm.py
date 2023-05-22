@@ -58,7 +58,7 @@ class SVGTest(Scene):
     def construct(self):
         self.camera.background_color = GRAY_E
 
-        SVG = SVGMobject(f"/home/markus/Priv_Manim_Slides/Manim-Slides/Logos/JIRA.svg")
+        SVG = SVGMobject(f"/home/markus/Priv_Manim_Slides/Manim-Slides/Logos/Riksantikvaren.svg")
 
         self.play(Write(SVG), run_time=2)
         self.wait(2)
@@ -416,7 +416,18 @@ class ResearchStat(ThreeDSlide):
         #CLCP = SVGMobject(f"/home/markus/Priv_Manim_Slides/Manim-Slides/Logos/Cloudcompare.png")
         #STATM = SVGMobject(f"/home/markus/Priv_Manim_Slides/Manim-Slides/Logos/Luftfarttilsynet.png")
 
-        #ex_surf = 
+        vertices = [1, 2, 3, 4, 5, 6, 7, 8, 9]# Can maybe do the fadeout this way
+        edges =  [(1, 2), (2, 3), (3, 4), (4, 5), (5, 6), (6, 7), (7, 8), (8, 9)]# Can maybe do the fadeout this way
+        g = Graph(vertices, edges)
+        #surface = Graph([1, 2, 3, 4, 5, 6, 7, 8, 9], [(1, 2), (2, 3), (3, 4), (4, 5), (5, 6), (6, 7), (7, 8), (8, 9)],
+        #          layout={1: [-4, 0, 0], 2: [-3, 0, 0], 3: [-2, 0, 0], 4: [-1, 0, 0], 5: [0, 0, 0], 6: [1, 0, 0], 7: [2, 0, 0], 8: [3, 0, 0], 9: [4, 0, 0]}
+        #          )
+        self.play(Create(g), run_time=3)
+        self.wait(2)
+        #self.play(surface.animate.change_layout("circular")) # Can be used to show how vertices have differetn importance
+                                                             # for different surfaces
+        #self.wait(2)
+        self.play(FadeOut(g))
 
         #decimation = 
         #vertex_clustering =
