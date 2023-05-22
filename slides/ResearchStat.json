@@ -3,19 +3,21 @@
     {
       "type": "last",
       "start_animation": 0,
-      "end_animation": 7,
+      "end_animation": 9,
       "number": 1,
       "terminated": false
     }
   ],
   "files": [
-    "slides/files/ResearchStat/4122872704_732616743_223132457.mp4",
-    "slides/files/ResearchStat/1368778749_125286499_1323902240.mp4",
-    "slides/files/ResearchStat/1368778749_1840000744_3253430160.mp4",
-    "slides/files/ResearchStat/1368778749_1064760795_262861030.mp4",
-    "slides/files/ResearchStat/1368778749_1140867545_1261375455.mp4",
-    "slides/files/ResearchStat/1368778749_417171865_4174018169.mp4",
-    "slides/files/ResearchStat/1368778749_3837998516_2452424549.mp4"
+    "slides/files/ResearchStat/4122872704_1556579822_3106706394.mp4",
+    "slides/files/ResearchStat/1368778749_125286499_3153194501.mp4",
+    "slides/files/ResearchStat/1368778749_730395341_3681586298.mp4",
+    "slides/files/ResearchStat/1368778749_2452681595_2729572657.mp4",
+    "slides/files/ResearchStat/1368778749_3837998516_2013983595.mp4",
+    "slides/files/ResearchStat/1368778749_561553029_1033280015.mp4",
+    "slides/files/ResearchStat/1368778749_3837998516_1976011628.mp4",
+    "slides/files/ResearchStat/1368778749_769686291_1755069611.mp4",
+    "slides/files/ResearchStat/1368778749_3837998516_791398593.mp4"
   ],
   "resolution": [
     1920,

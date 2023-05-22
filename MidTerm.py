@@ -433,10 +433,10 @@ class ResearchStat(ThreeDSlide):
         self.play(FadeOut(g))
 
         DECI_t = Text("Decimation iteratively removes vertices in a mesh based on an evaluation of optimal local geometry.") 
-        VECL_t = Text("Vertex Clusterint takes vertices in close proximity to each other and clusters and merges them into a single vertex. Surrounding polygons are then re-triangulated.")
-        #quadric_error_metrics =
-        #coplanar_facets_merging =
-        #edge_collapse =
+        VECL_t = Text("Vertex Clustering takes vertices in close proximity to each other and clusters and merges them into a single vertex. Surrounding polygons are then re-triangulated.")
+        QEM_t = Text("Quadric Error Metrics utilizes a plane equation of a given triangle to estimate the ideal location of vertices")
+        CFM_t = Text("Coplanar facets merging looks at planar divergence between polygons and merges them if they are above a certain threshold.")
+        EDCO_t = Text("Edge Collapse finds pairs of vertices that are close together, and collapses the edge between them. This creates a new vertex at the halfway point between the two original vertices.")
 
         # Practice working with a sin wave as the surface, and to plot points on that surface. 
 
