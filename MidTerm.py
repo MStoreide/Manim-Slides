@@ -363,7 +363,7 @@ class ResearchRev(ThreeDSlide):
     def construct(self):
         self.camera.background_color = GRAY_E
 
-        slide_title = Text("Research Work", font_size = 40).to_corner(UP + LEFT)
+        slide_title = Text("Research Work - 3D Review", font_size = 40).to_corner(UP + LEFT)
         slide_number = Text("???", font_size = 10).to_corner(DOWN + RIGHT)
         colorlabcorner = ImageMobject("/home/markus/Priv_Manim_Slides/Manim-Slides/Logos/CLsmall.png/").to_corner(DOWN + LEFT)
         colorlabcorner.scale(0.5)
@@ -388,7 +388,7 @@ class ResearchStat(ThreeDSlide):
     def construct(self):
         self.camera.background_color = GRAY_E
 
-        slide_title = Text("Research Work", font_size = 40).to_corner(UP + LEFT)
+        slide_title = Text("Research Work - Mesh Statistics", font_size = 40).to_corner(UP + LEFT)
         slide_number = Text("???", font_size = 10).to_corner(DOWN + RIGHT)
         colorlabcorner = ImageMobject("/home/markus/Priv_Manim_Slides/Manim-Slides/Logos/CLsmall.png/").to_corner(DOWN + LEFT)
         colorlabcorner.scale(0.5)
@@ -413,6 +413,28 @@ class ResearchStat(ThreeDSlide):
 
         # Practice working with a sin wave as the surface, and to plot points on that surface. 
 
+        obj_stats = Table([["Object Name", "SMD Baseline", "n"],
+                           ["Vertices", "16812", "n"],
+                           ["Edges", "50430", "n"],
+                           ["MaxEdge Length", "n", "n"],
+                           ["MinEdge Length", "n", "n"],
+                           ["MeanEdge Length", "n", "n"],
+                           ["MedianEdge Length", "n", "n"],
+                           ["Faces", "33620", "n"],
+                           ["MaxFace Size", "n", "n"],
+                           ["MinFace Size", "n", "n"],
+                           ["MeanFace Size", "n", "n"],
+                           ["MedianFace Size", "n", "n"],
+                           ["B.B Diagonal", "15.018574", "n"],
+                           ["Max Poly \n Surface", "0.006", "n"],
+                           ["Min Poly \n Surface", "0.004", "n"],
+                           ["MaxDifference", "n", "n"],
+                           ["MinDifference", "n", "n"],
+                           ["Rest of them", "0.004", "n"], #Maybe make two tables?
+                            ]).move_to(RIGHT)
+        
+        obj_stats.scale(0.3)
+
         hausdorff_eq = MathTex(r"d_H(X,Y) = max \biggl\{sup_{x \in X} d(x,Y), sup_{y \in Y} d(X,y) \biggr\}")
 
         chamfer_eq = MathTex(r"d_C(X,Y) = \sum_{x \in X} min_{y \in Y} \| x-y \|_2^2 + \sum_{y \in Y} min_{x \in X} \| x-y \|_2^2")
@@ -423,7 +445,7 @@ class ResearchStat(ThreeDSlide):
 
         # Write someting about how it is to work with these huge arrays. 
 
-        self.play(Write(hausdorff_eq))
+        self.play(Write(obj_stats))
         self.wait()
 
 
@@ -431,7 +453,7 @@ class ResearchSpect(ThreeDSlide):
     def construct(self):
         self.camera.background_color = GRAY_E
 
-        slide_title = Text("Research Work", font_size = 40).to_corner(UP + LEFT)
+        slide_title = Text("Research Work - Spectral Rendering", font_size = 40).to_corner(UP + LEFT)
         slide_number = Text("???", font_size = 10).to_corner(DOWN + RIGHT)
         colorlabcorner = ImageMobject("/home/markus/Priv_Manim_Slides/Manim-Slides/Logos/CLsmall.png/").to_corner(DOWN + LEFT)
         colorlabcorner.scale(0.5)
