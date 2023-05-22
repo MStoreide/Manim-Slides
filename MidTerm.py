@@ -353,7 +353,56 @@ class ImageScene(ThreeDScene):
 
 ## Research ##
 
-class Research(ThreeDSlide):
+class ResearchRev(ThreeDSlide):
+    def construct(self):
+        self.camera.background_color = GRAY_E
+
+        slide_title = Text("Research Work", font_size = 40).to_corner(UP + LEFT)
+        slide_number = Text("???", font_size = 10).to_corner(DOWN + RIGHT)
+        colorlabcorner = ImageMobject("/home/markus/Priv_Manim_Slides/Manim-Slides/Logos/CLsmall.png/").to_corner(DOWN + LEFT)
+        colorlabcorner.scale(0.5)
+
+        # Review Paper
+        project_category_chart = BarChart(
+                                         values = [2,6,7],
+                                         bar_names = ["Open Source", "Non-Profit", "Proprietary"],
+                                        y_range = [-3, 10, 1],
+                                        y_length = 6,
+                                        x_length = 10,
+                                        x_axis_config = {"font_size": 36},
+                                        )
+        c_bar_lbls = project_category_chart.get_bar_labels(font_size = 48)
+
+         # Add 3D viewers, and 
+         # workflows?
+
+
+
+class ResearchStat(ThreeDSlide):
+    def construct(self):
+        self.camera.background_color = GRAY_E
+
+        slide_title = Text("Research Work", font_size = 40).to_corner(UP + LEFT)
+        slide_number = Text("???", font_size = 10).to_corner(DOWN + RIGHT)
+        colorlabcorner = ImageMobject("/home/markus/Priv_Manim_Slides/Manim-Slides/Logos/CLsmall.png/").to_corner(DOWN + LEFT)
+        colorlabcorner.scale(0.5)
+
+
+        # Statistics Paper
+
+        PYTH = SVGMobject(f"/home/markus/Priv_Manim_Slides/Manim-Slides/Logos/Python.png")
+        PANDA = SVGMobject(f"/home/markus/Priv_Manim_Slides/Manim-Slides/Logos/Pandas.svg")
+        OP3D = SVGMobject(f"/home/markus/Priv_Manim_Slides/Manim-Slides/Logos/Open3D.png")
+        MESH = SVGMobject(f"/home/markus/Priv_Manim_Slides/Manim-Slides/Logos/Meshlab.png")
+        CLCP = SVGMobject(f"/home/markus/Priv_Manim_Slides/Manim-Slides/Logos/Cloudcompare.png")
+        STATM = SVGMobject(f"/home/markus/Priv_Manim_Slides/Manim-Slides/Logos/Luftfarttilsynet.png")
+
+        hausdorff_eq = MathTex(r"d_h(X,Y) = max(sup inf d(x,y), sup inf d(x,y))")
+
+        chamfer_eq = MathTex(r"d_CD (X,Y) = \sum_{x \in X}min(MISSING) \| x-y \| 2² + \sum_{y \in Y} min(MISSING) \| x-y \| 2²")
+
+
+class ResearchSpect(ThreeDSlide):
     def construct(self):
         self.camera.background_color = GRAY_E
 
@@ -432,35 +481,6 @@ class Publications(ThreeDSlide):
         slide_number = Text("???", font_size = 10).to_corner(DOWN + RIGHT)
         colorlabcorner = ImageMobject("/home/markus/Priv_Manim_Slides/Manim-Slides/Logos/CLsmall.png/").to_corner(DOWN + LEFT)
         colorlabcorner.scale(0.5)
-
-        # Start with a list
-
-        # Review Paper
-        project_category_chart = BarChart(
-                                         values = [2,6,7],
-                                         bar_names = ["Open Source", "Non-Profit", "Proprietary"],
-                                        y_range = [-3, 10, 1],
-                                        y_length = 6,
-                                        x_length = 10,
-                                        x_axis_config = {"font_size": 36},
-                                        )
-        c_bar_lbls = project_category_chart.get_bar_labels(font_size = 48)
-
-
-        # Add 3D viewers, and workflows?
-
-        # Statistics Paper
-
-        PYTH = SVGMobject(f"/home/markus/Priv_Manim_Slides/Manim-Slides/Logos/Python.png")
-        PANDA = SVGMobject(f"/home/markus/Priv_Manim_Slides/Manim-Slides/Logos/Pandas.svg")
-        OP3D = SVGMobject(f"/home/markus/Priv_Manim_Slides/Manim-Slides/Logos/Open3D.png")
-        MESH = SVGMobject(f"/home/markus/Priv_Manim_Slides/Manim-Slides/Logos/Meshlab.png")
-        CLCP = SVGMobject(f"/home/markus/Priv_Manim_Slides/Manim-Slides/Logos/Cloudcompare.png")
-        STATM = SVGMobject(f"/home/markus/Priv_Manim_Slides/Manim-Slides/Logos/Luftfarttilsynet.png")
-
-        hausdorff_eq = MathTex(r"d_h(X,Y) = max(sup inf d(x,y), sup inf d(x,y))")
-
-        chamfer_eq = MathTex(r"d_CD (X,Y) = \sum_{x \in X}min(MISSING) \| x-y \| 2² + \sum_{y \in Y} min(MISSING) \| x-y \| 2²")
 
         # Planned Papers
 
