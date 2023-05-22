@@ -37,6 +37,20 @@ def textbox(color, scolor, string): #Can be used to create several boxes which t
     result.add(text, box)
     return result
 
+# Example of how to show point cloud. Input can be an xyz array
+class ImageScene(ThreeDScene):
+    def construct(self):
+        self.set_camera_orientation(phi=75 * DEGREES, theta=-60 * DEGREES)  # 2.5D
+        self.begin_ambient_camera_rotation()
+        Disp_array= VMobject()
+        for x in range(-3, 3):
+            for y in range(-3, 3):
+                for z in range(-3, 3):
+                    dot = Dot(point=(x, y, z))
+                    Disp_array.add(dot)
+        self.add(Disp_array)
+        self.wait(2)
+
 class SVGTest(Scene):
     def construct(self):
         self.camera.background_color = GRAY_E
@@ -83,7 +97,6 @@ class Header(ThreeDSlide):
         self.next_slide()
 
 
-## Intro w. Timeplan ##
 class Intro(ThreeDScene):
     def construct(self):
         self.camera.background_color = GRAY_E
@@ -178,7 +191,6 @@ class Lab(ThreeDSlide):
         # Also add GitHub
 
 
-## Courses ##
 class Courses(Scene):
     def construct(self):
         self.camera.background_color = GRAY_E
@@ -212,7 +224,6 @@ class Courses(Scene):
         self.wait(2)
 
 
-## Travel, Outreach and Participation ## (Visualize these with a map?)
 class Outreach(Scene):
     def construct(self):
         self.camera.background_color = GRAY_E
@@ -275,6 +286,7 @@ class Outreach(Scene):
         self.play(Write(YALE), run_time=2)
         self.wait()
 
+
 class DataCollection(Scene):
     def construct(self):
         self.camera.background_color = GRAY_E
@@ -306,7 +318,6 @@ class DataCollection(Scene):
         # Department of Conservation at UiO?
 
 
-## Conferences ##
 class Conferences(ThreeDSlide):
     def construct(self):
         self.camera.background_color = GRAY_E
@@ -361,23 +372,6 @@ class Conferences(ThreeDSlide):
         # Can also make tables here, similar to the excel ones.
 
 
-# Example of how to show point cloud. Input can be an xyz array
-class ImageScene(ThreeDScene):
-    def construct(self):
-        self.set_camera_orientation(phi=75 * DEGREES, theta=-60 * DEGREES)  # 2.5D
-        self.begin_ambient_camera_rotation()
-        Disp_array= VMobject()
-        for x in range(-3, 3):
-            for y in range(-3, 3):
-                for z in range(-3, 3):
-                    dot = Dot(point=(x, y, z))
-                    Disp_array.add(dot)
-        self.add(Disp_array)
-        self.wait(2)
-
-
-## Research ##
-
 class ResearchRev(ThreeDSlide):
     def construct(self):
         self.camera.background_color = GRAY_E
@@ -400,7 +394,6 @@ class ResearchRev(ThreeDSlide):
 
          # Add 3D viewers, and 
          # workflows?
-
 
 
 class ResearchStat(ThreeDSlide):  
@@ -538,7 +531,6 @@ class ResearchSpect(ThreeDSlide):
         self.wait()
 
 
-## Publications ##
 class Publications(ThreeDSlide):
     def construct(self):
         self.camera.background_color = GRAY_E
@@ -562,7 +554,6 @@ class Publications(ThreeDSlide):
         PUB_2 = Text("Submitted", color = ORANGE)
 
 
-
 class FutureWork(ThreeDSlide):
     def construct(self):
         self.camera.background_color = GRAY_E
@@ -573,7 +564,6 @@ class FutureWork(ThreeDSlide):
         colorlabcorner.scale(0.5)
 
 
-## Timeplan Summary ##
 class Summary(ThreeDSlide):
     def construct(self):
         self.camera.background_color = GRAY_E
@@ -583,7 +573,9 @@ class Summary(ThreeDSlide):
         colorlabcorner = ImageMobject("/home/markus/Priv_Manim_Slides/Manim-Slides/Logos/CLsmall.png/").to_corner(DOWN + LEFT)
         colorlabcorner.scale(0.5)
 
-## Questions? ##
+        ## Timeplan Summary ##
+
+
 class Questions(ThreeDSlide):
     def construct(self):
         self.camera.background_color = GRAY_E
@@ -601,6 +593,8 @@ class Questions(ThreeDSlide):
         self.play(banner.create, madeuse.write)
         self.play(banner.expand)
         self.wait(2)
+
+        ## Questions? ##
 
 
 
