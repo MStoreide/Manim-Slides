@@ -1,7 +1,8 @@
 from manim import *
 from manim_slides import Slide, ThreeDSlide
 import numpy as np
-import math
+import math as m
+
 
 ### Content ###
 
@@ -15,6 +16,11 @@ import math
 # Notes
 # Jira should be fully developed and updated to visualize the project tracking. As well as xMind, Zotero
 #Should also have a packup Powerpoint just in case. 
+
+
+## Some Rules ##
+# - Only use (Write) for equations.
+# - Use (FadeIn) and (Transform) for normal text. 
 
 def textbox(color, scolor, string): #Can be used to create several boxes which together makes a Gantt chart?
     result = VGroup()
@@ -96,7 +102,7 @@ class Intro(ThreeDScene):
         JON_t = Text("Co-Supervisor #2: Jon Yngve Hardeberg", font_size=20).next_to(ADITYA_t, DOWN)
         JON = ImageMobject(f"/home/markus/Priv_Manim_Slides/Manim-Slides/Logos/JON.jpg", scale_to_resolution=2000).next_to(JON_t, LEFT)
 
-        self.play(Write(SONY_t), Write(ADITYA_t), Write(JON_t), run_time=2)
+        self.play(FadeIn(SONY_t), FadeIn(ADITYA_t), FadeIn(JON_t), run_time=2)
         self.play(FadeIn(SONY), FadeIn(ADITYA), FadeIn(JON))
         self.wait()
 
@@ -198,11 +204,11 @@ class Courses(Scene):
         UIO = SVGMobject(f"/home/markus/Priv_Manim_Slides/Manim-Slides/Logos/UIO.svg").next_to(STK, LEFT) #Remove text
 
         self.add(slide_title, slide_number)
-        self.play(Write(CI), Write(IDIG), Write(HFEL), Write(IDT), Write(NTNU), run_time=2)
+        self.play(FadeIn(CI), FadeIn(IDIG), FadeIn(HFEL), FadeIn(IDT), FadeIn(NTNU), run_time=2)
         self.wait(1)
-        self.play(Write(STK), Write(UIO), run_time=2)
+        self.play(FadeIn(STK), FadeIn(UIO), run_time=2)
         self.wait(1)
-        self.play(Write(CHG), Write(WUT), run_time=2)
+        self.play(FadeIn(CHG), FadeIn(WUT), run_time=2)
         self.wait(2)
 
 
@@ -378,7 +384,7 @@ class ResearchRev(ThreeDSlide):
 
 
 
-class ResearchStat(ThreeDSlide):
+class ResearchStat(ThreeDSlide):  
     def construct(self):
         self.camera.background_color = GRAY_E
 
@@ -390,16 +396,24 @@ class ResearchStat(ThreeDSlide):
 
         # Statistics Paper
 
-        PYTH = SVGMobject(f"/home/markus/Priv_Manim_Slides/Manim-Slides/Logos/Python.png")
-        PANDA = SVGMobject(f"/home/markus/Priv_Manim_Slides/Manim-Slides/Logos/Pandas.svg")
-        OP3D = SVGMobject(f"/home/markus/Priv_Manim_Slides/Manim-Slides/Logos/Open3D.png")
-        MESH = SVGMobject(f"/home/markus/Priv_Manim_Slides/Manim-Slides/Logos/Meshlab.png")
-        CLCP = SVGMobject(f"/home/markus/Priv_Manim_Slides/Manim-Slides/Logos/Cloudcompare.png")
-        STATM = SVGMobject(f"/home/markus/Priv_Manim_Slides/Manim-Slides/Logos/Luftfarttilsynet.png")
+        # Practice working with a sin wave as the surface, and to plot points on that surface. 
 
-        hausdorff_eq = MathTex(r"d_h(X,Y) = max(sup inf d(x,y), sup inf d(x,y))")
+        #PYTH = SVGMobject(f"/home/markus/Priv_Manim_Slides/Manim-Slides/Logos/Python.png")
+        #PANDA = SVGMobject(f"/home/markus/Priv_Manim_Slides/Manim-Slides/Logos/Pandas.svg")
+        #OP3D = SVGMobject(f"/home/markus/Priv_Manim_Slides/Manim-Slides/Logos/Open3D.png")
+        #MESH = SVGMobject(f"/home/markus/Priv_Manim_Slides/Manim-Slides/Logos/Meshlab.png")
+        #CLCP = SVGMobject(f"/home/markus/Priv_Manim_Slides/Manim-Slides/Logos/Cloudcompare.png")
+        #STATM = SVGMobject(f"/home/markus/Priv_Manim_Slides/Manim-Slides/Logos/Luftfarttilsynet.png")
 
-        chamfer_eq = MathTex(r"d_CD (X,Y) = \sum_{x \in X}min(MISSING) \| x-y \| 2² + \sum_{y \in Y} min(MISSING) \| x-y \| 2²")
+        #hausdorff_eq = MathTex(r"d_h(X,Y) = max(sup inf d(x,y), sup inf d(x,y))")
+
+        #chamfer_eq = MathTex(r"d_CD (X,Y) = \sum_{x \in X}min(MISSING) \| x-y \| 2² + \sum_{y \in Y} min(MISSING) \| x-y \| 2²")
+
+
+        # Write someting about how it is to work with these huge arrays. 
+
+
+        self.wait()
 
 
 class ResearchSpect(ThreeDSlide):
