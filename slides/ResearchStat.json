@@ -3,16 +3,14 @@
     {
       "type": "last",
       "start_animation": 0,
-      "end_animation": 4,
+      "end_animation": 2,
       "number": 1,
       "terminated": false
     }
   ],
   "files": [
-    "slides/files/ResearchStat/4122872704_3932130472_223132457.mp4",
-    "slides/files/ResearchStat/1368778749_3036188887_1340775677.mp4",
-    "slides/files/ResearchStat/1368778749_55957421_968513437.mp4",
-    "slides/files/ResearchStat/1368778749_3837998516_3667593402.mp4"
+    "slides/files/ResearchStat/4122872704_1492585622_223132457.mp4",
+    "slides/files/ResearchStat/1368778749_329969645_1414773075.mp4"
   ],
   "resolution": [
     1920,

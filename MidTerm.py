@@ -396,23 +396,34 @@ class ResearchStat(ThreeDSlide):
 
         # Statistics Paper
 
-        # Practice working with a sin wave as the surface, and to plot points on that surface. 
-
-        #PYTH = SVGMobject(f"/home/markus/Priv_Manim_Slides/Manim-Slides/Logos/Python.png")
+        #PYTH = SVGMobject(f"/home/markus/Priv_Manim_Slides/Manim-Slides/Logos/Python.svg")
         #PANDA = SVGMobject(f"/home/markus/Priv_Manim_Slides/Manim-Slides/Logos/Pandas.svg")
         #OP3D = SVGMobject(f"/home/markus/Priv_Manim_Slides/Manim-Slides/Logos/Open3D.png")
         #MESH = SVGMobject(f"/home/markus/Priv_Manim_Slides/Manim-Slides/Logos/Meshlab.png")
         #CLCP = SVGMobject(f"/home/markus/Priv_Manim_Slides/Manim-Slides/Logos/Cloudcompare.png")
         #STATM = SVGMobject(f"/home/markus/Priv_Manim_Slides/Manim-Slides/Logos/Luftfarttilsynet.png")
 
-        #hausdorff_eq = MathTex(r"d_h(X,Y) = max(sup inf d(x,y), sup inf d(x,y))")
+        #ex_surf = 
 
-        #chamfer_eq = MathTex(r"d_CD (X,Y) = \sum_{x \in X}min(MISSING) \| x-y \| 2² + \sum_{y \in Y} min(MISSING) \| x-y \| 2²")
+        #decimation = 
+        #vertex_clustering =
+        #quadric_error_metrics =
+        #coplanar_facets_merging =
+        #edge_collapse =
 
+        # Practice working with a sin wave as the surface, and to plot points on that surface. 
+
+        hausdorff_eq = MathTex(r"d_H(X,Y) = max \biggl\{sup_{x \in X} d(x,Y), sup_{y \in Y} d(X,y) \biggr\}")
+
+        chamfer_eq = MathTex(r"d_C(X,Y) = \sum_{x \in X} min_{y \in Y} \| x-y \|_2^2 + \sum_{y \in Y} min_{x \in X} \| x-y \|_2^2")
+        chamfer_eq.scale(0.7)
+
+        # Hausdorff Example
+        # Chamfer Example
 
         # Write someting about how it is to work with these huge arrays. 
 
-
+        self.play(Write(hausdorff_eq))
         self.wait()
 
 
