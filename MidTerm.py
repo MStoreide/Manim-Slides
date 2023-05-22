@@ -403,7 +403,7 @@ class ResearchStat(ThreeDSlide):
         self.camera.background_color = GRAY_E
 
         slide_title = Text("Research Work - Mesh Statistics", font_size = 25).to_corner(UP + LEFT)
-        slide_number = Text("???", font_size = 10).to_corner(DOWN + RIGHT)
+        slide_number = Text("9", font_size = 10).to_corner(DOWN + RIGHT)
         colorlabcorner = ImageMobject("/home/markus/Priv_Manim_Slides/Manim-Slides/Logos/CLsmall.png/").to_corner(DOWN + LEFT)
         colorlabcorner.scale(0.5)
 
@@ -418,15 +418,23 @@ class ResearchStat(ThreeDSlide):
         #CLCP = SVGMobject(f"/home/markus/Priv_Manim_Slides/Manim-Slides/Logos/Cloudcompare.png")
         #STATM = SVGMobject(f"/home/markus/Priv_Manim_Slides/Manim-Slides/Logos/Luftfarttilsynet.png")
 
-        vertices = [1, 2, 3, 4, 5, 6, 7, 8, 9]# Can maybe do the fadeout this way
-        edges =  [(1, 2), (2, 3), (3, 4), (4, 5), (5, 6), (6, 7), (7, 8), (8, 9)]# Can maybe do the fadeout this way
+        vertices = [1, 2, 3, 4,]# Can maybe do the fadeout this way
+        edges =  [(1, 2), (2, 3), (3, 4)]# Can maybe do the fadeout this way
         g = Graph(vertices, edges, 
-                 layout={1: [-4, 0, 0], 2: [-3, 0, 0], 3: [-2, 0, 0], 4: [-1, 0, 0], 5: [0, 0, 0], 6: [1, 0, 0], 7: [2, 0, 0], 8: [3, 0, 0], 9: [4, 0, 0]})
+                 layout={1: [-3, 0, 0], 2: [-1, 0, 0], 3: [1, 0, 0], 4: [3, 0, 0]})
+
+        vertices2 = [1, 2, 3]# Can maybe do the fadeout this way
+        edges2 =  [(1, 2), (2, 3)]# Can maybe do the fadeout this way
+        g2= Graph(vertices2, edges2, 
+                 layout={1: [-3, 0, 0], 2: [1, 0, 0], 3: [3, 0, 0]})
         #surface = Graph([1, 2, 3, 4, 5, 6, 7, 8, 9], [(1, 2), (2, 3), (3, 4), (4, 5), (5, 6), (6, 7), (7, 8), (8, 9)],
         #          layout={1: [-4, 0, 0], 2: [-3, 0, 0], 3: [-2, 0, 0], 4: [-1, 0, 0], 5: [0, 0, 0], 6: [1, 0, 0], 7: [2, 0, 0], 8: [3, 0, 0], 9: [4, 0, 0]}
         #          )
         self.play(Create(g), run_time=3)
-        self.wait(2)
+        self.play(g[2].animate.move_to([-1, 2, 0]))
+        self.wait()
+        self.play(Transform(g, g2))
+        self.wait
         #self.play(surface.animate.change_layout("circular")) # Can be used to show how vertices have differetn importance
                                                              # for different surfaces
         #self.wait(2)
