@@ -20,7 +20,7 @@ import math as m
 
 # Notes
 # Jira should be fully developed and updated to visualize the project tracking. As well as xMind, Zotero
-#Should also have a packup Powerpoint just in case. 
+# Should also have a packup Powerpoint just in case. 
 
 
 ## Some Rules ##
@@ -109,8 +109,8 @@ class Intro(ThreeDScene):
     def construct(self):
         self.camera.background_color = GRAY_E
 
-        slide_title = Text("Introduction", font_size = 40).to_corner(UP + LEFT)
-        slide_number = Text("1", font_size = 10).to_corner(DOWN + RIGHT)
+        slide_title1 = Text("Introduction", font_size = 40).to_corner(UP + LEFT)
+        slide_number1 = Text("1", font_size = 10).to_corner(DOWN + RIGHT)
         colorlabcorner = ImageMobject("/home/markus/Priv_Manim_Slides/Manim-Slides/Logos/CLsmall.png/").to_corner(DOWN + LEFT)
         colorlabcorner.scale(0.5)
 
@@ -151,8 +151,6 @@ class Intro(ThreeDScene):
         # self.play(Write(text))
         #  self.wait(2)
 
-
-
         # Start with quick timeplan to visualize the plan, also a good intro to the Lab-Engineer position.
         # Also end with updated timeplan.
 
@@ -161,6 +159,8 @@ class Intro(ThreeDScene):
         ## Project Management ##
 
         # Using Jira, Confluence, xMind, Teams, and Outlook
+
+        # Change slides here. Make
 
         JIRA = SVGMobject(f"/home/markus/Priv_Manim_Slides/Manim-Slides/Logos/JIRA.svg")
         CONF = SVGMobject(f"/home/markus/Priv_Manim_Slides/Manim-Slides/Logos/Confluence.svg")
@@ -175,15 +175,14 @@ class Intro(ThreeDScene):
         # Data Management
 
         # Colorlab Server, MongoDB?, Local Storage
-
         # Make sure it is stored in at least 3 locations. 
 
 class Lab(ThreeDSlide):
     def construct(self):
         self.camera.background_color = GRAY_E
 
-        slide_title = Text("Lab Engineer", font_size = 40).to_corner(UP + LEFT)
-        slide_number = Text("2", font_size = 10).to_corner(DOWN + RIGHT)
+        slide_title2 = Text("Lab Engineer", font_size = 40).to_corner(UP + LEFT)
+        slide_number2 = Text("2", font_size = 10).to_corner(DOWN + RIGHT)
         colorlabcorner = ImageMobject("/home/markus/Priv_Manim_Slides/Manim-Slides/Logos/CLsmall.png/").to_corner(DOWN + LEFT)
         colorlabcorner.scale(0.5)
 
@@ -196,15 +195,17 @@ class Lab(ThreeDSlide):
                         "- Wrote Operations Manual",
                         "- Serve as Operations Manager")
 
-        # Also add GitHub
+        GIT_Text = Text("Colourlab Github Organization")
+
+        BOOK_Text = Text("BookitLab Setup and Asset Organization")
 
 
 class Courses(Scene):
     def construct(self):
         self.camera.background_color = GRAY_E
 
-        slide_title = Text("Coursework", font_size = 40).to_corner(UP + LEFT)
-        slide_number = Text("3", font_size = 10).to_corner(DOWN + RIGHT)
+        slide_title3 = Text("Coursework", font_size = 40).to_corner(UP + LEFT)
+        slide_number3 = Text("3", font_size = 10).to_corner(DOWN + RIGHT)
         colorlabcorner = ImageMobject("/home/markus/Priv_Manim_Slides/Manim-Slides/Logos/CLsmall.png/").to_corner(DOWN + LEFT)
         colorlabcorner.scale(0.5)
 
@@ -215,7 +216,7 @@ class Courses(Scene):
         STK = Text("STK9900 - Statistical Methods and Applications", font_size=20).next_to(IDT, DOWN, aligned_edge=LEFT)
         CHG = Text("CHANGE Training School - Poland", font_size=20).next_to(STK, DOWN, aligned_edge=LEFT)
  
-       # ECT = Text("7.5", "ECT") # Can just duplicate and change this f.eks
+        ECT1 = Text("7.5", "ECT") #Create table?
 
         CO = SVGMobject(f"/home/markus/Priv_Manim_Slides/Manim-Slides/Logos/CLsvg.svg")
         NTNU = SVGMobject(f"/home/markus/Priv_Manim_Slides/Manim-Slides/Logos/NTNUsvgT.svg").next_to(CI, LEFT)
@@ -272,6 +273,10 @@ class Outreach(Scene):
         # MANER Mobility at Yale
         MANER = ImageMobject("/home/markus/Priv_Manim_Slides/Manim-Slides/Logos/MANER.png")
         YALE = SVGMobject("/home/markus/Priv_Manim_Slides/Manim-Slides/Logos/YALE.svg")
+
+        YALE_Text = Text("University of Yale")
+        YALE_info = Text("Discussed some research approaches")
+        YALE_info2 = Text("Inverse Procedural Rendering") 
 
         # MANER Training School at Chiba 
         CHIBA = ImageMobject(f"/home/markus/Priv_Manim_Slides/Manim-Slides/Logos/CHIBA.png")
@@ -416,13 +421,13 @@ class ResearchStat(ThreeDSlide):
         self.add(slide_title, slide_number, colorlabcorner)
 
         # Statistics Paper
-
+        PyPacs = Text("Pandas, Dask, Open3D, PyMeshLab, CloudComPy")
         PYTH = SVGMobject(f"/home/markus/Priv_Manim_Slides/Manim-Slides/Logos/Python.svg")
         PANDA = SVGMobject(f"/home/markus/Priv_Manim_Slides/Manim-Slides/Logos/Pandas.svg")
         #OP3D = SVGMobject(f"/home/markus/Priv_Manim_Slides/Manim-Slides/Logos/Open3D.png")
         #MESH = SVGMobject(f"/home/markus/Priv_Manim_Slides/Manim-Slides/Logos/Meshlab.png")
         #CLCP = SVGMobject(f"/home/markus/Priv_Manim_Slides/Manim-Slides/Logos/Cloudcompare.png")
-        #STATM = SVGMobject(f"/home/markus/Priv_Manim_Slides/Manim-Slides/Logos/Luftfarttilsynet.png")
+        STATM = SVGMobject(f"/home/markus/Priv_Manim_Slides/Manim-Slides/Logos/STATM.svg")
 
         vertices = [1, 2, 3, 4,]# Can maybe do the fadeout this way
         edges =  [(1, 2), (2, 3), (3, 4)]# Can maybe do the fadeout this way
@@ -454,7 +459,7 @@ class ResearchStat(ThreeDSlide):
 
         # Practice working with a sin wave as the surface, and to plot points on that surface. 
 
-        obj_stats1 = Table([["Object Name", "SMD Baseline", "n"],
+        obj_stats1 = Table([["Object Name", "SM Baseline", "SMD 1"],
                            ["Vertices", "16812", "n"],
                            ["Edges", "50430", "n"],
                            ["MaxEdge Length", "n", "n"],
@@ -474,24 +479,24 @@ class ResearchStat(ThreeDSlide):
                            ["Rest of them", "0.004", "n"]
                             ])
 
-        obj_stats2 = Table([["Elephant", "SMD Baseline", "n"],
-                           ["Unicorn", "16812", "n"],
-                           ["Edges", "50430", "n"],
-                           ["Turtles", "n", "n"],
-                           ["Rabbit", "n", "n"],
-                           ["Mouse Length", "n", "n"],
-                           ["MedianEdge Length", "n", "n"],
-                           ["Faces", "33620", "n"],
-                           ["MaxFace Size", "n", "n"],
-                           ["MinFace Size", "n", "n"],
-                           ["MeanFace Size", "n", "n"],
-                           ["MedianFace Size", "n", "n"],
-                           ["B.B Diagonal", "15.018574", "n"],
-                           ["Max Poly \n Surface", "0.006", "n"],
-                           ["Min Poly \n Surface", "0.004", "n"],
-                           ["MaxDifference", "n", "n"],
-                           ["MinDifference", "n", "n"],
-                           ["Rest of them", "0.004", "n"]
+        obj_stats2 = Table([["Hausdorff Distance Max", "SM Baseline", "SMD 1", "n"],
+                           ["Hausdorff Distance Min", "16812", "n", "n"],
+                           ["Hausdorff Distance RMS", "50430", "n", "n"],
+                           ["Hausdorff Distance Mean", "n", "n", "n"],
+                           ["Hausdorff Distance Median", "n", "n", "n"],
+                           ["Chamfer Distance", "n", "n", "n"],
+                           ["Sørensen-Dice Coefficient", "n", "n", "n"],
+                           ["Pearson Correlation X", "33620", "n", "n"],
+                           ["Pearson Correlation Y", "n", "n", "n"],
+                           ["Pearson Correlation Z", "n", "n", "n"],
+                           ["Spearman Correlation X", "n", "n", "n"],
+                           ["Spearman Correlation Y", "n", "n", "n"],
+                           ["Spearman Correlation Z", "15.018574", "n", "n"],
+                           ["Earth Movers Distance", "0.006", "n", "n"],
+                           ["Minowski Sum", "0.004", "n", "n"],
+                           ["MaxDifference", "n", "n", "n"],
+                           ["MinDifference", "n", "n", "n"],
+                           ["Rest of them", "0.004", "n", "n"]
                             ])
         
         obj_stats1.scale(0.3)
@@ -500,15 +505,32 @@ class ResearchStat(ThreeDSlide):
         edge_frame = obj_stats1.add(obj_stats1.get_cell((3,1), color = YELLOW))
         face_frame = obj_stats1.add(obj_stats1.get_cell((8,1), color = YELLOW))
 
-        hausdorff_eq = MathTex(r"d_H(X,Y) = max \biggl\{sup_{x \in X} d(x,Y), sup_{y \in Y} d(X,y) \biggr\}")
+        hausdorff_Text = Text("Hausdorff Distance measures ...")
+        hausdorff_eq = MathTex(r"d_H(X,Y_i) = max \biggl\{sup_{x \in X} d(x,Y_i), sup_{y \in Y_i} d(X,y) \biggr\}")
 
-        chamfer_eq = MathTex(r"d_C(X,Y) = \sum_{x \in X} min_{y \in Y} \| x-y \|_2^2 + \sum_{y \in Y} min_{x \in X} \| x-y \|_2^2")
+        chamfer_Text = Text("Chamfer Distance measures...")
+        chamfer_eq = MathTex(r"d_C(X,Y_i) = \sum_{x \in X} min_{y \in Y_i} \| x-y \|_2^2 + \sum_{y \in Y_i} min_{x \in X} \| x-y \|_2^2")
         chamfer_eq.scale(0.7)
+
+        earth_mover_Text = Text("Earth Mover Distance measures energy...")
+        earth_mover_eq = MathTex(r"3+3")
+
+        minowski_sum_Text = Text("Minowski sum gives...")
+        minowski_sum_eq = MathTex(r"2+56")
+
+        percor_Text = Text("Pearson correlation coefficient...")
+        percor = MathTex(r"8+3")
+
+        sprcor_Text = Text("Spearman correlation coefficient...")
+        sprcor = MathTex(r"5-2")
+
+        sørensen_dice_Text = Text("Sørensen-Dice Coefficient measures the similarity of two sets...")
+        sørensen_dice_eq = MathText(r"2 + 2")
 
         # Hausdorff Example
         # Chamfer Example
 
-        # Write someting about how it is to work with these huge arrays. 
+        # Write someting about how it is to work with these huge arrays. Using Dask?
 
         self.play(Write(obj_stats1))
         self.wait()
@@ -528,7 +550,6 @@ class ResearchSpect(ThreeDSlide):
         colorlabcorner.scale(0.5)
 
         # 3D Scanning - Point Clouds
-        # Simplification Algorithms - Visualize Examples
         # Acquisition of Color and Texture
         # Fusing Color and Texture
 
@@ -573,8 +594,34 @@ class ResearchSpect(ThreeDSlide):
                 )
         )
 
+        XYZ_Text = Text("XYZ Coordinates")
+        XYZ_coor = Table([["X", "Y", "Z"],
+                          ["35", "79", "148"],
+                          ["36", "78", "149"],
+                          ["n", "n", "n"],
+                          ["150", "340", "701"]])
+
+        RGB_Text = Text("RGB Values - Per Point")
+        RGB_vals = Table([["R", "G", "B"],
+                          ["35", "79", "148"],
+                          ["36", "78", "149"],
+                          ["n", "n", "n"],
+                          ["147", "27", "201"]])
+        
+        # Add values if using UV Projection - Resolution etc.
+
+        SPEC_vals = Table([["\lambda", "Reflectance"],
+                          ["300", "34",],
+                          ["301", "34"],
+                          ["n", "n"],
+                          ["1000", "89"]])
+
+
+
 
         # Add multispectral curves, and hyperspectral continous curve
+
+        # Add example showing difference between UV Projection rendering and Vertex Color Rendering | Side by side
 
         self.play(Write(spectrum_rectangle), Create(spect_ax))
         self.wait(2)
@@ -602,12 +649,28 @@ class Publications(ThreeDSlide):
         colorlabcorner = ImageMobject("/home/markus/Priv_Manim_Slides/Manim-Slides/Logos/CLsmall.png/").to_corner(DOWN + LEFT)
         colorlabcorner.scale(0.5)
 
+        # Journals and Conferences
+        
+         # Archiving 2023
+        ARCHIVING = ImageMobject(f"/home/markus/Priv_Manim_Slides/Manim-Slides/Logos/ARCHIVING.png")
+        arch_talk = Text("Statistical Evaluation of 3D Manifolds Shape Retention During Simplification Stages")
+
+        JCCH = SVGMobject(f"/home/markus/Priv_Manim_Slides/Manim-Slides/Logos/JournCompCH.png")
+        jcch_title = Text("Journal of Computing and Cultural Heritage")
+        jcch_pap = Text("STATM - A Statistical Toolbox for Analysis of Triangulated Manifolds")
+
         # Planned Papers
 
-        PAP_3 = Text("Modular Digitization")
+        PAP_3 = Text("Modular Digitization / Resolution Loss in Data Fusion")
         PAP_4 = Text("Material Characteristics")
-        PAP_5 = Text("??")
+        PAP_5 = Text("Resolution Errors in Fusing Data Modalities for Large CH Objects?")
         PAP_6 = Text("Quality Metric")
+
+        # Coop
+
+        CoPAP_1 = Text("Error Diffusion Texture 3D Printing")
+        CoPAP_2 = Text("Parametric Shape in CT Medical Scan")
+        CoPAP_3 = Text("Spectral Rendering w Milan?")
 
         STATUS_1 = Text("Complete", color = GREEN_D)
         STATUS_2 = Text("Planned", color = RED_C)
@@ -652,7 +715,7 @@ class Questions(ThreeDSlide):
         madeuse = Text("Made using ", font_size = 10).next_to(banner, LEFT)
 
         self.add(slide_title, slide_number)
-        self.play(banner.create, madeuse.write)
+        self.play(Create(banner), Write(madeuse))
         self.play(banner.expand)
         self.wait(2)
 
