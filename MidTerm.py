@@ -522,7 +522,7 @@ class ResearchStat(ThreeDSlide):
         percor = MathTex(r"r = \frac{\sum (x_i - \bar{x})(y_i - \bar{y}{\sqrt{\sum (x_i-\bar{x})^2 \sum (y_i - \bar{y})^2}}")
 
         sprcor_Text = Text("Spearman correlation coefficient...")
-        sprcor = MathTex(r"5-2")
+        sprcor = MathTex(r"\rho = 1 - \frac{6 \sum d_i^2}{n(n²-1)}")
 
         sørensen_dice_Text = Text("Sørensen-Dice Coefficient measures the similarity of two sets...")
         sørensen_dice_eq = MathText(r"SDC = \frac{2|X \cap Y|}{|X|+|Y|}")
