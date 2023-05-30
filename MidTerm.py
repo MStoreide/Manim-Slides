@@ -519,13 +519,13 @@ class ResearchStat(ThreeDSlide):
         minowski_sum_eq = MathTex(r"2+56")
 
         percor_Text = Text("Pearson correlation coefficient...")
-        percor = MathTex(r"8+3")
+        percor = MathTex(r"r = \frac{\sum (x_i - \bar{x})(y_i - \bar{y}{\sqrt{\sum (x_i-\bar{x})^2 \sum (y_i - \bar{y})^2}}")
 
         sprcor_Text = Text("Spearman correlation coefficient...")
         sprcor = MathTex(r"5-2")
 
         sørensen_dice_Text = Text("Sørensen-Dice Coefficient measures the similarity of two sets...")
-        sørensen_dice_eq = MathText(r"2 + 2")
+        sørensen_dice_eq = MathText(r"SDC = \frac{2|X \cap Y|}{|X|+|Y|}")
 
         # Hausdorff Example
         # Chamfer Example
