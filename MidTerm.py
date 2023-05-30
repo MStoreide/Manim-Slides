@@ -79,7 +79,9 @@ class FUNCTest(Scene):
 
                 boxes = VGroup(box1, box2)
 
-                self.play(Write(boxes))
+                banner = ManimBanner()
+
+                self.play(Create(banner))
                 self.wait(2)
 
 
@@ -652,10 +654,10 @@ class Publications(ThreeDSlide):
         # Journals and Conferences
         
          # Archiving 2023
-        ARCHIVING = ImageMobject(f"/home/markus/Priv_Manim_Slides/Manim-Slides/Logos/ARCHIVING.png")
+       # ARCHIVING = ImageMobject(f"/home/markus/Priv_Manim_Slides/Manim-Slides/Logos/ARCHIVING.png")
         arch_talk = Text("Statistical Evaluation of 3D Manifolds Shape Retention During Simplification Stages")
 
-        JCCH = SVGMobject(f"/home/markus/Priv_Manim_Slides/Manim-Slides/Logos/JournCompCH.png")
+        #JCCH = SVGMobject(f"/home/markus/Priv_Manim_Slides/Manim-Slides/Logos/JournCompCH.png")
         jcch_title = Text("Journal of Computing and Cultural Heritage")
         jcch_pap = Text("STATM - A Statistical Toolbox for Analysis of Triangulated Manifolds")
 
@@ -667,16 +669,47 @@ class Publications(ThreeDSlide):
         PAP_6 = Text("Quality Metric")
 
         # Coop
-
         CoPAP_1 = Text("Error Diffusion Texture 3D Printing")
         CoPAP_2 = Text("Parametric Shape in CT Medical Scan")
         CoPAP_3 = Text("Spectral Rendering w Milan?")
+
+        AUTH1 = Text("First Author", color = GREEN_D)
+        AUTH2 = Text("Second Author", color = ORANGE)
 
         STATUS_1 = Text("Complete", color = GREEN_D)
         STATUS_2 = Text("Planned", color = RED_C)
         STATUS_3 = Text("In Works", color = ORANGE)
         PUB_1 = Text("Published", color = GREEN_D)
         PUB_2 = Text("Submitted", color = ORANGE)
+
+        Empty = Text("-")
+
+        Test = MobjectTable([[PAP_6, STATUS_1, PUB_1],
+                             [PAP_6.copy(), STATUS_1.copy(), PUB_2],
+                             [PAP_6.copy(), STATUS_2, Empty]])
+        Test.scale(0.5)
+
+        self.play(Write(Test), run_time = 3)
+        self.wait(2)
+
+class Other(ThreeDSlide):
+    def construct(self):
+        self.camera.background_color = GRAY_E
+
+        slide_title = Text("Other Work", font_size = 40).to_corner(UP + LEFT)
+        slide_number = Text("???", font_size = 10).to_corner(DOWN + RIGHT)
+        colorlabcorner = ImageMobject("/home/markus/Priv_Manim_Slides/Manim-Slides/Logos/CLsmall.png/").to_corner(DOWN + LEFT)
+        colorlabcorner.scale(0.5)
+
+        # IDIG4002 TA   # Can run parts of the videos as a small window in this slide. Import the code here and scale it. 
+        IDIG4002_title = Text("IDIG4002 - Teaching Assistant")
+
+        # IMT4310 Lecture and Student Work
+        IMT4310_title = Text("IMT4310 - Guest Lecture and Student Work")
+        IMT4310_image1 = ImageMobject("/home/markus/Priv_Manim_Slides/Manim-Slides/Logos/IMT1.jpg/")
+        IMT4310_image2 = ImageMobject("/home/markus/Priv_Manim_Slides/Manim-Slides/Logos/IMT2.jpg").next_to(IMT4310_image1, RIGHT)
+
+
 
 
 class FutureWork(ThreeDSlide):

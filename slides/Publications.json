@@ -3,13 +3,14 @@
     {
       "type": "last",
       "start_animation": 0,
-      "end_animation": 1,
+      "end_animation": 2,
       "number": 1,
       "terminated": false
     }
   ],
   "files": [
-    "slides/files/Publications/4122872704_2965404098_223132457.mp4"
+    "slides/files/Publications/4122872704_1469261193_223132457.mp4",
+    "slides/files/Publications/1368778749_125286499_103921791.mp4"
   ],
   "resolution": [
     1920,
