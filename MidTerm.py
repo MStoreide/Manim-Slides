@@ -513,7 +513,7 @@ class ResearchStat(ThreeDSlide):
         chamfer_eq.scale(0.7)
 
         earth_mover_Text = Text("Earth Mover Distance measures energy...")
-        earth_mover_eq = MathTex(r"3+3")
+        earth_mover_eq = MathTex(r"d_EM = \sum_{i = 1}^{m} \sum_{i = 1}^{n} M_{ij}d{ij}")
 
         minowski_sum_Text = Text("Minowski sum gives...")
         minowski_sum_eq = MathTex(r"2+56")
