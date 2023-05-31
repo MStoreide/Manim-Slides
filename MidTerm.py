@@ -682,6 +682,9 @@ class Publications(ThreeDSlide):
         PUB_1 = Text("Published", color = GREEN_D)
         PUB_2 = Text("Submitted", color = ORANGE)
 
+        LVL_1 = Text("Level 1")
+        LVL_2 = Text("Level 2")
+
         Empty = Text("-")
 
         Test = MobjectTable([[PAP_6, STATUS_1, PUB_1],
