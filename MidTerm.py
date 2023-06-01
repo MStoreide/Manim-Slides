@@ -65,7 +65,7 @@ class SVGTest(Scene):
     def construct(self):
         self.camera.background_color = rgb_to_color([38/255, 45/255, 53/255])
 
-        SVG = SVGMobject(f"/home/markus/Priv_Manim_Slides/Manim-Slides/Logos/Riksantikvaren.svg")
+        SVG = SVGMobject(f"/home/markus/Priv_Manim_Slides/Manim-Slides/Logos/Open3D.svg")
 
         self.play(Write(SVG), run_time=2)
         self.wait(2)
