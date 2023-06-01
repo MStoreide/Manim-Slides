@@ -65,7 +65,7 @@ class SVGTest(Scene):
     def construct(self):
         self.camera.background_color = rgb_to_color([38/255, 45/255, 53/255])
 
-        SVG = SVGMobject(f"/home/markus/Priv_Manim_Slides/Manim-Slides/Logos/Open3D.svg")
+        SVG = SVGMobject(f"/home/markus/Priv_Manim_Slides/Manim-Slides/Logos/Confluence.svg")
 
         self.play(Write(SVG), run_time=2)
         self.wait(2)
@@ -165,10 +165,12 @@ class Intro(ThreeDScene):
         # Change slides here. Make
 
         JIRA = SVGMobject(f"/home/markus/Priv_Manim_Slides/Manim-Slides/Logos/JIRA.svg")
+        JIRA_t = Text("Jira")
         CONF = SVGMobject(f"/home/markus/Priv_Manim_Slides/Manim-Slides/Logos/Confluence.svg")
-        XMIN = SVGMobject()
-        TEAM = SVGMobject()
-        OUTL = SVGMobject()
+        CONF_t = Text("Confluence")
+        GIT = SVGMobject(f"/home/markus/Priv_Manim_Slides/Manim-Slides/Logos/Github.svg")
+        GIT_t = Text("Github")
+        #DATA MANAGEMENT???
 
         MNG = Text("Project Management Tools:").move_to(UP + LEFT)
 
@@ -189,7 +191,7 @@ class Lab(ThreeDSlide):
         colorlabcorner.scale(0.5)
 
         LFT = SVGMobject(f"/home/markus/Priv_Manim_Slides/Manim-Slides/Logos/Luftfarttilsynet.png")
-        GIT = SVGMobject(f"/home/markus/Priv_Manim_Slides/Manim-Slides/Logos/Github.png")
+        GIT = SVGMobject(f"/home/markus/Priv_Manim_Slides/Manim-Slides/Logos/Github.svg")
         BOOK = SVGMobject(f"/home/markus/Priv_Manim_Slides/Manim-Slides/Logos/Bookitlab.png")
 
         LFT_Text = Text("- Sent application to Civil Aviation Authority of Norway (CAA)",
@@ -197,7 +199,7 @@ class Lab(ThreeDSlide):
                         "- Wrote Operations Manual",
                         "- Serve as Operations Manager")
 
-        GIT_Text = Text("Colourlab Github Organization")
+        GIT_CL = Text("Colourlab Github Organization")
 
         BOOK_Text = Text("BookitLab Setup and Asset Organization")
 
