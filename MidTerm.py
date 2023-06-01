@@ -63,7 +63,7 @@ class ImageScene(ThreeDScene):
 
 class SVGTest(Scene):
     def construct(self):
-        self.camera.background_color = GRAY_E
+        self.camera.background_color = rgb_to_color([38/255, 45/255, 53/255])
 
         SVG = SVGMobject(f"/home/markus/Priv_Manim_Slides/Manim-Slides/Logos/Riksantikvaren.svg")
 
@@ -72,7 +72,7 @@ class SVGTest(Scene):
 
 class FUNCTest(Scene):
         def construct(self):
-                self.camera.background_color = GRAY_E
+                self.camera.background_color = rgb_to_color([38/255, 45/255, 53/255])
 
                 box1 = textbox(PURE_RED, PURE_RED, "STK9900")
                 box2 = textbox(PURE_BLUE, PURE_BLUE, "DT8121").next_to(box1, DOWN)
@@ -87,7 +87,7 @@ class FUNCTest(Scene):
 
 class Header(ThreeDSlide):
     def construct(self):
-        self.camera.background_color = GRAY_E
+        self.camera.background_color = rgb_to_color([38/255, 45/255, 53/255])
 
         #Slide 1: Cover
 
@@ -109,7 +109,7 @@ class Header(ThreeDSlide):
 
 class Intro(ThreeDScene):
     def construct(self):
-        self.camera.background_color = GRAY_E
+        self.camera.background_color = rgb_to_color([38/255, 45/255, 53/255])
 
         slide_title1 = Text("Introduction", font_size = 40).to_corner(UP + LEFT)
         slide_number1 = Text("1", font_size = 10).to_corner(DOWN + RIGHT)
@@ -181,7 +181,7 @@ class Intro(ThreeDScene):
 
 class Lab(ThreeDSlide):
     def construct(self):
-        self.camera.background_color = GRAY_E
+        self.camera.background_color = rgb_to_color([38/255, 45/255, 53/255])
 
         slide_title2 = Text("Lab Engineer", font_size = 40).to_corner(UP + LEFT)
         slide_number2 = Text("2", font_size = 10).to_corner(DOWN + RIGHT)
@@ -204,7 +204,7 @@ class Lab(ThreeDSlide):
 
 class Courses(Scene):
     def construct(self):
-        self.camera.background_color = GRAY_E
+        self.camera.background_color = rgb_to_color([38/255, 45/255, 53/255])
 
         slide_title3 = Text("Coursework", font_size = 40).to_corner(UP + LEFT)
         slide_number3 = Text("3", font_size = 10).to_corner(DOWN + RIGHT)
@@ -219,6 +219,8 @@ class Courses(Scene):
         CHG = Text("CHANGE Training School - Poland", font_size=20).next_to(STK, DOWN, aligned_edge=LEFT)
  
         ECT1 = Text("7.5", "ECT") #Create table?
+
+        PASS = Text("Passed", color = GREEN_C)
 
         CO = SVGMobject(f"/home/markus/Priv_Manim_Slides/Manim-Slides/Logos/CLsvg.svg")
         NTNU = SVGMobject(f"/home/markus/Priv_Manim_Slides/Manim-Slides/Logos/NTNUsvgT.svg").next_to(CI, LEFT)
@@ -237,7 +239,7 @@ class Courses(Scene):
 
 class Outreach(Scene):
     def construct(self):
-        self.camera.background_color = GRAY_E
+        self.camera.background_color = rgb_to_color([38/255, 45/255, 53/255])
 
         slide_title = Text("Outreach and Dissemination", font_size = 40).to_corner(UP + LEFT)
         slide_number = Text("4", font_size = 10).to_corner(DOWN + RIGHT)
@@ -304,7 +306,7 @@ class Outreach(Scene):
 
 class DataCollection(Scene):
     def construct(self):
-        self.camera.background_color = GRAY_E
+        self.camera.background_color = rgb_to_color([38/255, 45/255, 53/255])
 
         slide_title = Text("Data Collection", font_size = 40).to_corner(UP + LEFT)
         slide_number = Text("4", font_size = 10).to_corner(DOWN + RIGHT)
@@ -335,7 +337,7 @@ class DataCollection(Scene):
 
 class Conferences(Scene):
     def construct(self):
-        self.camera.background_color = GRAY_E
+        self.camera.background_color = rgb_to_color([38/255, 45/255, 53/255])
 
         slide_title = Text("Conferences", font_size = 40).to_corner(UP + LEFT)
         slide_number = Text("???", font_size = 10).to_corner(DOWN + RIGHT)
@@ -389,7 +391,7 @@ class Conferences(Scene):
 
 class ResearchRev(ThreeDSlide):
     def construct(self):
-        self.camera.background_color = GRAY_E
+        self.camera.background_color = rgb_to_color([38/255, 45/255, 53/255])
 
         slide_title = Text("Research Work - 3D Review", font_size = 40).to_corner(UP + LEFT)
         slide_number = Text("???", font_size = 10).to_corner(DOWN + RIGHT)
@@ -413,7 +415,7 @@ class ResearchRev(ThreeDSlide):
 
 class ResearchStat(ThreeDSlide):  
     def construct(self):
-        self.camera.background_color = GRAY_E
+        sself.camera.background_color = rgb_to_color([38/255, 45/255, 53/255])
 
         slide_title = Text("Research Work - Mesh Statistics", font_size = 25).to_corner(UP + LEFT)
         slide_number = Text("9", font_size = 10).to_corner(DOWN + RIGHT)
@@ -426,7 +428,7 @@ class ResearchStat(ThreeDSlide):
         PyPacs = Text("Pandas, Dask, Open3D, PyMeshLab, CloudComPy")
         PYTH = SVGMobject(f"/home/markus/Priv_Manim_Slides/Manim-Slides/Logos/Python.svg")
         PANDA = SVGMobject(f"/home/markus/Priv_Manim_Slides/Manim-Slides/Logos/Pandas.svg")
-        #OP3D = SVGMobject(f"/home/markus/Priv_Manim_Slides/Manim-Slides/Logos/Open3D.png")
+        OP3D = SVGMobject(f"/home/markus/Priv_Manim_Slides/Manim-Slides/Logos/Open3D.svg")
         #MESH = SVGMobject(f"/home/markus/Priv_Manim_Slides/Manim-Slides/Logos/Meshlab.png")
         #CLCP = SVGMobject(f"/home/markus/Priv_Manim_Slides/Manim-Slides/Logos/Cloudcompare.png")
         STATM = SVGMobject(f"/home/markus/Priv_Manim_Slides/Manim-Slides/Logos/STATM.svg")
@@ -544,7 +546,7 @@ class ResearchStat(ThreeDSlide):
 
 class ResearchSpect(ThreeDSlide):
     def construct(self):
-        self.camera.background_color = GRAY_E
+        self.camera.background_color = rgb_to_color([38/255, 45/255, 53/255])
 
         slide_title = Text("Research Work - Spectral Rendering", font_size = 40).to_corner(UP + LEFT)
         slide_number = Text("???", font_size = 10).to_corner(DOWN + RIGHT)
@@ -644,7 +646,7 @@ class ResearchSpect(ThreeDSlide):
 
 class Publications(ThreeDSlide):
     def construct(self):
-        self.camera.background_color = GRAY_E
+        self.camera.background_color = rgb_to_color([38/255, 45/255, 53/255])
 
         slide_title = Text("Publications", font_size = 40).to_corner(UP + LEFT)
         slide_number = Text("???", font_size = 10).to_corner(DOWN + RIGHT)
@@ -702,7 +704,7 @@ class Publications(ThreeDSlide):
 
 class Other(ThreeDSlide):
     def construct(self):
-        self.camera.background_color = GRAY_E
+        self.camera.background_color = rgb_to_color([38/255, 45/255, 53/255])
 
         slide_title = Text("Other Work", font_size = 40).to_corner(UP + LEFT)
         slide_number = Text("???", font_size = 10).to_corner(DOWN + RIGHT)
@@ -722,7 +724,7 @@ class Other(ThreeDSlide):
 
 class FutureWork(ThreeDSlide):
     def construct(self):
-        self.camera.background_color = GRAY_E
+        self.camera.background_color = rgb_to_color([38/255, 45/255, 53/255])
 
         slide_title = Text("Future Work", font_size = 40).to_corner(UP + LEFT)
         slide_number = Text("???", font_size = 10).to_corner(DOWN + RIGHT)
@@ -732,7 +734,7 @@ class FutureWork(ThreeDSlide):
 
 class Summary(ThreeDSlide):
     def construct(self):
-        self.camera.background_color = GRAY_E
+        self.camera.background_color = rgb_to_color([38/255, 45/255, 53/255])
 
         slide_title = Text("Summary", font_size = 25).to_corner(UP + LEFT)
         slide_number = Text("???", font_size = 10).to_corner(DOWN + RIGHT)
@@ -744,7 +746,7 @@ class Summary(ThreeDSlide):
 
 class Questions(ThreeDSlide):
     def construct(self):
-        self.camera.background_color = GRAY_E
+        self.camera.background_color = rgb_to_color([38/255, 45/255, 53/255])
 
         slide_title = Text("Questions and Comments", font_size = 40).to_corner(UP + LEFT)
         slide_number = Text("???", font_size = 10).to_corner(DOWN + RIGHT)
