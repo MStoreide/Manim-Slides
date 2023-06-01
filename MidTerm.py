@@ -695,6 +695,11 @@ class Publications(ThreeDSlide):
         self.play(Write(Test), run_time = 3)
         self.wait(2)
 
+        # Proposed publication Journals and Conferences
+
+        EURGR = Text("Eurographics - European Association for Computer Graphics")
+        JRNCH = Text("Journal of Cultural Heritage")
+
 class Other(ThreeDSlide):
     def construct(self):
         self.camera.background_color = GRAY_E
