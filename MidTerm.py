@@ -141,7 +141,7 @@ class Intro(ThreeDScene):
 
         #  x_label_e = axes.get_x_axis_label(Tex("x"))
         #  y_label_e = axes.get_y_axis_label(Tex("y")).shift(UP * 1.8)
-        #   z_label_e = axes.get_z_axis_label(Tex("z")).shift(IN * 1.8)
+        #  z_label_e = axes.get_z_axis_label(Tex("z")).shift(IN * 1.8)
 
         # Move to 3D Scene
         #  self.move_camera(phi=40 * DEGREES, theta=30 * DEGREES, zoom=1, run_time=1.5)
@@ -170,7 +170,7 @@ class Intro(ThreeDScene):
         CONF_t = Text("Confluence")
         GIT = SVGMobject(f"/home/markus/Priv_Manim_Slides/Manim-Slides/Logos/Github.svg")
         GIT_t = Text("Github")
-        #DATA MANAGEMENT???
+        #DATA MANAGEMENT??? MongoDB? Colourlab Server?
 
         MNG = Text("Project Management Tools:").move_to(UP + LEFT)
 
@@ -720,8 +720,6 @@ class Other(ThreeDSlide):
         IMT4310_title = Text("IMT4310 - Guest Lecture and Student Work")
         IMT4310_image1 = ImageMobject("/home/markus/Priv_Manim_Slides/Manim-Slides/Logos/IMT1.jpg/")
         IMT4310_image2 = ImageMobject("/home/markus/Priv_Manim_Slides/Manim-Slides/Logos/IMT2.jpg").next_to(IMT4310_image1, RIGHT)
-
-
 
 
 class FutureWork(ThreeDSlide):
