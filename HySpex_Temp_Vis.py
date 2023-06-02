@@ -1,6 +1,9 @@
 import pandas as pd
+import numpy as np
 
-df = pd.read_csv(f"/home/markus/Temperature_Log_AIM384_2023-03-12T153147.txt", header = 2)
-print(df)
+temps = np.loadtxt(f"/home/markus/Temperature_Log_AIM384_2023-03-12T153147.txt",
+                    skiprows = (2))
 
-df.plot()
+HS = pd.DataFrame(temps, columns = ["Time(s)", "Sensor(K)", "Ready"])
+print(HS)
+HS.plot()
