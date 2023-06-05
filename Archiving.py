@@ -200,27 +200,88 @@ class Graphs(Slide):
                 0.002992,
                 0.003734]
 
+        VCNUy = []
+        VCUy = []
+        VCSy = []
+        VCAy = []
+        VCRUy = []
+
+        QEMNUy = []
+        QEMUy = []
+        QEMSy = []
+        QEMAy = []
+        QEMRy = []
+
+        CFMNUy = []
+        CFMUy = []
+        CFMSy = []
+        CFMAy = []
+        CFMRy = []
+
+        ECNUy = []
+        ECUy = []
+        ECSy = []
+        ECAy = []
+        ECRy = []
+        
+
         DeciMean_Axes = Axes(x_range = [-1, 16, 1],
                              y_range = [0, 0.025, 0.005]
         )
         DeciMean_Lables = DeciMean_Axes.get_axis_labels(x_label = "Simplification Stage", y_label = "Hausdorff Distance")
+        DNUGraph = DeciMean_Axes.plot_line_graph(x_values = X, y_values = DNUy, line_color = RED)
+        DUGraph = DeciMean_Axes.plot_line_graph(x_values = X, y_values = DUy, line_color = GREEN)
+        DSGraph = DeciMean_Axes.plot_line_graph(x_values = X, y_values = DSy, line_color = BLUE)
+        #DAGraph = DeciMean_Axes.plot_line_graph(x_values = X, y_values = DAy, line_color = YELLOW)
+        DRGraph = DeciMean_Axes.plot_line_graph(x_values = X, y_values = DRy, line_color = GOLD)
 
-        NUGraph = DeciMean_Axes.plot_line_graph(x_values = X, y_values = DNUy, line_color = RED)
-        UGraph = DeciMean_Axes.plot_line_graph(x_values = X, y_values = DUy, line_color = GREEN)
-        SGraph = DeciMean_Axes.plot_line_graph(x_values = X, y_values = DSy, line_color = BLUE)
-        #AGraph = DeciMean_Axes.plot_line_graph(x_values = X, y_values = DAy)
-        RGraph = DeciMean_Axes.plot_line_graph(x_values = X, y_values = DRy, line_color = GOLD)
+        VerCluMean_Axes = Axes(x_range = [-1, 16, 1],
+                               y_range = [0, 0.025, 0.005]
+        )
+        VCNUGraph = VerCluMean_Axes.plot_line_graph(x_values = X, y_values = VCNUy, line_color = RED)
+        VCUGraph = VerCluMean_Axes.plot_line_graph(x_values = X, y_values = VCUy, line_color = GREEN)
+        VCSGraph = VerCluMean_Axes.plot_line_graph(x_values = X, y_values = VCSy, line_color = BLUE)
+        #VCAGraph = VerCluMean_Axes.plot_line_graph(x_values = X, y_values = VCAy, line_color = YELLOW)
+        VCRGraph = VerCluMean_Axes.plot_line_graph(x_values = X, y_values = VCRy, line_color = GOLD)
+
+        
+        QEMMean_Axes = Axes(x_range = [-1, 16, 1],
+                               y_range = [0, 0.025, 0.005]
+        )
+        QEMNUGraph = QEMMean_Axes.plot_line_graph(x_values = X, y_values = QEMNUy, line_color = RED)
+        QEMUGraph = QEMMean_Axes.plot_line_graph(x_values = X, y_values = QEMUy, line_color = GREEN)
+        QEMSGraph = QEMMean_Axes.plot_line_graph(x_values = X, y_values = QEMSy, line_color = BLUE)
+        #QEMCAGraph = QEMMean_Axes.plot_line_graph(x_values = X, y_values = QEMAy, line_color = YELLOW)
+        QEMRGraph = QEMMean_Axes.plot_line_graph(x_values = X, y_values = QEMRy, line_color = GOLD)
+
+        CFMMean_Axes = Axes(x_range = [-1, 16, 1],
+                               y_range = [0, 0.025, 0.005]
+        )
+        CFMNUGraph = CFMMean_Axes.plot_line_graph(x_values = X, y_values = CFMNUy, line_color = RED)
+        CFMUGraph = CFMMean_Axes.plot_line_graph(x_values = X, y_values = CFMMUy, line_color = GREEN)
+        CFMSGraph = CFMMean_Axes.plot_line_graph(x_values = X, y_values = CMFSy, line_color = BLUE)
+        #CFMCAGraph = CFMMean_Axes.plot_line_graph(x_values = X, y_values = CFMAy, line_color = YELLOW)
+        CFMRGraph = CFMMean_Axes.plot_line_graph(x_values = X, y_values = CFMRy, line_color = GOLD)
+        
+        EdColMean_Axes = Axes(x_range = [-1, 16, 1],
+                              y_range = [0, 0.025, 0.005]
+        )
+        ECNUGraph = EdColMean_Axes.plot_line_graph(x_values = X, y_values = ECNUy, line_color = RED)
+        ECUGraph = EdColMean_Axes.plot_line_graph(x_values = X, y_values = ECMUy, line_color = GREEN)
+        ECSGraph = EdColMean_Axes.plot_line_graph(x_values = X, y_values = ECSy, line_color = BLUE)
+        #ECCAGraph = EdColMean_Axes.plot_line_graph(x_values = X, y_values = ECAy, line_color = YELLOW)
+        ECRGraph = EdColMean_Axes.plot_line_graph(x_values = X, y_values = ECRy, line_color = GOLD)
 
         self.add(Slide_Title, Slide_Number, Colorlab)
         self.play(Write(DeciMean_Axes), Write(DeciMean_Lables))
         self.wait()
-        self.play(Write(NUGraph), run_time = 2)
+        self.play(Write(DNUGraph), run_time = 2)
         self.wait()
-        self.play(Write(UGraph), run_time = 2)
+        self.play(Write(DUGraph), run_time = 2)
         self.wait()
-        self.play(Write(SGraph), run_time = 2)
+        self.play(Write(DSGraph), run_time = 2)
         self.wait()
-        self.play(Write(RGraph), run_time = 2)
+        self.play(Write(DRGraph), run_time = 2)
         self.wait()
 
         VerCluMean_Axes = Axes(x_range = [-1, 16, 1],
@@ -233,7 +294,7 @@ class Graphs(Slide):
         CFMMean_Axes = Axes(x_range = [-1, 16, 1],
                                y_range = [0, 0.025, 0.005]
         )
-        
+
         EdColMean_Axes = Axes(x_range = [-1, 16, 1],
                               y_range = [0, 0.025, 0.005]
         )
