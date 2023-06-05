@@ -5,9 +5,9 @@ import math as m
 
 class Header(Slide):  
     def construct(self):
-        self.camera.background_color = rgb_to_color([38/255, 45/255, 53/255])
+        self.camera.background_color = rgb_to_color([1/255, 70/255, 147/255])
 
-        Slide_Title = Text("Statistical Data - Objects", font_size = 25).to_corner(UP + LEFT)
+        Slide_Title = Text("Statistical Evaluation of 3D Manifolds Shape Retention During Simplification Stages", font_size = 25)
         Slide_Number = Text("8", font_size = 15).to_corner(DOWN + RIGHT)
         Colorlab = ImageMobject("/home/markus/Priv_Manim_Slides/Manim-Slides/Logos/CLsmall.png/").move_to([-6.5, -3.5, 0])
         Colorlab.scale(0.5)
@@ -15,6 +15,64 @@ class Header(Slide):
         Archiving.scale(0.2)
         ISNT = ImageMobject("/home/markus/Priv_Manim_Slides/Manim-Slides/Logos/ISNT.png/").move_to([1.5, -3.5, 0])
         ISNT.scale(0.05)
+
+class Overview(Slide):  
+    def construct(self):
+        self.camera.background_color = rgb_to_color([38/255, 45/255, 53/255])
+        
+        Slide_Title = Text("Overview", font_size = 25).to_corner(UP + LEFT)
+        Slide_Number = Text("1", font_size = 15).to_corner(DOWN + RIGHT)
+        Colorlab = ImageMobject("/home/markus/Priv_Manim_Slides/Manim-Slides/Logos/CLsmall.png/").move_to([-6.5, -3.5, 0])
+        Colorlab.scale(0.5)
+        Archiving = ImageMobject("/home/markus/Priv_Manim_Slides/Manim-Slides/Logos/Archiving.png/").move_to([4, -3.5, 0])
+        Archiving.scale(0.2)
+        ISNT = ImageMobject("/home/markus/Priv_Manim_Slides/Manim-Slides/Logos/ISNT.png/").move_to([1.5, -3.5, 0])
+        ISNT.scale(0.05)
+
+class Introduction(Slide):  
+    def construct(self):
+        self.camera.background_color = rgb_to_color([38/255, 45/255, 53/255])
+        
+        Slide_Title = Text("Introduction", font_size = 25).to_corner(UP + LEFT)
+        Slide_Number = Text("2", font_size = 15).to_corner(DOWN + RIGHT)
+
+class SimplAlgo(Slide):  
+    def construct(self):
+        self.camera.background_color = rgb_to_color([38/255, 45/255, 53/255])
+        
+        Slide_Title = Text("Simplification Algorithms", font_size = 25).to_corner(UP + LEFT)
+        Slide_Number = Text("2", font_size = 15).to_corner(DOWN + RIGHT)
+
+        DECI_t = Text("Decimation iteratively removes vertices in a mesh based on an evaluation of optimal local geometry.") 
+        VECL_t = Text("Vertex Clustering takes vertices in close proximity to each other and clusters and merges them into a single vertex. Surrounding polygons are then re-triangulated.")
+        QEM_t = Text("Quadric Error Metrics utilizes a plane equation of a given triangle to estimate the ideal location of vertices")
+        CFM_t = Text("Coplanar facets merging looks at planar divergence between polygons and merges them if they are above a certain threshold.")
+        EDCO_t = Text("Edge Collapse finds pairs of vertices that are close together, and collapses the edge between them. This creates a new vertex at the halfway point between the two original vertices.")
+
+        surface = Graph([1, 2, 3, 4, 5, 6, 7, 8, 9], [(1, 2), (2, 3), (3, 4), (4, 5), (5, 6), (6, 7), (7, 8), (8, 9)],
+                  layout={1: [-4, 0, 0], 2: [-3, 0, 0], 3: [-2, 0, 0], 4: [-1, 0, 0], 5: [0, 0, 0], 6: [1, 0, 0], 7: [2, 0, 0], 8: [3, 0, 0], 9: [4, 0, 0]}
+                  )
+        self.play(Create(surface), run_time=3)
+        self.wait(2)
+        self.play(surface.animate.change_layout("circular"))
+        self.wait(2)
+        self.play(surface.animate.change_layout("spiral"))
+        self.wait(2)
+        self.play(surface.animate.change_layout("planar"))
+        self.wait(2)
+        self.play(surface.animate.change_layout("spectral"))
+        self.wait(2)
+        self.play(surface.animate.change_layout("spring"))
+        self.wait(2)
+        self.play(surface.animate.change_layout("random"))
+        self.wait(2)
+
+class ThreeDShapes(ThreeDSlide):  
+    def construct(self):
+        self.camera.background_color = rgb_to_color([38/255, 45/255, 53/255])
+        
+        Slide_Title = Text("Introduction", font_size = 25).to_corner(UP + LEFT)
+        Slide_Number = Text("2", font_size = 15).to_corner(DOWN + RIGHT)
 
 class OBJINFO(Slide):  
     def construct(self):
@@ -283,18 +341,3 @@ class Graphs(Slide):
         self.wait()
         self.play(Write(DRGraph), run_time = 2)
         self.wait()
-
-        VerCluMean_Axes = Axes(x_range = [-1, 16, 1],
-                               y_range = [0, 0.025, 0.005]
-        )
-        QEMMean_Axes = Axes(x_range = [-1, 16, 1],
-                               y_range = [0, 0.025, 0.005]
-        )
-
-        CFMMean_Axes = Axes(x_range = [-1, 16, 1],
-                               y_range = [0, 0.025, 0.005]
-        )
-
-        EdColMean_Axes = Axes(x_range = [-1, 16, 1],
-                              y_range = [0, 0.025, 0.005]
-        )
