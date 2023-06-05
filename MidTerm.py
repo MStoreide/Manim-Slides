@@ -417,14 +417,14 @@ class ResearchRev(ThreeDSlide):
 
 class ResearchStat(ThreeDSlide):  
     def construct(self):
-        sself.camera.background_color = rgb_to_color([38/255, 45/255, 53/255])
+        self.camera.background_color = rgb_to_color([38/255, 45/255, 53/255])
 
         slide_title = Text("Research Work - Mesh Statistics", font_size = 25).to_corner(UP + LEFT)
         slide_number = Text("9", font_size = 10).to_corner(DOWN + RIGHT)
         colorlabcorner = ImageMobject("/home/markus/Priv_Manim_Slides/Manim-Slides/Logos/CLsmall.png/").to_corner(DOWN + LEFT)
         colorlabcorner.scale(0.5)
 
-        self.add(slide_title, slide_number, colorlabcorner)
+        #self.add(slide_title, slide_number, colorlabcorner)
 
         # Statistics Paper
         PyPacs = Text("Pandas, Dask, Open3D, PyMeshLab, CloudComPy")
@@ -447,15 +447,15 @@ class ResearchStat(ThreeDSlide):
         #surface = Graph([1, 2, 3, 4, 5, 6, 7, 8, 9], [(1, 2), (2, 3), (3, 4), (4, 5), (5, 6), (6, 7), (7, 8), (8, 9)],
         #          layout={1: [-4, 0, 0], 2: [-3, 0, 0], 3: [-2, 0, 0], 4: [-1, 0, 0], 5: [0, 0, 0], 6: [1, 0, 0], 7: [2, 0, 0], 8: [3, 0, 0], 9: [4, 0, 0]}
         #          )
-        self.play(Create(g), run_time=3)
-        self.play(g[2].animate.move_to([-1, 2, 0]))
-        self.wait()
-        self.play(Transform(g, g2))
-        self.wait
+        #self.play(Create(g), run_time=3)
+        #self.play(g[2].animate.move_to([-1, 2, 0]))
+        #self.wait()
+        #self.play(Transform(g, g2))
+        #self.wait
         #self.play(surface.animate.change_layout("circular")) # Can be used to show how vertices have differetn importance
                                                              # for different surfaces
         #self.wait(2)
-        self.play(FadeOut(g))
+        #self.play(FadeOut(g))
 
         DECI_t = Text("Decimation iteratively removes vertices in a mesh based on an evaluation of optimal local geometry.") 
         VECL_t = Text("Vertex Clustering takes vertices in close proximity to each other and clusters and merges them into a single vertex. Surrounding polygons are then re-triangulated.")
@@ -508,30 +508,30 @@ class ResearchStat(ThreeDSlide):
         obj_stats1.scale(0.3)
         obj_stats2.scale(0.3)
 
-        edge_frame = obj_stats1.add(obj_stats1.get_cell((3,1), color = YELLOW))
-        face_frame = obj_stats1.add(obj_stats1.get_cell((8,1), color = YELLOW))
+        #edge_frame = obj_stats1.add(obj_stats1.get_cell((3,1), color = YELLOW))
+        #face_frame = obj_stats1.add(obj_stats1.get_cell((8,1), color = YELLOW))
 
         hausdorff_Text = Text("Hausdorff Distance measures ...")
-        hausdorff_eq = MathTex(r"d_H(X,Y_i) = max \biggl\{sup_{x \in X} d(x,Y_i), sup_{y \in Y_i} d(X,y) \biggr\}")
+        #hausdorff_eq = MathTex(r"d_H(X,Y_i) = max \biggl\{sup_{x \in X} d(x,Y_i), sup_{y \in Y_i} d(X,y) \biggr\}")
 
         chamfer_Text = Text("Chamfer Distance measures...")
-        chamfer_eq = MathTex(r"d_C(X,Y_i) = \sum_{x \in X} min_{y \in Y_i} \| x-y \|_2^2 + \sum_{y \in Y_i} min_{x \in X} \| x-y \|_2^2")
-        chamfer_eq.scale(0.7)
+        #chamfer_eq = MathTex(r"d_C(X,Y_i) = \sum_{x \in X} min_{y \in Y_i} \| x-y \|_2^2 + \sum_{y \in Y_i} min_{x \in X} \| x-y \|_2^2")
+       # chamfer_eq.scale(0.7)
 
         earth_mover_Text = Text("Earth Mover Distance measures energy...")
-        earth_mover_eq = MathTex(r"d_EM = \sum_{i = 1}^{m} \sum_{i = 1}^{n} M_{ij}d{ij}")
+        #earth_mover_eq = MathTex(r"d_EM = \sum_{i = 1}^{m} \sum_{i = 1}^{n} M_{ij}d{ij}")
 
         minowski_sum_Text = Text("Minowski sum gives...")
-        minowski_sum_eq = MathTex(r"2+56")
+        #minowski_sum_eq = MathTex(r"2+56")
 
         percor_Text = Text("Pearson correlation coefficient...")
-        percor = MathTex(r"r = \frac{\sum (x_i - \bar{x})(y_i - \bar{y}{\sqrt{\sum (x_i-\bar{x})^2 \sum (y_i - \bar{y})^2}}")
+        #percor = MathTex(r"r = \frac{\sum (x_i - \bar{x})(y_i - \bar{y}{\sqrt{\sum (x_i-\bar{x})^2 \sum (y_i - \bar{y})^2}}")
 
         sprcor_Text = Text("Spearman correlation coefficient...")
-        sprcor = MathTex(r"\rho = 1 - \frac{6 \sum d_i^2}{n(n²-1)}")
+        #sprcor = MathTex(r"\rho = 1 - \frac{6 \sum d_i^2}{n(n²-1)}")
 
         sørensen_dice_Text = Text("Sørensen-Dice Coefficient measures the similarity of two sets...")
-        sørensen_dice_eq = MathText(r"SDC = \frac{2|X \cap Y|}{|X|+|Y|}")
+        #sørensen_dice_eq = MathText(r"SDC = \frac{2|X \cap Y|}{|X|+|Y|}")
 
         # Hausdorff Example
         # Chamfer Example

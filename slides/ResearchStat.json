@@ -3,21 +3,18 @@
     {
       "type": "last",
       "start_animation": 0,
-      "end_animation": 9,
+      "end_animation": 6,
       "number": 1,
       "terminated": false
     }
   ],
   "files": [
-    "slides/files/ResearchStat/4122872704_3173290445_2865668460.mp4",
-    "slides/files/ResearchStat/1368778749_125286499_60089889.mp4",
-    "slides/files/ResearchStat/1368778749_3474397466_2400283774.mp4",
-    "slides/files/ResearchStat/1368778749_2452681595_3628300734.mp4",
-    "slides/files/ResearchStat/1368778749_3837998516_3464458367.mp4",
-    "slides/files/ResearchStat/1368778749_561553029_1323141753.mp4",
-    "slides/files/ResearchStat/1368778749_3837998516_2334887921.mp4",
-    "slides/files/ResearchStat/1368778749_769686291_742913719.mp4",
-    "slides/files/ResearchStat/1368778749_3837998516_1360491040.mp4"
+    "slides/files/ResearchStat/3385873055_2393189685_223132457.mp4",
+    "slides/files/ResearchStat/2720004795_329969645_2503903319.mp4",
+    "slides/files/ResearchStat/2720004795_494132366_3841013661.mp4",
+    "slides/files/ResearchStat/2720004795_3837998516_3547520947.mp4",
+    "slides/files/ResearchStat/2720004795_3450646387_3828168139.mp4",
+    "slides/files/ResearchStat/2720004795_3837998516_3108528252.mp4"
   ],
   "resolution": [
     1920,

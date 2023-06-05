@@ -1,0 +1,239 @@
+from manim import *
+from manim_slides import Slide, ThreeDSlide
+import numpy as np
+import math as m
+
+class Header(Slide):  
+    def construct(self):
+        self.camera.background_color = rgb_to_color([38/255, 45/255, 53/255])
+
+        Slide_Title = Text("Statistical Data - Objects", font_size = 25).to_corner(UP + LEFT)
+        Slide_Number = Text("8", font_size = 15).to_corner(DOWN + RIGHT)
+        Colorlab = ImageMobject("/home/markus/Priv_Manim_Slides/Manim-Slides/Logos/CLsmall.png/").move_to([-6.5, -3.5, 0])
+        Colorlab.scale(0.5)
+        Archiving = ImageMobject("/home/markus/Priv_Manim_Slides/Manim-Slides/Logos/Archiving.png/").move_to([4, -3.5, 0])
+        Archiving.scale(0.2)
+        ISNT = ImageMobject("/home/markus/Priv_Manim_Slides/Manim-Slides/Logos/ISNT.png/").move_to([1.5, -3.5, 0])
+        ISNT.scale(0.05)
+
+class OBJINFO(Slide):  
+    def construct(self):
+        self.camera.background_color = rgb_to_color([38/255, 45/255, 53/255])
+
+        Slide_Title = Text("Statistical Data - Objects", font_size = 25).to_corner(UP + LEFT)
+        Slide_Number = Text("8", font_size = 15).to_corner(DOWN + RIGHT)
+        Colorlab = ImageMobject("/home/markus/Priv_Manim_Slides/Manim-Slides/Logos/CLsmall.png/").move_to([-6.5, -3.5, 0])
+        Colorlab.scale(0.5)
+
+        OBJ_Stats1 = Table([["Object Name", "SM Baseline", "SMD 1"],
+                           ["Vertices", "16812", "n"],
+                           ["Edges", "50430", "n"],
+                           ["MaxEdge Length", "n", "n"],
+                           ["MinEdge Length", "n", "n"],
+                           ["MeanEdge Length", "n", "n"],
+                           ["MedianEdge Length", "n", "n"],
+                           ["Faces", "33620", "n"],
+                           ["MaxFace Size", "n", "n"],
+                           ["MinFace Size", "n", "n"],
+                           ["MeanFace Size", "n", "n"],
+                           ["MedianFace Size", "n", "n"],
+                           ["B.B Diagonal", "15.018574", "n"],
+                           ["Max Poly \n Surface", "0.006", "n"],
+                           ["Min Poly \n Surface", "0.004", "n"],
+                           ["MaxDifference", "n", "n"],
+                           ["MinDifference", "n", "n"],
+                           ["Rest of them", "0.004", "n"]
+                            ]).move_to([1,0,0])
+
+        OBJ_Stats2 = Table([["Hausdorff Distance Max", "SM Baseline", "SMD 1", "n"],
+                           ["Hausdorff Distance Min", "16812", "n", "n"],
+                           ["Hausdorff Distance RMS", "50430", "n", "n"],
+                           ["Hausdorff Distance Mean", "n", "n", "n"],
+                           ["Hausdorff Distance Median", "n", "n", "n"],
+                           ["Chamfer Distance", "n", "n", "n"],
+                           ["Sørensen-Dice Coefficient", "n", "n", "n"],
+                           ["Pearson Correlation X", "33620", "n", "n"],
+                           ["Pearson Correlation Y", "n", "n", "n"],
+                           ["Pearson Correlation Z", "n", "n", "n"],
+                           ["Spearman Correlation X", "n", "n", "n"],
+                           ["Spearman Correlation Y", "n", "n", "n"],
+                           ["Spearman Correlation Z", "15.018574", "n", "n"],
+                           ["Earth Movers Distance", "0.006", "n", "n"],
+                           ["Minowski Sum", "0.004", "n", "n"],
+                           ["MaxDifference", "n", "n", "n"],
+                           ["MinDifference", "n", "n", "n"],
+                           ["Rest of them", "0.004", "n", "n"]
+                            ]).next_to(obj_stats1)
+        
+
+
+
+        OBJ_Stats1.scale(0.3)
+        OBJ_Stats2.scale(0.3)
+
+        self.add(Slide_Number, Slide_Title, Colorlab)
+        self.wait()
+        self.next_slide()
+        self.play(Write(OBJ_Stats1))
+        self.wait()
+        self.next_slide()
+        self.play(OBJ_Stats1.animate.shift(LEFT*2), Write(OBJ_Stats2))
+        self.wait()
+        self.next_slide()
+
+        
+class OBJDIST(Slide):  
+    def construct(self):
+        self.camera.background_color = rgb_to_color([38/255, 45/255, 53/255])
+
+        Slide_Title = Text("Statistical Data - Objects", font_size = 25).to_corner(UP + LEFT)
+        Slide_Number = Text("8", font_size = 15).to_corner(DOWN + RIGHT)
+        Colorlab = ImageMobject("/home/markus/Priv_Manim_Slides/Manim-Slides/Logos/CLsmall.png/").move_to([-6.5, -3.5, 0])
+        Colorlab.scale(0.5)
+
+        obj_stats2 = Table([["Hausdorff Distance Max", "SM Baseline", "SMD 1", "n"],
+                           ["Hausdorff Distance Min", "16812", "n", "n"],
+                           ["Hausdorff Distance RMS", "50430", "n", "n"],
+                           ["Hausdorff Distance Mean", "n", "n", "n"],
+                           ["Hausdorff Distance Median", "n", "n", "n"],
+                           ["Chamfer Distance", "n", "n", "n"],
+                           ["Sørensen-Dice Coefficient", "n", "n", "n"],
+                           ["Pearson Correlation X", "33620", "n", "n"],
+                           ["Pearson Correlation Y", "n", "n", "n"],
+                           ["Pearson Correlation Z", "n", "n", "n"],
+                           ["Spearman Correlation X", "n", "n", "n"],
+                           ["Spearman Correlation Y", "n", "n", "n"],
+                           ["Spearman Correlation Z", "15.018574", "n", "n"],
+                           ["Earth Movers Distance", "0.006", "n", "n"],
+                           ["Minowski Sum", "0.004", "n", "n"],
+                           ["MaxDifference", "n", "n", "n"],
+                           ["MinDifference", "n", "n", "n"],
+                           ["Rest of them", "0.004", "n", "n"]
+                            ])
+
+        Haus_Frame = obj_stats2.add(obj_stats2.get_cell((1,1), color = YELLOW))
+        Chamf_Frame = obj_stats2.add(obj_stats2.get_cell((6,1), color = YELLOW))
+
+        Haus_Text = Text("Hausdorff Distance measures ...")
+        Haus_Eq = MathTex(r"d_H(X,Y_i) = max \biggl\{sup_{x \in X} d(x,Y_i), sup_{y \in Y_i} d(X,y) \biggr\}")
+
+        Chamf_Text = Text("Chamfer Distance measures...")
+        Chamf_Eq = MathTex(r"d_C(X,Y_i) = \sum_{x \in X} min_{y \in Y_i} \| x-y \|_2^2 + \sum_{y \in Y_i} min_{x \in X} \| x-y \|_2^2")
+        Chamf.Eq.scale(0.7)
+
+class Graphs(Slide):  
+    def construct(self):
+        self.camera.background_color = rgb_to_color([38/255, 45/255, 53/255])
+
+        Slide_Title = Text("Graphs", font_size = 25).to_corner(UP + LEFT)
+        Slide_Number = Text("8", font_size = 15).to_corner(DOWN + RIGHT)
+        Colorlab = ImageMobject("/home/markus/Priv_Manim_Slides/Manim-Slides/Logos/CLsmall.png/").move_to([-6.5, -3.5, 0])
+        Colorlab.scale(0.5)
+
+        X = [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16]
+        DNUy = [0.000022,
+                0.000068,
+                0.00013,
+                0.000203,
+                0.000287,
+                0.000384,
+                0.000489,
+                0.000599,   
+                0.000725,
+                0.000864,
+                0.001016,
+                0.001183,
+                0.001374,
+                0.001588,
+                0.001807,
+                0.002001]
+        
+        DUy = [0.000067,
+                0.000155,
+                0.000277,
+                0.000435,
+                0.000646,
+                0.000907,
+                0.001222,
+                0.001635,
+                0.002174,
+                0.002912,
+                0.003831,
+                0.005132,
+                0.007041,
+                0.009728,
+                0.014257,
+                0.022024]
+
+        DSy = [0.000164,
+                0.00045,
+                0.000967,
+                0.001558,
+                0.002264,
+                0.003053,
+                0.003979,
+                0.004888,
+                0.005783,
+                0.006765,
+                0.0079,
+                0.009215,
+                0.010796,
+                0.012556,
+                0.01473,
+                0.017454]
+
+        DAy = []
+        DRy = [0.000033,
+                0.000094,
+                0.000175,
+                0.000272,
+                0.000388,
+                0.000519,
+                0.000667,
+                0.000838,
+                0.001028,
+                0.001239,
+                0.001478,
+                0.001749,
+                0.002074,
+                0.002476,
+                0.002992,
+                0.003734]
+
+        DeciMean_Axes = Axes(x_range = [-1, 16, 1],
+                             y_range = [0, 0.025, 0.005]
+        )
+        DeciMean_Lables = DeciMean_Axes.get_axis_labels(x_label = "Simplification Stage", y_label = "Hausdorff Distance")
+
+        NUGraph = DeciMean_Axes.plot_line_graph(x_values = X, y_values = DNUy, line_color = RED)
+        UGraph = DeciMean_Axes.plot_line_graph(x_values = X, y_values = DUy, line_color = GREEN)
+        SGraph = DeciMean_Axes.plot_line_graph(x_values = X, y_values = DSy, line_color = BLUE)
+        #AGraph = DeciMean_Axes.plot_line_graph(x_values = X, y_values = DAy)
+        RGraph = DeciMean_Axes.plot_line_graph(x_values = X, y_values = DRy, line_color = GOLD)
+
+        self.add(Slide_Title, Slide_Number, Colorlab)
+        self.play(Write(DeciMean_Axes), Write(DeciMean_Lables))
+        self.wait()
+        self.play(Write(NUGraph), run_time = 2)
+        self.wait()
+        self.play(Write(UGraph), run_time = 2)
+        self.wait()
+        self.play(Write(SGraph), run_time = 2)
+        self.wait()
+        self.play(Write(RGraph), run_time = 2)
+        self.wait()
+
+        VerCluMean_Axes = Axes(x_range = [-1, 16, 1],
+                               y_range = [0, 0.025, 0.005]
+        )
+        QEMMean_Axes = Axes(x_range = [-1, 16, 1],
+                               y_range = [0, 0.025, 0.005]
+        )
+
+        CFMMean_Axes = Axes(x_range = [-1, 16, 1],
+                               y_range = [0, 0.025, 0.005]
+        )
+        
+        EdColMean_Axes = Axes(x_range = [-1, 16, 1],
+                              y_range = [0, 0.025, 0.005]
+        )
