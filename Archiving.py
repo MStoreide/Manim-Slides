@@ -24,8 +24,8 @@ class Overview(Slide):
     def construct(self):
         self.camera.background_color = rgb_to_color([38/255, 45/255, 53/255])
         
-        Slide_Title = Text("Overview", font_size = 25).to_corner(UP + LEFT)
-        Slide_Number = Text("1", font_size = 15).to_corner(DOWN + RIGHT)
+        Slide_Title = Text("Overview", font_size = 25, weight=BOLD).to_corner(UP + LEFT)
+        Slide_Number = Text("1", font_size = 15, weight=BOLD).to_corner(DOWN + RIGHT)
         Colorlab = ImageMobject("/home/markus/Priv_Manim_Slides/Manim-Slides/Logos/CLsmall.png/").move_to([-6.5, -3.5, 0])
         Colorlab.scale(0.5)
         Archiving = ImageMobject("/home/markus/Priv_Manim_Slides/Manim-Slides/Logos/Archiving.png/").move_to([4, -3.5, 0])
@@ -39,33 +39,63 @@ class Introduction(Slide):
     def construct(self):
         self.camera.background_color = rgb_to_color([38/255, 45/255, 53/255])
         
-        Slide_Title = Text("Introduction", font_size = 25).to_corner(UP + LEFT)
-        Slide_Number = Text("2", font_size = 15).to_corner(DOWN + RIGHT)
+        Slide_Title = Text("Introduction", font_size = 25, weight=BOLD).to_corner(UP + LEFT)
+        Slide_Number = Text("2", font_size = 15, weight=BOLD).to_corner(DOWN + RIGHT)
 
 class SimplAlgo(Slide):  
     def construct(self):
         self.camera.background_color = rgb_to_color([38/255, 45/255, 53/255])
         
-        Slide_Title = Text("Simplification Algorithms", font_size = 25).to_corner(UP + LEFT)
-        Slide_Number = Text("2", font_size = 15).to_corner(DOWN + RIGHT)
+        Slide_Title = Text("Simplification Algorithms", font_size = 25, weight=BOLD).to_corner(UP + LEFT)
+        Slide_Number = Text("2", font_size = 15, weight=BOLD).to_corner(DOWN + RIGHT)
 
-        SIMP = Text("Simplification removes vertices while attempting to retain the most geometry.", font_size = 20).move_to([-6,2,0])
+        SIMP = Text("Simplification removes vertices while\nattempting to retain the most geometry.", font_size = 20).move_to([-4,2.5,0])
 
-        DECI_t = Text("Decimation iteratively removes vertices in a mesh \n based on an evaluation of optimal local geometry.", font_size = 20)
-        DECI_t2 = Text("Decimation", font_size = 20, weight = BOLD).move_to([-5, 1.5, 0])
-        VECL_t = Text("Vertex Clustering takes vertices in close proximity \n to each other and clusters and merges them into a single vertex.", font_size = 20)
+        DECI_t = Text("Decimation iteratively removes vertices in a mesh\nbased on an evaluation of optimal local geometry.", font_size = 20).move_to([0,-2,0])
+        DECI_t2 = Text("Decimation", font_size = 20, weight = BOLD).move_to([-4, 1.5, 0])
+        VECL_t = Text("Vertex Clustering takes vertices in close proximity\nto each other and clusters and merges them into a single vertex.", font_size = 20).move_to([0,-2,0])
         VECL_t2 = Text("Vertex Clustering", font_size = 20, weight = BOLD).next_to(DECI_t2, DOWN)
-        QEM_t = Text("Quadric Error Metrics utilizes a plane equation of a \n given triangle to estimate the ideal location of vertices", font_size = 20)
+        QEM_t = Text("Quadric Error Metrics utilizes a plane equation of a\ngiven triangle to estimate the ideal location of vertices.", font_size = 20).move_to([0,-2,0])
         QEM_t2 = Text("Quadric Error Metrics", font_size = 20, weight = BOLD).next_to(VECL_t2, DOWN)
-        CFM_t = Text("Coplanar facets merging looks at planar divergence \n between polygons and merges them if they are above a certain threshold.", font_size = 20)
+        CFM_t = Text("Coplanar facets merging looks at planar divergence\nbetween polygons and merges them if they are above a certain threshold.", font_size = 20).move_to([0,-2,0])
         CFM_t2 = Text("Coplanar Facets Merging", font_size = 20, weight = BOLD).next_to(QEM_t2, DOWN)
-        EDCO_t = Text("Edge Collapse finds pairs of vertices that are \n close together, and collapses the edge between them.", font_size = 20)
+        EDCO_t = Text("Edge Collapse finds pairs of vertices that are\nclose together, and collapses the edge between them.", font_size = 20).move_to([0,-2,0])
         EDCO_t2 = Text("Edge Collapse", font_size = 20, weight = BOLD).next_to(CFM_t2, DOWN)
 
         surface = Graph([1, 2, 3, 4, 5, 6, 7, 8, 9], [(1, 2), (2, 3), (3, 4), (4, 5), (5, 6), (6, 7), (7, 8), (8, 9)],
                   layout={1: [-4, 0, 0], 2: [-3, 0, 0], 3: [-2, 0, 0], 4: [-1, 0, 0], 5: [0, 0, 0], 6: [1, 0, 0], 7: [2, 0, 0], 8: [3, 0, 0], 9: [4, 0, 0]}
                   )
         Def_lay = layout={1: [-4, 0, 0], 2: [-3, 0, 0], 3: [-2, 0, 0], 4: [-1, 0, 0], 5: [0, 0, 0], 6: [1, 0, 0], 7: [2, 0, 0], 8: [3, 0, 0], 9: [4, 0, 0]}
+        Min_Surface = Graph([1,2], [(1,2)], layout = {1: [-4,0,0], 2: [4,0,0]}).shift(DOWN*2.5)
+        Rem_Surface = Graph([1, 2, 3, 4, 5, 6, 7, 8, 9], [(1, 2), (2, 3), (3, 4), (4, 5), (5, 6), (6, 7), (7, 8), (8, 9)],
+                            layout={1: [-4, 0, 0], 2: [-3, 0, 0], 3: [-2, 0, 0], 4: [-1, 0, 0], 5: [0, 0, 0], 6: [1, 0, 0], 7: [2, 0, 0], 8: [3, 0, 0], 9: [4, 0, 0]},
+                            vertex_config={2: {"fill_color": RED},
+                                            3: {"fill_color": RED},
+                                            4: {"fill_color": RED},
+                                            5: {"fill_color": RED},
+                                            6: {"fill_color": RED},
+                                            7: {"fill_color": RED},
+                                            8: {"fill_color": RED}},
+                            edge_config={(2,3): {"stroke_color": RED},
+                                        (3,4): {"stroke_color": RED},
+                                        (4,5): {"stroke_color": RED},
+                                        (5,6): {"stroke_color": RED},
+                                        (6,7): {"stroke_color": RED},
+                                        (7,8): {"stroke_color": RED}}
+                            ).shift(DOWN*3)
+        Dec_Surface = Graph([1, 2, 3, 4, 5, 6, 7, 8, 9], [(1, 2), (2, 3), (3, 4), (4, 5), (5, 6), (6, 7), (7, 8), (8, 9)],
+                            layout={1: [-4, 0, 0], 2: [-3, 0, 0], 3: [-2, 0, 0], 4: [-1, 0, 0], 5: [0, 0, 0], 6: [1, 0, 0], 7: [2, 0, 0], 8: [3, 0, 0], 9: [4, 0, 0]},
+                            vertex_config={2: {"fill_color": RED},
+                                            4: {"fill_color": RED},
+                                            6: {"fill_color": RED},
+                                            8: {"fill_color": RED}}
+                  )
+        Dec_Surface_Simp = Graph([1,2,3,4,5], [(1,2),(2,3),(3,4),(4,5)],
+                                 layout={1:[-4,0,0], 2:[-2,0,0], 3:[0,0,0], 4:[2,0,0], 5:[4,0,0]}).shift(DOWN)
+        Dec_Group = VGroup(Dec_Surface, Dec_Surface_Simp).move_to([4,3,0]).scale(0.6)
+
+
+
 
         self.add(Slide_Title, Slide_Number)
         self.play(Create(surface), run_time=3)
@@ -86,6 +116,9 @@ class SimplAlgo(Slide):
         self.wait()
         self.play(surface.animate.shift(DOWN*3))
         self.wait()
+        self.play(Transform(surface, Rem_Surface))
+        self.wait()
+        self.play(FadeIn(Min_Surface), shift = UP)
         self.play(FadeIn(SIMP))
         self.play(FadeIn(DECI_t))
         self.play(Transform(DECI_t, DECI_t2))
@@ -98,21 +131,23 @@ class SimplAlgo(Slide):
         self.play(FadeIn(EDCO_t))
         self.play(Transform(EDCO_t, EDCO_t2))
         self.wait()
+        self.play(DECI_t2.animate.move_to([0,3.5,0]), Create(Dec_Group))
+        self.wait()
 
 
 class ThreeDShapes(ThreeDSlide):  
     def construct(self):
         self.camera.background_color = rgb_to_color([38/255, 45/255, 53/255])
         
-        Slide_Title = Text("Introduction", font_size = 25).to_corner(UP + LEFT)
-        Slide_Number = Text("3", font_size = 15).to_corner(DOWN + RIGHT)
+        Slide_Title = Text("Introduction", font_size = 25, weight=BOLD).to_corner(UP + LEFT)
+        Slide_Number = Text("3", font_size = 15, weight=BOLD).to_corner(DOWN + RIGHT)
 
 class OBJINFO(Slide):  
     def construct(self):
         self.camera.background_color = rgb_to_color([38/255, 45/255, 53/255])
 
-        Slide_Title = Text("Statistical Data - Objects", font_size = 25).to_corner(UP + LEFT)
-        Slide_Number = Text("8", font_size = 15).to_corner(DOWN + RIGHT)
+        Slide_Title = Text("Statistical Data - Objects", font_size = 25, weight=BOLD).to_corner(UP + LEFT)
+        Slide_Number = Text("8", font_size = 15, weight=BOLD).to_corner(DOWN + RIGHT)
         Colorlab = ImageMobject("/home/markus/Priv_Manim_Slides/Manim-Slides/Logos/CLsmall.png/").move_to([-6.5, -3.5, 0])
         Colorlab.scale(0.5)
 
@@ -177,8 +212,8 @@ class OBJDIST(Slide):
     def construct(self):
         self.camera.background_color = rgb_to_color([38/255, 45/255, 53/255])
 
-        Slide_Title = Text("Statistical Data - Objects", font_size = 25).to_corner(UP + LEFT)
-        Slide_Number = Text("8", font_size = 15).to_corner(DOWN + RIGHT)
+        Slide_Title = Text("Statistical Data - Objects", font_size = 25, weight=BOLD).to_corner(UP + LEFT)
+        Slide_Number = Text("8", font_size = 15, weight=BOLD).to_corner(DOWN + RIGHT)
         Colorlab = ImageMobject("/home/markus/Priv_Manim_Slides/Manim-Slides/Logos/CLsmall.png/").move_to([-6.5, -3.5, 0])
         Colorlab.scale(0.5)
 
@@ -216,8 +251,8 @@ class Graphs(Slide):
     def construct(self):
         self.camera.background_color = rgb_to_color([38/255, 45/255, 53/255])
 
-        Slide_Title = Text("Graphs", font_size = 25).to_corner(UP + LEFT)
-        Slide_Number = Text("8", font_size = 15).to_corner(DOWN + RIGHT)
+        Slide_Title = Text("Graphs", font_size = 25, weight=BOLD).to_corner(UP + LEFT)
+        Slide_Number = Text("8", font_size = 15, weight=BOLD).to_corner(DOWN + RIGHT)
         Colorlab = ImageMobject("/home/markus/Priv_Manim_Slides/Manim-Slides/Logos/CLsmall.png/").move_to([-6.5, -3.5, 0])
         Colorlab.scale(0.5)
 
