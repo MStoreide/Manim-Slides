@@ -50,6 +50,7 @@ class SimplAlgo(Slide):
         Slide_Number = Text("2", font_size = 15, weight=BOLD).to_corner(DOWN + RIGHT)
 
         SIMP = Text("Simplification removes vertices while\nattempting to retain the most geometry.", font_size = 20).move_to([-4,2.5,0])
+        SimpsRefS = Text("[1] Cignoni, P., Montani, C., & Scopigno, R. (1998). A comparison\nof mesh simplification algorithms. Computers & Graphics,\n22(1), 37-54.", font_size=8).move_to(-4,-3,0)
 
         DECI_t = Text("Decimation iteratively removes vertices in a mesh\nbased on an evaluation of optimal local geometry.", font_size = 20).move_to([0,-2,0])
         DECI_t2 = Text("Decimation", font_size = 20, weight = BOLD).move_to([-4, 1.5, 0])
@@ -133,8 +134,30 @@ class SimplAlgo(Slide):
         self.wait()
         self.play(DECI_t2.animate.move_to([0,3.5,0]), Create(Dec_Group))
         self.wait()
+class Statm(Slide):  
+    def construct(self):
+        self.camera.background_color = rgb_to_color([38/255, 45/255, 53/255])
+        
+        Slide_Title = Text("Introduction", font_size = 25, weight=BOLD).to_corner(UP + LEFT)
+        Slide_Number = Text("3", font_size = 15, weight=BOLD).to_corner(DOWN + RIGHT)
 
+        PYTH = SVGMobject(f"/home/markus/Priv_Manim_Slides/Manim-Slides/Logos/Python.svg") #FIX
+        PANDA = SVGMobject(f"/home/markus/Priv_Manim_Slides/Manim-Slides/Logos/Pandas.svg").next_to(PYTH, RIGHT) #FIX
+        OP3D = SVGMobject(f"/home/markus/Priv_Manim_Slides/Manim-Slides/Logos/Open3D.svg").next_to(PYTH, DOWN)
+        MESH = SVGMobject(f"/home/markus/Priv_Manim_Slides/Manim-Slides/Logos/Meshlab.svg").next_to(OP3D, RIGHT)  #FIX SVG
+        CLCP = SVGMobject(f"/home/markus/Priv_Manim_Slides/Manim-Slides/Logos/CloudCompare.svg").next_to(MESH, RIGHT)
+        DASK = SVGMobject(f"/home/markus/Priv_Manim_Slides/Manim-Slides/Logos/Dask.svg").next_to(PANDA, RIGHT) #FIX
+        STATM = SVGMobject(f"/home/markus/Priv_Manim_Slides/Manim-Slides/Logos/STATMWhite.svg")
+        ModGrp = VGroup(PYTH, PANDA, OP3D, MESH, CLCP, DASK)
 
+        OP3DRefS = Text("[?] Zhou, Q. Y., Park, J., & Koltun, V. (2018). Open3D: A modern library for 3D data processing. arXiv preprint arXiv:1801.09847.", font_size=10).move_to([-2,-2.5,0])
+        MESHRefS = Text("[?] Cignoni, P., Callieri, M., Corsini, M., Dellepiane, M., Ganovelli, F., & Ranzuglia, G. (2008, July). Meshlab: an open-source mesh processing tool. In Eurographics Italian chapter conference (Vol. 2008, pp. 129-136).", font_size=10).next_to(OP3DRefS, DOWN)
+        CLCPRefS = Text("[?] CloudCompare Open Source Project, “Cloudcompare - 3D point cloud and mesh processing software,” 2020.", font_size=10).next_to(MESHRefS, DOWN)
+
+        self.play(Write(ModGrp))
+        self.wait()
+        self.add(OP3DRefS, MESHRefS, CLCPRefS)
+        self.wait()
 class ThreeDShapes(ThreeDSlide):  
     def construct(self):
         self.camera.background_color = rgb_to_color([38/255, 45/255, 53/255])
@@ -143,6 +166,26 @@ class ThreeDShapes(ThreeDSlide):
         Slide_Number = Text("3", font_size = 15, weight=BOLD).to_corner(DOWN + RIGHT)
 
         #SVGs of some of the shapes? Definetly of angle shape to show angle measurements. 
+
+        PrimS = Sphere().move_to([-3,0,0]) 
+        PrimS.set_color(RED)
+        PrimC = Cube().next_to(PrimS, RIGHT)
+        PrimC.set_color(BLUE)
+        PrimCy = Cylinder().next_to(PrimC, RIGHT)
+        PrimCy.set_color(GREEN)
+        PrimD = Dodecahedron().next_to(PrimS, DOWN)
+        PrimD.set_color(TEAL)
+        PrimT = Torus().next_to(PrimD, RIGHT)
+        PrimT.scale(0.5)
+        PrimT.set_color(PURPLE)
+        PrimCo = Cone().next_to(PrimT, RIGHT)
+        PrimCo.set_color(ORANGE) 
+
+        Prim = VGroup(PrimS, PrimC, PrimCy, PrimD, PrimT, PrimCo) #Add that they slowly rotate while talking. WIth a loop
+
+        self.play(FadeIn(Prim))
+        self.wait()
+
 
 class OBJINFO(Slide):  
     def construct(self):
@@ -436,11 +479,23 @@ class Citation(Slide):
         Slide_Number = Text("8", font_size = 15, weight=BOLD).to_corner(DOWN + RIGHT)
         Colorlab = ImageMobject("/home/markus/Priv_Manim_Slides/Manim-Slides/Logos/CLsmall.png/").move_to([-6.5, -3.5, 0])
         Colorlab.scale(0.5)
+        Archiving = ImageMobject("/home/markus/Priv_Manim_Slides/Manim-Slides/Logos/Archiving.png/").move_to([4, -3.5, 0])
+        Archiving.scale(0.2)
+        ISNT = ImageMobject("/home/markus/Priv_Manim_Slides/Manim-Slides/Logos/ISNT.png/").move_to([1.5, -3.5, 0])
+        ISNT.scale(0.05)
 
-        Name = Text("Markus Sebastian Bakken Storeide")
-        EMail = Text("markus.s.b.storeide@ntnu.no")
-        NTNU = ImageMobject("/home/markus/Priv_Manim_Slides/Manim-Slides/Logos/NTNUText.png").to_edge(DOWN)
+        Name = Text("Markus Sebastian Bakken Storeide", font_size = 20).move_to([0,-1.5,0])
+        EMail = Text("markus.s.b.storeide@ntnu.no", font_size = 20).next_to(Name, DOWN)
+        NTNU = ImageMobject("/home/markus/Priv_Manim_Slides/Manim-Slides/Logos/NTNUText.png").move_to([-3,-3.5,0])
+        NTNU.scale(0.2)
         STATM = SVGMobject("/home/markus/Priv_Manim_Slides/Manim-Slides/Logos/STATMWhite.svg")
 
-        MetroRef = Text("Cignoni, P., Rocchini, C., & Scopigno, R. (1998, June). Metro:\nmeasuring error on simplified surfaces. In Computer graphics\nforum (Vol. 17, No. 2, pp. 167-174). Oxford, UK and Boston,\nUSA: Blackwell Publishers.")
-        SimpsRef = Text("Cignoni, P., Montani, C., & Scopigno, R. (1998). A comparison\nof mesh simplification algorithms. Computers & Graphics,\n22(1), 37-54.")
+        MetroRef = Text("[1] Cignoni, P., Rocchini, C., & Scopigno, R. (1998, June). Metro:\nmeasuring error on simplified surfaces. In Computer graphics\nforum (Vol. 17, No. 2, pp. 167-174). Oxford, UK and Boston,\nUSA: Blackwell Publishers.", font_size=10).move_to([-3,2.5,0])
+        SimpsRef = Text("[2] Cignoni, P., Montani, C., & Scopigno, R. (1998). A comparison\nof mesh simplification algorithms. Computers & Graphics,\n22(1), 37-54.", font_size=10).next_to(MetroRef, DOWN)
+
+        self.add(Slide_Title, Slide_Number, Colorlab, NTNU, Archiving, ISNT)
+        self.play(FadeIn(Name, EMail))
+        self.play(Write(STATM))
+        self.wait()
+        self.play(FadeIn(MetroRef, SimpsRef))
+        self.wait()

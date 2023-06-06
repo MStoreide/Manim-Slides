@@ -1,0 +1,20 @@
+{
+  "slides": [
+    {
+      "type": "last",
+      "start_animation": 0,
+      "end_animation": 2,
+      "number": 1,
+      "terminated": false
+    }
+  ],
+  "files": [
+    "slides/files/ThreeDShapes/3385873055_595777482_223132457.mp4",
+    "slides/files/ThreeDShapes/2720004795_329969645_1883896382.mp4"
+  ],
+  "resolution": [
+    1920,
+    1080
+  ],
+  "background_color": "black"
+}

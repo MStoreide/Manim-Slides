@@ -1,0 +1,21 @@
+{
+  "slides": [
+    {
+      "type": "last",
+      "start_animation": 0,
+      "end_animation": 3,
+      "number": 1,
+      "terminated": false
+    }
+  ],
+  "files": [
+    "slides/files/Statm/2991918809_4130809856_223132457.mp4",
+    "slides/files/Statm/857827482_329969645_2899166575.mp4",
+    "slides/files/Statm/857827482_329969645_1822947745.mp4"
+  ],
+  "resolution": [
+    1920,
+    1080
+  ],
+  "background_color": "black"
+}

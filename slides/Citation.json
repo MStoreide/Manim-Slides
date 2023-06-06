@@ -1,0 +1,23 @@
+{
+  "slides": [
+    {
+      "type": "last",
+      "start_animation": 0,
+      "end_animation": 5,
+      "number": 1,
+      "terminated": false
+    }
+  ],
+  "files": [
+    "slides/files/Citation/2991918809_3202349751_2407518813.mp4",
+    "slides/files/Citation/857827482_3639631783_3222918997.mp4",
+    "slides/files/Citation/857827482_329969645_850059075.mp4",
+    "slides/files/Citation/857827482_1399136777_2708244621.mp4",
+    "slides/files/Citation/857827482_329969645_1380259582.mp4"
+  ],
+  "resolution": [
+    1920,
+    1080
+  ],
+  "background_color": "black"
+}
