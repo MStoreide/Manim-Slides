@@ -142,6 +142,8 @@ class ThreeDShapes(ThreeDSlide):
         Slide_Title = Text("Introduction", font_size = 25, weight=BOLD).to_corner(UP + LEFT)
         Slide_Number = Text("3", font_size = 15, weight=BOLD).to_corner(DOWN + RIGHT)
 
+        #SVGs of some of the shapes? Definetly of angle shape to show angle measurements. 
+
 class OBJINFO(Slide):  
     def construct(self):
         self.camera.background_color = rgb_to_color([38/255, 45/255, 53/255])
@@ -409,3 +411,36 @@ class Graphs(Slide):
         self.wait()
         self.play(Write(DRGraph), run_time = 2)
         self.wait()
+
+
+class Analysis(Slide):  
+    def construct(self):
+        self.camera.background_color = rgb_to_color([38/255, 45/255, 53/255])
+
+        Slide_Title = Text("Analysis and Interpretation", font_size = 25, weight=BOLD).to_corner(UP + LEFT)
+        Slide_Number = Text("8", font_size = 15, weight=BOLD).to_corner(DOWN + RIGHT)
+        Colorlab = ImageMobject("/home/markus/Priv_Manim_Slides/Manim-Slides/Logos/CLsmall.png/").move_to([-6.5, -3.5, 0])
+        Colorlab.scale(0.5)
+
+        STATM = SVGMobject("/home/markus/Priv_Manim_Slides/Manim-Slides/Logos/STATMWhite.svg")
+        ObDat = Text(" * Provide insightful information about the object.")
+        ErDet = Text(" * Automatically detect errors during acquisiton or processing.").next_to(ObDat, DOWN)
+        SimCh = Text(" * Select optimal simplification approach based on object geometry.").next_to(ErDet, DOWN)
+        UsSim = Text(" * Useable on original and simplified objects.").next_to(SimCh, DOWN)
+
+class Citation(Slide):  
+    def construct(self):
+        self.camera.background_color = rgb_to_color([38/255, 45/255, 53/255])
+
+        Slide_Title = Text("Citations and Contact", font_size = 25, weight=BOLD).to_corner(UP + LEFT)
+        Slide_Number = Text("8", font_size = 15, weight=BOLD).to_corner(DOWN + RIGHT)
+        Colorlab = ImageMobject("/home/markus/Priv_Manim_Slides/Manim-Slides/Logos/CLsmall.png/").move_to([-6.5, -3.5, 0])
+        Colorlab.scale(0.5)
+
+        Name = Text("Markus Sebastian Bakken Storeide")
+        EMail = Text("markus.s.b.storeide@ntnu.no")
+        NTNU = ImageMobject("/home/markus/Priv_Manim_Slides/Manim-Slides/Logos/NTNUText.png").to_edge(DOWN)
+        STATM = SVGMobject("/home/markus/Priv_Manim_Slides/Manim-Slides/Logos/STATMWhite.svg")
+
+        MetroRef = Text("Cignoni, P., Rocchini, C., & Scopigno, R. (1998, June). Metro:\nmeasuring error on simplified surfaces. In Computer graphics\nforum (Vol. 17, No. 2, pp. 167-174). Oxford, UK and Boston,\nUSA: Blackwell Publishers.")
+        SimpsRef = Text("Cignoni, P., Montani, C., & Scopigno, R. (1998). A comparison\nof mesh simplification algorithms. Computers & Graphics,\n22(1), 37-54.")
