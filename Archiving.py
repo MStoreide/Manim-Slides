@@ -95,6 +95,7 @@ class SimplAlgo(Slide):
                                  layout={1:[-4,0,0], 2:[-2,0,0], 3:[0,0,0], 4:[2,0,0], 5:[4,0,0]}).shift(DOWN)
         Dec_Group = VGroup(Dec_Surface, Dec_Surface_Simp).move_to([4,3,0]).scale(0.6)
 
+        Redu = Text("* Reduction of ")
 
 
 
@@ -183,6 +184,9 @@ class ThreeDShapes(ThreeDSlide):
 
         Prim = VGroup(PrimS, PrimC, PrimCy, PrimD, PrimT, PrimCo) #Add that they slowly rotate while talking. WIth a loop
 
+        Ext = Text("*Extended it to include slightly more complex shapes.")
+
+        #Add images of all shapes so far (Render as pngs without background)
         self.play(FadeIn(Prim))
         self.wait()
 
@@ -262,6 +266,9 @@ class OBJDIST(Slide):
         Colorlab = ImageMobject("/home/markus/Priv_Manim_Slides/Manim-Slides/Logos/CLsmall.png/").move_to([-6.5, -3.5, 0])
         Colorlab.scale(0.5)
 
+        OP3D = SVGMobject(f"/home/markus/Priv_Manim_Slides/Manim-Slides/Logos/Open3D.svg").to_corner(UP + RIGHT)
+        MESH = SVGMobject(f"/home/markus/Priv_Manim_Slides/Manim-Slides/Logos/Meshlab.svg").next_to(OP3D, LEFT)
+
         obj_stats2 = Table([["Hausdorff Distance Max", "SM Baseline", "SMD 1", "n"],
                            ["Hausdorff Distance Min", "16812", "n", "n"],
                            ["Hausdorff Distance RMS", "50430", "n", "n"],
@@ -285,12 +292,27 @@ class OBJDIST(Slide):
         Haus_Frame = obj_stats2.add(obj_stats2.get_cell((1,1), color = YELLOW))
         Chamf_Frame = obj_stats2.add(obj_stats2.get_cell((6,1), color = YELLOW))
 
+        Samp_Surface = Graph([1,2],[(1,2)], layout={1:[-2,0,0], 2:[2,0,0]})
+        Ver_Arr1 = Arrow(np.array([-2,0,0]), np.array([-3,2,0]), color=ORANGE)
+        Ver_Arr2 = Arrow(np.array([2,0,0]), np.array([3,2,0]), color=ORANGE)
+        Face_Arr = Arrow(np.array([0,0,0]), np.array([0,3,0]), color=GREEN)
+
         Haus_Text = Text("Hausdorff Distance measures ...")
-        Haus_Eq = MathTex(r"d_H(X,Y_i) = max \biggl\{sup_{x \in X} d(x,Y_i), sup_{y \in Y_i} d(X,y) \biggr\}")
+        Haus_Eq = MathTex(r"d_H(X,Y_i) = max \biggl\{sup_{x \in X} d(x,Y_i), sup_{y \in Y_i} d(X,y) \biggr\}").next_to(Haus_Text, DOWN)
+        Haus_Eq.scale(0.7)
 
         Chamf_Text = Text("Chamfer Distance measures...")
-        Chamf_Eq = MathTex(r"d_C(X,Y_i) = \sum_{x \in X} min_{y \in Y_i} \| x-y \|_2^2 + \sum_{y \in Y_i} min_{x \in X} \| x-y \|_2^2")
-        Chamf.Eq.scale(0.7)
+        Chamf_Eq = MathTex(r"d_C(X,Y_i) = \sum_{x \in X} min_{y \in Y_i} \| x-y \|_2^2 + \sum_{y \in Y_i} min_{x \in X} \| x-y \|_2^2").next_to(Chamf_Text, DOWN)
+        Chamf_Eq.scale(0.7)
+
+
+        
+        self.play(Create(Samp_Surface))
+        self.wait()
+        self.play(GrowArrow(Ver_Arr1), GrowArrow(Ver_Arr2))
+        self.play(GrowArrow(Face_Arr))
+        self.wait()
+        self.play(Write(Haus_Eq))
 
 class Graphs(Slide):  
     def construct(self):
@@ -466,10 +488,27 @@ class Analysis(Slide):
         Colorlab.scale(0.5)
 
         STATM = SVGMobject("/home/markus/Priv_Manim_Slides/Manim-Slides/Logos/STATMWhite.svg")
-        ObDat = Text(" * Provide insightful information about the object.")
-        ErDet = Text(" * Automatically detect errors during acquisiton or processing.").next_to(ObDat, DOWN)
-        SimCh = Text(" * Select optimal simplification approach based on object geometry.").next_to(ErDet, DOWN)
-        UsSim = Text(" * Useable on original and simplified objects.").next_to(SimCh, DOWN)
+
+        ObDat = Text("* Provide insightful information about the object.")
+        ErDet = Text("* Automatically detect errors during acquisiton or processing.").next_to(ObDat, DOWN)
+        SimCh = Text("* Select optimal simplification approach based on object geometry.").next_to(ErDet, DOWN)
+        UsSim = Text("* Useable on original and simplified objects.").next_to(SimCh, DOWN)
+
+class FutureWork(Slide):  
+    def construct(self):
+        self.camera.background_color = rgb_to_color([38/255, 45/255, 53/255])
+
+        Slide_Title = Text("Graphs", font_size = 25, weight=BOLD).to_corner(UP + LEFT)
+        Slide_Number = Text("8", font_size = 15, weight=BOLD).to_corner(DOWN + RIGHT)
+        Colorlab = ImageMobject("/home/markus/Priv_Manim_Slides/Manim-Slides/Logos/CLsmall.png/").move_to([-6.5, -3.5, 0])
+        Colorlab.scale(0.5)
+        
+        STATM = SVGMobject("/home/markus/Priv_Manim_Slides/Manim-Slides/Logos/STATMWhite.svg")
+        Impl = Text("* Implement other desired features.")
+        ApSh = Text("* Apply the toolbox and investigation to CH objects.")
+        GUI = Text("* Develop a GUI for non-CS users(?)")
+        OpSo = Text("* Open Source when developed.")
+
 
 class Citation(Slide):  
     def construct(self):
@@ -488,14 +527,12 @@ class Citation(Slide):
         EMail = Text("markus.s.b.storeide@ntnu.no", font_size = 20).next_to(Name, DOWN)
         NTNU = ImageMobject("/home/markus/Priv_Manim_Slides/Manim-Slides/Logos/NTNUText.png").move_to([-3,-3.5,0])
         NTNU.scale(0.2)
-        STATM = SVGMobject("/home/markus/Priv_Manim_Slides/Manim-Slides/Logos/STATMWhite.svg")
 
         MetroRef = Text("[1] Cignoni, P., Rocchini, C., & Scopigno, R. (1998, June). Metro:\nmeasuring error on simplified surfaces. In Computer graphics\nforum (Vol. 17, No. 2, pp. 167-174). Oxford, UK and Boston,\nUSA: Blackwell Publishers.", font_size=10).move_to([-3,2.5,0])
         SimpsRef = Text("[2] Cignoni, P., Montani, C., & Scopigno, R. (1998). A comparison\nof mesh simplification algorithms. Computers & Graphics,\n22(1), 37-54.", font_size=10).next_to(MetroRef, DOWN)
 
         self.add(Slide_Title, Slide_Number, Colorlab, NTNU, Archiving, ISNT)
         self.play(FadeIn(Name, EMail))
-        self.play(Write(STATM))
         self.wait()
         self.play(FadeIn(MetroRef, SimpsRef))
         self.wait()
