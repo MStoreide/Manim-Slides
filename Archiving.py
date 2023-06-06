@@ -8,13 +8,17 @@ class Header(Slide):
         self.camera.background_color = rgb_to_color([1/255, 70/255, 147/255])
 
         Slide_Title = Text("Statistical Evaluation of 3D Manifolds Shape Retention During Simplification Stages", font_size = 25)
-        Slide_Number = Text("8", font_size = 15).to_corner(DOWN + RIGHT)
+        Date = Text("20.06.2023")
+        Name = Text("Markus Sebastian Bakken Storeide")
         Colorlab = ImageMobject("/home/markus/Priv_Manim_Slides/Manim-Slides/Logos/CLsmall.png/").move_to([-6.5, -3.5, 0])
         Colorlab.scale(0.5)
         Archiving = ImageMobject("/home/markus/Priv_Manim_Slides/Manim-Slides/Logos/Archiving.png/").move_to([4, -3.5, 0])
         Archiving.scale(0.2)
         ISNT = ImageMobject("/home/markus/Priv_Manim_Slides/Manim-Slides/Logos/ISNT.png/").move_to([1.5, -3.5, 0])
         ISNT.scale(0.05)
+        NTNU = ImageMobject(NTNU)
+
+        # Transition: Transform Images to small, Title to Slide Title
 
 class Overview(Slide):  
     def construct(self):
@@ -28,6 +32,8 @@ class Overview(Slide):
         Archiving.scale(0.2)
         ISNT = ImageMobject("/home/markus/Priv_Manim_Slides/Manim-Slides/Logos/ISNT.png/").move_to([1.5, -3.5, 0])
         ISNT.scale(0.05)
+
+        # Transition: Remove Images
 
 class Introduction(Slide):  
     def construct(self):
@@ -43,15 +49,25 @@ class SimplAlgo(Slide):
         Slide_Title = Text("Simplification Algorithms", font_size = 25).to_corner(UP + LEFT)
         Slide_Number = Text("2", font_size = 15).to_corner(DOWN + RIGHT)
 
-        DECI_t = Text("Decimation iteratively removes vertices in a mesh based on an evaluation of optimal local geometry.") 
-        VECL_t = Text("Vertex Clustering takes vertices in close proximity to each other and clusters and merges them into a single vertex. Surrounding polygons are then re-triangulated.")
-        QEM_t = Text("Quadric Error Metrics utilizes a plane equation of a given triangle to estimate the ideal location of vertices")
-        CFM_t = Text("Coplanar facets merging looks at planar divergence between polygons and merges them if they are above a certain threshold.")
-        EDCO_t = Text("Edge Collapse finds pairs of vertices that are close together, and collapses the edge between them. This creates a new vertex at the halfway point between the two original vertices.")
+        SIMP = Text("Simplification removes vertices while attempting to retain the most geometry.", font_size = 20).move_to([-6,2,0])
+
+        DECI_t = Text("Decimation iteratively removes vertices in a mesh \n based on an evaluation of optimal local geometry.", font_size = 20)
+        DECI_t2 = Text("Decimation", font_size = 20, weight = BOLD).move_to([-5, 1.5, 0])
+        VECL_t = Text("Vertex Clustering takes vertices in close proximity \n to each other and clusters and merges them into a single vertex.", font_size = 20)
+        VECL_t2 = Text("Vertex Clustering", font_size = 20, weight = BOLD).next_to(DECI_t2, DOWN)
+        QEM_t = Text("Quadric Error Metrics utilizes a plane equation of a \n given triangle to estimate the ideal location of vertices", font_size = 20)
+        QEM_t2 = Text("Quadric Error Metrics", font_size = 20, weight = BOLD).next_to(VECL_t2, DOWN)
+        CFM_t = Text("Coplanar facets merging looks at planar divergence \n between polygons and merges them if they are above a certain threshold.", font_size = 20)
+        CFM_t2 = Text("Coplanar Facets Merging", font_size = 20, weight = BOLD).next_to(QEM_t2, DOWN)
+        EDCO_t = Text("Edge Collapse finds pairs of vertices that are \n close together, and collapses the edge between them.", font_size = 20)
+        EDCO_t2 = Text("Edge Collapse", font_size = 20, weight = BOLD).next_to(CFM_t2, DOWN)
 
         surface = Graph([1, 2, 3, 4, 5, 6, 7, 8, 9], [(1, 2), (2, 3), (3, 4), (4, 5), (5, 6), (6, 7), (7, 8), (8, 9)],
                   layout={1: [-4, 0, 0], 2: [-3, 0, 0], 3: [-2, 0, 0], 4: [-1, 0, 0], 5: [0, 0, 0], 6: [1, 0, 0], 7: [2, 0, 0], 8: [3, 0, 0], 9: [4, 0, 0]}
                   )
+        Def_lay = layout={1: [-4, 0, 0], 2: [-3, 0, 0], 3: [-2, 0, 0], 4: [-1, 0, 0], 5: [0, 0, 0], 6: [1, 0, 0], 7: [2, 0, 0], 8: [3, 0, 0], 9: [4, 0, 0]}
+
+        self.add(Slide_Title, Slide_Number)
         self.play(Create(surface), run_time=3)
         self.wait(2)
         self.play(surface.animate.change_layout("circular"))
@@ -66,13 +82,30 @@ class SimplAlgo(Slide):
         self.wait(2)
         self.play(surface.animate.change_layout("random"))
         self.wait(2)
+        self.play(surface.animate.change_layout(Def_lay))
+        self.wait()
+        self.play(surface.animate.shift(DOWN*3))
+        self.wait()
+        self.play(FadeIn(SIMP))
+        self.play(FadeIn(DECI_t))
+        self.play(Transform(DECI_t, DECI_t2))
+        self.play(FadeIn(VECL_t))
+        self.play(Transform(VECL_t, VECL_t2))
+        self.play(FadeIn(QEM_t))
+        self.play(Transform(QEM_t, QEM_t2))
+        self.play(FadeIn(CFM_t))
+        self.play(Transform(CFM_t, CFM_t2))
+        self.play(FadeIn(EDCO_t))
+        self.play(Transform(EDCO_t, EDCO_t2))
+        self.wait()
+
 
 class ThreeDShapes(ThreeDSlide):  
     def construct(self):
         self.camera.background_color = rgb_to_color([38/255, 45/255, 53/255])
         
         Slide_Title = Text("Introduction", font_size = 25).to_corner(UP + LEFT)
-        Slide_Number = Text("2", font_size = 15).to_corner(DOWN + RIGHT)
+        Slide_Number = Text("3", font_size = 15).to_corner(DOWN + RIGHT)
 
 class OBJINFO(Slide):  
     def construct(self):
