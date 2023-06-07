@@ -601,34 +601,37 @@ class Graphs(Slide):
         DeciMean_Axes = Axes(x_range = [-1, 16, 1],
                              y_range = [0, 0.025, 0.005]
         )
+        DeciTit = Text("Decimation", font_size=25).next_to(DeciMean_Axes, DOWN)
         DeciMean_Lables = DeciMean_Axes.get_axis_labels(x_label = "Simplification Stage", y_label = "Hausdorff Distance")
         DNUGraph = DeciMean_Axes.plot_line_graph(x_values = X, y_values = DNUy, line_color = RED)
         DUGraph = DeciMean_Axes.plot_line_graph(x_values = X, y_values = DUy, line_color = GREEN)
         DSGraph = DeciMean_Axes.plot_line_graph(x_values = X, y_values = DSy, line_color = BLUE)
         #DAGraph = DeciMean_Axes.plot_line_graph(x_values = X, y_values = DAy, line_color = YELLOW)
         DRGraph = DeciMean_Axes.plot_line_graph(x_values = X, y_values = DRy, line_color = GOLD)
-        DeciMeanGrp = VGroup(DeciMean_Axes, DeciMean_Lables, DNUGraph, DUGraph, DSGraph, DRGraph)
+        DeciMeanGrp = VGroup(DeciMean_Axes, DeciTit, DeciMean_Lables, DNUGraph, DUGraph, DSGraph, DRGraph)
 
         VerCluMean_Axes = Axes(x_range = [-1, 16, 1],
                                y_range = [0, 0.025, 0.005]
         )
+        VerCluTit = Text("Vertex Clustering", font_size=25).next_to(VerCluMean_Axes, DOWN)
         VCNUGraph = VerCluMean_Axes.plot_line_graph(x_values = X, y_values = VCNUy, line_color = RED)
         VCUGraph = VerCluMean_Axes.plot_line_graph(x_values = X, y_values = VCUy, line_color = GREEN)
         VCSGraph = VerCluMean_Axes.plot_line_graph(x_values = X, y_values = VCSy, line_color = BLUE)
         #VCAGraph = VerCluMean_Axes.plot_line_graph(x_values = X, y_values = VCAy, line_color = YELLOW)
         VCRGraph = VerCluMean_Axes.plot_line_graph(x_values = X, y_values = VCRy, line_color = GOLD)
-        VerCluMeanGrp = VGroup(VerCluMean_Axes, VCNUGraph, VCUGraph, VCSGraph, VCRGraph)
+        VerCluMeanGrp = VGroup(VerCluMean_Axes, VerCluTit, VCNUGraph, VCUGraph, VCSGraph, VCRGraph)
 
         
         QEMMean_Axes = Axes(x_range = [-1, 16, 1],
                                y_range = [0, 0.025, 0.005]
         )
+        QEMTit = Text("Quadric Error Metrics", font_size=25).next_to(QEMMean_Axes, DOWN)
         QEMNUGraph = QEMMean_Axes.plot_line_graph(x_values = X, y_values = QEMNUy, line_color = RED)
         QEMUGraph = QEMMean_Axes.plot_line_graph(x_values = X, y_values = QEMUy, line_color = GREEN)
         QEMSGraph = QEMMean_Axes.plot_line_graph(x_values = X, y_values = QEMSy, line_color = BLUE)
         #QEMCAGraph = QEMMean_Axes.plot_line_graph(x_values = X, y_values = QEMAy, line_color = YELLOW)
         QEMRGraph = QEMMean_Axes.plot_line_graph(x_values = X, y_values = QEMRy, line_color = GOLD)
-        QEMMeanGrp = VGroup(QEMMean_Axes, QEMNUGraph, QEMUGraph, QEMSGraph, QEMRGraph)
+        QEMMeanGrp = VGroup(QEMMean_Axes, QEMTit, QEMNUGraph, QEMUGraph, QEMSGraph, QEMRGraph)
 
         #CFMMean_Axes = Axes(x_range = [-1, 16, 1],
         #                       y_range = [0, 0.025, 0.005]
@@ -642,15 +645,16 @@ class Graphs(Slide):
         EdColMean_Axes = Axes(x_range = [-1, 16, 1],
                               y_range = [0, 0.025, 0.005]
         )
+        EdColTit = Text("Edge Collapse", font_size=25).next_to(EdColMean_Axes, DOWN)
         ECNUGraph = EdColMean_Axes.plot_line_graph(x_values = X, y_values = ECNUy, line_color = RED)
         ECUGraph = EdColMean_Axes.plot_line_graph(x_values = X, y_values = ECUy, line_color = GREEN)
         ECSGraph = EdColMean_Axes.plot_line_graph(x_values = X, y_values = ECSy, line_color = BLUE)
         #ECCAGraph = EdColMean_Axes.plot_line_graph(x_values = X, y_values = ECAy, line_color = YELLOW)
         ECRGraph = EdColMean_Axes.plot_line_graph(x_values = X, y_values = ECRy, line_color = GOLD)
-        EdColMeanGrp = VGroup(EdColMean_Axes, ECNUGraph, ECUGraph, ECSGraph, ECRGraph)
+        EdColMeanGrp = VGroup(EdColMean_Axes, EdColTit, ECNUGraph, ECUGraph, ECSGraph, ECRGraph)
 
         self.add(Slide_Title, Slide_Number, Colorlab)
-        self.play(Write(DeciMean_Axes), Write(DeciMean_Lables))
+        self.play(Write(DeciMean_Axes), Write(DeciMean_Lables), Write(DeciTit))
         self.wait()
         self.play(Write(DNUGraph), run_time = 2)
         self.wait()
@@ -661,16 +665,16 @@ class Graphs(Slide):
         self.play(Write(DRGraph), run_time = 2)
         self.wait()
         self.play(DeciMeanGrp.animate.scale(0.3))
-        self.play(DeciMeanGrp.animate.move_to([-4,3,0]))
+        self.play(DeciMeanGrp.animate.move_to([-4,1,0]))
         self.play(Write(VerCluMeanGrp))
         self.play(VerCluMeanGrp.animate.scale(0.3))
-        self.play(VerCluMeanGrp.animate.move_to([-2,3,0]))
+        self.play(VerCluMeanGrp.animate.move_to([-2,1,0]))
         self.play(Write(QEMMeanGrp))
         self.play(QEMMeanGrp.animate.scale(0.3))
-        self.play(QEMMeanGrp.animate.move_to([0,3,0]))
+        self.play(QEMMeanGrp.animate.move_to([0,1,0]))
         self.play(Write(EdColMeanGrp))
         self.play(EdColMeanGrp.animate.scale(0.3))
-        self.play(EdColMeanGrp.animate.move_to([5,3,0]))
+        self.play(EdColMeanGrp.animate.move_to([5,1,0]))
         self.wait()
 
 
