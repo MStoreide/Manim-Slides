@@ -189,6 +189,17 @@ class ThreeDShapes(ThreeDSlide):
         #Add images of all shapes so far (Render as pngs without background)
         self.play(FadeIn(Prim))
         self.wait()
+        self.next_slide()
+        self.start_loop()
+        self.play(Rotate(PrimS, angle=2*PI, about_point=ORIGIN, rate_func=linear), #Make so that they rotate slowly around themselves.
+                  Rotate(PrimC, angle=2*PI, about_point=ORIGIN, rate_func=linear),
+                  Rotate(PrimCy, angle=2*PI, about_point=ORIGIN, rate_func=linear),
+                  Rotate(PrimD, angle=2*PI, about_point=ORIGIN, rate_func=linear),
+                  Rotate(PrimT, angle=2*PI, about_point=ORIGIN, rate_func=linear),
+                  Rotate(PrimCo, angle=2*PI, about_point=ORIGIN, rate_func=linear))
+        self.end_loop()
+        self.play(FadeOut(Prim))
+        self.next_slide()
 
 
 class OBJINFO(Slide):  

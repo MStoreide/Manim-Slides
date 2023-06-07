@@ -1,16 +1,37 @@
 {
   "slides": [
     {
-      "type": "last",
+      "type": "slide",
       "start_animation": 0,
       "end_animation": 2,
       "number": 1,
       "terminated": false
+    },
+    {
+      "type": "loop",
+      "start_animation": 2,
+      "end_animation": 8,
+      "number": 2,
+      "terminated": false
+    },
+    {
+      "type": "last",
+      "start_animation": 8,
+      "end_animation": 9,
+      "number": 3,
+      "terminated": false
     }
   ],
   "files": [
-    "slides/files/ThreeDShapes/3385873055_595777482_223132457.mp4",
-    "slides/files/ThreeDShapes/2720004795_329969645_1883896382.mp4"
+    "slides/files/ThreeDShapes/3385873055_2232849880_223132457.mp4",
+    "slides/files/ThreeDShapes/2720004795_329969645_1327109968.mp4",
+    "slides/files/ThreeDShapes/2720004795_2798533267_963301236.mp4",
+    "slides/files/ThreeDShapes/2720004795_3528421482_1672197736.mp4",
+    "slides/files/ThreeDShapes/2720004795_554519253_839800423.mp4",
+    "slides/files/ThreeDShapes/2720004795_135655919_507614831.mp4",
+    "slides/files/ThreeDShapes/2720004795_3761440590_3109120738.mp4",
+    "slides/files/ThreeDShapes/2720004795_3512855868_247030979.mp4",
+    "slides/files/ThreeDShapes/2720004795_1845961515_282393003.mp4"
   ],
   "resolution": [
     1920,
