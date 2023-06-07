@@ -383,8 +383,6 @@ class Graphs(Slide):
         #ECAyMax = []
         ECRyMax = [0.007504, 0.009433, 0.009149, 0.01171, 0.011164, 0.011873, 0.01181, 0.014555, 0.01842, 0.016571, 0.017971, 0.019921, 0.023775, 0.023197, 0.027797, 0.028723]
 
-
-        # Min Values
         
         # Mean Graphs
         DeciMean_Axes = Axes(x_range = [-1, 16, 1],
@@ -502,15 +500,8 @@ class Graphs(Slide):
         ECMaxGrp = VGroup(ECMaxAxes, ECTitMax, ECNUMaGraph, ECUMaGraph, ECSMaGraph, ECRMaGraph).move_to([6.5,-2,0])
         ECMaxGrp.scale(0.2)
 
-        # Min Graphs
-
-        #DeciMinAxes = Axes()
-        #DeciTitMin = Text("Decimation - Min Error", font_size=25).next_to(DeciMinAxes, DOWN)
-        #DNUMiGraph =
-        #DUMiGraph =
-        #DSMiGraph =
-        #DAMiGraph =
-        #DRMiGraph =
+        MeanTit = Text("Mean Error", font_size=20).next_to(QEMMeanGrp, UP)
+        MaxTit = Text("Max Error", font_size=20).next_to(QEMMaxGrp, UP)
 
 
         self.add(Slide_Title, Slide_Number, Colorlab)
@@ -536,7 +527,7 @@ class Graphs(Slide):
         self.play(EdColMeanGrp.animate.scale(0.3))
         self.play(EdColMeanGrp.animate.move_to([5,1,0]))
         self.wait()
-        self.play(Write(ECMaxGrp), Write(DeciMaxGrp), Write(VeClMaxGrp), Write(QEMMaxGrp))
+        self.play(Write(ECMaxGrp), Write(DeciMaxGrp), Write(VeClMaxGrp), Write(QEMMaxGrp), Write(MaxTit), Write(MeanTit))
         self.wait()
 
 
