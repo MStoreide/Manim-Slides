@@ -614,7 +614,7 @@ class Graphs(Slide):
 0.011873,
 0.01181,
 0.014555,
-0.01842,
+0.01842,    #ALL THE MAX VALUES ARE WRONG!!! FIX THEM!
 0.016571,
 0.017971,
 0.019921,
@@ -684,50 +684,63 @@ class Graphs(Slide):
         EdColMeanGrp = VGroup(EdColMean_Axes, EdColTit, ECNUGraph, ECUGraph, ECSGraph, ECRGraph)
 
         # Max Graphs
-        DeciMaxAxes = Axes()
+        DeciMaxAxes = Axes(x_range = [-1, 16, 1],
+                              y_range = [0, 0.25, 0.05]
+        )
         DeciTitMax = Text("Decimation - Max Error", font_size=25).next_to(DeciMaxAxes, DOWN)
-        DNUMaGraph = DexiMaxAxes.plot_line_graph(x_values = X, y_values = DNUyMax, line_color = RED)
-        DUMaGraph = DexiMaxAxes.plot_line_graph(x_values = X, y_values = DUyMax, line_color = GREEN)
-        DSMaGraph = DexiMaxAxes.plot_line_graph(x_values = X, y_values = DSyMax, line_color = BLUE)
-        #DAMaGraph = DexiMaxAxes.plot_line_graph(x_values = X, y_values = DAyMax, line_color = PURPLE)
-        DRMaGraph = DexiMaxAxes.plot_line_graph(x_values = X, y_values = DRyMax, line_color = GOLD)
-        DeciMaxGrp = VGroup(DeciMaxAxes, DeciTitMax, DNUMaGraph, DUMaGraph, DSMaGraph, DAMaGraph, DRMaGraph)
+        DNUMaGraph = DeciMaxAxes.plot_line_graph(x_values = X, y_values = DNUyMax, line_color = RED)
+        DUMaGraph = DeciMaxAxes.plot_line_graph(x_values = X, y_values = DUyMax, line_color = GREEN)
+        DSMaGraph = DeciMaxAxes.plot_line_graph(x_values = X, y_values = DSyMax, line_color = BLUE)
+        #DAMaGraph = DeciMaxAxes.plot_line_graph(x_values = X, y_values = DAyMax, line_color = PURPLE)
+        DRMaGraph = DeciMaxAxes.plot_line_graph(x_values = X, y_values = DRyMax, line_color = GOLD)
+        DeciMaxGrp = VGroup(DeciMaxAxes, DeciTitMax, DNUMaGraph, DUMaGraph, DSMaGraph, DRMaGraph).move_to([-4,-2,0])
+        DeciMaxGrp.scale(0.3)
         
-        VeClMaxAxes = Axes()
+        VeClMaxAxes = Axes(x_range = [-1, 16, 1],
+                              y_range = [0, 0.08, 0.02]
+        )
         VeClTitMax = Text("Vertex Clustering - Max Error", font_size=25).next_to(VeClMaxAxes, DOWN)
         VCNUMaGraph = VeClMaxAxes.plot_line_graph(x_values = X, y_values = VCNUyMax, line_color = RED)
         VCUMaGraph = VeClMaxAxes.plot_line_graph(x_values = X, y_values = VCUyMax, line_color = GREEN)
         VCSMaGraph = VeClMaxAxes.plot_line_graph(x_values = X, y_values = VCSyMax, line_color = BLUE)
         #VCAMaGraph = VeClMaxAxes.plot_line_graph(x_values = X, y_values = VCAyMax, line_color = PURPLE)
         VCRMaGraph = VeClMaxAxes.plot_line_graph(x_values = X, y_values = VCRyMax, line_color = GOLD)
-        VeClMaxGrp = VGroup (VeClMaxAxes, VeClTitMax, VCNUMaGraph, VCUMaGraph, VCSMaGraph, VCAMaGraph, VCRMaGraph)
+        VeClMaxGrp = VGroup (VeClMaxAxes, VeClTitMax, VCNUMaGraph, VCUMaGraph, VCSMaGraph, VCRMaGraph).next_to(DeciMaxGrp, RIGHT)
+        VeClMaxGrp.scale(0.3)
 
-        QEMMaxAxes = Axes()
+        QEMMaxAxes = Axes(x_range = [-1, 16, 1],
+                              y_range = [0, 0.08, 0.02]
+        )
         QEMTitMax = Text("Quadric Error Metrics - Max Error", font_size=25).next_to(QEMMaxAxes, DOWN)
         QEMNUMaGraph = QEMMaxAxes.plot_line_graph(x_values = X, y_values = QEMNUyMax, line_color = RED)
         QEMUMaGraph = QEMMaxAxes.plot_line_graph(x_values = X, y_values = QEMUyMax, line_color = GREEN)
         QEMSMaGraph = QEMMaxAxes.plot_line_graph(x_values = X, y_values = QEMSyMax, line_color = BLUE)
         #QEMAMaGraph = QEMMaxAxes.plot_line_graph(x_values = X, y_values = QEMAyMax, line_color = PURPLE)
         QEMRMaGraph = QEMMaxAxes.plot_line_graph(x_values = X, y_values = QEMRyMax, line_color = GOLD)
-        QEMMaxGrp = VGroup(QEMMaxAxes, QEMTitMax, QEMNUMaGraph, QEMUMaGraph, QEMSMaGraph, QEMAMaGraph, QEMRMaGraph)
+        QEMMaxGrp = VGroup(QEMMaxAxes, QEMTitMax, QEMNUMaGraph, QEMUMaGraph, QEMSMaGraph, QEMRMaGraph).next_to(VeClMaxGrp, RIGHT)
+        QEMMaxGrp.scale(0.3)
 
-        CFMMaxAxes = Axes()
-        CFMTitMax = Text("Decimation - Max Error", font_size=25).next_to(CFMMaxAxes, DOWN)
-        CFMNUMaGraph = CFMMaxAxes.plot_line_graph(x_values = X, y_values = CFMNUyMax, line_color = RED)
-        CFMUMaGraph = CFMMaxAxes.plot_line_graph(x_values = X, y_values = CFMUyMax, line_color = GREEN)
-        CFMSMaGraph = CFMMaxAxes.plot_line_graph(x_values = X, y_values = CFMSyMax, line_color = BLUE)
+        #CFMMaxAxes = Axes()
+        #CFMTitMax = Text("Decimation - Max Error", font_size=25).next_to(CFMMaxAxes, DOWN)
+        #CFMNUMaGraph = CFMMaxAxes.plot_line_graph(x_values = X, y_values = CFMNUyMax, line_color = RED)
+        #CFMUMaGraph = CFMMaxAxes.plot_line_graph(x_values = X, y_values = CFMUyMax, line_color = GREEN)
+        #CFMSMaGraph = CFMMaxAxes.plot_line_graph(x_values = X, y_values = CFMSyMax, line_color = BLUE)
         #CFMAMaGraph = CFMMaxAxes.plot_line_graph(x_values = X, y_values = CFMAyMax, line_color = PURPLE)
-        CFMRMaGraph = CFMMaxAxes.plot_line_graph(x_values = X, y_values = CFMRyMax, line_color = GOLD)
-        CFMMaxGrp = VGroup(CFMMaxAxes, CFMTitMax, CFMNUMaGraph, CFMUMaGraph, CFMSMaGraph, CFMAMaGraph, CFMRMaGraph)
+        #CFMRMaGraph = CFMMaxAxes.plot_line_graph(x_values = X, y_values = CFMRyMax, line_color = GOLD)
+        #CFMMaxGrp = VGroup(CFMMaxAxes, CFMTitMax, CFMNUMaGraph, CFMUMaGraph, CFMSMaGraph, CFMAMaGraph, CFMRMaGraph)
+        #CFMMaxGrp.scale(0.3)
 
-        ECMaxAxes = Axes()
+        ECMaxAxes = Axes(x_range = [-1, 16, 1],
+                              y_range = [0, 0.08, 0.02]
+        )
         ECTitMax = Text("Decimation - Max Error", font_size=25).next_to(ECMaxAxes, DOWN)
         ECNUMaGraph = ECMaxAxes.plot_line_graph(x_values = X, y_values = ECNUyMax, line_color = RED)
         ECUMaGraph = ECMaxAxes.plot_line_graph(x_values = X, y_values = ECUyMax, line_color = GREEN)
         ECSMaGraph = ECMaxAxes.plot_line_graph(x_values = X, y_values = ECSyMax, line_color = BLUE)
         #ECAMaGraph = ECMaxAxes.plot_line_graph(x_values = X, y_values = ECAyMax, line_color = PURPLE)
         ECRMaGraph = ECMaxAxes.plot_line_graph(x_values = X, y_values = ECRyMax, line_color = GOLD)
-        ECMaxGrp = (ECMaxAxes, ECTitMax, ECNUMaGraph, ECUMaGraph, ECSMaGraph, ECAMaGraph, ECRMaGraph)
+        ECMaxGrp = (ECMaxAxes, ECTitMax, ECNUMaGraph, ECUMaGraph, ECSMaGraph, ECRMaGraph).next_to(QEMMaxGrp, RIGHT)
+        ECMaxGrp.scale(0.3)
 
         # Min Graphs
 
@@ -762,6 +775,8 @@ class Graphs(Slide):
         self.play(Write(EdColMeanGrp))
         self.play(EdColMeanGrp.animate.scale(0.3))
         self.play(EdColMeanGrp.animate.move_to([5,1,0]))
+        self.wait()
+        self.play(Write(ECMaxGrp), Write(DeciMaxGrp), Write(VeClMaxGrp), Write(QEMMaxGrp))
         self.wait()
 
 
