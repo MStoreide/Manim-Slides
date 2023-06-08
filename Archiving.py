@@ -94,12 +94,29 @@ class Introduction(Slide):
 
         #self.play(Transform(Slide_Title2, Slide_Title3), Transform(Slide_Number2, Slide_Number3), FadeOut(Process, Simps, Stats))
 
+        Arr = Text("Acquire huge arrays of 3D data. (Not counting color).")
+        TDTable = Table([["X", "Y", "Z"],
+                         ["146","35","67"],
+                         ["145","34","67"],
+                         ["146","35","65"],
+                         ["147","36","66"],
+                         ["147","37","66"],
+                         ["148","38","68"],
+                         ["n","n","n"]]).move_to([2,2,0])
         SimpDef = Text("Simplification removes redundant and erroneous 3D data.")
         HBIM = Text("HBIM = Heritage Building Information Modeling")
         Redu = Text("Reducing point clouds into geometric primitives.")
-        SampScan = Image(f"/home/markus/Priv_Manim_Slides/Manim-Slides/Archiving/Antonious.png")
         SurfaceEx = Image(f"/home/markus/Priv_Manim_Slides/Manim-Slides/Archiving/Details.png")
         PrimRedu = Image(f"/home/markus/Priv_Manim_Slides/Manim-Slides/Archiving/Prims.png")
+
+        self.play(FadeIn(Arr))
+        self.play(Write(TDTable))
+        self.next_slide()
+        self.play(FadeIn(SimpDef))
+        self.next_slide()
+        self.play(FadeIn(HBIM))
+        self.play(FadeIn(Redu))
+        self.next_Slide()
 
         self.play(FadeIn(SurfaceEx))
 
@@ -207,18 +224,18 @@ class ThreeDShapes(ThreeDSlide):
 
         #SVGs of some of the shapes? Definetly of angle shape to show angle measurements. 
 
-        PrimS = Sphere().move_to([-3,0,0]) 
+        PrimS = Sphere().move_to([-3,2,0]) 
         PrimS.set_color(RED)
-        PrimC = Cube().next_to(PrimS, RIGHT)
+        PrimC = Cube().move_to([0,2,0]) 
         PrimC.set_color(BLUE)
-        PrimCy = Cylinder().next_to(PrimC, RIGHT)
+        PrimCy = Cylinder().move_to([3,2,0]) 
         PrimCy.set_color(GREEN)
-        PrimD = Dodecahedron().next_to(PrimS, DOWN)
+        PrimD = Dodecahedron().move_to([-3,-1,0]) 
         PrimD.set_color(TEAL)
-        PrimT = Torus().next_to(PrimD, RIGHT)
+        PrimT = Torus().move_to([0,-1,0]) 
         PrimT.scale(0.5)
         PrimT.set_color(PURPLE)
-        PrimCo = Cone().next_to(PrimT, RIGHT)
+        PrimCo = Cone().move_to([3,-1,0]) 
         PrimCo.set_color(ORANGE) 
 
         Prim = VGroup(PrimS, PrimC, PrimCy, PrimD, PrimT, PrimCo) #Add that they slowly rotate while talking. WIth a loop
@@ -228,18 +245,22 @@ class ThreeDShapes(ThreeDSlide):
         #Add images of all shapes so far (Render as pngs without background)
         self.play(FadeIn(Prim))
         self.wait()
+        self.move_camera(phi=40 * DEGREES, zoom=1, run_time=1.5)
         self.next_slide()
         self.start_loop()
-        self.play(Rotate(PrimS, angle=2*PI, about_point=ORIGIN, rate_func=linear), #Make so that they rotate slowly around themselves.
-                  Rotate(PrimC, angle=2*PI, about_point=ORIGIN, rate_func=linear),
-                  Rotate(PrimCy, angle=2*PI, about_point=ORIGIN, rate_func=linear),
-                  Rotate(PrimD, angle=2*PI, about_point=ORIGIN, rate_func=linear),
-                  Rotate(PrimT, angle=2*PI, about_point=ORIGIN, rate_func=linear),
-                  Rotate(PrimCo, angle=2*PI, about_point=ORIGIN, rate_func=linear))
+        self.begin_ambient_camera_rotation(rate=0.15)
+        self.play(Rotate(PrimS, angle=2*PI, about_point=[-3,2,0], rate_func=linear),
+                  Rotate(PrimC, angle=2*PI, about_point=[0,2,0], rate_func=linear),
+                  Rotate(PrimCy, angle=2*PI, about_point=[3,2,0], rate_func=linear),
+                  Rotate(PrimD, angle=2*PI, about_point=[-3,-1,0], rate_func=linear),
+                  Rotate(PrimT, angle=2*PI, about_point=[0,-1,0], rate_func=linear),
+                  Rotate(PrimCo, angle=2*PI, about_point=[3,-1,0], rate_func=linear))
         self.end_loop()
         self.play(FadeOut(Prim))
+        self.stop_ambient_camera_rotation()
+        self.move_camera(phi=0 * DEGREES, run_time=1.5)
         self.next_slide()
-        
+
 class Statm(Slide):  
     def construct(self):
         self.camera.background_color = rgb_to_color([38/255, 45/255, 53/255])
