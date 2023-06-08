@@ -89,8 +89,10 @@ class Introduction(Slide):
     def construct(self):
         self.camera.background_color = rgb_to_color([38/255, 45/255, 53/255])
         
-        Slide_Title = Text("Introduction", font_size = 25, weight=BOLD).to_corner(UP + LEFT)
-        Slide_Number = Text("2", font_size = 15, weight=BOLD).to_corner(DOWN + RIGHT)
+        Slide_Title3 = Text("Processing 3D Data for Cultural Heritage", font_size = 25, weight=BOLD).to_corner(UP + LEFT)
+        Slide_Number3 = Text("2", font_size = 15, weight=BOLD).to_corner(DOWN + RIGHT)
+
+        SampScan = Image()
 
 class SimplAlgo(Slide):  
     def construct(self):
@@ -100,7 +102,8 @@ class SimplAlgo(Slide):
         Slide_Number = Text("2", font_size = 15, weight=BOLD).to_corner(DOWN + RIGHT)
 
         SIMP = Text("Simplification removes vertices while\nattempting to retain the most geometry.", font_size = 20).move_to([-4,2.5,0])
-        SimpsRefS = Text("[1] Cignoni, P., Montani, C., & Scopigno, R. (1998). A comparison\nof mesh simplification algorithms. Computers & Graphics,\n22(1), 37-54.", font_size=8).move_to(-4,-3,0)
+        #SimpsRefS = Text(" [1] Cignoni, P., Montani, C., & Scopigno, R. (1998). A comparison\nof mesh simplification algorithms. Computers & Graphics,\n22(1), 37-54.", font_size=8).move_to(-4,-3,0)
+        #FIX REFS
 
         DECI_t = Text("Decimation iteratively removes vertices in a mesh\nbased on an evaluation of optimal local geometry.", font_size = 20).move_to([0,-2,0])
         DECI_t2 = Text("Decimation", font_size = 20, weight = BOLD).move_to([-4, 1.5, 0])
