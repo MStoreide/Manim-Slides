@@ -92,7 +92,16 @@ class Introduction(Slide):
         Slide_Title3 = Text("Processing 3D Data for Cultural Heritage", font_size = 25, weight=BOLD).to_corner(UP + LEFT)
         Slide_Number3 = Text("2", font_size = 15, weight=BOLD).to_corner(DOWN + RIGHT)
 
-        SampScan = Image()
+        #self.play(Transform(Slide_Title2, Slide_Title3), Transform(Slide_Number2, Slide_Number3), FadeOut(Process, Simps, Stats))
+
+        SimpDef = Text("Simplification removes redundant and erroneous 3D data.")
+        HBIM = Text("HBIM = Heritage Building Information Modeling")
+        Redu = Text("Reducing point clouds into geometric primitives.")
+        SampScan = Image(f"/home/markus/Priv_Manim_Slides/Manim-Slides/Archiving/Antonious.png")
+        SurfaceEx = Image(f"/home/markus/Priv_Manim_Slides/Manim-Slides/Archiving/Details.png")
+        PrimRedu = Image(f"/home/markus/Priv_Manim_Slides/Manim-Slides/Archiving/Prims.png")
+
+        self.play(FadeIn(SurfaceEx))
 
 class SimplAlgo(Slide):  
     def construct(self):
@@ -188,30 +197,7 @@ class SimplAlgo(Slide):
         self.wait()
         self.play(DECI_t2.animate.move_to([0,3.5,0]), Create(Dec_Group))
         self.wait()
-class Statm(Slide):  
-    def construct(self):
-        self.camera.background_color = rgb_to_color([38/255, 45/255, 53/255])
-        
-        Slide_Title = Text("Introduction", font_size = 25, weight=BOLD).to_corner(UP + LEFT)
-        Slide_Number = Text("3", font_size = 15, weight=BOLD).to_corner(DOWN + RIGHT)
 
-        PYTH = SVGMobject(f"/home/markus/Priv_Manim_Slides/Manim-Slides/Logos/Python.svg") #FIX
-        PANDA = SVGMobject(f"/home/markus/Priv_Manim_Slides/Manim-Slides/Logos/Pandas.svg").next_to(PYTH, RIGHT) #FIX
-        OP3D = SVGMobject(f"/home/markus/Priv_Manim_Slides/Manim-Slides/Logos/Open3D.svg").next_to(PYTH, DOWN)
-        MESH = SVGMobject(f"/home/markus/Priv_Manim_Slides/Manim-Slides/Logos/Meshlab.svg").next_to(OP3D, RIGHT)  #FIX SVG
-        CLCP = SVGMobject(f"/home/markus/Priv_Manim_Slides/Manim-Slides/Logos/CloudCompare.svg").next_to(MESH, RIGHT)
-        DASK = SVGMobject(f"/home/markus/Priv_Manim_Slides/Manim-Slides/Logos/Dask.svg").next_to(PANDA, RIGHT) #FIX
-        STATM = SVGMobject(f"/home/markus/Priv_Manim_Slides/Manim-Slides/Logos/STATMWhite.svg")
-        ModGrp = VGroup(PYTH, PANDA, OP3D, MESH, CLCP, DASK)
-
-        OP3DRefS = Text("[?] Zhou, Q. Y., Park, J., & Koltun, V. (2018). Open3D: A modern library for 3D data processing. arXiv preprint arXiv:1801.09847.", font_size=10).move_to([-2,-2.5,0])
-        MESHRefS = Text("[?] Cignoni, P., Callieri, M., Corsini, M., Dellepiane, M., Ganovelli, F., & Ranzuglia, G. (2008, July). Meshlab: an open-source mesh processing tool. In Eurographics Italian chapter conference (Vol. 2008, pp. 129-136).", font_size=10).next_to(OP3DRefS, DOWN)
-        CLCPRefS = Text("[?] CloudCompare Open Source Project, “Cloudcompare - 3D point cloud and mesh processing software,” 2020.", font_size=10).next_to(MESHRefS, DOWN)
-
-        self.play(Write(ModGrp))
-        self.wait()
-        self.add(OP3DRefS, MESHRefS, CLCPRefS)
-        self.wait()
 class ThreeDShapes(ThreeDSlide):  
     def construct(self):
         self.camera.background_color = rgb_to_color([38/255, 45/255, 53/255])
@@ -253,7 +239,31 @@ class ThreeDShapes(ThreeDSlide):
         self.end_loop()
         self.play(FadeOut(Prim))
         self.next_slide()
+        
+class Statm(Slide):  
+    def construct(self):
+        self.camera.background_color = rgb_to_color([38/255, 45/255, 53/255])
+        
+        Slide_Title = Text("Introduction", font_size = 25, weight=BOLD).to_corner(UP + LEFT)
+        Slide_Number = Text("3", font_size = 15, weight=BOLD).to_corner(DOWN + RIGHT)
 
+        PYTH = SVGMobject(f"/home/markus/Priv_Manim_Slides/Manim-Slides/Logos/Python.svg") #FIX
+        PANDA = SVGMobject(f"/home/markus/Priv_Manim_Slides/Manim-Slides/Logos/Pandas.svg").next_to(PYTH, RIGHT) #FIX
+        OP3D = SVGMobject(f"/home/markus/Priv_Manim_Slides/Manim-Slides/Logos/Open3D.svg").next_to(PYTH, DOWN)
+        MESH = SVGMobject(f"/home/markus/Priv_Manim_Slides/Manim-Slides/Logos/Meshlab.svg").next_to(OP3D, RIGHT)  #FIX SVG
+        CLCP = SVGMobject(f"/home/markus/Priv_Manim_Slides/Manim-Slides/Logos/CloudCompare.svg").next_to(MESH, RIGHT)
+        DASK = SVGMobject(f"/home/markus/Priv_Manim_Slides/Manim-Slides/Logos/Dask.svg").next_to(PANDA, RIGHT) #FIX
+        STATM = SVGMobject(f"/home/markus/Priv_Manim_Slides/Manim-Slides/Logos/STATMWhite.svg")
+        ModGrp = VGroup(PYTH, PANDA, OP3D, MESH, CLCP, DASK)
+
+        OP3DRefS = Text("[?] Zhou, Q. Y., Park, J., & Koltun, V. (2018). Open3D: A modern library for 3D data processing. arXiv preprint arXiv:1801.09847.", font_size=10).move_to([-2,-2.5,0])
+        MESHRefS = Text("[?] Cignoni, P., Callieri, M., Corsini, M., Dellepiane, M., Ganovelli, F., & Ranzuglia, G. (2008, July). Meshlab: an open-source mesh processing tool. In Eurographics Italian chapter conference (Vol. 2008, pp. 129-136).", font_size=10).next_to(OP3DRefS, DOWN)
+        CLCPRefS = Text("[?] CloudCompare Open Source Project, “Cloudcompare - 3D point cloud and mesh processing software,” 2020.", font_size=10).next_to(MESHRefS, DOWN)
+
+        self.play(Write(ModGrp))
+        self.wait()
+        self.add(OP3DRefS, MESHRefS, CLCPRefS)
+        self.wait()
 
 class OBJINFO(Slide):  
     def construct(self):
