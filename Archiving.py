@@ -3,6 +3,16 @@ from manim_slides import Slide, ThreeDSlide
 import numpy as np
 import math as m
 
+
+#Friday
+#Animations for all simplification algos
+# Images off 3D shapes
+# Hausdorff Example
+# Hausdorff Point Clouds
+# Future WOrk
+# Analysis
+
+
 class Header(Slide):  
     def construct(self):
         self.camera.background_color = rgb_to_color([38/255, 45/255, 53/255])
@@ -102,6 +112,10 @@ class Introduction(Slide):
                          ["147","36","66"],
                          ["147","37","66"],
                          ["148","38","68"],
+                         ["...","...","..."],
+                         ["...","...","..."],
+                         ["...","...","..."],
+                         ["...","...","..."],
                          ["n","n","n"]]).move_to([3,0,0])
         TDTable.scale(0.4)
         SimpDef = Text("Simplification removes redundant\nand erroneous 3D data.", font_size=20)
@@ -145,15 +159,18 @@ class SimplAlgo(Slide):
         #FIX REFS
 
         DECI_t = Text("Decimation iteratively removes vertices in a mesh\nbased on an evaluation of optimal local geometry.", font_size = 20).move_to([0,-2,0])
-        DECI_t2 = Text("Decimation", font_size = 20, weight = BOLD).move_to([-4, 1.5, 0])
+        DECI_t2 = Text("Decimation", font_size = 20, weight = BOLD)
         VECL_t = Text("Vertex Clustering takes vertices in close proximity\nto each other and clusters and merges them into a single vertex.", font_size = 20).move_to([0,-2,0])
-        VECL_t2 = Text("Vertex Clustering", font_size = 20, weight = BOLD).next_to(DECI_t2, DOWN)
+        VECL_t2 = Text("Vertex Clustering", font_size = 20, weight = BOLD)
         QEM_t = Text("Quadric Error Metrics utilizes a plane equation of a\ngiven triangle to estimate the ideal location of vertices.", font_size = 20).move_to([0,-2,0])
-        QEM_t2 = Text("Quadric Error Metrics", font_size = 20, weight = BOLD).next_to(VECL_t2, DOWN)
+        QEM_t2 = Text("Quadric Error Metrics", font_size = 20, weight = BOLD)
         CFM_t = Text("Coplanar facets merging looks at planar divergence\nbetween polygons and merges them if they are above a certain threshold.", font_size = 20).move_to([0,-2,0])
-        CFM_t2 = Text("Coplanar Facets Merging", font_size = 20, weight = BOLD).next_to(QEM_t2, DOWN)
+        CFM_t2 = Text("Coplanar Facets Merging", font_size = 20, weight = BOLD)
         EDCO_t = Text("Edge Collapse finds pairs of vertices that are\nclose together, and collapses the edge between them.", font_size = 20).move_to([0,-2,0])
-        EDCO_t2 = Text("Edge Collapse", font_size = 20, weight = BOLD).next_to(CFM_t2, DOWN)
+        EDCO_t2 = Text("Edge Collapse", font_size = 20, weight = BOLD)
+
+        AlgoTits = VGroup(DECI_t2, VECL_t2, QEM_t2, CFM_t2, EDCO_t2).move_to([-4, 1.5, 0])
+        AlgoTits.arrange(DOWN, center=False, aligned_edge=LEFT)
 
         surface = Graph([1, 2, 3, 4, 5, 6, 7, 8, 9], [(1, 2), (2, 3), (3, 4), (4, 5), (5, 6), (6, 7), (7, 8), (8, 9)],
                   layout={1: [-4, 0, 0], 2: [-3, 0, 0], 3: [-2, 0, 0], 4: [-1, 0, 0], 5: [0, 0, 0], 6: [1, 0, 0], 7: [2, 0, 0], 8: [3, 0, 0], 9: [4, 0, 0]}
@@ -187,45 +204,56 @@ class SimplAlgo(Slide):
                                  layout={1:[-4,0,0], 2:[-2,0,0], 3:[0,0,0], 4:[2,0,0], 5:[4,0,0]}).shift(DOWN)
         Dec_Group = VGroup(Dec_Surface, Dec_Surface_Simp).move_to([4,3,0]).scale(0.6)
 
+        FiveAlgos = Text("Selected 5 algorithms:").next_to(SIMP, DOWN)
         Redu = Text("* Reduction of ")
 
 
 
         self.add(Slide_Title, Slide_Number)
+        self.wait()
+        self.next_slide()
         self.play(Create(surface), run_time=3)
-        self.wait(2)
+        self.next_slide()
         self.play(surface.animate.change_layout("circular"))
-        self.wait(2)
+        self.next_slide()
         self.play(surface.animate.change_layout("spiral"))
-        self.wait(2)
+        self.next_slide()
         self.play(surface.animate.change_layout("planar"))
-        self.wait(2)
+        self.next_slide()
         self.play(surface.animate.change_layout("spectral"))
-        self.wait(2)
+        self.next_slide()
         self.play(surface.animate.change_layout("spring"))
-        self.wait(2)
+        self.next_slide()
         self.play(surface.animate.change_layout("random"))
-        self.wait(2)
+        self.next_slide()
         self.play(surface.animate.change_layout(Def_lay))
-        self.wait()
+        self.next_slide()
         self.play(surface.animate.shift(DOWN*3))
-        self.wait()
+        self.next_slide()
         self.play(Transform(surface, Rem_Surface))
-        self.wait()
+        self.next_slide()
         self.play(FadeIn(Min_Surface), shift = UP)
         self.play(FadeIn(SIMP))
+        self.next_slide()
+        self.play(FadeIn(FiveAlgos))
+        self.next_slide()
         self.play(FadeIn(DECI_t))
+        self.next_slide()
         self.play(Transform(DECI_t, DECI_t2))
         self.play(FadeIn(VECL_t))
+        self.next_slide()
         self.play(Transform(VECL_t, VECL_t2))
         self.play(FadeIn(QEM_t))
+        self.next_slide()
         self.play(Transform(QEM_t, QEM_t2))
         self.play(FadeIn(CFM_t))
+        self.next_slide()
         self.play(Transform(CFM_t, CFM_t2))
         self.play(FadeIn(EDCO_t))
+        self.next_slide()
         self.play(Transform(EDCO_t, EDCO_t2))
-        self.wait()
-        self.play(DECI_t2.animate.move_to([0,3.5,0]), Create(Dec_Group))
+        self.next_slide()
+        self.play(DECI_t2.animate.move_to([0,3.5,0]), Create(Dec_Group), FadeOut(SIMP))
         self.wait()
 
 class ThreeDShapes(ThreeDSlide):  
