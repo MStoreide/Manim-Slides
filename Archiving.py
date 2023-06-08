@@ -94,7 +94,7 @@ class Introduction(Slide):
 
         #self.play(Transform(Slide_Title2, Slide_Title3), Transform(Slide_Number2, Slide_Number3), FadeOut(Process, Simps, Stats))
 
-        Arr = Text("Acquire huge arrays of 3D data. (Not counting color).")
+        Arr = Text("Acquire huge arrays of\n3D data. (Not counting color).", font_size=20)
         TDTable = Table([["X", "Y", "Z"],
                          ["146","35","67"],
                          ["145","34","67"],
@@ -102,23 +102,36 @@ class Introduction(Slide):
                          ["147","36","66"],
                          ["147","37","66"],
                          ["148","38","68"],
-                         ["n","n","n"]]).move_to([2,2,0])
-        SimpDef = Text("Simplification removes redundant and erroneous 3D data.")
-        HBIM = Text("HBIM = Heritage Building Information Modeling")
-        Redu = Text("Reducing point clouds into geometric primitives.")
-        SurfaceEx = Image(f"/home/markus/Priv_Manim_Slides/Manim-Slides/Archiving/Details.png")
-        PrimRedu = Image(f"/home/markus/Priv_Manim_Slides/Manim-Slides/Archiving/Prims.png")
+                         ["n","n","n"]]).move_to([3,0,0])
+        TDTable.scale(0.4)
+        SimpDef = Text("Simplification removes redundant\nand erroneous 3D data.", font_size=20)
+        HBIM = Text("HBIM = Heritage Building Information Modeling", font_size=20)
+        Redu = Text("Reducing point clouds into\ngeometric primitives.", font_size=20)
 
+        TxtGrp = VGroup(Arr, SimpDef, HBIM, Redu).move_to([-4,2,0])
+        TxtGrp.arrange(DOWN, center=False, aligned_edge=LEFT)
+
+        SurfaceEx = ImageMobject(f"/home/markus/Priv_Manim_Slides/Manim-Slides/Archiving/Details.png").move_to([4,-2,0])
+        SurfaceEx.scale(0.8)
+        PrimRedu = ImageMobject(f"/home/markus/Priv_Manim_Slides/Manim-Slides/Archiving/Prims.png").move_to([4,2,0])
+        PrimRedu.scale(0.5)
+
+        self.add(Slide_Title3, Slide_Number3)
+        self.next_slide()
         self.play(FadeIn(Arr))
         self.play(Write(TDTable))
         self.next_slide()
         self.play(FadeIn(SimpDef))
         self.next_slide()
+        self.play(FadeOut(TDTable))
         self.play(FadeIn(HBIM))
         self.play(FadeIn(Redu))
-        self.next_Slide()
-
+        self.next_slide()
+        self.play(FadeIn(PrimRedu))
+        self.next_slide()
         self.play(FadeIn(SurfaceEx))
+        self.next_slide()
+
 
 class SimplAlgo(Slide):  
     def construct(self):
@@ -233,7 +246,7 @@ class ThreeDShapes(ThreeDSlide):
         PrimD = Dodecahedron().move_to([-3,-1,0]) 
         PrimD.set_color(TEAL)
         PrimT = Torus().move_to([0,-1,0]) 
-        PrimT.scale(0.5)
+        PrimT.scale(0.3)
         PrimT.set_color(PURPLE)
         PrimCo = Cone().move_to([3,-1,0]) 
         PrimCo.set_color(ORANGE) 
@@ -249,13 +262,15 @@ class ThreeDShapes(ThreeDSlide):
         self.next_slide()
         self.start_loop()
         self.begin_ambient_camera_rotation(rate=0.15)
-        self.play(Rotate(PrimS, angle=2*PI, about_point=[-3,2,0], rate_func=linear),
-                  Rotate(PrimC, angle=2*PI, about_point=[0,2,0], rate_func=linear),
-                  Rotate(PrimCy, angle=2*PI, about_point=[3,2,0], rate_func=linear),
-                  Rotate(PrimD, angle=2*PI, about_point=[-3,-1,0], rate_func=linear),
-                  Rotate(PrimT, angle=2*PI, about_point=[0,-1,0], rate_func=linear),
-                  Rotate(PrimCo, angle=2*PI, about_point=[3,-1,0], rate_func=linear))
+        self.play(Rotate(PrimS, angle=2*PI, about_point=[-3,2,0], rate_func=linear/4),
+                  Rotate(PrimC, angle=2*PI, about_point=[0,2,0], rate_func=linear/4),
+                  Rotate(PrimCy, angle=2*PI, about_point=[3,2,0], rate_func=linear/4),
+                  Rotate(PrimD, angle=2*PI, about_point=[-3,-1,0], rate_func=linear/4),
+                  Rotate(PrimT, angle=2*PI, about_point=[0,-1,0], rate_func=linear/4),
+                  Rotate(PrimCo, angle=2*PI, about_point=[3,-1,0], rate_func=linear/4))
         self.end_loop()
+        self.wait(15)
+        self.next_slide()
         self.play(FadeOut(Prim))
         self.stop_ambient_camera_rotation()
         self.move_camera(phi=0 * DEGREES, run_time=1.5)
