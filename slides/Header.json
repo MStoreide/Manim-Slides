@@ -1,15 +1,57 @@
 {
   "slides": [
     {
-      "type": "last",
+      "type": "slide",
       "start_animation": 0,
       "end_animation": 1,
       "number": 1,
       "terminated": false
+    },
+    {
+      "type": "slide",
+      "start_animation": 1,
+      "end_animation": 3,
+      "number": 2,
+      "terminated": false
+    },
+    {
+      "type": "slide",
+      "start_animation": 3,
+      "end_animation": 4,
+      "number": 3,
+      "terminated": false
+    },
+    {
+      "type": "slide",
+      "start_animation": 4,
+      "end_animation": 6,
+      "number": 4,
+      "terminated": false
+    },
+    {
+      "type": "slide",
+      "start_animation": 6,
+      "end_animation": 7,
+      "number": 5,
+      "terminated": false
+    },
+    {
+      "type": "last",
+      "start_animation": 7,
+      "end_animation": 8,
+      "number": 6,
+      "terminated": false
     }
   ],
   "files": [
-    "slides/files/Header/4122872704_2385042958_223132457.mp4"
+    "slides/files/Header/2991918809_3315967912_2325889201.mp4",
+    "slides/files/Header/857827482_2938289573_468694677.mp4",
+    "slides/files/Header/857827482_329969645_618615583.mp4",
+    "slides/files/Header/857827482_2503561801_4046111352.mp4",
+    "slides/files/Header/857827482_883114124_2710132271.mp4",
+    "slides/files/Header/857827482_1467500567_1144814282.mp4",
+    "slides/files/Header/857827482_2939768475_572725133.mp4",
+    "slides/files/Header/857827482_2358420384_2528664993.mp4"
   ],
   "resolution": [
     1920,

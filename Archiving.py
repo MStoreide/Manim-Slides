@@ -5,35 +5,85 @@ import math as m
 
 class Header(Slide):  
     def construct(self):
-        self.camera.background_color = rgb_to_color([1/255, 70/255, 147/255])
+        self.camera.background_color = rgb_to_color([38/255, 45/255, 53/255])
 
-        Slide_Title = Text("Statistical Evaluation of 3D Manifolds Shape Retention During Simplification Stages", font_size = 25)
-        Date = Text("20.06.2023")
-        Name = Text("Markus Sebastian Bakken Storeide")
+        Slide_Title = Text("Statistical Evaluation of 3D Manifolds\nShape Retention During\nSimplification Stages", font_size = 40)
+        Name = Text("Markus Sebastian Bakken Storeide", font_size=25).next_to(Slide_Title, DOWN*3)
+        Date = Text("20.06.2023", font_size=25).next_to(Name, DOWN)
         Colorlab = ImageMobject("/home/markus/Priv_Manim_Slides/Manim-Slides/Logos/CLsmall.png/").move_to([-6.5, -3.5, 0])
         Colorlab.scale(0.5)
-        Archiving = ImageMobject("/home/markus/Priv_Manim_Slides/Manim-Slides/Logos/Archiving.png/").move_to([4, -3.5, 0])
-        Archiving.scale(0.2)
-        ISNT = ImageMobject("/home/markus/Priv_Manim_Slides/Manim-Slides/Logos/ISNT.png/").move_to([1.5, -3.5, 0])
+        Archiving = ImageMobject("/home/markus/Priv_Manim_Slides/Manim-Slides/Logos/Archiving.png/").to_edge(UP)
+        Archiving.scale(0.5)
+        ISNT = ImageMobject("/home/markus/Priv_Manim_Slides/Manim-Slides/Logos/ISNT.png/").move_to([6.5,-3.5,0])
         ISNT.scale(0.05)
-        NTNU = ImageMobject(NTNU)
+        NTNU = ImageMobject("/home/markus/Priv_Manim_Slides/Manim-Slides/Logos/NTNUText.png").move_to([0,-3.5,0])
+        NTNU.scale(0.3)
+        
+        self.add(Slide_Title, Date, Name, Colorlab, Archiving, ISNT, NTNU)
+        self.wait()
+        self.next_slide()
 
         # Transition: Transform Images to small, Title to Slide Title
 
-class Overview(Slide):  
-    def construct(self):
-        self.camera.background_color = rgb_to_color([38/255, 45/255, 53/255])
+#class Overview(Slide):  
+    #def construct(self):
+        #self.camera.background_color = rgb_to_color([38/255, 45/255, 53/255])
         
-        Slide_Title = Text("Overview", font_size = 25, weight=BOLD).to_corner(UP + LEFT)
-        Slide_Number = Text("1", font_size = 15, weight=BOLD).to_corner(DOWN + RIGHT)
+        Slide_Title2 = Text("Overview", font_size = 25, weight=BOLD).to_corner(UP + LEFT)
+        Slide_Number2 = Text("1", font_size = 15, weight=BOLD).to_corner(DOWN + RIGHT)
         Colorlab = ImageMobject("/home/markus/Priv_Manim_Slides/Manim-Slides/Logos/CLsmall.png/").move_to([-6.5, -3.5, 0])
         Colorlab.scale(0.5)
-        Archiving = ImageMobject("/home/markus/Priv_Manim_Slides/Manim-Slides/Logos/Archiving.png/").move_to([4, -3.5, 0])
-        Archiving.scale(0.2)
-        ISNT = ImageMobject("/home/markus/Priv_Manim_Slides/Manim-Slides/Logos/ISNT.png/").move_to([1.5, -3.5, 0])
-        ISNT.scale(0.05)
+        Archiving2 = ImageMobject("/home/markus/Priv_Manim_Slides/Manim-Slides/Logos/Archiving.png/").move_to([4.3, -3.5, 0])
+        Archiving2.scale(0.2)
 
-        # Transition: Remove Images
+        Process = Text("Processing 3D Data\nfor Cultural Heritage", font_size=20).move_to([-4,2,0])
+        Simps = Text("Simplification Algorithms", font_size=20).move_to([0,2,0])
+        Stats = Text("Statistical Investigations", font_size=20).move_to([4,2,0])
+
+        self.play(Transform(Slide_Title, Slide_Title2), FadeIn(Slide_Number2), Transform(Archiving, Archiving2), FadeOut(ISNT), FadeOut(NTNU), FadeOut(Name), FadeOut(Date))
+        self.wait()
+        self.next_slide()
+
+        Samp_array = Graph([1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16],[(1,4),(5,8), (9,12),(13,16),(1,13), (2,14), (3,15), (4,16), (5,2), (9,3), (13,4), (14,8), (15,12)],
+                           layout = {1: [4,0,0], 2: [4,1,0], 3: [4,2,0], 4: [4,3,0], 5: [3,0,0], 6: [3,1,0], 7: [3,2,0], 8: [3,3,0],
+                                     9: [2,0,0], 10: [2,1,0], 11: [2,2,0], 12: [2,3,0], 13: [1,0,0], 14: [1,1,0], 15: [1,2,0], 16: [1,3,0]}).move_to([-4,0,0])
+        Samp_array.scale(0.7)
+        Samp_array2 = Samp_array.copy().move_to([0,0,0])
+        SampSimp_array = Graph([1,2,3,4], [(1,2), (2,3), (3,4), (4,1)],
+                            layout = {1: [4,0,0], 2:[4,3,0], 3: [1,3,0], 4: [1,0,0]}).move_to([0,0,0])
+        SampSimp_array.scale(0.7)
+
+        X = [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16]
+        SampVCNUyMax = [0.00754, 0.00797, 0.009585, 0.012043, 0.015829, 0.018397, 0.019428, 0.023101, 0.026926, 0.029363, 0.032046, 0.033331, 0.039943, 0.04035, 0.044295, 0.05756]
+        SampVCUyMax = [0.006676, 0.00869, 0.011377, 0.01868, 0.019466, 0.02265, 0.028335, 0.031835, 0.035076, 0.037194, 0.042755, 0.043386, 0.049549, 0.056589, 0.059017, 0.063978]
+        SampVCSyMax = [0.041846, 0.049014, 0.047062, 0.048941, 0.050193, 0.051504, 0.053751, 0.055361, 0.054976, 0.056035, 0.057871, 0.062175, 0.059793, 0.062405, 0.066077, 0.067913]
+        #SampVCAyMax = []
+        SampVCRyMax = [0.006981, 0.008674, 0.01069, 0.01141, 0.012589, 0.013831, 0.01595, 0.014809, 0.017402, 0.017442, 0.020999, 0.020664, 0.022785, 0.023581, 0.030788, 0.037792]
+
+        SampVeClMaxAxes = Axes(x_range = [-1, 16, 1],
+                              y_range = [0, 0.08, 0.02]
+        )
+        SampVCNUMaGraph = SampVeClMaxAxes.plot_line_graph(x_values = X, y_values = SampVCNUyMax, line_color = RED)
+        SampVCUMaGraph = SampVeClMaxAxes.plot_line_graph(x_values = X, y_values = SampVCUyMax, line_color = GREEN)
+        SampVCSMaGraph = SampVeClMaxAxes.plot_line_graph(x_values = X, y_values = SampVCSyMax, line_color = BLUE)
+        #VSampCAMaGraph = VeClMaxAxes.plot_line_graph(x_values = X, y_values = SampVCAyMax, line_color = PURPLE)
+        SampVCRMaGraph = SampVeClMaxAxes.plot_line_graph(x_values = X, y_values = SampVCRyMax, line_color = GOLD)
+        SampVeClMaxGrp = VGroup (SampVeClMaxAxes, SampVCNUMaGraph, SampVCUMaGraph, SampVCSMaGraph, SampVCRMaGraph).move_to([4,0,0])
+        SampVeClMaxGrp.scale(0.3)
+
+        #Note = Text("Analyze the behaviour of 3D manifolds during simplification stages", font_size=25).move_to([0,-2.0])
+        
+        self.play(FadeIn(Process), Create(Samp_array), run_time=2)
+        self.next_slide()
+        self.play(FadeIn(Simps), Create(Samp_array2), run_time=2)
+        self.play(Uncreate(Samp_array2), Create(SampSimp_array), run_time=2)
+        self.next_slide()
+        #self.play(FadeIn(Simps), Create(SampVeClMaxGrp))
+        #self.next_slide()
+        self.play(FadeIn(Stats), Create(SampVeClMaxGrp), run_time=2)
+        self.next_slide()
+        #self.play(FadeIn(Note))
+        self.wait(3)
 
 class Introduction(Slide):  
     def construct(self):
