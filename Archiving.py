@@ -286,43 +286,79 @@ class ThreeDShapes(ThreeDSlide):
 
         Prim = VGroup(PrimS, PrimC, PrimCy, PrimD, PrimT, PrimCo) #Add that they slowly rotate while talking. WIth a loop
 
-        Ext = Text("*Extended it to include slightly more complex shapes.")
+        Ext = Text("*Extended to include slightly more complex shapes.", font_size=15).move_to([-3,2.5,0])
 
         AMB = ImageMobject(f"/home/markus/Priv_Manim_Slides/Manim-Slides/Archiving/AMB.png")
+        AMB.scale(0.2)
         CMB = ImageMobject(f"/home/markus/Priv_Manim_Slides/Manim-Slides/Archiving/CMB.png")
+        CMB.scale(0.2)
         JMB = ImageMobject(f"/home/markus/Priv_Manim_Slides/Manim-Slides/Archiving/JMB.png")
+        JMB.scale(0.2)
         NUMB = ImageMobject(f"/home/markus/Priv_Manim_Slides/Manim-Slides/Archiving/NUMB.png")
+        NUMB.scale(0.2)
         PMB = ImageMobject(f"/home/markus/Priv_Manim_Slides/Manim-Slides/Archiving/PMB.png")
+        PMB.scale(0.2)
         QMB = ImageMobject(f"/home/markus/Priv_Manim_Slides/Manim-Slides/Archiving/QMB.png")
+        QMB.scale(0.2)
         RMB = ImageMobject(f"/home/markus/Priv_Manim_Slides/Manim-Slides/Archiving/RMB.png")
+        RMB.scale(0.2)
         SMB = ImageMobject(f"/home/markus/Priv_Manim_Slides/Manim-Slides/Archiving/SMB.png")
+        SMB.scale(0.2)
         UMB = ImageMobject(f"/home/markus/Priv_Manim_Slides/Manim-Slides/Archiving/UMB.png")
+        UMB.scale(0.2)
         WMB = ImageMobject(f"/home/markus/Priv_Manim_Slides/Manim-Slides/Archiving/WMB.png")
-        ShapeGrp = Group(AMB, CMB, JMB, NUMB, PMB, QMB, RMB, SMB, UMB, WMB)
+        WMB.scale(0.2)
+        ShapeGrp = Group(AMB, CMB, JMB, NUMB, PMB, QMB, RMB, SMB, UMB, WMB).move_to([0,0,0])
+        ShapeGrp.arrange_in_grid(rows=2, cols=5)
+        AMBOrt = SVGMobject((f"/home/markus/Priv_Manim_Slides/Manim-Slides/Archiving/AMBOrt.svg")).move_to([3,0,0])
+        AMBOrt.scale(3)
+        AMBMes = SVGMobject((f"/home/markus/Priv_Manim_Slides/Manim-Slides/Archiving/AMBMes.svg")).move_to([3,0,0])
+        AMBMes.scale(3)
+        ANGTit = Text("Angle Object").next_to(AMBMes, UP)
+
+        Scan_array = Graph([1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16],[(1,4),(5,8), (9,12),(13,16),(1,13), (2,14), (3,15), (4,16), (5,2), (9,3), (13,4), (14,8), (15,12)],
+                           layout = {1: [4,0,0], 2: [4,1,0], 3: [4,2,0], 4: [4,3,0], 5: [3,0,0], 6: [3,1,0], 7: [3,2,0], 8: [3,3,0],
+                                     9: [2,0,0], 10: [2,1,0], 11: [2,2,0], 12: [2,3,0], 13: [1,0,0], 14: [1,1,0], 15: [1,2,0], 16: [1,3,0]}).move_to([-4,-2,0])
+        Scan_array.scale(0.7)
+
+        ScanNoise_array = Graph([1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16],[(1,4),(4,16), (16,13),(1,13),(5,2), (6,3)],
+                           layout = {1: [4,0,0], 2: [4,1,0], 3: [4,2,0], 4: [4,3,0], 5: [3,0,0], 6: [3.1,0.6,0], 7: [2.9,2.3,0], 8: [3,3,0],
+                                     9: [2,0,0], 10: [2,1.2,0], 11: [2,1.9,0], 12: [2,3,0], 13: [1,0,0], 14: [1,1.4,0], 15: [1,2.4,0], 16: [1,3,0]}).move_to([-2,-2,0])
+        ScanNoise_array.scale(0.7)
 
 
-        #Add images of all shapes so far (Render as pngs without background)
-        self.play(FadeIn(Prim))
-        self.wait()
-        self.move_camera(phi=40 * DEGREES, zoom=1, run_time=1.5)
-        self.next_slide()
-        self.start_loop()
-        self.begin_ambient_camera_rotation(rate=0.15)
-        self.play(Rotate(PrimS, angle=2*PI, about_point=[-3,2,0], run_time=5),
-                  Rotate(PrimC, angle=2*PI, about_point=[0,2,0], run_time=5),
-                  Rotate(PrimCy, angle=2*PI, about_point=[3,2,0], run_time=5),
-                  Rotate(PrimD, angle=2*PI, about_point=[-3,-1,0], run_time=5),
-                  Rotate(PrimT, angle=2*PI, about_point=[0,-1,0], run_time=5),
-                  Rotate(PrimCo, angle=2*PI, about_point=[3,-1,0], run_time=5))
-        self.end_loop()
-        self.wait(15)
-        self.next_slide()
-        self.play(FadeOut(Prim))
-        self.stop_ambient_camera_rotation()
-        self.move_camera(phi=0 * DEGREES, run_time=1.5)
-        self.next_slide()
+        #self.play(FadeIn(Prim))
+        #self.wait()
+        #self.move_camera(phi=40 * DEGREES, zoom=1, run_time=1.5)
+        #self.next_slide()
+        #self.start_loop()
+        #self.begin_ambient_camera_rotation(rate=0.15)
+        #self.play(Rotate(PrimS, angle=2*PI, about_point=[-3,2,0], run_time=5),
+                #  Rotate(PrimC, angle=2*PI, about_point=[0,2,0], run_time=5),
+                #  Rotate(PrimCy, angle=2*PI, about_point=[3,2,0], run_time=5),
+                #  Rotate(PrimD, angle=2*PI, about_point=[-3,-1,0], run_time=5),
+                #  Rotate(PrimT, angle=2*PI, about_point=[0,-1,0], run_time=5),
+                #  Rotate(PrimCo, angle=2*PI, about_point=[3,-1,0], run_time=5))
+        #self.end_loop()
+        #self.wait(15)
+        #self.next_slide()
+        #self.play(FadeOut(Prim))
+        #self.stop_ambient_camera_rotation()
+        #self.move_camera(phi=0 * DEGREES, run_time=1.5)
+        #self.next_slide()
+        self.set_camera_orientation(zoom=1)
+        self.add(Slide_Title5, Slide_Number5)
         self.play(FadeIn(Ext), FadeIn(ShapeGrp))
         self.next_slide()
+        #self.play(Write(AMBOrt), run_time=2)
+        #self.next_slide()
+        self.play(ShapeGrp.animate.scale(0.5))
+        self.play(ShapeGrp.animate.move_to([-3,1,0]))
+        self.play(Write(AMBMes))
+        self.next_slide()
+        self.play(Create(Scan_array))
+        self.next_slide()
+        self.play(Transform(Scan_array, ScanNoise_array))
 
 class Statm(Slide):  
     def construct(self):
@@ -778,26 +814,43 @@ class FutureWork(Slide):
     def construct(self):
         self.camera.background_color = rgb_to_color([38/255, 45/255, 53/255])
 
-        Slide_Title11 = Text("Graphs", font_size = 25, weight=BOLD).to_corner(UP + LEFT)
+        Slide_Title11 = Text("Future Work", font_size = 25, weight=BOLD).to_corner(UP + LEFT)
         Slide_Number11 = Text("10", font_size = 15, weight=BOLD).to_corner(DOWN + RIGHT)
         Colorlab = ImageMobject("/home/markus/Priv_Manim_Slides/Manim-Slides/Logos/CLsmall.png/").move_to([-6.5, -3.5, 0])
         Colorlab.scale(0.5)
+
+        ShpMo = Text("* Attempt to model the rate-of-change\nof primitives.\n - As standalone.\n - As part of larger objects.", font_size=20)
+        FetAlg = Text("* Geometric analysis for selection of\nsimplification algorithm.", font_size=20)
+        AlFe = Text("* Align features to what is interesting\nfor CH managers.", font_size=20)
+
+        #Could be cool with animations for all of these, but it takes time. 
         
         STATM = SVGMobject("/home/markus/Priv_Manim_Slides/Manim-Slides/Logos/STATMWhite.svg").move_to([3,2,0])
         Impl = Text("* Implement other desired features.", font_size=20)
+        OptCo = Text("* Optimize and streamline the code.", font_size=20)
         ApSh = Text("* Apply the toolbox and investigation to\ncomplex CH objects.", font_size=20)
         GUI = Text("* Develop a GUI for non-CS users.", font_size=20)
         OpSo = Text("* Open Source when developed.", font_size=20)
 
-        FWTxtGrp = VGroup(Impl, ApSh, GUI, OpSo).next_to(STATM, DOWN)
+        FWTxtGrp = VGroup(ShpMo, FetAlg, AlFe).move_to([-3,2.5,0])
         FWTxtGrp.arrange(DOWN, center=False, aligned_edge=LEFT)
 
-        self.add(Slide_Title10, Slide_Number10, Colorlab)
+        FWTxtGrp2 = VGroup(Impl, OptCo, ApSh, GUI, OpSo).next_to(STATM, DOWN)
+        FWTxtGrp2.arrange(DOWN, center=False, aligned_edge=LEFT)
+
+        self.add(Slide_Title11, Slide_Number11, Colorlab)
         self.wait()
+        self.play(FadeIn(ShpMo))
+        self.next_slide()
+        self.play(FadeIn(FetAlg))
+        self.next_slide()
+        self.play(FadeIn(AlFe))
         self.next_slide()
         self.play(Write(STATM))
         self.next_slide()
         self.play(FadeIn(Impl))
+        self.next_slide()
+        self.play(FadeIn(OptCo))
         self.next_slide()
         self.play(FadeIn(ApSh))
         self.next_slide()
