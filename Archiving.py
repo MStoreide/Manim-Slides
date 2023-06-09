@@ -728,35 +728,58 @@ class Analysis(Slide):
     def construct(self):
         self.camera.background_color = rgb_to_color([38/255, 45/255, 53/255])
 
-        Slide_Title = Text("Analysis and Interpretation", font_size = 25, weight=BOLD).to_corner(UP + LEFT)
-        Slide_Number = Text("8", font_size = 15, weight=BOLD).to_corner(DOWN + RIGHT)
+        Slide_Title10 = Text("Analysis and Interpretation", font_size = 25, weight=BOLD).to_corner(UP + LEFT)
+        Slide_Number10 = Text("9", font_size = 15, weight=BOLD).to_corner(DOWN + RIGHT)
         Colorlab = ImageMobject("/home/markus/Priv_Manim_Slides/Manim-Slides/Logos/CLsmall.png/").move_to([-6.5, -3.5, 0])
         Colorlab.scale(0.5)
 
-        SphTA = Text("* QEM (almost) exponentially reduces geometric accuracy for\nspherical objects, while Vertex Clustering's\nerror is higher but linear.", font_size=20)
-        DeciTA = Text("* Decimation algorithm has the hightest error.", font_size=20)
-        PattTA = Text("* Repeated patterns in objects does not necessarily\nindicate a uniform reduction.", font_size=20)
-        DistTA = Text("* Various distance measures cna be used to\nanalyze point cloud differences.", font_size=20)
+        SphTA = Text("* QEM (almost) exponentially reduces geometric accuracy for\nspherical objects, while Vertex Clustering's\nerror is higher but linear.", font_size=15)
+        DeciTA = Text("* Decimation algorithm has the hightest error.", font_size=15)
+        PattTA = Text("* Repeated patterns in objects does not necessarily\nindicate a uniform reduction.", font_size=15)
+        DistTA = Text("* Various distance measures can be used to\nanalyze point cloud differences.", font_size=15)
 
-        AnTxtGrp = VGroup(SphTa, DeciTa, PattTA, DistTA)
-        AnTxtGrp.arrange(DOWN, center=False, align_edge=LEFT)
+        AnTxtGrp = VGroup(SphTA, DeciTA, PattTA, DistTA).move_to([-3,2.5,0])
+        AnTxtGrp.arrange(DOWN, center=False, aligned_edge=LEFT)
 
         STATM = SVGMobject("/home/markus/Priv_Manim_Slides/Manim-Slides/Logos/STATMWhite.svg").move_to([3,2,0])
 
-        ObDat = Text("* Provide insightful information about the object.")
-        ErDet = Text("* Automatically detect errors during acquisiton or processing.").next_to(ObDat, DOWN)
-        SimCh = Text("* Select optimal simplification approach based on object geometry.").next_to(ErDet, DOWN)
-        UsSim = Text("* Useable on original and simplified objects.").next_to(SimCh, DOWN)
+        ObDat = Text("* Provide insightful information about the object.", font_size=15)
+        ErDet = Text("* Automatically detect errors during acquisiton or processing.", font_size=15).next_to(ObDat, DOWN)
+        SimCh = Text("* Select optimal simplification approach based on\nobject geometry.", font_size=15).next_to(ErDet, DOWN)
+        UsSim = Text("* Usable on original and simplified objects.", font_size=15).next_to(SimCh, DOWN)
 
-        AnTxtGrp2 = VGroup(ObDat, ErDet, SimCh, UsSim)
+        AnTxtGrp2 = VGroup(ObDat, ErDet, SimCh, UsSim).next_to(STATM, DOWN)
         AnTxtGrp2.arrange(DOWN, center=False, aligned_edge=LEFT)
+
+        self.add(Slide_Title10, Slide_Number10, Colorlab)
+        self.wait()
+        self.next_slide()
+        self.play(FadeIn(SphTA))
+        self.next_slide()
+        self.play(FadeIn(DeciTA))
+        self.next_slide()
+        self.play(FadeIn(PattTA))
+        self.next_slide()
+        self.play(FadeIn(DistTA))
+        self.next_slide()
+        self.play(Write(STATM))
+        self.next_slide()
+        self.play(FadeIn(ObDat))
+        self.next_slide()
+        self.play(FadeIn(ErDet))
+        self.next_slide()
+        self.play(FadeIn(SimCh))
+        self.next_slide()
+        self.play(FadeIn(UsSim))
+        self.wait()
+        
 
 class FutureWork(Slide):  
     def construct(self):
         self.camera.background_color = rgb_to_color([38/255, 45/255, 53/255])
 
-        Slide_Title10 = Text("Graphs", font_size = 25, weight=BOLD).to_corner(UP + LEFT)
-        Slide_Number10 = Text("9", font_size = 15, weight=BOLD).to_corner(DOWN + RIGHT)
+        Slide_Title11 = Text("Graphs", font_size = 25, weight=BOLD).to_corner(UP + LEFT)
+        Slide_Number11 = Text("10", font_size = 15, weight=BOLD).to_corner(DOWN + RIGHT)
         Colorlab = ImageMobject("/home/markus/Priv_Manim_Slides/Manim-Slides/Logos/CLsmall.png/").move_to([-6.5, -3.5, 0])
         Colorlab.scale(0.5)
         
@@ -787,8 +810,8 @@ class Citation(Slide):
     def construct(self):
         self.camera.background_color = rgb_to_color([38/255, 45/255, 53/255])
 
-        Slide_Title11 = Text("Citations and Contact", font_size = 25, weight=BOLD).to_corner(UP + LEFT)
-        Slide_Number11 = Text("10", font_size = 15, weight=BOLD).to_corner(DOWN + RIGHT)
+        Slide_Title12 = Text("Citations and Contact", font_size = 25, weight=BOLD).to_corner(UP + LEFT)
+        Slide_Number12 = Text("11", font_size = 15, weight=BOLD).to_corner(DOWN + RIGHT)
         Colorlab = ImageMobject("/home/markus/Priv_Manim_Slides/Manim-Slides/Logos/CLsmall.png/").move_to([-6.5, -3.5, 0])
         Colorlab.scale(0.5)
         Archiving = ImageMobject("/home/markus/Priv_Manim_Slides/Manim-Slides/Logos/Archiving.png/").move_to([4, -3.5, 0])

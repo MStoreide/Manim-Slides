@@ -1,0 +1,92 @@
+{
+  "slides": [
+    {
+      "type": "slide",
+      "start_animation": 0,
+      "end_animation": 1,
+      "number": 1,
+      "terminated": false
+    },
+    {
+      "type": "slide",
+      "start_animation": 1,
+      "end_animation": 2,
+      "number": 2,
+      "terminated": false
+    },
+    {
+      "type": "slide",
+      "start_animation": 2,
+      "end_animation": 3,
+      "number": 3,
+      "terminated": false
+    },
+    {
+      "type": "slide",
+      "start_animation": 3,
+      "end_animation": 4,
+      "number": 4,
+      "terminated": false
+    },
+    {
+      "type": "slide",
+      "start_animation": 4,
+      "end_animation": 5,
+      "number": 5,
+      "terminated": false
+    },
+    {
+      "type": "slide",
+      "start_animation": 5,
+      "end_animation": 6,
+      "number": 6,
+      "terminated": false
+    },
+    {
+      "type": "slide",
+      "start_animation": 6,
+      "end_animation": 7,
+      "number": 7,
+      "terminated": false
+    },
+    {
+      "type": "slide",
+      "start_animation": 7,
+      "end_animation": 8,
+      "number": 8,
+      "terminated": false
+    },
+    {
+      "type": "slide",
+      "start_animation": 8,
+      "end_animation": 9,
+      "number": 9,
+      "terminated": false
+    },
+    {
+      "type": "last",
+      "start_animation": 9,
+      "end_animation": 11,
+      "number": 10,
+      "terminated": false
+    }
+  ],
+  "files": [
+    "slides/files/Analysis/2991918809_3315967912_481432138.mp4",
+    "slides/files/Analysis/857827482_1325995308_1146589908.mp4",
+    "slides/files/Analysis/857827482_3083422614_977792707.mp4",
+    "slides/files/Analysis/857827482_4271941406_2256470563.mp4",
+    "slides/files/Analysis/857827482_3853798164_2919790449.mp4",
+    "slides/files/Analysis/857827482_3634869621_4171075589.mp4",
+    "slides/files/Analysis/857827482_2319550645_2015525368.mp4",
+    "slides/files/Analysis/857827482_2797192785_2790450244.mp4",
+    "slides/files/Analysis/857827482_3709365915_709150407.mp4",
+    "slides/files/Analysis/857827482_3493412102_2942638693.mp4",
+    "slides/files/Analysis/857827482_329969645_2566489819.mp4"
+  ],
+  "resolution": [
+    1920,
+    1080
+  ],
+  "background_color": "black"
+}
