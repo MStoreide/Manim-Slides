@@ -1,0 +1,59 @@
+{
+  "slides": [
+    {
+      "type": "slide",
+      "start_animation": 0,
+      "end_animation": 1,
+      "number": 1,
+      "terminated": false
+    },
+    {
+      "type": "slide",
+      "start_animation": 1,
+      "end_animation": 2,
+      "number": 2,
+      "terminated": false
+    },
+    {
+      "type": "slide",
+      "start_animation": 2,
+      "end_animation": 3,
+      "number": 3,
+      "terminated": false
+    },
+    {
+      "type": "slide",
+      "start_animation": 3,
+      "end_animation": 4,
+      "number": 4,
+      "terminated": false
+    },
+    {
+      "type": "slide",
+      "start_animation": 4,
+      "end_animation": 5,
+      "number": 5,
+      "terminated": false
+    },
+    {
+      "type": "last",
+      "start_animation": 5,
+      "end_animation": 6,
+      "number": 6,
+      "terminated": false
+    }
+  ],
+  "files": [
+    "slides/files/FutureWork/2991918809_3315967912_480217975.mp4",
+    "slides/files/FutureWork/857827482_3634869621_623336567.mp4",
+    "slides/files/FutureWork/857827482_25163802_3953738113.mp4",
+    "slides/files/FutureWork/857827482_324678312_1645439308.mp4",
+    "slides/files/FutureWork/857827482_2579917280_3892406137.mp4",
+    "slides/files/FutureWork/857827482_1752036335_350638846.mp4"
+  ],
+  "resolution": [
+    1920,
+    1080
+  ],
+  "background_color": "black"
+}

@@ -3,15 +3,16 @@
     {
       "type": "last",
       "start_animation": 0,
-      "end_animation": 3,
+      "end_animation": 4,
       "number": 1,
       "terminated": false
     }
   ],
   "files": [
-    "slides/files/Statm/2991918809_4130809856_223132457.mp4",
-    "slides/files/Statm/857827482_329969645_2899166575.mp4",
-    "slides/files/Statm/857827482_329969645_1555157915.mp4"
+    "slides/files/Statm/2991918809_3634869621_223132457.mp4",
+    "slides/files/Statm/857827482_1873844853_1622134600.mp4",
+    "slides/files/Statm/857827482_329969645_2006839639.mp4",
+    "slides/files/Statm/857827482_329969645_639156144.mp4"
   ],
   "resolution": [
     1920,

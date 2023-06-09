@@ -151,8 +151,8 @@ class SimplAlgo(Slide):
     def construct(self):
         self.camera.background_color = rgb_to_color([38/255, 45/255, 53/255])
         
-        Slide_Title = Text("Simplification Algorithms", font_size = 25, weight=BOLD).to_corner(UP + LEFT)
-        Slide_Number = Text("2", font_size = 15, weight=BOLD).to_corner(DOWN + RIGHT)
+        Slide_Title4 = Text("Simplification Algorithms", font_size = 25, weight=BOLD).to_corner(UP + LEFT)
+        Slide_Number4 = Text("3", font_size = 15, weight=BOLD).to_corner(DOWN + RIGHT)
 
         SIMP = Text("Simplification removes vertices while\nattempting to retain the most geometry.", font_size = 20).move_to([-4,2.5,0])
         #SimpsRefS = Text(" [1] Cignoni, P., Montani, C., & Scopigno, R. (1998). A comparison\nof mesh simplification algorithms. Computers & Graphics,\n22(1), 37-54.", font_size=8).move_to(-4,-3,0)
@@ -169,7 +169,7 @@ class SimplAlgo(Slide):
         EDCO_t = Text("Edge Collapse finds pairs of vertices that are\nclose together, and collapses the edge between them.", font_size = 20).move_to([0,-2,0])
         EDCO_t2 = Text("Edge Collapse", font_size = 20, weight = BOLD)
 
-        AlgoTits = VGroup(DECI_t2, VECL_t2, QEM_t2, CFM_t2, EDCO_t2).move_to([-4, 1.5, 0])
+        AlgoTits = VGroup(DECI_t2, VECL_t2, QEM_t2, CFM_t2, EDCO_t2).move_to([-5, 1.5, 0])
         AlgoTits.arrange(DOWN, center=False, aligned_edge=LEFT)
 
         surface = Graph([1, 2, 3, 4, 5, 6, 7, 8, 9], [(1, 2), (2, 3), (3, 4), (4, 5), (5, 6), (6, 7), (7, 8), (8, 9)],
@@ -204,9 +204,14 @@ class SimplAlgo(Slide):
                                  layout={1:[-4,0,0], 2:[-2,0,0], 3:[0,0,0], 4:[2,0,0], 5:[4,0,0]}).shift(DOWN)
         Dec_Group = VGroup(Dec_Surface, Dec_Surface_Simp).move_to([4,3,0]).scale(0.6)
 
-        FiveAlgos = Text("Selected 5 algorithms:").next_to(SIMP, DOWN)
-        Redu = Text("* Reduction of ")
+        FiveAlgos = Text("Selected 5 algorithms:", font_size=20).move_to([-4,2.5,0])
+        Redu = Text("* Reduction of 5.625\% in 16 stages.")
 
+        SimpRefs1 = Text("[1] Heckbert, P. S., & Garland, M. (1997). Survey of polygonal surface simplification algorithms.", font_size=10)
+        SimpRefs2 = Text("[2] Cignoni, P., Montani, C., & Scopigno, R. (1998). A comparison of mesh simplification algorithms. Computers & Graphics, 22(1), 37-54.", font_size=10)
+        SimpRefs3 = Text("[3] Luebke, D. P. (2001). A developer's survey of polygonal simplification algorithms. IEEE Computer Graphics and Applications, 21(3), 24-35.", font_size=10)
+        SimpRefsGrp = VGroup(SimpRefs1, SimpRefs2, SimpRefs3).move_to([-3, -2.5, 0])
+        SimpRefsGrp.arrange(DOWN, center=False, aligned_edge=LEFT)
 
 
         self.add(Slide_Title, Slide_Number)
@@ -235,7 +240,7 @@ class SimplAlgo(Slide):
         self.play(FadeIn(Min_Surface), shift = UP)
         self.play(FadeIn(SIMP))
         self.next_slide()
-        self.play(FadeIn(FiveAlgos))
+        self.play(Transform(SIMP, FiveAlgos))
         self.next_slide()
         self.play(FadeIn(DECI_t))
         self.next_slide()
@@ -253,15 +258,15 @@ class SimplAlgo(Slide):
         self.next_slide()
         self.play(Transform(EDCO_t, EDCO_t2))
         self.next_slide()
-        self.play(DECI_t2.animate.move_to([0,3.5,0]), Create(Dec_Group), FadeOut(SIMP))
+        self.play(DECI_t2.animate.move_to([0,3.5,0]), Create(Dec_Group), FadeOut(SIMP), FadeOut(Rem_Surface, Min_Surface), FadeIn(SimpRefsGrp))
         self.wait()
 
 class ThreeDShapes(ThreeDSlide):  
     def construct(self):
         self.camera.background_color = rgb_to_color([38/255, 45/255, 53/255])
         
-        Slide_Title = Text("Introduction", font_size = 25, weight=BOLD).to_corner(UP + LEFT)
-        Slide_Number = Text("3", font_size = 15, weight=BOLD).to_corner(DOWN + RIGHT)
+        Slide_Title5 = Text("3D Primitives", font_size = 25, weight=BOLD).to_corner(UP + LEFT)
+        Slide_Number5 = Text("4", font_size = 15, weight=BOLD).to_corner(DOWN + RIGHT)
 
         #SVGs of some of the shapes? Definetly of angle shape to show angle measurements. 
 
@@ -283,6 +288,19 @@ class ThreeDShapes(ThreeDSlide):
 
         Ext = Text("*Extended it to include slightly more complex shapes.")
 
+        AMB = ImageMobject(f"/home/markus/Priv_Manim_Slides/Manim-Slides/Archiving/AMB.png")
+        CMB = ImageMobject(f"/home/markus/Priv_Manim_Slides/Manim-Slides/Archiving/CMB.png")
+        JMB = ImageMobject(f"/home/markus/Priv_Manim_Slides/Manim-Slides/Archiving/JMB.png")
+        NUMB = ImageMobject(f"/home/markus/Priv_Manim_Slides/Manim-Slides/Archiving/NUMB.png")
+        PMB = ImageMobject(f"/home/markus/Priv_Manim_Slides/Manim-Slides/Archiving/PMB.png")
+        QMB = ImageMobject(f"/home/markus/Priv_Manim_Slides/Manim-Slides/Archiving/QMB.png")
+        RMB = ImageMobject(f"/home/markus/Priv_Manim_Slides/Manim-Slides/Archiving/RMB.png")
+        SMB = ImageMobject(f"/home/markus/Priv_Manim_Slides/Manim-Slides/Archiving/SMB.png")
+        UMB = ImageMobject(f"/home/markus/Priv_Manim_Slides/Manim-Slides/Archiving/UMB.png")
+        WMB = ImageMobject(f"/home/markus/Priv_Manim_Slides/Manim-Slides/Archiving/WMB.png")
+        ShapeGrp = Group(AMB, CMB, JMB, NUMB, PMB, QMB, RMB, SMB, UMB, WMB)
+
+
         #Add images of all shapes so far (Render as pngs without background)
         self.play(FadeIn(Prim))
         self.wait()
@@ -290,12 +308,12 @@ class ThreeDShapes(ThreeDSlide):
         self.next_slide()
         self.start_loop()
         self.begin_ambient_camera_rotation(rate=0.15)
-        self.play(Rotate(PrimS, angle=2*PI, about_point=[-3,2,0], rate_func=linear/4),
-                  Rotate(PrimC, angle=2*PI, about_point=[0,2,0], rate_func=linear/4),
-                  Rotate(PrimCy, angle=2*PI, about_point=[3,2,0], rate_func=linear/4),
-                  Rotate(PrimD, angle=2*PI, about_point=[-3,-1,0], rate_func=linear/4),
-                  Rotate(PrimT, angle=2*PI, about_point=[0,-1,0], rate_func=linear/4),
-                  Rotate(PrimCo, angle=2*PI, about_point=[3,-1,0], rate_func=linear/4))
+        self.play(Rotate(PrimS, angle=2*PI, about_point=[-3,2,0], run_time=5),
+                  Rotate(PrimC, angle=2*PI, about_point=[0,2,0], run_time=5),
+                  Rotate(PrimCy, angle=2*PI, about_point=[3,2,0], run_time=5),
+                  Rotate(PrimD, angle=2*PI, about_point=[-3,-1,0], run_time=5),
+                  Rotate(PrimT, angle=2*PI, about_point=[0,-1,0], run_time=5),
+                  Rotate(PrimCo, angle=2*PI, about_point=[3,-1,0], run_time=5))
         self.end_loop()
         self.wait(15)
         self.next_slide()
@@ -303,38 +321,64 @@ class ThreeDShapes(ThreeDSlide):
         self.stop_ambient_camera_rotation()
         self.move_camera(phi=0 * DEGREES, run_time=1.5)
         self.next_slide()
+        self.play(FadeIn(Ext), FadeIn(ShapeGrp))
+        self.next_slide()
 
 class Statm(Slide):  
     def construct(self):
         self.camera.background_color = rgb_to_color([38/255, 45/255, 53/255])
         
-        Slide_Title = Text("Introduction", font_size = 25, weight=BOLD).to_corner(UP + LEFT)
-        Slide_Number = Text("3", font_size = 15, weight=BOLD).to_corner(DOWN + RIGHT)
+        Slide_Title6 = Text("Statistical Approach", font_size = 25, weight=BOLD).to_corner(UP + LEFT)
+        Slide_Number6 = Text("5", font_size = 15, weight=BOLD).to_corner(DOWN + RIGHT)
 
-        PYTH = SVGMobject(f"/home/markus/Priv_Manim_Slides/Manim-Slides/Logos/Python.svg") #FIX
-        PANDA = SVGMobject(f"/home/markus/Priv_Manim_Slides/Manim-Slides/Logos/Pandas.svg").next_to(PYTH, RIGHT) #FIX
-        OP3D = SVGMobject(f"/home/markus/Priv_Manim_Slides/Manim-Slides/Logos/Open3D.svg").next_to(PYTH, DOWN)
-        MESH = SVGMobject(f"/home/markus/Priv_Manim_Slides/Manim-Slides/Logos/Meshlab.svg").next_to(OP3D, RIGHT)  #FIX SVG
-        CLCP = SVGMobject(f"/home/markus/Priv_Manim_Slides/Manim-Slides/Logos/CloudCompare.svg").next_to(MESH, RIGHT)
-        DASK = SVGMobject(f"/home/markus/Priv_Manim_Slides/Manim-Slides/Logos/Dask.svg").next_to(PANDA, RIGHT) #FIX
-        STATM = SVGMobject(f"/home/markus/Priv_Manim_Slides/Manim-Slides/Logos/STATMWhite.svg")
+        STATM = SVGMobject(f"/home/markus/Priv_Manim_Slides/Manim-Slides/Logos/STATMWhite.svg").move_to([3,2,0])
+        PANDA = SVGMobject(f"/home/markus/Priv_Manim_Slides/Manim-Slides/Logos/Pandas.svg").move_to([3,0,0]) 
+        PYTH = SVGMobject(f"/home/markus/Priv_Manim_Slides/Manim-Slides/Logos/Python.svg").next_to(PANDA, LEFT*4)
+        DASK = SVGMobject(f"/home/markus/Priv_Manim_Slides/Manim-Slides/Logos/Dask.svg").next_to(PANDA, RIGHT*4)
+        OP3D = SVGMobject(f"/home/markus/Priv_Manim_Slides/Manim-Slides/Logos/Open3D.svg").next_to(PYTH, DOWN*2)
+        MESH = SVGMobject(f"/home/markus/Priv_Manim_Slides/Manim-Slides/Logos/Meshlab.svg").next_to(PANDA, DOWN*2)  #FIX SVG
+        CLCP = SVGMobject(f"/home/markus/Priv_Manim_Slides/Manim-Slides/Logos/CloudCompare.svg").next_to(DASK, DOWN*2)
+
         ModGrp = VGroup(PYTH, PANDA, OP3D, MESH, CLCP, DASK)
+        ModGrp.scale(0.5)
+
+        Goal = Text("* Identify parameters that affect geometric change.", font_size=20)
+        Rept = Text("* Provide useful 3D object statistics.", font_size=20)
+        ExInf = Text("* Extract knowledge on how to avoid geometric\nloss when changing 3D resolution.", font_size=20)
+        StTxtGrp = VGroup(Goal, Rept, ExInf).move_to([-4,2.5,0])
+        StTxtGrp.arrange(DOWN, center=False, aligned_edge=LEFT)
+
+        PLYShape = ImageMobject(f"/home/markus/Priv_Manim_Slides/Manim-Slides/Logos/CloudCompare.svg")
+        OBJShape = ImageMobject(f"/home/markus/Priv_Manim_Slides/Manim-Slides/Logos/CloudCompare.svg")
 
         OP3DRefS = Text("[?] Zhou, Q. Y., Park, J., & Koltun, V. (2018). Open3D: A modern library for 3D data processing. arXiv preprint arXiv:1801.09847.", font_size=10).move_to([-2,-2.5,0])
         MESHRefS = Text("[?] Cignoni, P., Callieri, M., Corsini, M., Dellepiane, M., Ganovelli, F., & Ranzuglia, G. (2008, July). Meshlab: an open-source mesh processing tool. In Eurographics Italian chapter conference (Vol. 2008, pp. 129-136).", font_size=10).next_to(OP3DRefS, DOWN)
         CLCPRefS = Text("[?] CloudCompare Open Source Project, “Cloudcompare - 3D point cloud and mesh processing software,” 2020.", font_size=10).next_to(MESHRefS, DOWN)
 
-        self.play(Write(ModGrp))
+        StRefGrp = VGroup(OP3DRefS, MESHRefS, CLCPRefS).move_to([-6.5, -2.5, 0])
+        StRefGrp.arrange(DOWN, center=False, aligned_edge=LEFT)
+
+        self.add(Slide_Title6, Slide_Number6)
         self.wait()
-        self.add(OP3DRefS, MESHRefS, CLCPRefS)
+        self.play(Write(STATM))
+        self.next_slide()
+        self.play(Write(ModGrp))
+        self.next_slide()
+        self.play(FadeIn(Goal))
+        self.next_slide()
+        self.play(FadeIn(Rept))
+        self.next_slide()
+        self.play(FadeIn(ExInf))
+        self.next_slide()
+        self.add(StRefGrp)
         self.wait()
 
 class OBJINFO(Slide):  
     def construct(self):
         self.camera.background_color = rgb_to_color([38/255, 45/255, 53/255])
 
-        Slide_Title = Text("Statistical Data - Objects", font_size = 25, weight=BOLD).to_corner(UP + LEFT)
-        Slide_Number = Text("8", font_size = 15, weight=BOLD).to_corner(DOWN + RIGHT)
+        Slide_Title7 = Text("Statistical Data - Objects", font_size = 25, weight=BOLD).to_corner(UP + LEFT)
+        Slide_Number7 = Text("6", font_size = 15, weight=BOLD).to_corner(DOWN + RIGHT)
         Colorlab = ImageMobject("/home/markus/Priv_Manim_Slides/Manim-Slides/Logos/CLsmall.png/").move_to([-6.5, -3.5, 0])
         Colorlab.scale(0.5)
 
@@ -357,25 +401,23 @@ class OBJINFO(Slide):
                             ]).move_to([1,0,0])
 
         OBJ_Stats2 = Table([["Hausdorff Distance Max", "SM Baseline", "SMD 1", "n"],
-                           ["Hausdorff Distance Min", "16812", "n", "n"],
-                           ["Hausdorff Distance RMS", "50430", "n", "n"],
+                           ["Hausdorff Distance Min", "n", "n", "n"],
+                           ["Hausdorff Distance RMS", "n", "n", "n"],
                            ["Hausdorff Distance Mean", "n", "n", "n"],
                            ["Hausdorff Distance Median", "n", "n", "n"],
                            ["Chamfer Distance", "n", "n", "n"],
                            ["Sørensen-Dice Coefficient", "n", "n", "n"],
-                           ["Pearson Correlation X", "33620", "n", "n"],
+                           ["Pearson Correlation X", "n", "n", "n"],
                            ["Pearson Correlation Y", "n", "n", "n"],
                            ["Pearson Correlation Z", "n", "n", "n"],
                            ["Spearman Correlation X", "n", "n", "n"],
                            ["Spearman Correlation Y", "n", "n", "n"],
-                           ["Spearman Correlation Z", "15.018574", "n", "n"],
-                           ["Earth Movers Distance", "0.006", "n", "n"],
-                           ["..........", "0.004", "n", "n"],
-                           [".....", "n", "n", "n"],
-                            ]).next_to(obj_stats1)
+                           ["Spearman Correlation Z", "n", "n", "n"],
+                           ["Earth Movers Distance", "n", "n", "n"],
+                           ["..........", "n", "n", "n"],
+                           [".....", "n", "n", "n"]
+                            ]).move_to([2,0,0])
         
-
-
 
         OBJ_Stats1.scale(0.3)
         OBJ_Stats2.scale(0.3)
@@ -395,32 +437,27 @@ class OBJDIST(Slide):
     def construct(self):
         self.camera.background_color = rgb_to_color([38/255, 45/255, 53/255])
 
-        Slide_Title = Text("Statistical Data - Objects", font_size = 25, weight=BOLD).to_corner(UP + LEFT)
-        Slide_Number = Text("8", font_size = 15, weight=BOLD).to_corner(DOWN + RIGHT)
+        Slide_Title8 = Text("Statistical Data - Objects", font_size = 25, weight=BOLD).to_corner(UP + LEFT)
+        Slide_Number8 = Text("7", font_size = 15, weight=BOLD).to_corner(DOWN + RIGHT)
         Colorlab = ImageMobject("/home/markus/Priv_Manim_Slides/Manim-Slides/Logos/CLsmall.png/").move_to([-6.5, -3.5, 0])
         Colorlab.scale(0.5)
 
-        OP3D = SVGMobject(f"/home/markus/Priv_Manim_Slides/Manim-Slides/Logos/Open3D.svg").to_corner(UP + RIGHT)
-        MESH = SVGMobject(f"/home/markus/Priv_Manim_Slides/Manim-Slides/Logos/Meshlab.svg").next_to(OP3D, LEFT)
-
         obj_stats2 = Table([["Hausdorff Distance Max", "SM Baseline", "SMD 1", "n"],
-                           ["Hausdorff Distance Min", "16812", "n", "n"],
-                           ["Hausdorff Distance RMS", "50430", "n", "n"],
+                           ["Hausdorff Distance Min", "n", "n", "n"],
+                           ["Hausdorff Distance RMS", "n", "n", "n"],
                            ["Hausdorff Distance Mean", "n", "n", "n"],
                            ["Hausdorff Distance Median", "n", "n", "n"],
                            ["Chamfer Distance", "n", "n", "n"],
                            ["Sørensen-Dice Coefficient", "n", "n", "n"],
-                           ["Pearson Correlation X", "33620", "n", "n"],
+                           ["Pearson Correlation X", "n", "n", "n"],
                            ["Pearson Correlation Y", "n", "n", "n"],
                            ["Pearson Correlation Z", "n", "n", "n"],
                            ["Spearman Correlation X", "n", "n", "n"],
                            ["Spearman Correlation Y", "n", "n", "n"],
-                           ["Spearman Correlation Z", "15.018574", "n", "n"],
-                           ["Earth Movers Distance", "0.006", "n", "n"],
-                           ["Minowski Sum", "0.004", "n", "n"],
-                           ["MaxDifference", "n", "n", "n"],
-                           ["MinDifference", "n", "n", "n"],
-                           ["Rest of them", "0.004", "n", "n"]
+                           ["Spearman Correlation Z", "n", "n", "n"],
+                           ["Earth Movers Distance", "n", "n", "n"],
+                           ["..........", "n", "n", "n"],
+                           [".....", "n", "n", "n"]
                             ])
 
         Haus_Frame = obj_stats2.add(obj_stats2.get_cell((1,1), color = YELLOW))
@@ -431,15 +468,33 @@ class OBJDIST(Slide):
         Ver_Arr2 = Arrow(np.array([2,0,0]), np.array([3,2,0]), color=ORANGE)
         Face_Arr = Arrow(np.array([0,0,0]), np.array([0,3,0]), color=GREEN)
 
-        Haus_Text = Text("Hausdorff Distance measures ...")
+        Haus_Text = Text("Hausdorff Distance measures how far two subsets of a metric space are from each other.", font_size=15)
         Haus_Eq = MathTex(r"d_H(X,Y_i) = max \biggl\{sup_{x \in X} d(x,Y_i), sup_{y \in Y_i} d(X,y) \biggr\}").next_to(Haus_Text, DOWN)
         Haus_Eq.scale(0.7)
 
-        Chamf_Text = Text("Chamfer Distance measures...")
+        Chamf_Text = Text("Chamfer Distance is a measure of the sum of\nthe squared distances between nearest neighbor\ncorrespondances of two point clouds.", font_size=15)
         Chamf_Eq = MathTex(r"d_C(X,Y_i) = \sum_{x \in X} min_{y \in Y_i} \| x-y \|_2^2 + \sum_{y \in Y_i} min_{x \in X} \| x-y \|_2^2").next_to(Chamf_Text, DOWN)
         Chamf_Eq.scale(0.7)
 
+        NUMD16 = ImageMobject(f"/home/markus/Priv_Manim_Slides/Manim-Slides/Archiving/NUMD16.png")
+        UMD16 = ImageMobject(f"/home/markus/Priv_Manim_Slides/Manim-Slides/Archiving/UMD16.png")
+        NUMQEM16 = ImageMobject(f"/home/markus/Priv_Manim_Slides/Manim-Slides/Archiving/NUMQEM16.png")
+        UMQEM16 = ImageMobject(f"/home/markus/Priv_Manim_Slides/Manim-Slides/Archiving/UMQEM16.png")
+        NUMVC16 = ImageMobject(f"/home/markus/Priv_Manim_Slides/Manim-Slides/Archiving/NUMVC16.png")
+        UMVC16 = ImageMobject(f"/home/markus/Priv_Manim_Slides/Manim-Slides/Archiving/UMVC16.png")
 
+        NUMDMaxErr = Text("Max: 0.021276")
+        NUMDMeanErr = Text("Mean: 0.002001")
+        UMDMaxErr = Text("Max: 0.21942")
+        UMDMeanErr = Text("Mean: 0.022024")
+        NUMQEMMaxErr = Text("Max: 0.013901")
+        NUMQEMMeanErr = Text("Mean: 0.001987")
+        UMQEMMaxErr = Text("Max: 0.023241")
+        UMQEMMeanErr = Text("Mean: 0.001824")
+        NUMVCMaxErr = Text("Max: 0.05756")
+        NUMVCMeanErr = Text("Mean: 0.007168")
+        UMVCMaxErr = Text("Max: 0.063978")
+        UMVCMeanErr = Text("Mean: 0.016397")
         
         self.play(Create(Samp_Surface))
         self.wait()
@@ -452,8 +507,8 @@ class Graphs(Slide):
     def construct(self):
         self.camera.background_color = rgb_to_color([38/255, 45/255, 53/255])
 
-        Slide_Title = Text("Graphs", font_size = 25, weight=BOLD).to_corner(UP + LEFT)
-        Slide_Number = Text("8", font_size = 15, weight=BOLD).to_corner(DOWN + RIGHT)
+        Slide_Title9 = Text("Graphs", font_size = 25, weight=BOLD).to_corner(UP + LEFT)
+        Slide_Number9 = Text("8", font_size = 15, weight=BOLD).to_corner(DOWN + RIGHT)
         Colorlab = ImageMobject("/home/markus/Priv_Manim_Slides/Manim-Slides/Logos/CLsmall.png/").move_to([-6.5, -3.5, 0])
         Colorlab.scale(0.5)
 
@@ -629,7 +684,7 @@ class Graphs(Slide):
         ECMaxAxes = Axes(x_range = [-1, 16, 1],
                               y_range = [0, 0.08, 0.02]
         )
-        ECTitMax = Text("Decimation - Max Error", font_size=25).next_to(ECMaxAxes, DOWN)
+        ECTitMax = Text("Edge Collapse - Max Error", font_size=25).next_to(ECMaxAxes, DOWN)
         ECNUMaGraph = ECMaxAxes.plot_line_graph(x_values = X, y_values = ECNUyMax, line_color = RED)
         ECUMaGraph = ECMaxAxes.plot_line_graph(x_values = X, y_values = ECUyMax, line_color = GREEN)
         ECSMaGraph = ECMaxAxes.plot_line_graph(x_values = X, y_values = ECSyMax, line_color = BLUE)
@@ -678,35 +733,62 @@ class Analysis(Slide):
         Colorlab = ImageMobject("/home/markus/Priv_Manim_Slides/Manim-Slides/Logos/CLsmall.png/").move_to([-6.5, -3.5, 0])
         Colorlab.scale(0.5)
 
-        STATM = SVGMobject("/home/markus/Priv_Manim_Slides/Manim-Slides/Logos/STATMWhite.svg")
+        SphTA = Text("* QEM (almost) exponentially reduces geometric accuracy for\nspherical objects, while Vertex Clustering's\nerror is higher but linear.", font_size=20)
+        DeciTA = Text("* Decimation algorithm has the hightest error.", font_size=20)
+        PattTA = Text("* Repeated patterns in objects does not necessarily\nindicate a uniform reduction.", font_size=20)
+        DistTA = Text("* Various distance measures cna be used to\nanalyze point cloud differences.", font_size=20)
+
+        AnTxtGrp = VGroup(SphTa, DeciTa, PattTA, DistTA)
+        AnTxtGrp.arrange(DOWN, center=False, align_edge=LEFT)
+
+        STATM = SVGMobject("/home/markus/Priv_Manim_Slides/Manim-Slides/Logos/STATMWhite.svg").move_to([3,2,0])
 
         ObDat = Text("* Provide insightful information about the object.")
         ErDet = Text("* Automatically detect errors during acquisiton or processing.").next_to(ObDat, DOWN)
         SimCh = Text("* Select optimal simplification approach based on object geometry.").next_to(ErDet, DOWN)
         UsSim = Text("* Useable on original and simplified objects.").next_to(SimCh, DOWN)
 
+        AnTxtGrp2 = VGroup(ObDat, ErDet, SimCh, UsSim)
+        AnTxtGrp2.arrange(DOWN, center=False, aligned_edge=LEFT)
+
 class FutureWork(Slide):  
     def construct(self):
         self.camera.background_color = rgb_to_color([38/255, 45/255, 53/255])
 
-        Slide_Title = Text("Graphs", font_size = 25, weight=BOLD).to_corner(UP + LEFT)
-        Slide_Number = Text("8", font_size = 15, weight=BOLD).to_corner(DOWN + RIGHT)
+        Slide_Title10 = Text("Graphs", font_size = 25, weight=BOLD).to_corner(UP + LEFT)
+        Slide_Number10 = Text("9", font_size = 15, weight=BOLD).to_corner(DOWN + RIGHT)
         Colorlab = ImageMobject("/home/markus/Priv_Manim_Slides/Manim-Slides/Logos/CLsmall.png/").move_to([-6.5, -3.5, 0])
         Colorlab.scale(0.5)
         
-        STATM = SVGMobject("/home/markus/Priv_Manim_Slides/Manim-Slides/Logos/STATMWhite.svg")
-        Impl = Text("* Implement other desired features.")
-        ApSh = Text("* Apply the toolbox and investigation to CH objects.")
-        GUI = Text("* Develop a GUI for non-CS users(?)")
-        OpSo = Text("* Open Source when developed.")
+        STATM = SVGMobject("/home/markus/Priv_Manim_Slides/Manim-Slides/Logos/STATMWhite.svg").move_to([3,2,0])
+        Impl = Text("* Implement other desired features.", font_size=20)
+        ApSh = Text("* Apply the toolbox and investigation to\ncomplex CH objects.", font_size=20)
+        GUI = Text("* Develop a GUI for non-CS users.", font_size=20)
+        OpSo = Text("* Open Source when developed.", font_size=20)
 
+        FWTxtGrp = VGroup(Impl, ApSh, GUI, OpSo).next_to(STATM, DOWN)
+        FWTxtGrp.arrange(DOWN, center=False, aligned_edge=LEFT)
+
+        self.add(Slide_Title10, Slide_Number10, Colorlab)
+        self.wait()
+        self.next_slide()
+        self.play(Write(STATM))
+        self.next_slide()
+        self.play(FadeIn(Impl))
+        self.next_slide()
+        self.play(FadeIn(ApSh))
+        self.next_slide()
+        self.play(FadeIn(GUI))
+        self.next_slide()
+        self.play(FadeIn(OpSo))
+        self.next_slide()
 
 class Citation(Slide):  
     def construct(self):
         self.camera.background_color = rgb_to_color([38/255, 45/255, 53/255])
 
-        Slide_Title = Text("Citations and Contact", font_size = 25, weight=BOLD).to_corner(UP + LEFT)
-        Slide_Number = Text("8", font_size = 15, weight=BOLD).to_corner(DOWN + RIGHT)
+        Slide_Title11 = Text("Citations and Contact", font_size = 25, weight=BOLD).to_corner(UP + LEFT)
+        Slide_Number11 = Text("10", font_size = 15, weight=BOLD).to_corner(DOWN + RIGHT)
         Colorlab = ImageMobject("/home/markus/Priv_Manim_Slides/Manim-Slides/Logos/CLsmall.png/").move_to([-6.5, -3.5, 0])
         Colorlab.scale(0.5)
         Archiving = ImageMobject("/home/markus/Priv_Manim_Slides/Manim-Slides/Logos/Archiving.png/").move_to([4, -3.5, 0])
@@ -721,8 +803,10 @@ class Citation(Slide):
 
         MetroRef = Text("[1] Cignoni, P., Rocchini, C., & Scopigno, R. (1998, June). Metro:\nmeasuring error on simplified surfaces. In Computer graphics\nforum (Vol. 17, No. 2, pp. 167-174). Oxford, UK and Boston,\nUSA: Blackwell Publishers.", font_size=10).move_to([-3,2.5,0])
         SimpsRef = Text("[2] Cignoni, P., Montani, C., & Scopigno, R. (1998). A comparison\nof mesh simplification algorithms. Computers & Graphics,\n22(1), 37-54.", font_size=10).next_to(MetroRef, DOWN)
+        FinalRefsGrp = VGroup()
+        FinalRefsGrp.arrange(DOWN, center=False, aligned_edge=LEFT)
 
-        self.add(Slide_Title, Slide_Number, Colorlab, NTNU, Archiving, ISNT)
+        self.add(Slide_Title11, Slide_Number11, Colorlab, NTNU, Archiving, ISNT)
         self.play(FadeIn(Name, EMail))
         self.wait()
         self.play(FadeIn(MetroRef, SimpsRef))
