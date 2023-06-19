@@ -81,7 +81,10 @@ class Header(Slide):
         SampVeClMaxGrp = VGroup (SampVeClMaxAxes, SampVCNUMaGraph, SampVCUMaGraph, SampVCSMaGraph, SampVCRMaGraph).move_to([4,0,0])
         SampVeClMaxGrp.scale(0.3)
 
-        #Note = Text("Analyze the behaviour of 3D manifolds during simplification stages", font_size=25).move_to([0,-2.0])
+        Quest1 = Text("How does simplification relate to data loss?", font_size=25).move_to([-2,-1.8,0])
+        Quest2 = Text("How can we select optimal algorithms for various geometries?", font_size=25).move_to([-2,-2.3,0])
+        QuestGrp = VGroup(Quest1, Quest2)
+        QuestGrp.arrange(DOWN, center=False, aligned_edge=LEFT)
         
         self.play(FadeIn(Process), Create(Samp_array), run_time=2)
         self.next_slide()
@@ -92,7 +95,9 @@ class Header(Slide):
         #self.next_slide()
         self.play(FadeIn(Stats), Create(SampVeClMaxGrp), run_time=2)
         self.next_slide()
-        #self.play(FadeIn(Note))
+        self.play(FadeIn(Quest1))
+        self.next_slide()
+        self.play(FadeIn(Quest2))
         self.wait(3)
 
 class Introduction(Slide):  
@@ -317,14 +322,12 @@ class ThreeDShapes(ThreeDSlide):
         ANGTit = Text("Angle Object").next_to(AMBMes, UP)
 
         Scan_array = Graph([1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16],[(1,4),(5,8), (9,12),(13,16),(1,13), (2,14), (3,15), (4,16), (5,2), (9,3), (13,4), (14,8), (15,12)],
-                           layout = {1: [4,0,0], 2: [4,1,0], 3: [4,2,0], 4: [4,3,0], 5: [3,0,0], 6: [3,1,0], 7: [3,2,0], 8: [3,3,0],
-                                     9: [2,0,0], 10: [2,1,0], 11: [2,2,0], 12: [2,3,0], 13: [1,0,0], 14: [1,1,0], 15: [1,2,0], 16: [1,3,0]}).move_to([-4,-2,0])
-        Scan_array.scale(0.7)
+                           layout = {1: [0,0,0], 2: [0,1,0], 3: [0,2,0], 4: [0,3,0], 5: [1,0,0], 6: [1,1,0], 7: [1,2,0], 8: [1,3,0],
+                                     9: [2,0,0], 10: [2,1,0], 11: [2,2,0], 12: [2,3,0], 13: [3,0,0], 14: [3,1,0], 15: [3,2,0], 16: [3,3,0]})
 
-        ScanNoise_array = Graph([1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16],[(1,4),(4,16), (16,13),(1,13),(5,2), (6,3)],
-                           layout = {1: [4,0,0], 2: [4,1,0], 3: [4,2,0], 4: [4,3,0], 5: [3,0,0], 6: [3.1,0.6,0], 7: [2.9,2.3,0], 8: [3,3,0],
-                                     9: [2,0,0], 10: [2,1.2,0], 11: [2,1.9,0], 12: [2,3,0], 13: [1,0,0], 14: [1,1.4,0], 15: [1,2.4,0], 16: [1,3,0]}).move_to([-2,-2,0])
-        ScanNoise_array.scale(0.7)
+        ScanNoise_array = Graph([1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16],[(1,4),(4,16), (16,13),(1,13),(5,2), (6,3), (7,4), (9,6), (10,7), (11,8), (13,10), (14,11), (15,12), (5,6), (6,7), (7,8), (9,10), (10,11), (11,12), (2,6), (6,10), (10,14), (3,7), (7,11), (11,15)],
+                           layout = {1: [0,0,0], 2: [0,1.2,0], 3: [0,1.9,0], 4: [0,3,0], 5: [0.95,0,0], 6: [0.9,1.2,0], 7: [1.1,2.2,0], 8: [1.1,3,0],
+                                     9: [2,0,0], 10: [1.9,0.9,0], 11: [1.8,2.4,0], 12: [2.2,3,0], 13: [3,0,0], 14: [3,1.3,0], 15: [3,2.3,0], 16: [3,3,0]})
 
 
         #self.play(FadeIn(Prim))
@@ -346,19 +349,21 @@ class ThreeDShapes(ThreeDSlide):
         #self.stop_ambient_camera_rotation()
         #self.move_camera(phi=0 * DEGREES, run_time=1.5)
         #self.next_slide()
-        self.set_camera_orientation(zoom=1)
-        self.add(Slide_Title5, Slide_Number5)
-        self.play(FadeIn(Ext), FadeIn(ShapeGrp))
-        self.next_slide()
+        #self.set_camera_orientation(zoom=1)
+        #self.add(Slide_Title5, Slide_Number5)
+        #self.play(FadeIn(Ext), FadeIn(ShapeGrp))
+        #self.next_slide()
         #self.play(Write(AMBOrt), run_time=2)
         #self.next_slide()
-        self.play(ShapeGrp.animate.scale(0.5))
-        self.play(ShapeGrp.animate.move_to([-3,1,0]))
-        self.play(Write(AMBMes))
-        self.next_slide()
+        #self.play(ShapeGrp.animate.scale(0.5))
+        #self.play(ShapeGrp.animate.move_to([-3,1,0]))
+        #self.play(Write(AMBMes))
+        #self.next_slide()
         self.play(Create(Scan_array))
+        self.wait()
         self.next_slide()
         self.play(Transform(Scan_array, ScanNoise_array))
+        self.wait(2)
 
 class Statm(Slide):  
     def construct(self):
@@ -418,22 +423,22 @@ class OBJINFO(Slide):
         Colorlab = ImageMobject("/home/markus/Priv_Manim_Slides/Manim-Slides/Logos/CLsmall.png/").move_to([-6.5, -3.5, 0])
         Colorlab.scale(0.5)
 
-        OBJ_Stats1 = Table([["Object Name", "SM Baseline", "SMD 1"],
-                           ["Vertices", "16812", "n"],
-                           ["Edges", "50430", "n"],
-                           ["MaxEdge Length", "n", "n"],
-                           ["MinEdge Length", "n", "n"],
-                           ["MeanEdge Length", "n", "n"],
-                           ["MedianEdge Length", "n", "n"],
-                           ["Faces", "33620", "n"],
-                           ["MaxFace Size", "n", "n"],
-                           ["MinFace Size", "n", "n"],
-                           ["MeanFace Size", "n", "n"],
-                           ["MedianFace Size", "n", "n"],
-                           ["B.B Diagonal", "15.018574", "n"],
-                           ["Convex Hull Surface", "0.006", "n"],
-                           ["Point Surface Density", "0.004", "n"],
-                           ["Point Volume Density", "n", "n"],
+        OBJ_Stats1 = Table([["Object Name", "SM Baseline", "SMD 1", "n"],
+                           ["Vertices", "n", "n", "n"],
+                           ["Edges", "n", "n", "n"],
+                           ["MaxEdge Length", "n", "n", "n"],
+                           ["MinEdge Length", "n", "n", "n"],
+                           ["MeanEdge Length", "n", "n", "n"],
+                           ["MedianEdge Length", "n", "n", "n"],
+                           ["Faces", "n", "n", "n"],
+                           ["MaxFace Size", "n", "n", "n"],
+                           ["MinFace Size", "n", "n", "n"],
+                           ["MeanFace Size", "n", "n", "n"],
+                           ["MedianFace Size", "n", "n", "n"],
+                           ["B.B Diagonal", "n", "n", "n"],
+                           ["Convex Hull Surface", "n", "n", "n"],
+                           ["Point Surface Density", "n", "n", "n"],
+                           ["Point Volume Density", "n", "n", "n"],
                             ]).move_to([1,0,0])
 
         OBJ_Stats2 = Table([["Hausdorff Distance Max", "SM Baseline", "SMD 1", "n"],
@@ -458,14 +463,15 @@ class OBJINFO(Slide):
         OBJ_Stats1.scale(0.3)
         OBJ_Stats2.scale(0.3)
 
-        self.add(Slide_Number, Slide_Title, Colorlab)
+        self.add(Slide_Number7, Slide_Title7, Colorlab)
         self.wait()
         self.next_slide()
         self.play(Write(OBJ_Stats1))
         self.wait()
         self.next_slide()
         self.play(OBJ_Stats1.animate.shift(LEFT*2), Write(OBJ_Stats2))
-        self.wait()
+        self.play(FadeOut(OBJ_Stats1))
+        self.wait(3)
         self.next_slide()
 
         
@@ -532,6 +538,11 @@ class OBJDIST(Slide):
         UMVCMaxErr = Text("Max: 0.063978")
         UMVCMeanErr = Text("Mean: 0.016397")
         
+        self.play(Write(Chamf_Eq))
+        self.wait(2)
+        self.play(FadeOut(Chamf_Eq))
+        self.play(Write(Haus_Eq))
+        self.wait(2)
         self.play(Create(Samp_Surface))
         self.wait()
         self.play(GrowArrow(Ver_Arr1), GrowArrow(Ver_Arr2))
@@ -624,7 +635,7 @@ class Graphs(Slide):
         DSGraph = DeciMean_Axes.plot_line_graph(x_values = X, y_values = DSyMean, line_color = BLUE)
         #DAGraph = DeciMean_Axes.plot_line_graph(x_values = X, y_values = DAyMean, line_color = PURPLE)
         DRGraph = DeciMean_Axes.plot_line_graph(x_values = X, y_values = DRyMean, line_color = GOLD)
-        DeciMeanGrp = VGroup(DeciMean_Axes, DeciTit, DeciMean_Lables, DNUGraph, DUGraph, DSGraph, DRGraph)
+        DeciMeanGrp = VGroup(DeciMean_Axes, DeciTit, DNUGraph, DUGraph, DSGraph, DRGraph)
 
         VerCluMean_Axes = Axes(x_range = [-1, 16, 1],
                                y_range = [0, 0.025, 0.005]
@@ -680,8 +691,7 @@ class Graphs(Slide):
         DSMaGraph = DeciMaxAxes.plot_line_graph(x_values = X, y_values = DSyMax, line_color = BLUE)
         #DAMaGraph = DeciMaxAxes.plot_line_graph(x_values = X, y_values = DAyMax, line_color = PURPLE)
         DRMaGraph = DeciMaxAxes.plot_line_graph(x_values = X, y_values = DRyMax, line_color = GOLD)
-        DeciMaxGrp = VGroup(DeciMaxAxes, DeciTitMax, DNUMaGraph, DUMaGraph, DSMaGraph, DRMaGraph).move_to([-5.5,-2,0])
-        DeciMaxGrp.scale(0.2)
+        DeciMaxGrp = VGroup(DeciMaxAxes, DeciTitMax, DNUMaGraph, DUMaGraph, DSMaGraph, DRMaGraph)
         
         VeClMaxAxes = Axes(x_range = [-1, 16, 1],
                               y_range = [0, 0.08, 0.02]
@@ -692,8 +702,7 @@ class Graphs(Slide):
         VCSMaGraph = VeClMaxAxes.plot_line_graph(x_values = X, y_values = VCSyMax, line_color = BLUE)
         #VCAMaGraph = VeClMaxAxes.plot_line_graph(x_values = X, y_values = VCAyMax, line_color = PURPLE)
         VCRMaGraph = VeClMaxAxes.plot_line_graph(x_values = X, y_values = VCRyMax, line_color = GOLD)
-        VeClMaxGrp = VGroup (VeClMaxAxes, VeClTitMax, VCNUMaGraph, VCUMaGraph, VCSMaGraph, VCRMaGraph).move_to([-2.5,-2,0])
-        VeClMaxGrp.scale(0.2)
+        VeClMaxGrp = VGroup (VeClMaxAxes, VeClTitMax, VCNUMaGraph, VCUMaGraph, VCSMaGraph, VCRMaGraph)
 
         QEMMaxAxes = Axes(x_range = [-1, 16, 1],
                               y_range = [0, 0.08, 0.02]
@@ -704,8 +713,7 @@ class Graphs(Slide):
         QEMSMaGraph = QEMMaxAxes.plot_line_graph(x_values = X, y_values = QEMSyMax, line_color = BLUE)
         #QEMAMaGraph = QEMMaxAxes.plot_line_graph(x_values = X, y_values = QEMAyMax, line_color = PURPLE)
         QEMRMaGraph = QEMMaxAxes.plot_line_graph(x_values = X, y_values = QEMRyMax, line_color = GOLD)
-        QEMMaxGrp = VGroup(QEMMaxAxes, QEMTitMax, QEMNUMaGraph, QEMUMaGraph, QEMSMaGraph, QEMRMaGraph).move_to([0.5,-2,0])
-        QEMMaxGrp.scale(0.2)
+        QEMMaxGrp = VGroup(QEMMaxAxes, QEMTitMax, QEMNUMaGraph, QEMUMaGraph, QEMSMaGraph, QEMRMaGraph)
 
         #CFMMaxAxes = Axes()
         #CFMTitMax = Text("Decimation - Max Error", font_size=25).next_to(CFMMaxAxes, DOWN)
@@ -726,15 +734,14 @@ class Graphs(Slide):
         ECSMaGraph = ECMaxAxes.plot_line_graph(x_values = X, y_values = ECSyMax, line_color = BLUE)
         #ECAMaGraph = ECMaxAxes.plot_line_graph(x_values = X, y_values = ECAyMax, line_color = PURPLE)
         ECRMaGraph = ECMaxAxes.plot_line_graph(x_values = X, y_values = ECRyMax, line_color = GOLD)
-        ECMaxGrp = VGroup(ECMaxAxes, ECTitMax, ECNUMaGraph, ECUMaGraph, ECSMaGraph, ECRMaGraph).move_to([6.5,-2,0])
-        ECMaxGrp.scale(0.2)
+        ECMaxGrp = VGroup(ECMaxAxes, ECTitMax, ECNUMaGraph, ECUMaGraph, ECSMaGraph, ECRMaGraph)
 
         MeanTit = Text("Mean Error", font_size=20).next_to(QEMMeanGrp, UP)
         MaxTit = Text("Max Error", font_size=20).next_to(QEMMaxGrp, UP)
 
 
-        self.add(Slide_Title, Slide_Number, Colorlab)
-        self.play(Write(DeciMean_Axes), Write(DeciMean_Lables), Write(DeciTit))
+        self.add(Slide_Title9, Slide_Number9, Colorlab)
+        self.play(Write(DeciMean_Axes), Write(DeciTit))
         self.wait()
         self.play(Write(DNUGraph), run_time = 2)
         self.wait()
@@ -746,17 +753,32 @@ class Graphs(Slide):
         self.wait()
         self.play(DeciMeanGrp.animate.scale(0.3))
         self.play(DeciMeanGrp.animate.move_to([-4,1,0]))
+        self.play(FadeOut(DeciMeanGrp))
         self.play(Write(VerCluMeanGrp))
         self.play(VerCluMeanGrp.animate.scale(0.3))
         self.play(VerCluMeanGrp.animate.move_to([-2,1,0]))
+        self.play(FadeOut(VerCluMeanGrp))
         self.play(Write(QEMMeanGrp))
         self.play(QEMMeanGrp.animate.scale(0.3))
         self.play(QEMMeanGrp.animate.move_to([0,1,0]))
+        self.play(FadeOut(QEMMeanGrp))
         self.play(Write(EdColMeanGrp))
         self.play(EdColMeanGrp.animate.scale(0.3))
         self.play(EdColMeanGrp.animate.move_to([5,1,0]))
+        self.play(FadeOut(EdColMeanGrp))
         self.wait()
-        self.play(Write(ECMaxGrp), Write(DeciMaxGrp), Write(VeClMaxGrp), Write(QEMMaxGrp), Write(MaxTit), Write(MeanTit))
+        self.play(Write(DeciMaxGrp))
+        self.wait()
+        self.play(FadeOut(DeciMaxGrp))
+        self.play(Write(VeClMaxGrp))
+        self.wait()
+        self.play(FadeOut(VeClMaxGrp))
+        self.play(Write(QEMMaxGrp))
+        self.wait()
+        self.play(FadeOut(QEMMaxGrp))
+        self.play(Write(ECMaxGrp))
+        self.wait()
+        self.play(FadeOut(ECMaxGrp))
         self.wait()
 
 
@@ -820,6 +842,7 @@ class FutureWork(Slide):
         Colorlab.scale(0.5)
 
         ShpMo = Text("* Attempt to model the rate-of-change\nof primitives.\n - As standalone.\n - As part of larger objects.", font_size=20)
+        FetAlg = Text("* Identify the spatial location of high errors in the manifolds.", font_size=20)
         FetAlg = Text("* Geometric analysis for selection of\nsimplification algorithm.", font_size=20)
         AlFe = Text("* Align features to what is interesting\nfor CH managers.", font_size=20)
 

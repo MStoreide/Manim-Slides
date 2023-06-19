@@ -3,39 +3,23 @@
     {
       "type": "slide",
       "start_animation": 0,
-      "end_animation": 1,
+      "end_animation": 2,
       "number": 1,
       "terminated": false
     },
     {
-      "type": "slide",
-      "start_animation": 1,
+      "type": "last",
+      "start_animation": 2,
       "end_animation": 4,
       "number": 2,
-      "terminated": false
-    },
-    {
-      "type": "slide",
-      "start_animation": 4,
-      "end_animation": 5,
-      "number": 3,
-      "terminated": false
-    },
-    {
-      "type": "last",
-      "start_animation": 5,
-      "end_animation": 6,
-      "number": 4,
       "terminated": false
     }
   ],
   "files": [
-    "slides/files/ThreeDShapes/3385873055_3658716504_10412167.mp4",
-    "slides/files/ThreeDShapes/2720004795_3657723945_1167774236.mp4",
-    "slides/files/ThreeDShapes/2720004795_3573810738_1167774236.mp4",
-    "slides/files/ThreeDShapes/2720004795_4071598141_4115737350.mp4",
-    "slides/files/ThreeDShapes/2720004795_3036694257_1721093440.mp4",
-    "slides/files/ThreeDShapes/2720004795_912482595_424907726.mp4"
+    "slides/files/ThreeDShapes/3385873055_3953225856_223132457.mp4",
+    "slides/files/ThreeDShapes/2720004795_329969645_2883848547.mp4",
+    "slides/files/ThreeDShapes/2720004795_3072975111_268709281.mp4",
+    "slides/files/ThreeDShapes/2720004795_957343386_3227755271.mp4"
   ],
   "resolution": [
     1920,

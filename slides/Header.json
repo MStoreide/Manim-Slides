@@ -36,10 +36,17 @@
       "terminated": false
     },
     {
-      "type": "last",
+      "type": "slide",
       "start_animation": 7,
       "end_animation": 8,
       "number": 6,
+      "terminated": false
+    },
+    {
+      "type": "last",
+      "start_animation": 8,
+      "end_animation": 10,
+      "number": 7,
       "terminated": false
     }
   ],
@@ -51,7 +58,9 @@
     "slides/files/Header/857827482_883114124_2710132271.mp4",
     "slides/files/Header/857827482_1467500567_1144814282.mp4",
     "slides/files/Header/857827482_2939768475_572725133.mp4",
-    "slides/files/Header/857827482_2358420384_2528664993.mp4"
+    "slides/files/Header/857827482_3179979707_3987822910.mp4",
+    "slides/files/Header/857827482_1412396233_2253081932.mp4",
+    "slides/files/Header/857827482_2358420384_3472803990.mp4"
   ],
   "resolution": [
     1920,
