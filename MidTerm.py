@@ -696,6 +696,7 @@ class Publications(ThreeDSlide):
         JOURN = Text("Journal")
         CONFE = Text("Conference")
 
+        STATUS = Text("Status")
         STATUS_1 = Text("Complete", color = GREEN_D)
         STATUS_2 = Text("Planned", color = RED_C)
         STATUS_3 = Text("In Works", color = ORANGE)
@@ -706,13 +707,16 @@ class Publications(ThreeDSlide):
         LVL_2 = Text("Level 2")
 
         Empty = Text("-")
+        #                       Title, Status, Published/Submitted, Level
+        PubTab = MobjectTable([[PAP_6, STATUS_1, PUB_1],
+                               [PAP_6.copy(), STATUS_1.copy(), PUB_2],
+                               [PAP_6.copy(), STATUS_2, Empty]])
+        PubTab.scale(0.5)
 
-        Test = MobjectTable([[PAP_6, STATUS_1, PUB_1],
-                             [PAP_6.copy(), STATUS_1.copy(), PUB_2],
-                             [PAP_6.copy(), STATUS_2, Empty]])
-        Test.scale(0.5)
+        #ConfTab = MobjectTable([[],
+        #                      ])
 
-        self.play(Write(Test), run_time = 1)
+        self.play(Write(PubTab), run_time = 1)
         self.wait(2)
 
         # Proposed publication Journals and Conferences
