@@ -65,7 +65,7 @@ class SVGTest(Scene):
     def construct(self):
         self.camera.background_color = rgb_to_color([38/255, 45/255, 53/255])
 
-        SVG = SVGMobject(f"/home/markus/Priv_Manim_Slides/Manim-Slides/Logos/Confluence.svg")
+        SVG = SVGMobject(f"/home/markus/Priv_Manim_Slides/Manim-Slides/Logos/Office365.svg")
 
         self.play(Write(SVG), run_time=2)
         self.wait(2)
@@ -318,14 +318,17 @@ class DataCollection(Scene):
         # Eidskog Kirke
         EIDS_t = Text("Eidskog Kirke")
         EIDS = SVGMobject(NorskeKirke)
+        EIDS_data = ImageMobject("/home/markus/Priv_Manim_Slides/Manim-Slides/Logos/Eidskogdata.jpeg")
 
         # Balke Center
         BALKE_t = Text("Balke Senteret")
         BALKE = ImageMobject("/home/markus/Priv_Manim_Slides/Manim-Slides/Logos/BalkeSenteret.svg")
+        BALKE_data = ImageMobject("/home/markus/Priv_Manim_Slides/Manim-Slides/Logos/Balkedata.jpeg")
 
         # Kolbu Dør
         KOLB_t = Text("Kolbu Barn Door")
         KOLB = SVGMobject(Kommunevåpen)
+        KOLB_data = ImageMobject("/home/markus/Priv_Manim_Slides/Manim-Slides/Logos/Kolbudata.jpeg")
         # Mention NRK
 
         # Uvdal Stavkirke?
@@ -656,14 +659,24 @@ class Publications(ThreeDSlide):
         colorlabcorner.scale(0.5)
 
         # Journals and Conferences
+
+        #HRSC = Image
+        HRSC_title = Text("Journal of Heritage Science")
+        HRSC_paper = Text("Standardization of Digitized Heritage: A Review of General-Purpose Implementations of 3D in Cultural Heritage")
         
-         # Archiving 2023
-       # ARCHIVING = ImageMobject(f"/home/markus/Priv_Manim_Slides/Manim-Slides/Logos/ARCHIVING.png")
+        # Archiving 2023
+        # ARCHIVING = ImageMobject(f"/home/markus/Priv_Manim_Slides/Manim-Slides/Logos/ARCHIVING.png")
         arch_talk = Text("Statistical Evaluation of 3D Manifolds Shape Retention During Simplification Stages")
+        JIST = Text("JIST VERSION")
 
         #JCCH = SVGMobject(f"/home/markus/Priv_Manim_Slides/Manim-Slides/Logos/JournCompCH.png")
-        jcch_title = Text("Journal of Computing and Cultural Heritage")
-        jcch_pap = Text("STATM - A Statistical Toolbox for Analysis of Triangulated Manifolds")
+        JCCH_title = Text("Journal of Computing and Cultural Heritage")
+        JCCH_pap = Text("STATM - A Statistical Toolbox for Analysis of Triangulated Manifolds")
+
+        # Whispers 2023
+        # WHISP = SVGMobject(f"/home/markus/Priv_Manim_Slides/Manim-Slides/Logos/Whispers.png")
+        WHISP_title = Text("WHISPERS - Workshop on Hyperspectral Image and Signal Processing")
+        WHISP_paper = Text("Pixel-based Point Cloud Clustering for Spectral Data Enrichment")
 
         # Planned Papers
 
@@ -679,6 +692,9 @@ class Publications(ThreeDSlide):
 
         AUTH1 = Text("First Author", color = GREEN_D)
         AUTH2 = Text("Second Author", color = ORANGE)
+
+        JOURN = Text("Journal")
+        CONFE = Text("Conference")
 
         STATUS_1 = Text("Complete", color = GREEN_D)
         STATUS_2 = Text("Planned", color = RED_C)
@@ -696,13 +712,18 @@ class Publications(ThreeDSlide):
                              [PAP_6.copy(), STATUS_2, Empty]])
         Test.scale(0.5)
 
-        self.play(Write(Test), run_time = 3)
+        self.play(Write(Test), run_time = 1)
         self.wait(2)
 
         # Proposed publication Journals and Conferences
 
-        EURGR = Text("Eurographics - European Association for Computer Graphics")
         JRNCH = Text("Journal of Cultural Heritage")
+        COGR = Text("Computers & Graphics")
+        COCH = Text("Journal of Computing and Cultural Heritage")
+
+        TDOR = Text("Symposium of 3D Object Retrieval (3DOR)")
+        TDIA = Text("3D Imaging and Applications (3DIA)")
+        CIC = Text("Color and Imaging Conference (CIC)")
 
 class Other(ThreeDSlide):
     def construct(self):

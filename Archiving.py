@@ -219,7 +219,7 @@ class SimplAlgo(Slide):
         SimpRefsGrp.arrange(DOWN, center=False, aligned_edge=LEFT)
 
 
-        self.add(Slide_Title, Slide_Number)
+        self.add(Slide_Title4, Slide_Number4)
         self.wait()
         self.next_slide()
         self.play(Create(surface), run_time=3)
