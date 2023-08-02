@@ -1,0 +1,20 @@
+{
+  "slides": [
+    {
+      "type": "last",
+      "start_animation": 0,
+      "end_animation": 2,
+      "number": 1,
+      "terminated": false
+    }
+  ],
+  "files": [
+    "slides/files/ResearchSpectVect/2991918809_3315967912_3742741535.mp4",
+    "slides/files/ResearchSpectVect/857827482_357971094_3088463312.mp4"
+  ],
+  "resolution": [
+    1920,
+    1080
+  ],
+  "background_color": "black"
+}

@@ -2,8 +2,8 @@ This is XeTeX, Version 3.141592653-2.6-0.999995 (MiKTeX 23.5) (preloaded format=
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
-**./media/Tex/6f25f4dafcf3ce9b.tex
-(media/Tex/6f25f4dafcf3ce9b.tex
+**./media/Tex/82d27d84fcf1269b.tex
+(media/Tex/82d27d84fcf1269b.tex
 LaTeX2e <2022-11-01> patch level 1
 L3 programming layer <2023-05-15> (/home/markus/.miktex/texmfs/install/tex/late
 x/standalone/standalone.cls
@@ -381,8 +381,8 @@ LaTeX Font Info:    Overwriting symbol font `mtgreekit' in version `bold'
 ** typeset with the n shape.
 ** \hbar
 ** minus as endash
-(/home/markus/Priv_Manim_Slides/Manim-Slides/media/Tex/6f25f4dafcf3ce9b.aux)
-\openout1 = `6f25f4dafcf3ce9b.aux'.
+No file 82d27d84fcf1269b.aux.
+\openout1 = `82d27d84fcf1269b.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 27.
 LaTeX Font Info:    ... okay on input line 27.
@@ -417,16 +417,16 @@ Preview: PDFoutput 1
 Package mathastext Info: current meaning of amsmath \resetMathstrut@ saved on i
 nput line 27.
 Preview: Tightpage 0 0 0 0
-[1] (/home/markus/Priv_Manim_Slides/Manim-Slides/media/Tex/6f25f4dafcf3ce9b.aux
+[1] (/home/markus/Priv_Manim_Slides/Manim-Slides/media/Tex/82d27d84fcf1269b.aux
 ) ) 
 Here is how much of TeX's memory you used:
- 7084 strings out of 413518
- 160569 string characters out of 5852436
+ 7081 strings out of 413518
+ 160442 string characters out of 5852436
  1843482 words of memory out of 5000000
- 27068 multiletter control sequences out of 15000+600000
+ 27067 multiletter control sequences out of 15000+600000
  512415 words of font info for 48 fonts, out of 8000000 for 9000
  0 hyphenation exceptions out of 8191
  72i,2n,119p,483b,265s stack positions out of 10000i,1000n,20000p,200000b,200000s
 
-Output written on /home/markus/Priv_Manim_Slides/Manim-Slides/media/Tex/6f25f4d
-afcf3ce9b.xdv (1 page, 408 bytes).
+Output written on /home/markus/Priv_Manim_Slides/Manim-Slides/media/Tex/82d27d8
+4fcf1269b.xdv (1 page, 404 bytes).

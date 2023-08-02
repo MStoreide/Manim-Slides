@@ -111,8 +111,8 @@ class Intro(ThreeDScene):
     def construct(self):
         self.camera.background_color = rgb_to_color([38/255, 45/255, 53/255])
 
-        slide_title1 = Text("Introduction", font_size = 40).to_corner(UP + LEFT)
-        slide_number1 = Text("1", font_size = 10).to_corner(DOWN + RIGHT)
+        st1 = Text("Introduction", font_size = 40).to_corner(UP + LEFT)
+        sn1 = Text("1", font_size = 10).to_corner(DOWN + RIGHT)
         colorlabcorner = ImageMobject("/home/markus/Priv_Manim_Slides/Manim-Slides/Logos/CLsmall.png/").to_corner(DOWN + LEFT)
         colorlabcorner.scale(0.5)
 
@@ -124,6 +124,13 @@ class Intro(ThreeDScene):
         ADITYA = ImageMobject(f"/home/markus/Priv_Manim_Slides/Manim-Slides/Logos/ADITYA.jpg", scale_to_resolution=2000).next_to(ADITYA_t, LEFT)
         JON_t = Text("Co-Supervisor #2: Jon Yngve Hardeberg", font_size=20).next_to(ADITYA_t, DOWN)
         JON = ImageMobject(f"/home/markus/Priv_Manim_Slides/Manim-Slides/Logos/JON.jpg", scale_to_resolution=2000).next_to(JON_t, LEFT)
+
+        RQ1 = Text("Research Question 1: ")
+        RQ2 = Text("Research Question 2: ")
+        RQ3 = Text("Research Question 3: ")
+
+        RQGrp = Group(RQ1, RQ2, RQ3)
+        RQGrp.arrange(DOWN, center=False, aligned_edge=LEFT)
 
         self.play(FadeIn(SONY_t), FadeIn(ADITYA_t), FadeIn(JON_t), run_time=2)
         self.play(FadeIn(SONY), FadeIn(ADITYA), FadeIn(JON))
@@ -170,6 +177,7 @@ class Intro(ThreeDScene):
         CONF_t = Text("Confluence")
         GIT = SVGMobject(f"/home/markus/Priv_Manim_Slides/Manim-Slides/Logos/Github.svg")
         GIT_t = Text("Github")
+
         #DATA MANAGEMENT??? MongoDB? Colourlab Server?
 
         MNG = Text("Project Management Tools:").move_to(UP + LEFT)
@@ -290,7 +298,7 @@ class Outreach(Scene):
 
         self.play(FadeIn(TRON))
         self.wait()
-        self.play(Transform(TRON,BERG))
+        self.play(Transform(TRON,BERG), Add(TRON))
         self.wait()
         self.play(Transform(BERG,ÅLES))
         self.wait()
@@ -548,6 +556,22 @@ class ResearchStat(ThreeDSlide):
         self.play(Write(obj_stats2))
         self.wait()
 
+class ResearchSpectVect(Slide):  
+    def construct(self):
+        self.camera.background_color = rgb_to_color([38/255, 45/255, 53/255])
+
+        slide_title = Text("Research Work - Mesh Statistics", font_size = 25).to_corner(UP + LEFT)
+        slide_number = Text("9", font_size = 10).to_corner(DOWN + RIGHT)
+        colorlabcorner = ImageMobject("/home/markus/Priv_Manim_Slides/Manim-Slides/Logos/CLsmall.png/").to_corner(DOWN + LEFT)
+        colorlabcorner.scale(0.5)
+
+
+        voxelgrid = Rectangle(width=1, height=4, grid_ystep=1, grid_xstep=1)
+
+        
+
+        self.wait()
+        self.play(Create(voxelgrid))
 
 class ResearchSpect(ThreeDSlide):
     def construct(self):
@@ -769,7 +793,7 @@ class Summary(ThreeDSlide):
         ## Timeplan Summary ##
 
 
-class Questions(ThreeDSlide):
+class Questions(Slide):
     def construct(self):
         self.camera.background_color = rgb_to_color([38/255, 45/255, 53/255])
 
@@ -778,13 +802,12 @@ class Questions(ThreeDSlide):
         colorlabcorner = ImageMobject("/home/markus/Priv_Manim_Slides/Manim-Slides/Logos/CLsmall.png/").to_corner(DOWN + LEFT)
         colorlabcorner.scale(0.5)
 
-        banner = ManimBanner().move_to(DOWN)
-        banner.scale(0.3)
-        madeuse = Text("Made using ", font_size = 10).next_to(banner, LEFT)
+        madeuse = Text("Made using ", font_size = 10)
 
         self.add(slide_title, slide_number)
-        self.play(Create(banner), Write(madeuse))
-        self.play(banner.expand)
+        self.play(Write(madeuse))
+        self.next_slide()
+        self.play(Unwrite(madeuse))
         self.wait(2)
 
         ## Questions? ##

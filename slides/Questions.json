@@ -1,0 +1,28 @@
+{
+  "slides": [
+    {
+      "type": "slide",
+      "start_animation": 0,
+      "end_animation": 1,
+      "number": 1,
+      "terminated": false
+    },
+    {
+      "type": "last",
+      "start_animation": 1,
+      "end_animation": 3,
+      "number": 2,
+      "terminated": false
+    }
+  ],
+  "files": [
+    "slides/files/Questions/2991918809_1741652229_38147241.mp4",
+    "slides/files/Questions/857827482_1178226248_4124884976.mp4",
+    "slides/files/Questions/857827482_125286499_757960075.mp4"
+  ],
+  "resolution": [
+    1920,
+    1080
+  ],
+  "background_color": "black"
+}
