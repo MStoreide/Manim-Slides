@@ -107,33 +107,52 @@ class Header(ThreeDSlide):
         self.next_slide()
 
 
-class Intro(ThreeDScene):
+class Intro(Slide):
     def construct(self):
         self.camera.background_color = rgb_to_color([38/255, 45/255, 53/255])
 
-        st1 = Text("Introduction", font_size = 40).to_corner(UP + LEFT)
-        sn1 = Text("1", font_size = 10).to_corner(DOWN + RIGHT)
-        colorlabcorner = ImageMobject("/home/markus/Priv_Manim_Slides/Manim-Slides/Logos/CLsmall.png/").to_corner(DOWN + LEFT)
-        colorlabcorner.scale(0.5)
+        st1 = Text("Introduction", font_size = 40, font="FreeSans").move_to([-5, 3.5, 0])
+        sn1 = Text("1", font_size = 10, weight=BOLD).move_to([6, -3.5,0])
+        CLs = ImageMobject("/home/markus/CL_Manim/Manim_IDIG4002/Logos/CLsmall.png/").move_to([6.5, -3.5,0])
+        CLs.scale(0.5)
 
-        PhD_Title = Text("Multiresolution and Multimodal Acquisiton and Fusion of Heterogeneous Data")
+        PhD_Title = Text("Multiresolution and Multimodal Acquisiton\nand Fusion of Heterogeneous Data", font_size=30, font="FreeSans").move_to([0,3,0])
 
-        SONY_t = Text("Main Supervisor: Sony George", font_size=20)
-        SONY = ImageMobject(f"/home/markus/Priv_Manim_Slides/Manim-Slides/Logos/SONY.jpg", scale_to_resolution=2000).next_to(SONY_t, LEFT)
-        ADITYA_t = Text("Co-Supervisor #1: Aditya Sole", font_size=20).next_to(SONY_t, DOWN)
-        ADITYA = ImageMobject(f"/home/markus/Priv_Manim_Slides/Manim-Slides/Logos/ADITYA.jpg", scale_to_resolution=2000).next_to(ADITYA_t, LEFT)
-        JON_t = Text("Co-Supervisor #2: Jon Yngve Hardeberg", font_size=20).next_to(ADITYA_t, DOWN)
-        JON = ImageMobject(f"/home/markus/Priv_Manim_Slides/Manim-Slides/Logos/JON.jpg", scale_to_resolution=2000).next_to(JON_t, LEFT)
+        SONY_t = Text("Main Supervisor:\nSony George", font_size=15, font="FreeSans")
+        SONY = ImageMobject(f"/home/markus/Priv_Manim_Slides/Manim-Slides/Logos/SONY.jpg", scale_to_resolution=3000).next_to(SONY_t, LEFT)
+        ADITYA_t = Text("Co-Supervisor #1:\nAditya Sole", font_size=15, font="FreeSans").next_to(SONY_t, DOWN)
+        ADITYA = ImageMobject(f"/home/markus/Priv_Manim_Slides/Manim-Slides/Logos/ADITYA.jpg", scale_to_resolution=3000).next_to(ADITYA_t, LEFT)
+        JON_t = Text("Co-Supervisor #2:\nJon Yngve Hardeberg", font_size=15, font="FreeSans").next_to(ADITYA_t, DOWN)
+        JON = ImageMobject(f"/home/markus/Priv_Manim_Slides/Manim-Slides/Logos/JON.jpg", scale_to_resolution=3000).next_to(JON_t, LEFT)
 
-        RQ1 = Text("Research Question 1: ")
-        RQ2 = Text("Research Question 2: ")
-        RQ3 = Text("Research Question 3: ")
+        SupvGrp = Group(SONY_t, ADITYA_t, JON_t, SONY, ADITYA, JON).arrange_in_grid(rows=2, cols=3, buff=0.3).move_to([-3,-3,0])
 
-        RQGrp = Group(RQ1, RQ2, RQ3)
+        RQ1 = Text("Research Question 1: INSERT", font_size=20, font="FreeSans", t2w={"Research Question 1:":BOLD})
+        RQ2 = Text("Research Question 2: INSERT", font_size=20, font="FreeSans", t2w={"Research Question 2:":BOLD})
+        RQ3 = Text("Research Question 3: INSERT", font_size=20, font="FreeSans", t2w={"Research Question 3:":BOLD})
+
+        RQGrp = Group(RQ1, RQ2, RQ3).move_to([-4,1,0])
         RQGrp.arrange(DOWN, center=False, aligned_edge=LEFT)
 
-        self.play(FadeIn(SONY_t), FadeIn(ADITYA_t), FadeIn(JON_t), run_time=2)
-        self.play(FadeIn(SONY), FadeIn(ADITYA), FadeIn(JON))
+    # Resolution Difference
+
+        spcimg = Rectangle(width=6, height=4, grid_xstep=0.5, grid_ystep=0.5)
+        spcimg.scale(0.5)
+        colimg = Rectangle(width=6, height=4, grid_xstep=0.2, grid_ystep=0.2)
+        colimg.scale(0.5)
+        pcimg = PointCloudDot(radius=1.5, stroke_width=2.5, color=PINK)
+        pcimg.scale(0.5)
+        ModGrp = Group(spcimg, colimg, pcimg).arrange(DOWN)
+        
+        self.add(st1,sn1,CLs)
+        self.play(Write(PhD_Title))
+        self.play(FadeIn(SupvGrp), run_time=0.3)
+        self.play(FadeIn(RQGrp[0]), run_time=0.3)
+        self.play(FadeIn(RQGrp[1]), run_time=0.3)
+        self.play(FadeIn(RQGrp[2]), run_time=0.3)
+        self.play(Create(ModGrp[0]))
+        self.play(Create(ModGrp[1]))
+        self.play(Create(ModGrp[2]))
         self.wait()
 
         # Research Intro
@@ -188,6 +207,10 @@ class Intro(ThreeDScene):
 
         # Colorlab Server, MongoDB?, Local Storage
         # Make sure it is stored in at least 3 locations. 
+    
+    # Resolution Difference
+
+        spcimg = Rectangle(width=6, height=4, grid_xstep=0.5, grid_ystep=0.5)
 
 class Lab(ThreeDSlide):
     def construct(self):
