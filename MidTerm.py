@@ -1,5 +1,6 @@
 from manim import *
 from manim_slides import Slide, ThreeDSlide
+import open3d as o3d
 import numpy as np
 import math as m
 
@@ -27,6 +28,82 @@ import math as m
 # - Only use (Write) for equations.
 # - Use (FadeIn) and (Transform) for normal text.
 # - How to do citations? Small text on the bottom?
+
+class Point_Cloud(PMobject):
+    def __init__(self, path, sample_num=int(1e4), load_scale=1, stroke_width=1, **kwargs):
+        PMobject.__init__(self, stroke_width=stroke_width, **kwargs)
+        mesh = o3d.io.read_triangle_mesh(path).scale(load_scale, center=ORIGIN)
+        mesh.compute_vertex_normals()
+        pcd = mesh.sample_points_poisson_disk(number_of_points=sample_num, init_factor=5)
+
+        self.vertices = np.asarray(pcd.points)
+        self.normals = np.asarray(pcd.normals)
+        self.add_points(self.vertices, color=self.color)
+
+    def lightup(self, light_vector=UP):
+        # compute the dot product of normal vectors and light vector, and normalize to [0, 1]
+        # use them as the lightup weight
+        lightup_value = np.expand_dims(
+            (np.sum(self.normals * light_vector, axis=1) + 1)/2,
+            axis=1
+        )
+        # concatenate as [point_num, 4] lihtup weight array
+        lightup_expand = np.concatenate(
+            (
+                lightup_value, 
+                lightup_value, 
+                lightup_value, 
+                np.ones((len(self.vertices), 1))
+            ),
+            axis=1
+        )
+        # use the lightup weight array to lightup/shadow the rgbs attribute
+        # noted that the opacity channel aren't changed
+        self.rgbas = lightup_expand * self.rgbas
+
+class Mesh(VGroup):
+    def __init__(self, path, stroke_width=0, fill_opacity=1, **kwargs):
+        VGroup.__init__(self, stroke_width=stroke_width, fill_opacity=fill_opacity, **kwargs)
+        mesh = o3d.io.read_triangle_mesh(path)
+        mesh.compute_triangle_normals()
+
+        self.vertices = np.asarray(mesh.vertices)
+        self.triangles = np.asarray(mesh.triangles)
+        self.normals = np.asarray(mesh.triangle_normals)
+
+        faces = VGroup()
+        for tri in self.triangles:
+            face = ThreeDVMobject()
+            face.set_points_as_corners([
+                    self.vertices[tri[0]],
+                    self.vertices[tri[1]],
+                    self.vertices[tri[2]],
+                ],
+            )
+            faces.add(face)
+        
+        faces.set_fill(color=self.fill_color, opacity=self.fill_opacity)
+        faces.set_stroke(
+            color=self.stroke_color,
+            width=self.stroke_width,
+            opacity=self.stroke_opacity,
+        )
+        self.add(*faces)
+
+    def lightup(self, light_vector=UP):
+        # compute the dot product of normal vectors and light vector, and normalize to [0, 1]
+        # use them as the lightup weight
+        lightup_value = (np.sum(self.normals * light_vector, axis=1) + 1)/2
+        # use the lightup weight array to lightup/shadow the face color
+        # noted that the opacity channel aren't changed
+        for idx in range(len(self.submobjects)):
+            face = self.submobjects[idx]
+            weight = lightup_value[idx]
+            original_rgba = color_to_rgba(face.color)
+            
+            lightup_rgba = weight * original_rgba
+            lightup_rgba[-1] = 1.0
+            face.set_fill(color=rgba_to_color(lightup_rgba))
 
 def textbox(color, scolor, string): #Can be used to create several boxes which together makes a Gantt chart?
     result = VGroup()
@@ -74,14 +151,28 @@ class FUNCTest(Scene):
     def construct(self):
             self.camera.background_color = rgb_to_color([38/255, 45/255, 53/255])
 
-            box1 = textbox(PURE_RED, PURE_RED, "STK9900")
-            box2 = textbox(PURE_BLUE, PURE_BLUE, "DT8121").next_to(box1, DOWN)
-            boxes = VGroup(box1, box2)
+            cloud_1 = PointCloudDot(color=RED)
+            cloud_2 = PointCloudDot(stroke_width=4, radius=1)
+            cloud_3 = PointCloudDot(density=15)
 
-            banner = ManimBanner()
-
-            self.play(Create(banner))
+            group = Group(cloud_1, cloud_2, cloud_3).arrange()
+            self.add(group)
             self.wait(2)
+
+class TDTest(ThreeDScene):
+    def construct(self):
+        self.camera.background_color = rgb_to_color([38/255, 45/255, 53/255])
+        self.set_camera_orientation(phi=60 * DEGREES)
+
+        pcd = Point_Cloud("/home/markus/Priv_Manim_Slides/Manim-Slides/3D/bunny/reconstruction/bun_zipper.ply")
+        pcd.scale(5)
+        pcd.lightup()
+        pcd.rotate(90*DEGREES, RIGHT)
+        
+
+        self.add(pcd)
+        self.begin_ambient_camera_rotation(rate=4)
+        self.wait()
 
 
 class Header(ThreeDSlide):
@@ -106,7 +197,7 @@ class Header(ThreeDSlide):
         self.next_slide()
 
 
-class Intro(Slide):
+class Intro(ThreeDSlide):
     def construct(self):
         self.camera.background_color = rgb_to_color([38/255, 45/255, 53/255])
 
@@ -115,7 +206,7 @@ class Intro(Slide):
         CLs = ImageMobject("/home/markus/CL_Manim/Manim_IDIG4002/Logos/CLsmall.png/").move_to([6.5, -3.5,0])
         CLs.scale(0.5)
 
-        PhD_Title = Text("Multiresolution and Multimodal Acquisiton\nand Fusion of Heterogeneous Data", font_size=30, font="FreeSans").move_to([0,3,0])
+        PhD_Title = Text("Multiresolution and Multimodal Acquisiton\nand Fusion of Heterogeneous Data", font_size=30, font="FreeSans").move_to([0,2,0])
 
         SONY_t = Text("Main Supervisor:\nSony George", font_size=15, font="FreeSans")
         SONY = ImageMobject(f"/home/markus/Priv_Manim_Slides/Manim-Slides/Logos/SONY.jpg", scale_to_resolution=3000).next_to(SONY_t, LEFT)
@@ -135,10 +226,12 @@ class Intro(Slide):
 
     # Modalities
 
+        Data_Title = Text("Data Modalities", font_size=20, font="FreeSans").move_to([-5,2,0])
 
-    # Resolution Difference
-
-        spcimg = Rectangle(width=6, height=4, grid_xstep=0.5, grid_ystep=0.5)
+        colimg = Rectangle(width=6, height=4, grid_xstep=0.2, grid_ystep=0.2).move_to([-4,0,0])
+        colimg.scale(0.5)
+        
+        spcimg = Rectangle(width=6, height=4, grid_xstep=0.5, grid_ystep=0.5).move_to([0,0,0])
         spcimg.scale(0.5)
         spectrum_rectangle = Rectangle(
                                         fill_color = color_gradient((RED, ORANGE, YELLOW, GREEN_C, GREEN, BLUE_C, BLUE, PURPLE, PURPLE), 10), 
@@ -147,11 +240,13 @@ class Intro(Slide):
                                         height=0.3
                                         ).next_to(spcimg, DOWN)
         spectrum_rectangle.scale(0.5)
-        colimg = Rectangle(width=6, height=4, grid_xstep=0.2, grid_ystep=0.2)
-        colimg.scale(0.5)
-        pcimg = PointCloudDot(radius=1.5, stroke_width=2.5, color=PINK)
-        pcimg.scale(0.5)
-        ModGrp = Group(spcimg, colimg, pcimg).arrange(DOWN)
+
+        pcd = Point_Cloud("/home/markus/Priv_Manim_Slides/Manim-Slides/3D/bunny/reconstruction/bun_zipper.ply").move_to([4,0,0])
+        pcd.scale(5)
+        pcd.lightup()
+        pcd.rotate(90*DEGREES, RIGHT)
+
+    # Resolution Difference
         
         self.add(st1,sn1,CLs)
         self.play(Write(PhD_Title))
@@ -159,10 +254,13 @@ class Intro(Slide):
         self.play(FadeIn(RQGrp[0]), run_time=0.3)
         self.play(FadeIn(RQGrp[1]), run_time=0.3)
         self.play(FadeIn(RQGrp[2]), run_time=0.3)
-        self.play(Create(ModGrp[0]), FadeIn(spectrum_rectangle))
-        self.play(Create(ModGrp[1]))
-        self.play(Create(ModGrp[2]))
         self.wait()
+        self.play(FadeOut(SupvGrp), FadeOut(RQGrp), Transform(PhD_Title, Data_Title))
+        self.play(Create(colimg))
+        self.play(Create(spcimg), FadeIn(spectrum_rectangle))
+        self.play(FadeIn(pcd))
+        self.begin_ambient_camera_rotation(rate=4)
+        self.wait(3)
 
         # Research Intro
 
