@@ -71,18 +71,17 @@ class SVGTest(Scene):
         self.wait(2)
 
 class FUNCTest(Scene):
-        def construct(self):
-                self.camera.background_color = rgb_to_color([38/255, 45/255, 53/255])
+    def construct(self):
+            self.camera.background_color = rgb_to_color([38/255, 45/255, 53/255])
 
-                box1 = textbox(PURE_RED, PURE_RED, "STK9900")
-                box2 = textbox(PURE_BLUE, PURE_BLUE, "DT8121").next_to(box1, DOWN)
+            box1 = textbox(PURE_RED, PURE_RED, "STK9900")
+            box2 = textbox(PURE_BLUE, PURE_BLUE, "DT8121").next_to(box1, DOWN)
+            boxes = VGroup(box1, box2)
 
-                boxes = VGroup(box1, box2)
+            banner = ManimBanner()
 
-                banner = ManimBanner()
-
-                self.play(Create(banner))
-                self.wait(2)
+            self.play(Create(banner))
+            self.wait(2)
 
 
 class Header(ThreeDSlide):
@@ -134,10 +133,20 @@ class Intro(Slide):
         RQGrp = Group(RQ1, RQ2, RQ3).move_to([-4,1,0])
         RQGrp.arrange(DOWN, center=False, aligned_edge=LEFT)
 
+    # Modalities
+
+
     # Resolution Difference
 
         spcimg = Rectangle(width=6, height=4, grid_xstep=0.5, grid_ystep=0.5)
         spcimg.scale(0.5)
+        spectrum_rectangle = Rectangle(
+                                        fill_color = color_gradient((RED, ORANGE, YELLOW, GREEN_C, GREEN, BLUE_C, BLUE, PURPLE, PURPLE), 10), 
+                                        fill_opacity = 1,
+                                        width = 6,
+                                        height=0.3
+                                        ).next_to(spcimg, DOWN)
+        spectrum_rectangle.scale(0.5)
         colimg = Rectangle(width=6, height=4, grid_xstep=0.2, grid_ystep=0.2)
         colimg.scale(0.5)
         pcimg = PointCloudDot(radius=1.5, stroke_width=2.5, color=PINK)
@@ -150,7 +159,7 @@ class Intro(Slide):
         self.play(FadeIn(RQGrp[0]), run_time=0.3)
         self.play(FadeIn(RQGrp[1]), run_time=0.3)
         self.play(FadeIn(RQGrp[2]), run_time=0.3)
-        self.play(Create(ModGrp[0]))
+        self.play(Create(ModGrp[0]), FadeIn(spectrum_rectangle))
         self.play(Create(ModGrp[1]))
         self.play(Create(ModGrp[2]))
         self.wait()
@@ -216,8 +225,8 @@ class Lab(ThreeDSlide):
     def construct(self):
         self.camera.background_color = rgb_to_color([38/255, 45/255, 53/255])
 
-        slide_title2 = Text("Lab Engineer", font_size = 40).to_corner(UP + LEFT)
-        slide_number2 = Text("2", font_size = 10).to_corner(DOWN + RIGHT)
+        st2 = Text("Lab Engineer", font_size = 40).to_corner(UP + LEFT)
+        sn2 = Text("2", font_size = 10).to_corner(DOWN + RIGHT)
         colorlabcorner = ImageMobject("/home/markus/Priv_Manim_Slides/Manim-Slides/Logos/CLsmall.png/").to_corner(DOWN + LEFT)
         colorlabcorner.scale(0.5)
 
@@ -235,114 +244,12 @@ class Lab(ThreeDSlide):
         BOOK_Text = Text("BookitLab Setup and Asset Organization")
 
 
-class Courses(Scene):
-    def construct(self):
-        self.camera.background_color = rgb_to_color([38/255, 45/255, 53/255])
-
-        slide_title3 = Text("Coursework", font_size = 40).to_corner(UP + LEFT)
-        slide_number3 = Text("3", font_size = 10).to_corner(DOWN + RIGHT)
-        colorlabcorner = ImageMobject("/home/markus/Priv_Manim_Slides/Manim-Slides/Logos/CLsmall.png/").to_corner(DOWN + LEFT)
-        colorlabcorner.scale(0.5)
-
-        CI = Text("DT8121 - Colour Imaging", font_size=20).move_to([-3.5,3,0])
-        IDIG = Text("IDIG4002 - Computer Graphics Fundamentals and Applications", font_size=20).next_to(CI, DOWN, aligned_edge=LEFT)
-        HFEL = Text("HFEL8000 - Communicating Science", font_size=20).next_to(IDIG, DOWN, aligned_edge=LEFT)
-        IDT = Text("IDT8000 - Research Ethics", font_size=20).next_to(HFEL, DOWN, aligned_edge=LEFT)
-        STK = Text("STK9900 - Statistical Methods and Applications", font_size=20).next_to(IDT, DOWN, aligned_edge=LEFT)
-        CHG = Text("CHANGE Training School - Poland", font_size=20).next_to(STK, DOWN, aligned_edge=LEFT)
- 
-        ECT1 = Text("7.5", "ECT") #Create table?
-
-        PASS = Text("Passed", color = GREEN_C)
-
-        CO = SVGMobject(f"/home/markus/Priv_Manim_Slides/Manim-Slides/Logos/CLsvg.svg")
-        NTNU = SVGMobject(f"/home/markus/Priv_Manim_Slides/Manim-Slides/Logos/NTNUsvgT.svg").next_to(CI, LEFT)
-        NTNU.scale(0.3)  #Remove text
-        WUT = SVGMobject(f"/home/markus/Priv_Manim_Slides/Manim-Slides/Logos/Julia.svg").next_to(CHG, LEFT)
-        UIO = SVGMobject(f"/home/markus/Priv_Manim_Slides/Manim-Slides/Logos/UIO.svg").next_to(STK, LEFT) #Remove text
-
-        self.add(slide_title, slide_number)
-        self.play(FadeIn(CI), FadeIn(IDIG), FadeIn(HFEL), FadeIn(IDT), FadeIn(NTNU), run_time=2)
-        self.wait(1)
-        self.play(FadeIn(STK), FadeIn(UIO), run_time=2)
-        self.wait(1)
-        self.play(FadeIn(CHG), FadeIn(WUT), run_time=2)
-        self.wait(2)
-
-
-class Outreach(Scene):
-    def construct(self):
-        self.camera.background_color = rgb_to_color([38/255, 45/255, 53/255])
-
-        slide_title = Text("Outreach and Dissemination", font_size = 40).to_corner(UP + LEFT)
-        slide_number = Text("4", font_size = 10).to_corner(DOWN + RIGHT)
-        colorlabcorner = ImageMobject("/home/markus/Priv_Manim_Slides/Manim-Slides/Logos/CLsmall.png/").to_corner(DOWN + LEFT)
-        colorlabcorner.scale(0.5)
-
-        # All NO-CHANGE visits and presentations
-        NOCHANGE = ImageMobject(f"/home/markus/Priv_Manim_Slides/Manim-Slides/Logos/NO-CHANGE.png") #Change to SVG
-        NOR = ImageMobject(f"/home/markus/Priv_Manim_Slides/Manim-Slides/Logos/NOR.png").move_to(3,0,0) #Change to SVG
-        TRON = Text("Trondheim ????", font_size=20, should_center=False).move_to([-3,3,0]) # ADD SVG logos for all locations
-        BERG = Text("Bergen - 07.03.2022", font_size=20, should_center=False).next_to(TRON, DOWN)
-        ÅLES = Text("Ålesund - 09.03.2022", font_size=20, should_center=False).next_to(BERG, DOWN)
-        TROM = Text("Tromsø - 09.05.2022", font_size=20).next_to(ÅLES, DOWN)
-        SVAL = Text("Svalbard - 22.09.2022", font_size=20).next_to(TROM, DOWN) #Sjekk disse datoene, er litt usikker her.
-        STAV = Text("Stavanger - 03.10.2022", font_size=20).next_to(SVAL, DOWN)
-        MUNCH = Text("Oslo MUNCH Museum - 29.11.2022", font_size=20).next_to(STAV, DOWN)
-
-        RIKS_NIKU = Text("Presentations for Riksantikvaren and NIKU")
-
-        # NO-CHANGE Visit Logos
-        NIDR = SVGMobject(Nidaros).next_to(TRON, LEFT)
-        UMBG = SVGMobject(MuseetBergen).next_to(BERG, LEFT)
-        DIÅL = SVGMobject(DigSenter).next_to(ÅLES, LEFT)
-        MUTR = SVGMobject(MusetTromsø).next_to(TROMS, LEFT)
-        MUSV = SVGMobject(SvalMus).next_to(SVAL, LEFT)
-        MUST = SVGMobject(MUstStav).next_to(STAV, LEFT)
-        MUMU = SVGMobject(f"/home/markus/Priv_Manim_Slides/Manim-Slides/Logos/MUNCH.svg").next_to(MUNCH, LEFT)
-
-        RIKS = SVGMobject(f"/home/markus/Priv_Manim_Slides/Manim-Slides/Logos/Riksantikvaren.svg")
-        NIKU = SVGMobject(Niku)
-
-        # CHANGE Training School
-        CHANGE = ImageMobject(f"/home/markus/Priv_Manim_Slides/Manim-Slides/Logos/CHANGE.png")
-
-        # MANER Mobility at Yale
-        MANER = ImageMobject("/home/markus/Priv_Manim_Slides/Manim-Slides/Logos/MANER.png")
-        YALE = SVGMobject("/home/markus/Priv_Manim_Slides/Manim-Slides/Logos/YALE.svg")
-
-        YALE_Text = Text("University of Yale")
-        YALE_info = Text("Discussed some research approaches")
-        YALE_info2 = Text("Inverse Procedural Rendering") 
-
-        # MANER Training School at Chiba 
-        CHIBA = ImageMobject(f"/home/markus/Priv_Manim_Slides/Manim-Slides/Logos/CHIBA.png")
-
-
-        self.play(FadeIn(TRON))
-        self.wait()
-        self.play(Transform(TRON,BERG), Add(TRON))
-        self.wait()
-        self.play(Transform(BERG,ÅLES))
-        self.wait()
-        self.play(Transform(ÅLES,TROM))
-        self.wait()
-        self.play(Transform(TROM, SVAL))
-        self.wait()
-        self.play(Transform(SVAL, STAV))
-        self.wait()
-        self.play(Transform(STAV, MUNCH))
-        self.wait()
-        self.play(Write(YALE), run_time=2)
-        self.wait()
-
-
 class DataCollection(Scene):
     def construct(self):
         self.camera.background_color = rgb_to_color([38/255, 45/255, 53/255])
 
-        slide_title = Text("Data Collection", font_size = 40).to_corner(UP + LEFT)
-        slide_number = Text("4", font_size = 10).to_corner(DOWN + RIGHT)
+        st4 = Text("Data Collection", font_size = 40).to_corner(UP + LEFT)
+        sn4 = Text("4", font_size = 10).to_corner(DOWN + RIGHT)
         colorlabcorner = ImageMobject("/home/markus/Priv_Manim_Slides/Manim-Slides/Logos/CLsmall.png/").to_corner(DOWN + LEFT)
         colorlabcorner.scale(0.5)
 
@@ -367,9 +274,130 @@ class DataCollection(Scene):
 
         MAIHAUGEN_t = Text("Maihaugen | Lillehammer Museum")
         MAIH = SVGMobject(Maihaugen)
+        FOKUS = ImageMobject(FOKUS)
         # TexRec
         # Department of Conservation at UiO?
 
+
+
+class Courses(Scene):
+    def construct(self):
+        self.camera.background_color = rgb_to_color([38/255, 45/255, 53/255])
+
+        st3 = Text("Courses", font_size = 40, font="FreeSans").move_to([-5, 3.5, 0])
+        sn3 = Text("3", font_size = 10, weight=BOLD).move_to([6, -3.5,0])
+        CLs = ImageMobject("/home/markus/CL_Manim/Manim_IDIG4002/Logos/CLsmall.png/").move_to([6.5, -3.5,0])
+        CLs.scale(0.5)
+        NTNUs = ImageMobject(f"/home/markus/Priv_Manim_Slides/Manim-Slides/Logos/NTNUText.png").move_to([-5,-4,0])
+        NTNUs.scale(0.2)
+
+        CI = Text("DT8121 - Colour Imaging", font_size=20, font="FreeSans")
+        CHG = Text("CHANGE Training School - Poland", font_size=20, font="FreeSans")
+        HFEL = Text("HFEL8000 - Communicating Science", font_size=20, font="FreeSans")
+        STK = Text("STK9900 - Statistical Methods and Applications", font_size=20, font="FreeSans")
+        IDT = Text("IDT8000 - Research Ethics", font_size=20, font="FreeSans")
+        IDIG = Text("IDIG4002 - Computer Graphics Fundamentals and Applications", font_size=20, font="FreeSans")
+        CourseGrp = Group(CI, CHG, HFEL, STK, IDT, IDIG).arrange(DOWN, center=False, aligned_edge=LEFT).move_to([-2.5,1,0])
+
+        CO = SVGMobject(f"/home/markus/Priv_Manim_Slides/Manim-Slides/Logos/CLsvg.svg")
+        NTNU = SVGMobject(f"/home/markus/Priv_Manim_Slides/Manim-Slides/Logos/NTNUsvg.svg")
+        WUT = SVGMobject(f"/home/markus/Priv_Manim_Slides/Manim-Slides/Logos/WUT.svg")
+        UIO = SVGMobject(f"/home/markus/Priv_Manim_Slides/Manim-Slides/Logos/UIORed.svg")
+        CourseLogoGrp = VGroup(CO, NTNU, WUT, UIO).arrange(DOWN).move_to([4.5,0,0])
+        CourseLogoGrp.scale(0.7)
+
+        coursetable = Table(
+                            [["Autumn 2021", "Spring 2022", "Autumn 2022", "Spring 2023"],
+                            ["DT8121 (7,5)", "HFEL8000 (3)", "IDIG4002 (7,5)", "-"],
+                            ["CHANGE WuT (3)", "STK9900 (10)", "IDT8000 (2,5)", "-"],
+                            ["","","Total ECTs:","33,5"]]
+        ).move_to([-3,-2.5,0])
+        coursetable.scale(0.3)
+
+        self.add(st3, sn3, CLs, NTNUs)
+        self.play(FadeIn(CourseGrp[0]),
+                  FadeIn(CourseGrp[1]),
+                  FadeIn(CourseGrp[2]),
+                  FadeIn(CourseGrp[3]),
+                  FadeIn(CourseGrp[4]),
+                  FadeIn(CourseGrp[5]))
+        self.play(Write(CourseLogoGrp))
+        self.wait()
+        self.play(Create(coursetable))
+        self.wait(2)
+
+        
+class Outreach(Scene):
+    def construct(self):
+        self.camera.background_color = rgb_to_color([38/255, 45/255, 53/255])
+
+        slide_title = Text("Outreach and Dissemination", font_size = 40).to_corner(UP + LEFT)
+        slide_number = Text("4", font_size = 10).to_corner(DOWN + RIGHT)
+        colorlabcorner = ImageMobject("/home/markus/Priv_Manim_Slides/Manim-Slides/Logos/CLsmall.png/").to_corner(DOWN + LEFT)
+        colorlabcorner.scale(0.5)
+
+    # All NO-CHANGE visits and presentations
+        NOCHANGE = ImageMobject(f"/home/markus/Priv_Manim_Slides/Manim-Slides/Logos/NO-CHANGE.png") #Change to SVG
+        NOR = ImageMobject(f"/home/markus/Priv_Manim_Slides/Manim-Slides/Logos/NOR.png").move_to(3,0,0) #Change to SVG
+        TRON = Text("Trondheim ????", font_size=20, should_center=False).move_to([-3,3,0]) # ADD SVG logos for all locations
+        BERG = Text("Bergen - 07.03.2022", font_size=20, should_center=False).next_to(TRON, DOWN)
+        ÅLES = Text("Ålesund - 09.03.2022", font_size=20, should_center=False).next_to(BERG, DOWN)
+        TROM = Text("Tromsø - 09.05.2022", font_size=20).next_to(ÅLES, DOWN)
+        SVAL = Text("Svalbard - 22.09.2022", font_size=20).next_to(TROM, DOWN) #Sjekk disse datoene, er litt usikker her.
+        STAV = Text("Stavanger - 03.10.2022", font_size=20).next_to(SVAL, DOWN)
+        MUNCH = Text("Oslo MUNCH Museum - 29.11.2022", font_size=20).next_to(STAV, DOWN)
+
+        RIKS_NIKU = Text("Presentations for Riksantikvaren and NIKU")
+
+    # NO-CHANGE Visit Logos
+        NIDR = SVGMobject(Nidaros).next_to(TRON, LEFT)
+        UMBG = SVGMobject(MuseetBergen).next_to(BERG, LEFT)
+        DIÅL = SVGMobject(DigSenter).next_to(ÅLES, LEFT)
+        MUTR = SVGMobject(MusetTromsø).next_to(TROMS, LEFT)
+        MUSV = SVGMobject(SvalMus).next_to(SVAL, LEFT)
+        MUST = SVGMobject(MUstStav).next_to(STAV, LEFT)
+        MUMU = SVGMobject(f"/home/markus/Priv_Manim_Slides/Manim-Slides/Logos/MUNCH.svg").next_to(MUNCH, LEFT)
+
+        RIKS = SVGMobject(f"/home/markus/Priv_Manim_Slides/Manim-Slides/Logos/Riksantikvaren.svg")
+        NIKU = SVGMobject(Niku)
+
+    # CHANGE Training School
+        CHANGE = ImageMobject(f"/home/markus/Priv_Manim_Slides/Manim-Slides/Logos/CHANGE.png")
+
+    # MANER Mobility at Yale
+        MANER = ImageMobject("/home/markus/Priv_Manim_Slides/Manim-Slides/Logos/MANER.png")
+        YALE = SVGMobject("/home/markus/Priv_Manim_Slides/Manim-Slides/Logos/YALE.svg")
+
+        YALE_Text = Text("University of Yale")
+        YALE_info = Text("Discussed some research approaches")
+        YALE_info2 = Text("Inverse Procedural Rendering") 
+
+    # MANER Training School at Chiba 
+        CHIBA = ImageMobject(f"/home/markus/Priv_Manim_Slides/Manim-Slides/Logos/CHIBA.png")
+
+    # UiO Gloss Presentation
+
+    # Webinars and Workshops
+        DT4BHText = Text("International Workshop on Digital Tools for Built Heritage Diagnosis and Monitoring")
+        DT4BH = ImageMobject(f"/home/markus/Priv_Manim_Slides/Manim-Slides/Logos/DT4BH.png")
+
+
+        self.play(FadeIn(TRON))
+        self.wait()
+        self.play(Transform(TRON,BERG), Add(TRON))
+        self.wait()
+        self.play(Transform(BERG,ÅLES))
+        self.wait()
+        self.play(Transform(ÅLES,TROM))
+        self.wait()
+        self.play(Transform(TROM, SVAL))
+        self.wait()
+        self.play(Transform(SVAL, STAV))
+        self.wait()
+        self.play(Transform(STAV, MUNCH))
+        self.wait()
+        self.play(Write(YALE), run_time=2)
+        self.wait()
 
 class Conferences(Scene):
     def construct(self):
@@ -673,7 +701,12 @@ class ResearchSpect(ThreeDSlide):
                           ["1000", "89"]])
 
 
-
+        area = curve_ax.get_area(
+            blue_curve,
+            x_range=(PI / 2, 3 * PI / 2),
+            color=color_gradient((RED, ORANGE, YELLOW, GREEN_C, GREEN, BLUE_C, BLUE, PURPLE, PURPLE), 10),
+            opacity=1,
+        )
 
         # Add multispectral curves, and hyperspectral continous curve
 
@@ -687,6 +720,7 @@ class ResearchSpect(ThreeDSlide):
         self.play(Create(blue_curve), run_time=2)
         self.play(Create(green_curve), run_time=2)
         self.play(Create(red_curve), run_time=2)
+        self.play(Create(area))
         self.play((mu_b.animate.set_value(-2)),(sigma_b.animate.set_value(0.5)), run_time=1, rate_func=rate_functions.smooth)
         self.wait(2)
         self.play(
@@ -694,7 +728,6 @@ class ResearchSpect(ThreeDSlide):
                 rate_func=rate_functions.smooth
                 )
         self.wait()
-
 
 class Publications(ThreeDSlide):
     def construct(self):
