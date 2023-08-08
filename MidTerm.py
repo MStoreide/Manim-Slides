@@ -230,6 +230,9 @@ class Intro(ThreeDSlide):
 
         colimg = Rectangle(width=6, height=4, grid_xstep=0.2, grid_ystep=0.2).move_to([-4,0,0])
         colimg.scale(0.5)
+        RCube = Rectangle(width=2, height=1, color=RED)
+        GCube = Rectangle(width=2, height=1, color=GREEN)
+        BCube = Rectangle(width=2, height=1, color=BLUE)
         
         spcimg = Rectangle(width=6, height=4, grid_xstep=0.5, grid_ystep=0.5).move_to([0,0,0])
         spcimg.scale(0.5)
