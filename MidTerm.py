@@ -142,7 +142,8 @@ class SVGTest(Scene):
     def construct(self):
         self.camera.background_color = rgb_to_color([38/255, 45/255, 53/255])
 
-        SVG = SVGMobject(f"/home/markus/Priv_Manim_Slides/Manim-Slides/Logos/Office365.svg")
+        SVG = SVGMobject(f"/home/markus/Priv_Manim_Slides/Manim-Slides/Logos/SVALW.svg")
+        SVG.scale(2)
 
         self.play(Write(SVG), run_time=2)
         self.wait(2)
@@ -447,71 +448,63 @@ class Outreach(Scene):
     def construct(self):
         self.camera.background_color = rgb_to_color([38/255, 45/255, 53/255])
 
-        slide_title = Text("Outreach and Dissemination", font_size = 40).to_corner(UP + LEFT)
-        slide_number = Text("4", font_size = 10).to_corner(DOWN + RIGHT)
-        colorlabcorner = ImageMobject("/home/markus/Priv_Manim_Slides/Manim-Slides/Logos/CLsmall.png/").to_corner(DOWN + LEFT)
-        colorlabcorner.scale(0.5)
+        st4 = Text("Outreach & Dissemination", font_size = 40, font="FreeSans").move_to([-4, 3, 0])
+        sn4 = Text("4", font_size = 10, weight=BOLD).move_to([6, -3.5,0])
+        CLs = ImageMobject("/home/markus/CL_Manim/Manim_IDIG4002/Logos/CLsmall.png/").move_to([6.5, -3.5,0])
+        CLs.scale(0.5)
 
     # All NO-CHANGE visits and presentations
-        NOCHANGE = ImageMobject(f"/home/markus/Priv_Manim_Slides/Manim-Slides/Logos/NO-CHANGE.png") #Change to SVG
-        NOR = ImageMobject(f"/home/markus/Priv_Manim_Slides/Manim-Slides/Logos/NOR.png").move_to(3,0,0) #Change to SVG
-        TRON = Text("Trondheim ????", font_size=20, should_center=False).move_to([-3,3,0]) # ADD SVG logos for all locations
-        BERG = Text("Bergen - 07.03.2022", font_size=20, should_center=False).next_to(TRON, DOWN)
-        ÅLES = Text("Ålesund - 09.03.2022", font_size=20, should_center=False).next_to(BERG, DOWN)
-        TROM = Text("Tromsø - 09.05.2022", font_size=20).next_to(ÅLES, DOWN)
-        SVAL = Text("Svalbard - 22.09.2022", font_size=20).next_to(TROM, DOWN) #Sjekk disse datoene, er litt usikker her.
-        STAV = Text("Stavanger - 03.10.2022", font_size=20).next_to(SVAL, DOWN)
-        MUNCH = Text("Oslo MUNCH Museum - 29.11.2022", font_size=20).next_to(STAV, DOWN)
+        #NOCHANGE = ImageMobject(r"/home/markus/Priv_Manim_Slides/Manim-Slides/Logos/NO-CHANGE.svg") #Change to SVG
+        NORW = SVGMobject("/home/markus/Priv_Manim_Slides/Manim-Slides/Logos/NORW.svg")
+        NORW.scale(3)
+        NORW.move_to([4,0,0])
+        SVALW = SVGMobject(f"/home/markus/Priv_Manim_Slides/Manim-Slides/Logos/SVALW.svg")
+        SVALW.move_to([3,2,0])
+        NOCH = Text("NO-CHANGE Events", font_size=25).move_to([-4,2,0])
+        TRON = Text("Trondheim ????", font_size=20) # ADD Points for all locations
+        BERG = Text("Bergen - 07.03.2022", font_size=20)
+        ÅLES = Text("Ålesund - 09.03.2022", font_size=20)
+        TROM = Text("Tromsø - 09.05.2022", font_size=20)
+        SVAL = Text("Svalbard - 22.09.2022", font_size=20) #Sjekk disse datoene, er litt usikker her.
+        STAV = Text("Stavanger - 03.10.2022", font_size=20)
+        MUNCH = Text("Oslo MUNCH Museum - 29.11.2022", font_size=20)
 
-        RIKS_NIKU = Text("Presentations for Riksantikvaren and NIKU")
-
-    # NO-CHANGE Visit Logos
-        NIDR = SVGMobject(Nidaros).next_to(TRON, LEFT)
-        UMBG = SVGMobject(MuseetBergen).next_to(BERG, LEFT)
-        DIÅL = SVGMobject(DigSenter).next_to(ÅLES, LEFT)
-        MUTR = SVGMobject(MusetTromsø).next_to(TROMS, LEFT)
-        MUSV = SVGMobject(SvalMus).next_to(SVAL, LEFT)
-        MUST = SVGMobject(MUstStav).next_to(STAV, LEFT)
-        MUMU = SVGMobject(f"/home/markus/Priv_Manim_Slides/Manim-Slides/Logos/MUNCH.svg").next_to(MUNCH, LEFT)
-
-        RIKS = SVGMobject(f"/home/markus/Priv_Manim_Slides/Manim-Slides/Logos/Riksantikvaren.svg")
-        NIKU = SVGMobject(Niku)
-
-    # CHANGE Training School
-        CHANGE = ImageMobject(f"/home/markus/Priv_Manim_Slides/Manim-Slides/Logos/CHANGE.png")
+        NoChangeGrp = VGroup(TRON, BERG, ÅLES, TROM, SVAL, STAV, MUNCH)
+        NoChangeGrp.arrange(DOWN, aligned_edge=LEFT)
+        NoChangeGrp.next_to(NOCH, DOWN)
 
     # MANER Mobility at Yale
-        MANER = ImageMobject("/home/markus/Priv_Manim_Slides/Manim-Slides/Logos/MANER.png")
-        YALE = SVGMobject("/home/markus/Priv_Manim_Slides/Manim-Slides/Logos/YALE.svg")
+        MANER = SVGMobject("/home/markus/Priv_Manim_Slides/Manim-Slides/Logos/MANER.svg")
+        YALE = SVGMobject("/home/markus/Priv_Manim_Slides/Manim-Slides/Logos/YALEsvg.svg").move_to([2,-2,0])
 
         YALE_Text = Text("University of Yale")
         YALE_info = Text("Discussed some research approaches")
         YALE_info2 = Text("Inverse Procedural Rendering") 
 
     # MANER Training School at Chiba 
-        CHIBA = ImageMobject(f"/home/markus/Priv_Manim_Slides/Manim-Slides/Logos/CHIBA.png")
+        CHIBA = SVGMobject(f"/home/markus/Priv_Manim_Slides/Manim-Slides/Logos/CHIBA.svg")
 
     # UiO Gloss Presentation
+        UIO = SVGMobject(f"/home/markus/Priv_Manim_Slides/Manim-Slides/Logos/UIORed.svg")
+        UiOText = Text("Acquisition and Reproduction of Gloss Data")
 
     # Webinars and Workshops
         DT4BHText = Text("International Workshop on Digital Tools for Built Heritage Diagnosis and Monitoring")
         DT4BH = ImageMobject(f"/home/markus/Priv_Manim_Slides/Manim-Slides/Logos/DT4BH.png")
 
 
+        self.add(st4,sn4,CLs)
+        #self.play(Write(NOCHANGE))
+    
+        self.play(FadeIn(NOCH), Write(NORW), Write(SVALW))
+        self.wait()
         self.play(FadeIn(TRON))
-        self.wait()
-        self.play(Transform(TRON,BERG), Add(TRON))
-        self.wait()
-        self.play(Transform(BERG,ÅLES))
-        self.wait()
-        self.play(Transform(ÅLES,TROM))
-        self.wait()
-        self.play(Transform(TROM, SVAL))
-        self.wait()
-        self.play(Transform(SVAL, STAV))
-        self.wait()
-        self.play(Transform(STAV, MUNCH))
-        self.wait()
+        self.play(TransformFromCopy(TRON,BERG),
+                  TransformFromCopy(TRON,ÅLES),
+                  TransformFromCopy(TRON,TROM),
+                  TransformFromCopy(TRON,SVAL),
+                  TransformFromCopy(TRON,STAV),
+                  TransformFromCopy(TRON,MUNCH))
         self.play(Write(YALE), run_time=2)
         self.wait()
 
