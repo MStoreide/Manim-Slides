@@ -495,6 +495,8 @@ class Outreach(Scene):
         DT4BHText = Text("International Workshop on Digital Tools for Built Heritage Diagnosis and Monitoring")
         DT4BH = ImageMobject(f"/home/markus/Priv_Manim_Slides/Manim-Slides/Logos/DT4BH.png")
 
+        DaSCHCon = Text("DaSCHCon on IIIF, 3D and Interoperability")
+
 
         self.add(st4,sn4,CLs)
         #self.play(Write(NOCHANGE))
