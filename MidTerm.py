@@ -399,7 +399,6 @@ class DataCollection(Scene):
         # Department of Conservation at UiO?
 
 
-
 class Courses(Scene):
     def construct(self):
         self.camera.background_color = rgb_to_color([38/255, 45/255, 53/255])
@@ -595,10 +594,10 @@ class ResearchStat(ThreeDSlide):
     def construct(self):
         self.camera.background_color = rgb_to_color([38/255, 45/255, 53/255])
 
-        slide_title = Text("Research Work - Mesh Statistics", font_size = 25).to_corner(UP + LEFT)
-        slide_number = Text("9", font_size = 10).to_corner(DOWN + RIGHT)
-        colorlabcorner = ImageMobject("/home/markus/Priv_Manim_Slides/Manim-Slides/Logos/CLsmall.png/").to_corner(DOWN + LEFT)
-        colorlabcorner.scale(0.5)
+        st8 = Text("Statistics", font_size = 40, font="FreeSans").move_to([-5, 3.5, 0])
+        sn8 = Text("8", font_size = 10, weight=BOLD).move_to([6, -3.5,0])
+        CLs = ImageMobject("/home/markus/CL_Manim/Manim_IDIG4002/Logos/CLsmall.png/").move_to([6.5, -3.5,0])
+        CLs.scale(0.5)
 
         #self.add(slide_title, slide_number, colorlabcorner)
 
@@ -721,6 +720,220 @@ class ResearchStat(ThreeDSlide):
         self.play(Write(obj_stats2))
         self.wait()
 
+
+class ResearchStatGraphs(Slide):  
+    def construct(self):
+        self.camera.background_color = rgb_to_color([38/255, 45/255, 53/255])
+
+        st9 = Text("Statistics - Graphs", font_size = 40, font="FreeSans").move_to([-4.5, 3.5, 0])
+        sn9 = Text("9", font_size = 10, weight=BOLD).move_to([6, -3.5,0])
+        CLs = ImageMobject("/home/markus/CL_Manim/Manim_IDIG4002/Logos/CLsmall.png/").move_to([6.5, -3.5,0])
+        CLs.scale(0.5)
+
+
+        X = [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16]
+
+        # Mean Values
+        DNUyMean = [0.000022, 0.000068, 0.00013, 0.000203, 0.000287, 0.000384, 0.000489, 0.000599, 0.000725, 0.000864, 0.001016, 0.001183, 0.001374, 0.001588, 0.001807, 0.002001]
+        DUyMean = [0.000067, 0.000155, 0.000277, 0.000435, 0.000646, 0.000907, 0.001222, 0.001635, 0.002174, 0.002912, 0.003831, 0.005132, 0.007041, 0.009728, 0.014257, 0.022024]
+        DSyMean = [0.000164, 0.00045, 0.000967, 0.001558, 0.002264, 0.003053, 0.003979, 0.004888, 0.005783, 0.006765, 0.0079, 0.009215, 0.010796, 0.012556, 0.01473, 0.017454]
+        #DAyMean = []
+        DRyMean = [0.000033, 0.000094, 0.000175, 0.000272, 0.000388, 0.000519, 0.000667, 0.000838, 0.001028, 0.001239, 0.001478, 0.001749, 0.002074, 0.002476, 0.002992, 0.003734]
+
+        VCNUyMean = [0.00016, 0.000383, 0.000617, 0.000957, 0.001176, 0.00142, 0.001562, 0.001808, 0.00196, 0.002085, 0.002294, 0.002549, 0.002996, 0.003466, 0.004391, 0.007168]
+        VCUyMean = [0.000202,0.000524, 0.000897, 0.00198, 0.001353, 0.001837, 0.003112, 0.005039, 0.005459, 0.006791, 0.00913, 0.009944, 0.011251, 0.013204, 0.013866, 0.016397]
+        VCSyMean = [0.001433, 0.002938, 0.004038, 0.005485, 0.006635, 0.007769, 0.009293, 0.009853, 0.011052, 0.011958, 0.012706, 0.014196, 0.015011, 0.016028, 0.017455, 0.018818]
+        #VCAyMean = []
+        VCRyMean = [0.000167, 0.000391, 0.000648, 0.000891, 0.001131, 0.001377, 0.001613, 0.001803, 0.001997, 0.002192, 0.002428, 0.002666, 0.002964, 0.003334, 0.003887, 0.004815]
+
+        QEMNUyMean = [0.000022, 0.00007, 0.00013, 0.000202, 0.000281, 0.000373, 0.000471, 0.000582, 0.000703, 0.000839, 0.000996, 0.001171, 0.001365, 0.002352, 0.001792, 0.001987]
+        QEMUYyMean = [0.000048, 0.00011, 0.000181, 0.000263, 0.000349, 0.00044, 0.000546, 0.000657, 0.000772, 0.000903, 0.001038, 0.001195, 0.001352, 0.001521, 0.00168, 0.001824]
+        QEMSyMean = [0.000166,0.000472, 0.000927, 0.001433, 0.002049, 0.002701, 0.00344, 0.004232, 0.005026, 0.006112, 0.007344, 0.008861, 0.01071, 0.012805, 0.01525, 0.01758]
+        #QEMAyMean = []
+        QEMRyMean = [0.00003, 0.000086, 0.00016, 0.000248, 0.000353, 0.00047, 0.000603, 0.000757, 0.000927, 0.00112, 0.001341, 0.001602, 0.001907, 0.002287, 0.002764, 0.003468]
+
+        #CFMNUy = []
+        #CFMUy = []
+        #CFMSy = []
+        #CFMAy = []
+        #CFMRy = []
+
+        ECNUyMean = [0.000023, 0.000069, 0.000128, 0.000197, 0.000277, 0.000363, 0.000457, 0.000562, 0.000679, 0.000806, 0.000953, 0.00112, 0.001318, 0.001533, 0.001884, 0.001981]
+        ECUyMean = [0.000049, 0.000109, 0.000178, 0.000255, 0.000337, 0.000429, 0.000526, 0.000632, 0.000745, 0.000872, 0.001008, 0.001167, 0.001337, 0.001515, 0.001676, 0.001852]
+        ECSyMean = [0.000168, 0.000457, 0.00088, 0.001408, 0.001967, 0.00264, 0.003344, 0.004045, 0.004828, 0.005738, 0.006695, 0.008032, 0.009836, 0.011893, 0.014251, 0.017184]
+        #ECAyMean = []
+        ECRyMean = [0.000034, 0.000097, 0.000177, 0.000272, 0.000382, 0.000507, 0.000648, 0.000807, 0.000985, 0.001184, 0.001413, 0.001683, 0.002001, 0.00239, 0.00288, 0.003533]
+
+        # Max Values
+        DNUyMax = [0.002443, 0.002939, 0.003472, 0.004111, 0.006561, 0.006687, 0.006691, 0.006593, 0.006828, 0.007132, 0.008242, 0.008879, 0.010853, 0.013142, 0.018737, 0.021276]
+        DUyMax = [0.020037 ,0.021446, 0.028478, 0.04562, 0.044692, 0.054992, 0.056223, 0.068494, 0.071382, 0.082927, 0.093564, 0.115574, 0.133134, 0.148451, 0.18159, 0.21942]
+        DSyMax = [0.006373, 0.012148, 0.019601, 0.024956, 0.026669, 0.033207, 0.032065, 0.038947, 0.037141, 0.046569, 0.048825, 0.058754, 0.06574, 0.063708, 0.073637, 0.100746]
+        #DAyMax = []
+        DRyMax = [0.007559, 0.009433, 0.009231, 0.011837, 0.010982, 0.012218, 0.010972, 0.013062, 0.013272, 0.014033, 0.015074, 0.018142, 0.02255, 0.022632, 0.024738, 0.029884]
+ 
+        VCNUyMax = [0.00754, 0.00797, 0.009585, 0.012043, 0.015829, 0.018397, 0.019428, 0.023101, 0.026926, 0.029363, 0.032046, 0.033331, 0.039943, 0.04035, 0.044295, 0.05756]
+        VCUyMax = [0.006676, 0.00869, 0.011377, 0.01868, 0.019466, 0.02265, 0.028335, 0.031835, 0.035076, 0.037194, 0.042755, 0.043386, 0.049549, 0.056589, 0.059017, 0.063978]
+        VCSyMax = [0.041846, 0.049014, 0.047062, 0.048941, 0.050193, 0.051504, 0.053751, 0.055361, 0.054976, 0.056035, 0.057871, 0.062175, 0.059793, 0.062405, 0.066077, 0.067913]
+        #VCAyMax = []
+        VCRyMax = [0.006981, 0.008674, 0.01069, 0.01141, 0.012589, 0.013831, 0.01595, 0.014809, 0.017402, 0.017442, 0.020999, 0.020664, 0.022785, 0.023581, 0.030788, 0.037792]
+
+        QEMNUyMax = [0.002947, 0.003017, 0.003675, 0.004309, 0.005839, 0.005742, 0.007447, 0.008544, 0.008128, 0.008958, 0.008869, 0.01032, 0.012032, 0.012002, 0.012428, 0.013901]
+        QEMUyMax = [0.003225, 0.003925, 0.004415, 0.00649, 0.006654, 0.005573, 0.00718, 0.006979, 0.008333, 0.008349, 0.009277, 0.00941, 0.010608, 0.020899, 0.019218, 0.023241]
+        QEMSyMax = [0.009136, 0.012288, 0.015836, 0.024314, 0.025648, 0.034461, 0.03555, 0.043636, 0.043034, 0.044969, 0.055297, 0.057992, 0.06548, 0.066876, 0.071107, 0.074442]
+        #QEMAyMax = []
+        QEMRyMax = [0.007491, 0.008129, 0.008693, 0.008921, 0.009713, 0.010162, 0.011594, 0.014807, 0.012272, 0.013675, 0.017273, 0.016977, 0.020012, 0.019367, 0.025164, 0.027423]
+
+        #CFMNUyMax = []
+        #CFMyMax = []
+        #CFMyMax = []
+        #VCAyMax = []
+        #CFMyMax = []
+
+        ECNUyMax = [0.006568, 0.006485, 0.006508, 0.006656, 0.010559, 0.010504, 0.010441, 0.018388, 0.01953, 0.023292, 0.022719, 0.014242, 0.014251, 0.023741, 0.024254, 0.022875]
+        ECUyMax = [0.004941, 0.004084, 0.003111, 0.004521, 0.006403, 0.006722, 0.005238, 0.007588, 0.012894, 0.020817, 0.030439, 0.030569, 0.032247, 0.038162, 0.034766, 0.06502]
+        ECSyMax = [0.005358, 0.008439, 0.013182, 0.017365, 0.022764, 0.025011, 0.030076, 0.029797, 0.032495, 0.041226, 0.04489, 0.050919, 0.066813, 0.070168, 0.070143, 0.074579]
+        #ECAyMax = []
+        ECRyMax = [0.007504, 0.009433, 0.009149, 0.01171, 0.011164, 0.011873, 0.01181, 0.014555, 0.01842, 0.016571, 0.017971, 0.019921, 0.023775, 0.023197, 0.027797, 0.028723]
+
+        
+        # Mean Graphs
+        DeciMean_Axes = Axes(x_range = [-1, 16, 1],
+                             y_range = [0, 0.025, 0.005]
+        )
+        DeciTit = Text("Decimation - Mean Error", font_size=25).next_to(DeciMean_Axes, DOWN)
+        DeciMean_Lables = DeciMean_Axes.get_axis_labels(x_label = "Simplification Stage", y_label = "Hausdorff Distance")
+        DNUGraph = DeciMean_Axes.plot_line_graph(x_values = X, y_values = DNUyMean, line_color = RED)
+        DUGraph = DeciMean_Axes.plot_line_graph(x_values = X, y_values = DUyMean, line_color = GREEN)
+        DSGraph = DeciMean_Axes.plot_line_graph(x_values = X, y_values = DSyMean, line_color = BLUE)
+        #DAGraph = DeciMean_Axes.plot_line_graph(x_values = X, y_values = DAyMean, line_color = PURPLE)
+        DRGraph = DeciMean_Axes.plot_line_graph(x_values = X, y_values = DRyMean, line_color = GOLD)
+        DeciMeanGrp = VGroup(DeciMean_Axes, DeciTit, DNUGraph, DUGraph, DSGraph, DRGraph)
+
+        VerCluMean_Axes = Axes(x_range = [-1, 16, 1],
+                               y_range = [0, 0.025, 0.005]
+        )
+        VerCluTit = Text("Vertex Clustering - Mean Error", font_size=25).next_to(VerCluMean_Axes, DOWN)
+        VCNUGraph = VerCluMean_Axes.plot_line_graph(x_values = X, y_values = VCNUyMean, line_color = RED)
+        VCUGraph = VerCluMean_Axes.plot_line_graph(x_values = X, y_values = VCUyMean, line_color = GREEN)
+        VCSGraph = VerCluMean_Axes.plot_line_graph(x_values = X, y_values = VCSyMean, line_color = BLUE)
+        #VCAGraph = VerCluMean_Axes.plot_line_graph(x_values = X, y_values = VCAyMean, line_color = PURPLE)
+        VCRGraph = VerCluMean_Axes.plot_line_graph(x_values = X, y_values = VCRyMean, line_color = GOLD)
+        VerCluMeanGrp = VGroup(VerCluMean_Axes, VerCluTit, VCNUGraph, VCUGraph, VCSGraph, VCRGraph)
+
+        
+        QEMMean_Axes = Axes(x_range = [-1, 16, 1],
+                               y_range = [0, 0.025, 0.005]
+        )
+        QEMTit = Text("Quadric Error Metrics - Mean Error", font_size=25).next_to(QEMMean_Axes, DOWN)
+        QEMNUGraph = QEMMean_Axes.plot_line_graph(x_values = X, y_values = QEMNUyMean, line_color = RED)
+        QEMUGraph = QEMMean_Axes.plot_line_graph(x_values = X, y_values = QEMUYyMean, line_color = GREEN)
+        QEMSGraph = QEMMean_Axes.plot_line_graph(x_values = X, y_values = QEMSyMean, line_color = BLUE)
+        #QEMCAGraph = QEMMean_Axes.plot_line_graph(x_values = X, y_values = QEMAyMean, line_color = PURPLE)
+        QEMRGraph = QEMMean_Axes.plot_line_graph(x_values = X, y_values = QEMRyMean, line_color = GOLD)
+        QEMMeanGrp = VGroup(QEMMean_Axes, QEMTit, QEMNUGraph, QEMUGraph, QEMSGraph, QEMRGraph)
+
+        #CFMMean_Axes = Axes(x_range = [-1, 16, 1],
+        #                       y_range = [0, 0.025, 0.005]
+        #)
+        #CFMTit = Text("Coplanar Facets Merging - Mean Error", font_size=25).next_to(CFMMean_Axes, DOWN)
+        #CFMNUGraph = CFMMean_Axes.plot_line_graph(x_values = X, y_values = CFMNUy, line_color = RED)
+        #CFMUGraph = CFMMean_Axes.plot_line_graph(x_values = X, y_values = CFMMUy, line_color = GREEN)
+        #CFMSGraph = CFMMean_Axes.plot_line_graph(x_values = X, y_values = CMFSy, line_color = BLUE)
+        #CFMCAGraph = CFMMean_Axes.plot_line_graph(x_values = X, y_values = CFMAy, line_color = PURPLE)
+        #CFMRGraph = CFMMean_Axes.plot_line_graph(x_values = X, y_values = CFMRy, line_color = GOLD)
+        
+        EdColMean_Axes = Axes(x_range = [-1, 16, 1],
+                              y_range = [0, 0.025, 0.005]
+        )
+        EdColTit = Text("Edge Collapse - Mean Error", font_size=25).next_to(EdColMean_Axes, DOWN)
+        ECNUGraph = EdColMean_Axes.plot_line_graph(x_values = X, y_values = ECNUyMean, line_color = RED)
+        ECUGraph = EdColMean_Axes.plot_line_graph(x_values = X, y_values = ECUyMean, line_color = GREEN)
+        ECSGraph = EdColMean_Axes.plot_line_graph(x_values = X, y_values = ECSyMean, line_color = BLUE)
+        #ECCAGraph = EdColMean_Axes.plot_line_graph(x_values = X, y_values = ECAyMean, line_color = PURPLE)
+        ECRGraph = EdColMean_Axes.plot_line_graph(x_values = X, y_values = ECRyMean, line_color = GOLD)
+        EdColMeanGrp = VGroup(EdColMean_Axes, EdColTit, ECNUGraph, ECUGraph, ECSGraph, ECRGraph)
+
+        StatMeanGrp = Group(DeciMeanGrp, VerCluMeanGrp, QEMMeanGrp, EdColMeanGrp)
+        StatMeanGrp.scale(0.3)
+        StatMeanGrp.arrange_in_grid(rows=2, cols=3, buff=1)
+
+        # Max Graphs
+        DeciMaxAxes = Axes(x_range = [-1, 16, 1],
+                              y_range = [0, 0.25, 0.05]
+        )
+        DeciTitMax = Text("Decimation - Max Error", font_size=25).next_to(DeciMaxAxes, DOWN)
+        DNUMaGraph = DeciMaxAxes.plot_line_graph(x_values = X, y_values = DNUyMax, line_color = RED)
+        DUMaGraph = DeciMaxAxes.plot_line_graph(x_values = X, y_values = DUyMax, line_color = GREEN)
+        DSMaGraph = DeciMaxAxes.plot_line_graph(x_values = X, y_values = DSyMax, line_color = BLUE)
+        #DAMaGraph = DeciMaxAxes.plot_line_graph(x_values = X, y_values = DAyMax, line_color = PURPLE)
+        DRMaGraph = DeciMaxAxes.plot_line_graph(x_values = X, y_values = DRyMax, line_color = GOLD)
+        DeciMaxGrp = VGroup(DeciMaxAxes, DeciTitMax, DNUMaGraph, DUMaGraph, DSMaGraph, DRMaGraph)
+        
+        VeClMaxAxes = Axes(x_range = [-1, 16, 1],
+                              y_range = [0, 0.08, 0.02]
+        )
+        VeClTitMax = Text("Vertex Clustering - Max Error", font_size=25).next_to(VeClMaxAxes, DOWN)
+        VCNUMaGraph = VeClMaxAxes.plot_line_graph(x_values = X, y_values = VCNUyMax, line_color = RED)
+        VCUMaGraph = VeClMaxAxes.plot_line_graph(x_values = X, y_values = VCUyMax, line_color = GREEN)
+        VCSMaGraph = VeClMaxAxes.plot_line_graph(x_values = X, y_values = VCSyMax, line_color = BLUE)
+        #VCAMaGraph = VeClMaxAxes.plot_line_graph(x_values = X, y_values = VCAyMax, line_color = PURPLE)
+        VCRMaGraph = VeClMaxAxes.plot_line_graph(x_values = X, y_values = VCRyMax, line_color = GOLD)
+        VeClMaxGrp = VGroup (VeClMaxAxes, VeClTitMax, VCNUMaGraph, VCUMaGraph, VCSMaGraph, VCRMaGraph)
+
+        QEMMaxAxes = Axes(x_range = [-1, 16, 1],
+                              y_range = [0, 0.08, 0.02]
+        )
+        QEMTitMax = Text("Quadric Error Metrics - Max Error", font_size=25).next_to(QEMMaxAxes, DOWN)
+        QEMNUMaGraph = QEMMaxAxes.plot_line_graph(x_values = X, y_values = QEMNUyMax, line_color = RED)
+        QEMUMaGraph = QEMMaxAxes.plot_line_graph(x_values = X, y_values = QEMUyMax, line_color = GREEN)
+        QEMSMaGraph = QEMMaxAxes.plot_line_graph(x_values = X, y_values = QEMSyMax, line_color = BLUE)
+        #QEMAMaGraph = QEMMaxAxes.plot_line_graph(x_values = X, y_values = QEMAyMax, line_color = PURPLE)
+        QEMRMaGraph = QEMMaxAxes.plot_line_graph(x_values = X, y_values = QEMRyMax, line_color = GOLD)
+        QEMMaxGrp = VGroup(QEMMaxAxes, QEMTitMax, QEMNUMaGraph, QEMUMaGraph, QEMSMaGraph, QEMRMaGraph)
+
+        #CFMMaxAxes = Axes()
+        #CFMTitMax = Text("Decimation - Max Error", font_size=25).next_to(CFMMaxAxes, DOWN)
+        #CFMNUMaGraph = CFMMaxAxes.plot_line_graph(x_values = X, y_values = CFMNUyMax, line_color = RED)
+        #CFMUMaGraph = CFMMaxAxes.plot_line_graph(x_values = X, y_values = CFMUyMax, line_color = GREEN)
+        #CFMSMaGraph = CFMMaxAxes.plot_line_graph(x_values = X, y_values = CFMSyMax, line_color = BLUE)
+        #CFMAMaGraph = CFMMaxAxes.plot_line_graph(x_values = X, y_values = CFMAyMax, line_color = PURPLE)
+        #CFMRMaGraph = CFMMaxAxes.plot_line_graph(x_values = X, y_values = CFMRyMax, line_color = GOLD)
+        #CFMMaxGrp = VGroup(CFMMaxAxes, CFMTitMax, CFMNUMaGraph, CFMUMaGraph, CFMSMaGraph, CFMAMaGraph, CFMRMaGraph)
+        #CFMMaxGrp.scale(0.3)
+
+        ECMaxAxes = Axes(x_range = [-1, 16, 1],
+                              y_range = [0, 0.08, 0.02]
+        )
+        ECTitMax = Text("Edge Collapse - Max Error", font_size=25).next_to(ECMaxAxes, DOWN)
+        ECNUMaGraph = ECMaxAxes.plot_line_graph(x_values = X, y_values = ECNUyMax, line_color = RED)
+        ECUMaGraph = ECMaxAxes.plot_line_graph(x_values = X, y_values = ECUyMax, line_color = GREEN)
+        ECSMaGraph = ECMaxAxes.plot_line_graph(x_values = X, y_values = ECSyMax, line_color = BLUE)
+        #ECAMaGraph = ECMaxAxes.plot_line_graph(x_values = X, y_values = ECAyMax, line_color = PURPLE)
+        ECRMaGraph = ECMaxAxes.plot_line_graph(x_values = X, y_values = ECRyMax, line_color = GOLD)
+        ECMaxGrp = VGroup(ECMaxAxes, ECTitMax, ECNUMaGraph, ECUMaGraph, ECSMaGraph, ECRMaGraph)
+
+        StatMaxGrp = VGroup(DeciMaxGrp, VeClMaxGrp, QEMMaxGrp, ECMaxGrp)
+        StatMaxGrp.scale(0.3)
+        StatMaxGrp.arrange_in_grid(rows=2, cols=3, buff=1)
+
+
+        self.add(st9, sn9, CLs)
+        self.play(Write(DeciMean_Axes), Write(DeciTit))
+        self.wait()
+        self.play(Write(DNUGraph), run_time = 2)
+        self.wait()
+        self.play(Write(DUGraph), run_time = 2)
+        self.wait()
+        self.play(Write(DSGraph), run_time = 2)
+        self.wait()
+        self.play(Write(DRGraph), run_time = 2)
+        self.wait()
+        self.play(Write(VerCluMeanGrp), Write(QEMMeanGrp), Write(EdColMeanGrp))
+        self.play(FadeOut(StatMeanGrp))
+        self.play(Write(StatMaxGrp))
+        self.wait()
+
+
 class ResearchSpectVect(Slide):  
     def construct(self):
         self.camera.background_color = rgb_to_color([38/255, 45/255, 53/255])
@@ -732,7 +945,7 @@ class ResearchSpectVect(Slide):
 
 
         voxelgrid = Rectangle(width=1, height=4, grid_ystep=1, grid_xstep=1)
-
+        kolbuspectimage = ImageMobject("")
         
 
         self.wait()
@@ -864,13 +1077,19 @@ class Publications(ThreeDSlide):
         JIST = Text("JIST VERSION")
 
         #JCCH = SVGMobject(f"/home/markus/Priv_Manim_Slides/Manim-Slides/Logos/JournCompCH.png")
-        JCCH_title = Text("Journal of Computing and Cultural Heritage")
+        JCCH_title = Text("Journal of Imaging Science and Technology")
         JCCH_pap = Text("STATM - A Statistical Toolbox for Analysis of Triangulated Manifolds")
 
         # Whispers 2023
         # WHISP = SVGMobject(f"/home/markus/Priv_Manim_Slides/Manim-Slides/Logos/Whispers.png")
         WHISP_title = Text("WHISPERS - Workshop on Hyperspectral Image and Signal Processing")
         WHISP_paper = Text("Pixel-based Point Cloud Clustering for Spectral Data Enrichment")
+
+        # JOI #1
+        JOI1_title = Text("Journal of Imaging: Special Issue on Material Appearance")
+        JOI_paper1 = Text("Surface Texture Reproduction using Error Diffusion in 3D Printing")
+        # JOI #2
+        JOI_paper2 = Text("Material Colour Characterization of Light-based 3D Acquisition Tools")
 
         # Planned Papers
 
@@ -881,8 +1100,6 @@ class Publications(ThreeDSlide):
 
         # Coop
         CoPAP_1 = Text("Error Diffusion Texture 3D Printing")
-        CoPAP_2 = Text("Parametric Shape in CT Medical Scan")
-        CoPAP_3 = Text("Spectral Rendering w Milan?")
 
         AUTH1 = Text("First Author", color = GREEN_D)
         AUTH2 = Text("Second Author", color = ORANGE)
@@ -940,6 +1157,7 @@ class Other(ThreeDSlide):
         IMT4310_image1 = ImageMobject("/home/markus/Priv_Manim_Slides/Manim-Slides/Logos/IMT1.jpg/")
         IMT4310_image2 = ImageMobject("/home/markus/Priv_Manim_Slides/Manim-Slides/Logos/IMT2.jpg").next_to(IMT4310_image1, RIGHT)
 
+        WoodProject = Text("Project for Digital tiols for Wood")
 
 class FutureWork(ThreeDSlide):
     def construct(self):

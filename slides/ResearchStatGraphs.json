@@ -1,0 +1,32 @@
+{
+  "slides": [
+    {
+      "type": "last",
+      "start_animation": 0,
+      "end_animation": 14,
+      "number": 1,
+      "terminated": false
+    }
+  ],
+  "files": [
+    "slides/files/ResearchStatGraphs/2991918809_4123010324_579661013.mp4",
+    "slides/files/ResearchStatGraphs/857827482_329969645_2638641127.mp4",
+    "slides/files/ResearchStatGraphs/857827482_1707787241_63877787.mp4",
+    "slides/files/ResearchStatGraphs/857827482_329969645_3727928462.mp4",
+    "slides/files/ResearchStatGraphs/857827482_4121602056_4208983304.mp4",
+    "slides/files/ResearchStatGraphs/857827482_329969645_3617622967.mp4",
+    "slides/files/ResearchStatGraphs/857827482_2017079002_126219248.mp4",
+    "slides/files/ResearchStatGraphs/857827482_329969645_2328827570.mp4",
+    "slides/files/ResearchStatGraphs/857827482_1320776811_821622887.mp4",
+    "slides/files/ResearchStatGraphs/857827482_329969645_2439949698.mp4",
+    "slides/files/ResearchStatGraphs/857827482_3622764742_2088375937.mp4",
+    "slides/files/ResearchStatGraphs/857827482_3458558618_2808721408.mp4",
+    "slides/files/ResearchStatGraphs/857827482_1312635878_1873494986.mp4",
+    "slides/files/ResearchStatGraphs/857827482_329969645_3303665178.mp4"
+  ],
+  "resolution": [
+    1920,
+    1080
+  ],
+  "background_color": "black"
+}
