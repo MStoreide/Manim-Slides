@@ -227,6 +227,9 @@ class Intro(ThreeDSlide):
 
     # Modalities
 
+
+        # Add other modalities (NeRF, gloss measurements) and variations of the, (Meshes and point clouds.)
+
         Data_Title = Text("Data Modalities", font_size=20, font="FreeSans").move_to([-5,2,0])
 
         colimg = Rectangle(width=6, height=4, grid_xstep=0.2, grid_ystep=0.2).move_to([-4,0,0])
